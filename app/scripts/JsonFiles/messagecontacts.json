@@ -1,0 +1,48 @@
+{
+    "data":[
+        {
+            "id":    2231,
+            "profilepic":{
+                    "name":"1502109703___giphy.gif",
+                    "profile_smlimage":null,
+                    "type":"others",
+                    "url":"http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/"
+                },
+            "roleType":"Group Admin",
+            "username":"Test"
+        },
+        {
+            "id":    2232,
+            "profilepic":{
+                    "name":"",
+                    "profile_smlimage":null,
+                    "type":"others",
+                    "url":"http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/"
+                },
+            "roleType":"Parent",
+            "username":"Sidharaj"
+        },
+        {
+            "id":    2233,
+            "profilepic":{
+                    "name":"1502109703___giphy.gif",
+                    "profile_smlimage":null,
+                    "type":"others",
+                    "url":"http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/"
+            },            
+            "roleType":"Student",
+            "username":"Joesph"
+        },
+        {
+            "id":    2234,
+            "profilepic":{
+                    "name":"",
+                    "profile_smlimage":null,
+                    "type":"others",
+                    "url":"http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/"
+            },
+            "roleType":"Teacher",
+            "username":"esaki"
+        }
+    ]
+}

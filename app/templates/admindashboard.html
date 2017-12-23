@@ -1,0 +1,402 @@
+<div ng-cloak>
+<!--  timer check-->
+<div class="timeout-test" ng-init="pages=1">   
+    <div class="modal_alert" tabindex="-1" ng-click="logoutUser()" ng-if="!active && timer">
+        <div uib-alert close="logoutAdmin()" class="alert alert-danger" ng-if="!active && timer">
+            <!--<div class="icon_display">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+                <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                </svg>
+            </div>-->
+        <div class="display_message">Your session is going to be expired now. Do you want to continue?</div>
+        <button class="btn btn-danger timout" ng-click="start()">Yes</button>
+        <button class="btn btn-default" ng-click="logoutAdmin()">No</button>            
+        </div>
+    </div>
+</div>
+<!--timer check-->
+<div class="adminCls" layout="column" id="adminLanding">
+    <div layout="row">
+        <div class="admin-head">
+            <div layout="row">
+                <div flex="100" class="top-head-icon" ng-class="{'active_tog_meu': isMenu_active}">
+                    <md-button class="md-icon-button" aria-label="Settings" hide-gt-md="" ng-if="(loggedUserDetails.adminType == 'superAdmin' && afterCard) || loggedUserDetails.adminType == 'groupAdmin'" ng-class="{'ShowButtonArrow':(loggedUserDetails.adminType == 'superAdmin' && afterCard) || loggedUserDetails.adminType == 'groupAdmin'}">
+                        <md-icon md-svg-icon="dest/images/mat_white_menu.svg" ng-click="slideMenu('left'); activeButton123()" class="ng-scope" aria-hidden="true"></md-icon>
+                    </md-button>
+
+                    <div class="logo-sec_header">
+                        <img src="dest\images\logo.svg" ui-sref="groupdashboard" ui-sref-opts="{reload: true}">
+                    </div>
+                </div>
+                <div flex="100" class="top-head-logo">
+                    <div class="logo-sec">
+                        <img src="dest\images\logo.svg">
+                    </div>
+                </div>
+                <div flex="100">
+                    <div layout="row" flex="50" class="pull-left">
+                        <div class="group_Search">
+                        <md-input-container md-theme="input" flex>
+                        <label>&nbsp;</label>
+                        <input ng-model="search.groupname"  placeholder="search">
+                        </md-input-container>
+                   </div>
+                    </div>
+                    <div layout="row" layout-align="end end" class="rgt-user">
+                        
+                        <div flex="100" flex-gt-sm="90" flex-gt-md="50" class="logout-sec flex-gt-sm-90 flex-gt-md-50 flex-100">
+                            <div layout="row" class="layout-row">
+                                <div flex="100" layout-align="end end" layout="row" class="layout-align-end-end layout-row flex-100">
+                                    <div class="ssa-button">
+                                        <button class="btn" ng-click="toggleSsa('org')" ng-class="{'active':selectedToggle==='org'}"><span>Organizations</span></button>
+                                        <button class="btn" ng-click="toggleSsa('admins')" ng-class="{'active':selectedToggle==='admins'}"><span>Super Admins</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div flex="100" flex-gt-sm="90" flex-gt-md="50" class="logout-sec">
+                            <div layout="row">
+                                <div flex="100" layout-align="end end" layout="row">
+                                    <div flex="100" flex-gt-sm="100" flex-gt-md="100" layout-align="end end" layout="row">
+                                       <div ng-if="loggedUserDetails.loggedBy" class="logged_by msg_drpdwn">                                           
+                                           <div class="top_sec_prof msg_sec" ng-mouseleave = "hideNotifyMsg()">
+                                                <div class="ssa-search">
+                                                    <button class="searchbtn"><span>Search</span></button>
+                                                    <md-input-container md-theme="input">
+                                                        <label>&nbsp;</label>
+                                                        <input ng-model="search.groupname"  placeholder="search">
+                                                    </md-input-container>                               
+                                               </div>
+                                            <div class="notification_notify">
+                                                <button ng-click="messageState(2)" ng-if="recentConversation.notifyCount > 0"><!--<i class="fa fa-bell"></i>--><img src="dest/images/notification.png" /><span class="badge">{{recentConversation.notifyCount}}</span></button>
+                                                <button ng-click="messageRedirection(2)" ng-if="recentConversation.length <= 0 || recentConversation.notifyCount <= 0"><img src="dest/images/notification.png"/><!--<i class="fa fa-bell"></i>--></button>
+                                            </div>
+                                            <div class="message_notfiy">
+                                                <button ng-click="messageState(1)" ng-if="recentConversation.msgCount > 0"><img src="dest/images/message_icon.png"/><!--<i class="fa fa-envelope"></i>--><span class="badge">{{recentConversation.msgCount}}</span></button>
+                                                <button ng-click="messageRedirection(1)" ng-if="recentConversation.length <= 0 || recentConversation.msgCount <= 0"><img src="dest/images/message_icon.png"/><!--<i class="fa fa-envelope"></i>--></button>
+                                            </div>
+                                            <div class="messageNotifySec" ng-if="showNotify" ng-mouseleave = "hideNotifyMsg()">
+                                                <div class="Notifymessage" ng-repeat="recentmsg in recentConversationMsg" ng-click="viewMsgNotify(recentmsg.messageId)">
+                                                    <h3>{{recentmsg.senderUsername}}</h3>
+                                                    <span class="timing" am-time-ago="recentmsg.messageSentTime"></span>
+                                                    <div class="subj">{{recentmsg.messageSubject}}</div>
+                                                </div>                                            
+                                                <button ng-click="messageRedirection()"> View all</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   </div>
+                                    <div class="top_secs" layout-align="end end" layout="row">
+                                        <div ng-if="loggedUserDetails.loggedBy" class="logged_by" ng-mouseleave="isActive1 = false" ng-include="'app/templates/appheader.html'">
+                                        </div>
+                                    </div>
+                                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div flex="100">
+                        <div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBanercls">
+                            <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBanercls">
+                                <div class="icon_display">
+                                  <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                      <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                  </svg>
+                                  <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                      <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                                      <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                                  </svg>
+                              </div>
+                              <div class="display_message">{{alertBaner.message}}</div>
+                            </div>
+                        </div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   <div layout="row"  layout-wrap="" layout="row"  class="whtFrameCls add_group_sec_cls saoframecls" ng-if="selectedToggle==='org'">
+       
+       
+    <md-whiteframe class="md-whiteframe-1dp add-grp" flex-sm="25" flex-gt-sm="25" flex-gt-md="20" layout="row" layout-align="center center" ng-click="creategroupuser($event)">	 	
+        <div>
+            <div layout="column" layout-align="center center" class="whtframecontentcls">
+                <div class="whtframeplusicon">+</div>
+                <span>Create Organization</span> 
+            </div>
+        </div>               
+    </md-whiteframe>
+       
+    <md-whiteframe class="md-whiteframe-1dp {{grouplist.block ? 'deactivate' : 'activate'}}" flex-sm="25" flex-gt-sm="25" flex-gt-md="20" ng-repeat="grouplist in loggedUserDetails.groupName | filter:search track by $index" >
+
+    <div class="ad-head-sec" layout="row" layout-align="end end">
+        <md-fab-speed-dial ng-show="grouplist.group_id !== 1" md-open=false md-direction=down
+        ng-class="'md-scale'">
+        <md-fab-trigger>
+        <md-button aria-label="button" >
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        </md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+        <div class="fab-box"> 
+        <md-button aria-label="Edit" class="md-primary"  ng-click="vieweditgroupuser(grouplist,'edit')">
+        edit
+        </md-button>    
+        <md-button aria-label="Delete" class="md-primary" ng-click="deletegroupuser(grouplist.group_id,$index)" ng-show="grouplist.group_id !== 1">
+        delete
+        </md-button> 
+        <md-button aria-label="Delete" class="md-primary" ng-click="vieweditgroupuser(grouplist,'view')" ng-show="grouplist.group_id !== 1">
+        View
+        </md-button> 
+        <md-button aria-label="Delete" class="md-primary" ng-click="activateOrDeactivate(grouplist)" ng-show="grouplist.group_id !== 1">
+        {{grouplist.block ? 'deactivate' : 'activate'}}
+        </md-button>
+        </div>        
+        </md-fab-actions>
+        </md-fab-speed-dial>    
+    </div>  
+    <div ng-click="adminPortal(grouplist)"> 
+    <div class="soaframe-header" ng-class="{'sommerframeheader': grouplist.group_id == 1}">
+        <div layout="row" layout-align="center center">
+            <div class="ad-logo-sec">
+                <img ng-click="adminPortal(grouplist)" ng-if="grouplist.groupicon_image" ng-src="{{grouplist.groupicon_url}}/{{grouplist.groupicon_image}}">
+                <img ng-click="adminPortal(grouplist)" ng-if="!grouplist.groupicon_image" ng-src="dest\images\noimage.png">
+            </div>
+        </div>  
+        <div layout="row" layout-align="center center">
+            <div  class="ad-hdng-sec">
+               <p ng-click="adminPortal(grouplist)" ng-if="grouplist.groupname" title="{{grouplist.groupname}}">{{grouplist.groupname}}</p>
+                <span>Owned By Carl Sommer</span>
+            </div>
+        </div>
+    </div>
+    <div class="oradminhd">
+        <p>Organization Admin <span>01</span></p>
+    </div>
+	<div layout="row" layout-align="center center">
+            <ul class="paddingzero">
+                <li>
+                    <h4 class="groupusercount ">Teacher</h4> 
+                    <h6 class="T1">{{grouplist.teachercount}}</h6>
+                
+                </li>
+                <li>
+                    <h4 class="groupusercount ">Student</h4> 
+                    <h6 class="S1">{{grouplist.studentcount}}</h6>
+                </li>
+                <li>
+                    <h4 class="groupusercount ">Parent</h4> 
+                    <h6 class="P1">{{grouplist.parentcount}}</h6>            
+                </li>            
+            </ul>
+        </div>
+
+    </div> 
+
+    </md-whiteframe>
+     <div class="no_record_found_grp" ng-if="loggedUserDetails.groupName && !((loggedUserDetails.groupName | filter:search).length)">
+          <i class="fa fa-exclamation-triangle"></i>
+          <p >No Records Found!</p>
+     </div>
+    </div>
+</div>
+
+  <div ng-if="selectedToggle==='admins'" class="whtFrameCls add_group_sec_cls">  
+      <div class="superadmin-list">  
+      <div class="superadmin-title">
+            <label>Super Admin List <span>04</span></label> 
+            <md-button class="md-fab md-raised hvr-push md-ink-ripple" ng-click="addAdmin()">
+                <md-icon><i class="fa fa-user-plus"></i> <span>Add Users</span></md-icon>
+            </md-button>
+        </div>
+
+        <div class="tableDiv"> 
+
+            <div class="res_table_width">  
+
+               <div ng-if="showform" class="add_user_cont animate_slider" style="display: inline-block;overflow: hidden;">
+                <div class="rowform user-box">
+                    <form name="form.usermanagement" novalidate autocomplete="off" ng-submit="createUser()"> 
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Create New User</h3>
+                                        </div>    
+                                    </div>    
+                                    <div flex="15"></div>    
+                                    <div flex="100"></div>   
+                                </div>    
+                            </div>
+                        </div>
+                                                
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                        <md-input-container class="md-block">    
+                                            <label>User Name</label> 
+                                            <input type="text" name="usermanagement_username" id="username" ng-model="user.username" required ng-pattern="/^[a-zA-Z0-9]*$/" ng-blur="userValiateUsername()" ng-change="hideErrorMsgUser()" ng-disabled="userexitaccountbool && emailbool" > 
+                                            <div ng-if="userbool">User already exiting another group.<a ng-click="userImportExistingAccount()">import</a></div> 
+                                            <div ng-if="alertUserError"><span class="error_msg_displ">{{alertUserError}}</span></div>
+                                            <div ng-messages="form.usermanagement.usermanagement_username.$error">
+                                                <span ng-message="required">This is required.</span>
+                                                <span ng-message="pattern">Invalid username.</span>
+                                            </div>
+                                        </md-input-container>
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">
+                                        <md-input-container class="md-block">
+                                            <label>User Type</label> 
+                                            <md-select name="usermanagement_roletype" ng-model="user.roletype" required ng-disabled="userexitaccountbool">
+                                            <md-option ng-repeat="role in rotetype" value="{{role.roleid}}">{{role.rolname}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="form.usermanagement.usermanagement_roletype.$error">
+                                                <span ng-message="required">This is required.</span>
+                                            </div>   
+                                        </md-input-container> 
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div> 
+
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                        <md-input-container class="md-block md-input-invalid">
+                                            <label for="input_5" class="md-required">First Name</label>
+                                            <input ng-model="user.firstname" ng-pattern="/^[a-zA-Z\s]*$/" name="usermanagement_firstname" required  style="" type="text" ng-disabled="userexitaccountbool">
+                                            <div ng-messages="form.usermanagement.usermanagement_firstname.$error" >
+                                                <span ng-message="required">This is required.</span>
+                                                <span ng-message="pattern">Invalid First Name</span>
+                                            </div>
+                                        </md-input-container>
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">
+                                        <md-input-container class="md-block">   
+                                            <label>Last Name</label>   
+                                            <input type="text" name="usermanagement_lastname" ng-model="user.lastname" required ng-pattern="/^[a-zA-Z\s]*$/" ng-disabled="userexitaccountbool">
+                                            <div ng-messages="form.usermanagement.usermanagement_lastname.$error">
+                                                <span ng-message="required">This is required.</span>
+                                                <span ng-message="pattern">Invalid Last Name.</span>
+                                            </div>
+                                        </md-input-container>     
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div>
+
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                        <div layout="row" class="userdateofbirth">  
+                                            <div flex="100">
+                                                <label>Date of Birth</label>
+                                                <div layout="row">
+                                                    <datemonthyear datemonth="user.dob" agecheck="'ageabovethirteen'" isrequired="true"></datemonthyear>
+                                                </div>
+                                            </div>    
+                                        </div>   
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">  
+                                        <md-input-container class="genter_details">
+                                        <label>Gender</label>
+                                            <md-radio-group name="gender" ng-model="user.gender" ng-required="true" class="" >
+                                                <md-radio-button value="male" class="md-primary">male</md-radio-button>
+                                                <md-radio-button value="female"> female </md-radio-button>
+                                            </md-radio-group>
+                                            <div ng-messages="form.usermanagement.gender.$error">
+                                              <div ng-message="required">Gender is required.</div>
+                                            </div>
+                                          </md-input-container>                                     
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div>     
+
+                      <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">   
+                                        <md-input-container class="md-block">
+                                            <label>Email ID</label>
+                                            <div>
+                                                <input type="email" name="usermanagement_email1"  ng-model="user.email1" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/" ng-keyup="validateEmail()" required>
+                                                <div ng-if="useremailexist" class="error-text">Email ID Already Exist.</div>
+                                                <div ng-messages="form.usermanagement.usermanagement_email1.$error">
+                                                    <span ng-message="pattern">Invalid Email.</span>
+                                                    <span ng-message="required">This is required.</span>
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div>      
+                        
+                         <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                      <phonenumber-directive phonetrue="phoneboolvalue" userexistbool="userexitaccountbool"   placeholder="myPrompt" model='user.phone_no'></phonenumber-directive>             
+                                                
+                                    </div>  
+                                    <div flex="15"></div>
+                                    <div flex="100">
+                                        <md-input-container class="md-block txtarea_md">
+                                            <label>Address</label>
+                                            <textarea maxlength="150" md-no-asterisk name="usermanagement_address" ng-model="user.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus ng-disabled="userexitaccountbool"></textarea>
+                                            <div ng-if="form.usermanagement.usermanagement_address.$viewValue" ng-messages="form.usermanagement.usermanagement_address.$error">
+                                                <div ng-message="maxlength">Maximum length 150.</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                </div>        
+                            </div>      
+                        </div>      
+
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row">   
+                                    <div flex="100"></div>     
+                                    <div flex="15"></div>
+                                    <div flex="100">
+                                         <div class="btn-sec">
+                                            <md-button class="md-raised md-warn" ng-click="usercancel()">Cancel</md-button>
+                                            <md-button type="submit" class="md-raised md-primary" ng-if="!userexitaccountbool" ng-disabled="form.usermanagement.$invalid || phoneboolvalue || (user.roletype == 5 && (user.dob.day == '' || user.dob.month =='' || user.dob.year == ''))" >Create</md-button>
+                                            <md-button class="md-raised md-primary" ng-if="userexitaccountbool" ng-disabled="!blurcheck" ng-click="addUserExitingGroup()">Add</md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div> 
+            </div> 
+
+                <div ng-if="!showform" layout="row" class="usermanagement_table userListSec">   
+                            <table-div datasource="tableData" paginationdata="pagination" datatable="datatable" get-sourcedata="changePagination(response,true)" closeregisteration="closeRegisteration(response)"></table-div>                    
+                </div>  
+            </div>                
+        </div>
+      </div>
+    </div>  

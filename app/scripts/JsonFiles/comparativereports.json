@@ -1,0 +1,379 @@
+{  
+         
+    "data": {
+        "users_at_each_program": [
+            {
+                "label": "Phonics Adventure",
+                "count": "11"
+            },
+            {
+                "label": "Number Success",
+                "count": "9"
+            },
+            {
+                "label": "Reading Success",
+                "count": "8"
+            },
+            {
+                "label": "Writing Success",
+                "count": "15"
+            }
+        ],
+        "program_report": [
+            {
+                "label": "Phonics Adventure",
+                "no_of_activities": "4",
+                "no_of_students_completed": "8",
+                "no_of_visits": "105",
+                "no_of_shares": "3",
+                "time_spent": "19H:59M:07S"
+            },
+            {
+                "label": "Number Success",
+                "no_of_activities": "2",
+                "no_of_students_completed": "6",
+                "no_of_visits": "7",
+                "no_of_shares": "11",
+                "time_spent": "17H:59M:07S"
+            },
+            {
+                "label": "Reading Success",
+                "no_of_activities": "6",
+                "no_of_students_completed": "4",
+                "no_of_visits": "105",
+                "no_of_shares": "5",
+                "time_spent": "14H:59M:07S"
+            },
+            {
+                "label": "Writing Success",
+                "no_of_activities": "8",
+                "no_of_students_completed": "5",
+                "no_of_visits": "4",
+                "no_of_shares": "8",
+                "time_spent": "13H:59M:07S"
+            }
+        ]
+    },  
+    "analysticsdata": {
+        "most_visited": {
+            "title": "Most visited program",
+            "y_axis_label": "No. of visitors",
+            "x": [
+                "Week1",
+                "Week2",
+                "Week3",
+                "Week4"
+            ],
+            "series": [
+                {
+                    "name": "Phonics Adventures",
+                    "data": [
+                        10,
+                        0,
+                        59,
+                        105
+                    ]
+                },{
+                    "name": "Number Success",
+                    "data": [
+                        12,
+                        10,
+                        25,
+                        67
+                    ]
+                },
+                {
+                    "name": "Reading Success",
+                    "data": [
+                        20,
+                        40,
+                        60,
+                        80
+                    ]
+                },
+                {
+                    "name": "Writing Success",
+                    "data": [
+                        15,
+                        30,
+                        60,
+                        90
+                    ]
+                }
+            ]
+        },
+        "visitors_at_program_level": {
+            "title": "No. of visitors by Program",
+            "y_axis_label": "No. of visitors",
+            "x": [
+                "Week1",
+                "Week2",
+                "Week3",
+                "Week4"
+            ],
+            "series": [
+                {
+                    "name": "Phonic adventures",
+                    "data": [
+                        15,
+                        30,
+                        59,
+                        105
+                    ]
+                },
+                {
+                    "name": "Number Success",
+                    "data": [
+                        20,
+                        40,
+                        60,
+                        80
+                    ]
+                },
+                {
+                    "name": "Reading success",
+                    "data": [
+                        30,
+                        40,
+                        50,
+                        60
+                    ]
+                },
+                {
+                    "name": "writing Success",
+                    "data": [
+                        15,
+                        30,
+                        45,
+                        55
+                    ]
+                }
+            ]
+        },
+        "social_shares_based_on_program": {
+            "title": "Social share Based on Program Type",
+            "y_axis_label": "Count",
+            "x": [
+                "week1",
+                "week2",
+                "week3",
+                "week4"
+            ],
+            "series": [
+                {
+                    "name": "Phonic adventures",
+                    "data": [
+                        21,
+                        25,
+                        40,
+                        45
+                    ]
+                },
+                {
+                    "name": "Number Success",
+                    "data": [
+                        30,
+                        45,
+                        60,
+                        85
+                    ]
+                },
+                {
+                    "name": "Reading success",
+                    "data": [
+                        50,
+                        55,
+                        70,
+                        65
+                    ]
+                },
+                {
+                    "name": "writing Success",
+                    "data": [
+                        60,
+                        75,
+                        90,
+                        35
+                    ]
+                },
+                {
+                    "name": "E-books",
+                    "data": [
+                        70,
+                        35,
+                        60,
+                        75
+                    ]
+                },
+                {
+                    "name": "songs & videos",
+                    "data": [
+                        20,
+                        85,
+                        40,
+                        65
+                    ]
+                }
+            ]
+        },
+        "badges_associated_witheach_program":{
+            
+        "title": "Badges",
+        "y_axis_label": "No. of badges",
+        "x": [
+            "Week1",
+            "Week2",
+            "Week3",
+            "Week4"
+        ],
+        "series": [
+            {
+                "name": "Phonics Adventure",
+                "data": [
+                    2,
+                    4,
+                    6,
+                    8
+                ]
+            },
+            {
+                "name": "Number Success",
+                "data": [
+                    1,
+                    3,
+                    5,
+                    7
+                ]
+            },
+            {
+                "name": "Reading Success",
+                "data": [
+                    3,
+                    6,
+                    9,
+                    12
+                ]
+            },
+            {
+                "name": "Writing Success",
+                "data": [
+                    4,
+                    8,
+                    10,
+                    11
+                ]
+            }
+        ]
+        },
+        "title": "Most Consumed Program",
+        "most_consumed_program": [
+            {
+                "label": "Phonics Adventure",
+                "count": 2
+            },
+            {
+                "label": "Number Success",
+                "count": 4
+            },
+            {
+                "label": "Reading Success",
+                "count": 3
+            },
+            {
+                "label": "Writing Success",
+                "count": 6
+            }
+        ],
+        "average_timespent_on_each_program": {
+            "title": "Average Time Spent on Each Program",
+            "y_axis_label": "Average time spent (in minutes)",
+            "x": [
+              "2006",
+              "2007",
+              "2008",
+              "2009",
+              "2010"    
+            ],
+            "series": [
+              {
+                "name": "Phonics Adventure",
+                "usertype" :"Registered", 
+                "data": [
+                  5, 3, 4, 7, 2  
+                ],
+                  "stack": "male",
+                  "color": "#c56868"
+              },  
+                {
+                "linkedTo":":previous",    
+                "name": "Phonics Adventure",
+                "usertype" :"Guest", 
+                "data": [
+                  1,3,5,7,9
+                ],
+                  "stack": "male",
+                  "color": "#fd1a1a"
+              },
+              {
+                "name": "Number Success",
+                "usertype" :"Registered", 
+                "data": [
+                  2,4,6,8,10
+                ],
+                  "stack": "number",
+                  "color": "#7bf57b"
+              },  
+                {
+                "linkedTo":":previous",    
+                "name": "Number Success",
+                "usertype" :"Guest",
+                "data": [
+                  3,6,9,12,15
+                ],
+                  "stack": "number",
+                  "color": "#3aab3a"
+              },{
+                "name": "Reading Success",
+                "usertype" :"Registered", 
+                "data": [
+                  4,8,12,16,20
+                ],
+                  "stack": "reading",
+                  "color": "#d87c99"
+              },  
+                {
+                "linkedTo":":previous",    
+                "name": "Reading Success",
+                "usertype" :"Guest",
+                "data": [
+                  5,10,15,20,25
+                ],
+                  "stack": "reading",
+                  "color": "#ec1c5d"
+              },{
+                "name": "Writing Success",
+                "usertype" :"Registered", 
+                "data": [
+                  2, 5, 6, 2, 1
+                ],
+                  "stack": "writing",
+                  "color": "#AED6F1"
+              },  
+                {
+                "linkedTo":":previous",    
+                "name": "Writing Success",
+                "usertype" :"Guest",
+                "data": [
+                  3, 5, 4, 4, 3
+                ],
+                  "stack": "writing",
+                  "color": "#3498DB"
+              }
+        
+            ]
+        }
+},
+    "message": "",
+    "status": "success"
+   
+}

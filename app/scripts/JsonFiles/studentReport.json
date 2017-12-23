@@ -1,0 +1,358 @@
+{ 
+	"data": {
+		"assignments": {
+			"label": "Writing Success",
+			"courses": {
+				"sections": [{
+						"sectionName": "Lesson",
+						"lesson": [{
+								"sectionName": "Uppercase A-Z",
+								"activities": [{
+										"name": "Al",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Lesson",
+										"alphabet_type": "Uppercase A-Z",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "Bl",
+										"isActive": false,
+										"isadded": false,
+										"scorm_url": "",
+										"activity_type": "Lesson",
+										"alphabet_type": "Uppercase A-Z",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "Cl",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Lesson",
+										"alphabet_type": "Uppercase A-Z",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": false
+									}
+								]
+							},
+							{
+								"sectionName": "lowercase a-z",
+								"activities": [{
+										"name": "al",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"isadded": true,
+										"activity_type": "Lesson",	
+										"alphabet_type": "lowercase a-z",
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "bl",
+										"isActive": false,
+										"isadded": false,
+										"activity_type": "Lesson",
+										"alphabet_type": "lowercase a-z",
+										"scorm_url": "",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "cl",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Lesson",
+										"alphabet_type": "lowercase a-z",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									}
+
+								]
+							}, {
+								"sectionName": "Numbers 0-9",
+								"activities": [{
+										"name": "1nl",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Lesson",
+										"alphabet_type": "Numbers 0-9",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "2nl",
+										"isActive": false,
+										"isadded": false,
+										"scorm_url": "",
+										"activity_type": "Lesson",
+										"alphabet_type": "Numbers 0-9",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "3nl",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Lesson",
+										"alphabet_type": "Numbers 0-9",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									}
+								]
+							}
+						]
+					}, {
+						"sectionName": "Practice",
+						"lesson": [{
+								"sectionName": "Uppercase A-Z",
+								"activities": [{
+										"name": "Alp",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"isadded": true,
+										"activity_type": "Practice",
+										"alphabet_type": "Uppercase A-Z",
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "Blp",
+										"isActive": false,
+										"isadded": false,
+										"scorm_url": "",
+										"activity_type": "Practice",
+										"alphabet_type": "Uppercase A-Z",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "Clp",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Practice",
+										"alphabet_type": "Uppercase A-Z",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": false
+									}
+								]
+							},
+							{
+								"sectionName": "lowercase a-z",
+								"activities": [{
+										"name": "alp",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Practice",
+										"alphabet_type": "lowercase a-z",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "blp",
+										"isActive": false,
+										"isadded": false,
+										"scorm_url": "",
+										"activity_type": "Practice",
+										"alphabet_type": "lowercase a-z",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "clp",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Practice",
+										"alphabet_type": "lowercase a-z",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									}
+
+								]
+							}, {
+								"sectionName": "Numbers 0-9",
+								"activities": [{
+										"name": "1np",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"isadded": true,
+										"activity_type": "Practice",
+										"alphabet_type": "Numbers 0-9",
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "2np",
+										"isActive": false,
+										"isadded": false,
+										"activity_type": "Practice",
+										"alphabet_type": "Numbers 0-9",
+										"scorm_url": "",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "3np",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Practice",
+										"alphabet_type": "Numbers 0-9",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									}
+								]
+							}
+						]
+					},
+					{
+						"sectionName": "Worksheet",
+						"lesson": [{
+								"sectionName": "Uppercase A-Z",
+								"activities": [{
+										"name": "Alw",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"isadded": true,
+										"activity_type": "Worksheet",
+										"alphabet_type": "Uppercase A-Z",
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "Blw",
+										"isActive": false,
+										"isadded": false,
+										"scorm_url": "",
+										"activity_type": "Worksheet",
+										"alphabet_type": "Uppercase A-Z",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "Clw",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"isadded": true,
+										"activity_type": "Worksheet",
+										"alphabet_type": "Uppercase A-Z",
+										"scorm_url": "",
+										"isactive": false
+									}
+								]
+							},
+							{
+								"sectionName": "lowercase a-z",
+								"activities": [{
+										"name": "alw",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"isadded": true,
+										"activity_type": "Worksheet",
+										"alphabet_type": "lowercase a-z",
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "blw",
+										"isActive": false,
+										"isadded": false,
+										"scorm_url": "",
+										"activity_type": "Worksheet",
+										"alphabet_type": "lowercase a-z",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "clw",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",					
+										"activity_type": "Worksheet",
+										"alphabet_type": "lowercase a-z",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									}
+
+								]
+							}, {
+								"sectionName": "Numbers 0-9",
+								"activities": [{
+										"name": "1nw",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Worksheet",
+										"alphabet_type": "Numbers 0-9",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									},
+									{
+										"name": "2nw",
+										"isActive": false,
+										"isadded": false,
+										"scorm_url": "",
+										"activity_type": "Worksheet",
+										"alphabet_type": "Numbers 0-9",
+										"isactive": true,
+										"url": "app/externallinks/lesson/Uppercase/B/writing success_Font-kid_B.html",
+										"status": "0"
+									},
+									{
+										"name": "3nw",
+										"isActive": true,
+										"url": "app/externallinks/lesson/Uppercase/A/writing success_Font-kid_A.html",
+										"status": "1",
+										"activity_type": "Worksheet",
+										"alphabet_type": "Numbers 0-9",
+										"isadded": true,
+										"scorm_url": "",
+										"isactive": true
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		},
+		"filters": ["Lesson", "Practice", "Worksheet"]
+	},
+	"status": "sucess",
+	"sessioned": true,
+	"message": "sucess"
+}

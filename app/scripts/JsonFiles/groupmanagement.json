@@ -1,0 +1,42 @@
+{
+    "data": {
+    "data": [
+      {
+        "id": "421",
+        "groupicon": "venkatesh",
+        "groupcode": "venkatesh",
+        "groupadmin": "test",
+        "groupname": "test1",  
+        "adminemail": "testnew@gmail.com",
+        "registered_date": "2018-06-11",
+        "block": "1",
+        "admin": "new",  
+        "admintype": "group" 
+      },
+      {
+        "id": "422",
+        "groupicon": "test",
+        "groupcode": "test",
+        "groupadmin": "test1",
+        "groupname": "test1",  
+        "adminemail": "testnew@gmail.com",
+        "registered_date": "2018-06-11",
+        "block": "1",
+        "admin": "new",  
+        "admintype": "group" 
+      },
+      {
+       "id": "423",
+        "groupicon": "testnew",
+        "groupcode": "testnew",
+        "groupadmin": "testnew",
+        "groupname": "test1",  
+        "adminemail": "testnew@gmail.com",
+        "registered_date": "2018-06-11",  
+        "block": "1",
+        "admin": "new",  
+        "admintype": "group"   
+     }
+    ]
+  }
+}

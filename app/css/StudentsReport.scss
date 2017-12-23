@@ -1,0 +1,126 @@
+.StuRepSec {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    .fstTbHead{ 
+        ul{
+            height: 60px;
+            padding: 10px 20px 20px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: #50c7e7;
+            border-radius: 10px;
+            color: #fff;
+        }
+    }
+    .StuProf{
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        float: right;
+        label{
+            color: #333;
+            margin-top: 30px;
+        }
+        .img-circle{
+            margin: -5px 0px!important;
+        }
+    }
+}
+
+.userProfile {
+    z-index: 9;
+    float: right;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-transform: capitalize;
+    color: #2c3c4c;
+    label{
+        margin-top: 5px;
+    }
+    .img-circle{
+            margin: 0px 33px;
+    }
+}
+
+.subjects{
+    padding: 0;
+    li{
+        width: 20%;
+        padding: 8px;
+        border-radius: 10px;
+        a{
+            font-weight: 600;
+            font-size: 16px;
+        }
+        &.activeTabcl{
+            background: #e367a6;
+            width: 20%;
+            a{
+                font-weight: 600;
+            }    
+        }        
+    }    
+} 
+
+.stud-prof-con{
+    padding-left: 32px;
+    padding-right: 32px;
+    
+    .stud-prof-sub{
+        margin-bottom: 20px;
+        margin-top: 10px;
+        & .active-sub{
+            padding: 0
+        }
+    }
+}    
+.progress-filter{
+    label {
+        font-size: 16px;
+    }    
+    .course-filter{
+        ul{
+            li{
+                font-size: 14px;
+                margin-right:10px;
+            }    
+        } 
+    } 
+} 
+
+
+
+.assignmentBoxScroll{
+    background: transparent !important;
+    .stud-prof-sub {
+        margin-top: 0;
+        background: #F7D1E4;
+        width: 90%;
+        border-radius: 10px;
+    }
+    
+}
+.secTitleSec {
+    float: left;
+    width: 300px;
+    .section-head{
+        padding: 0;
+        margin-bottom: 15px !important;
+    }
+}
+
+.stud-prog{
+    md-tabs-content-wrapper{
+        top: 79px!important;
+    }    
+    md-pagination-wrapper {
+        padding-top: 22px;
+    } 
+    md-tabs-canvas {
+        height: 75px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0px;
+    }
+} 

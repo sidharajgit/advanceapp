@@ -1,0 +1,18 @@
+<div layout="column" ng-cloak>
+<md-toast class="notifycls">
+    <div layout="row" ng-repeat="notify in messagenotification |limitTo:5" class="notifysubjectcls" ng-click="singlemailnotification(notify)">      
+        <div flex="20" class="img-sec">
+        <img src="dest\images\Penguins.jpg">
+        </div>
+        <div flex="80" class="txt-sec">
+        <h3 class="md-toast-text">{{notify.receiverUserFirstname}}</h3> 
+        <p class="md-toast-text notify_nameCont">{{notify.messageContent}}</p>    
+        </div> 
+    </div>
+  <div layout="row" layout-align="center center">
+      <md-button class="md-highlight" ng-click="showmorenotification()">
+        show more 
+      </md-button>
+  </div>
+</md-toast>
+</div>

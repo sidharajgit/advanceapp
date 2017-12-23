@@ -1,0 +1,124 @@
+<div ng-cloak class="report" layout="column">  
+    <div ng-cloak>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Reports" ng-click="usertypefilterNew('all');isAnalytics = false;">
+            <md-content class="md-padding">
+                <div layout="row" class="report_hedr_sec" layout-align="end end">
+                    <div flex="100">
+                        <div class="forum-headng">
+                            <h3 class="heading-til">Users by program</h3>    
+                        </div>  
+                    </div>    
+                    <!--<div flex="100" layout-align="end end">
+                        <button class="download_csv_btn" ng-click="comparativereportsdownload('programreportsexportcsv')">Download</button>
+                    </div>  --> 
+                    <button class="download_csv_btn" ng-click="reportdownloadbtn()">Download</button>
+                     <div class="down_list_Sec" ng-class="{'download_act': isActive_downreport}" ng-mouseleave="reportclosedownload()">
+                        <ul>                                
+                            <li><a href="javascript:void(0);" ng-click="comparativereportsdownload('programreportsexportcsv')">Download CSV</a></li>                                
+                        </ul>
+                    </div>
+                </div>    
+                
+                <div layout="row" layout-wrap ng-if="comparativereports.overall">
+                    <md-whiteframe class="md-whiteframe-1dp white-tile" flex="90">
+                        <div class="tile-heading">
+                         <span class="frame-header">Users at each program</span>
+                         <hr/>
+                         <div layout="row" > 
+                              <div layout="column" flex="30" ng-repeat="data in comparativereports.overall">
+                                 <div flex="2" class="tile-text">{{data.count}}</div> 
+                                 <div flex="1">{{data.label}}</div> 
+                             </div>   
+                         </div>
+                        </div>
+                        </md-whiteframe>
+                    
+                </div>
+                <div class="tableDiv res_table_width border-top-none">
+                     <table-div datasource="tableData" datatable="tableData"></table-div>
+                </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="Analytics" ng-click="getComparativeReportsAnalysticData()">
+               <md-content class="md-padding">
+                <div layout="row" class="report_hedr_sec">
+                    <div flex="100">
+                        <div class="forum-headng">
+                            <h3 class="heading-til">Comparative Analytics</h3>    
+                        </div>  
+                    </div>
+                    <div flex="100" layout-align="end end" layout="row">
+                    <div flex="100" layout="row">
+                                <div flex="100" class="dateCols" layout="row" layout-align="end end">               
+                               <div class="date_range_picker">
+                                <input date-range-picker name="daterange1" class="form-control date-picker" placeholder="{{daterangecustompick}}" type="text"
+                                    ng-model="daterangecustompick" options="dateoptions" readonly />
+                            </div>                 
+
+                        </div>
+                        
+                        
+                    </div>    
+                    <div flex="100" flex-gt-sm="40" flex-gt-lg="30" layout-align="end end" layout="row" class="width-datepiker-btn">
+                        <button class="download_csv_btn" ng-click="downloadbtn()">Download</button>
+                         <div class="down_list_Sec" ng-class="{'download_act': isActive_down}" ng-mouseleave="closedownload()">
+                            <ul>
+                                <li><a href="javascript:void(0);" ng-click="comparativereportsdownload('programalyticsexportcsv')">Download CSV</a></li>
+                                <li><a href="javascript:void(0);" ng-click="export('application/pdf')">Download PDF</a></li>
+                                <li><a href="javascript:void(0);" ng-click="export('image/png')">Download PNG</a></li>
+                            </ul>
+                        </div>
+                    </div>        
+                    </div> 
+                </div>   
+              <div layout="row" layout-wrap>
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                    <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','line',mostVisited)">More Filter</button>    
+                    <div  layout-align="center center" layout="column">
+                        <hc-line-chart  ng-if="mostVisited && isAnalytics" chartdata="mostVisited" chartobj="saveChartObj(response)"></hc-line-chart>
+                    </div>
+                </md-whiteframe>
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                    <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','bar',visitorsAtProgramLevel,visitorsAtProgramLevel.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-chart ng-if="visitorsAtProgramLevel && isAnalytics"  chartdata="visitorsAtProgramLevel" chartobj="saveChartObj(response)"></hc-bar-chart>
+                    </div>
+                </md-whiteframe>  
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                    <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','bar',socialSharesBasedOnProgram,socialSharesBasedOnProgram.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-chart ng-if="socialSharesBasedOnProgram && isAnalytics"  chartdata="socialSharesBasedOnProgram" chartobj="saveChartObj(response)"></hc-bar-chart>
+                    </div>
+                </md-whiteframe>   
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                    <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','bar',badgesAssociatedWithEachProgram,badgesAssociatedWithEachProgram.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-chart ng-if="badgesAssociatedWithEachProgram && isAnalytics"  chartdata="badgesAssociatedWithEachProgram" chartobj="saveChartObj(response)"></hc-bar-chart>
+                    </div>
+                </md-whiteframe>                    
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                    <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','stackbar',averageTimespentOnEachProgram,averageTimespentOnEachProgram.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-stack-chart ng-if="averageTimespentOnEachProgram && isAnalytics" chartdata="averageTimespentOnEachProgram" chartobj="saveChartObj(response)"></hc-bar-stack-chart>
+                    </div>
+                     <div class="filter_btns_btm">
+                        <button type="button" ng-click="usertypefilterNew('Registered')" ng-class="{active : activeUserType === 'Registered'}">Guest</button>
+                        <button type="button" ng-click="usertypefilterNew('Guest')" ng-class="{active : activeUserType === 'Guest'}">Registered</button>
+                        <button type="button" ng-click="usertypefilterNew('all')" ng-class="{active : activeUserType === 'all'}">All</button>
+                    </div>
+                </md-whiteframe> 
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                    <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','pie',mostConsumedProgram,mostConsumedProgram.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column">
+                        <hc-pie-chart ng-if="mostConsumedProgram && isAnalytics" chartdata="mostConsumedProgram" chartobj="saveChartObj(response)"></hc-pie-chart>
+                    </div>
+                </md-whiteframe>    
+            </div>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+    </div>
+</div>    

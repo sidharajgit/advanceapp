@@ -1,0 +1,95 @@
+{
+	"data": [{
+		"topicId": "8",
+		"topicTitle": "Welcome New Topic",
+		"topicMessage": "Welcome new forum",
+		"topicAttachment": "1496730687___dummy.jpg",
+		"topicCategory": "General",
+		"topicAssignedTo": "Student",
+		"topicCreatedBy": "Admin121 294",
+		"topicCreatedOn": "2017-06-06 06:31:27",
+		"lastUpdatedOn": "0000-00-00 00:00:00",
+		"topicPublishStatus": "0",
+		"topicDeleteStatus": "0",
+		"countDiscussion": "0",
+        "topicCreatedUserid":281
+	},{
+		"topicId": "9",
+		"topicTitle": "Welcome1",
+		"topicMessage": "Welcome new forum1",
+		"topicAttachment": "1496730687___dummy.jpg1",
+		"topicCategory": "General1",
+		"topicAssignedTo": "Teacher1",
+		"topicCreatedBy": "Admin121 2941",
+		"topicCreatedOn": "2017-06-06 06:31:271",
+		"lastUpdatedOn": "0000-00-00 00:00:001",
+		"topicPublishStatus": "01",
+		"topicDeleteStatus": "01",
+		"countDiscussion": "01",
+        "topicCreatedUserid":281
+	},
+     {
+		"topicId": "8",
+		"topicTitle": "Welcome2",
+		"topicMessage": "Welcome new forum2",
+		"topicAttachment": "1496730687___dummy.jpg2",
+		"topicCategory": "General2",
+		"topicAssignedTo": "Teacher2",
+		"topicCreatedBy": "Admin121 2942",
+		"topicCreatedOn": "2017-06-06 06:31:272",
+		"lastUpdatedOn": "0000-00-00 00:00:002",
+		"topicPublishStatus": "02",
+		"topicDeleteStatus": "02",
+		"countDiscussion": "02",
+        "topicCreatedUserid":282
+	}],
+    
+	"postCategory": [{
+		"id": "1",
+		"name": "General",
+		"postedTo": [{
+			"postToId": "5",
+			"postName": "Student"
+		}, {
+			"postToId": "3",
+			"postName": "Teacher"
+		}, {
+			"postToId": "9",
+			"postName": "Parent"
+		}]
+	}, {
+		"id": "2",
+		"name": "Class",
+		"postedTo": [{
+			"postToId": "3",
+			"postName": "Test Class"
+		}, {
+			"postToId": "4",
+			"postName": "Test Class1"
+		}]
+	}],
+    "discussionDetails": [{
+		"discussionId": "5",
+		"discussionTopicId": "5",
+		"discussionMessage": "Forum works too good",
+		"discussionCreatedOn": "2017-06-06 06:54:09",
+		"discussionApproveStatus": "1",
+		"discussionDeleteStatus": "0",
+		"discussUserId": "294",
+		"discussUserFirstname": "Admin121",
+		"discussUserLastname": "Last",
+		"discussUserRoletype": "0"
+	},
+    {
+		"discussionId": "50",
+		"discussionTopicId": "50",
+		"discussionMessage": "Forum works too hard0",
+		"discussionCreatedOn": "2017-06-06 06:54:090",
+		"discussionApproveStatus": "10",
+		"discussionDeleteStatus": "00",
+		"discussUserId": "2940",
+		"discussUserFirstname": "Admin1210",
+		"discussUserLastname": "Last",
+		"discussUserRoletype": "00"
+	}]
+}

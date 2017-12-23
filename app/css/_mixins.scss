@@ -1,0 +1,54 @@
+/* sass mixins variables defined here */
+@mixin actn-btn($size, $size1, $bdr-rds){
+    width:$size;
+    height: $size1;
+    border-radius: $bdr-rds !important;
+}
+/*----------Action btn css ends here--------*/
+@mixin table-head-body {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+@mixin table-row {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+@mixin table-col {
+    border-radius: 0 !important;
+    /*border-right: 2px solid #fff;*/
+    white-space: nowrap;
+    
+}
+
+@mixin margin-left-allign($leftpos){
+    margin-left:$leftpos;
+}
+@mixin floatPos($ltft){
+    float:$ltft;
+}
+@mixin margin-style($top, $right, $bottom, $left){
+    margin: $top $right $bottom $left;
+}
+@mixin padding-style($top, $right, $bottom, $left){
+    padding: $top $right $bottom $left;
+}
+@mixin bgColor($bg){
+    background-color:$bg;
+}
+@mixin userimage-name{
+    width: 149px;
+    position: absolute;
+    right: 18px;
+}
+@mixin noOutline{
+    outline: 0px;
+}
+@mixin disableBtn{
+    opacity:0.5;
+}
+/* sass mixins variables ends here */

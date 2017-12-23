@@ -1,0 +1,684 @@
+{
+    "users": [
+    {
+      "label": "Registered",
+      "count": 9
+    },
+    {
+      "label": "Not Activated",
+      "count": 0
+    },
+    {
+      "label": "Guest Users",
+      "count": 0
+    }
+  ],
+  "users_status": [
+    {
+      "label": "Active",
+      "count": 3
+    },
+    {
+      "label": "Inactive",
+      "count": 6
+    },
+    {
+      "label": "Deactivated",
+      "count": 1
+    },
+    {
+      "label": "Deleted",
+      "count": 0
+    }
+  ],
+  "register_report": [
+    {
+      "usertype": "Teacher",
+      "total": 1
+    },
+    {
+      "usertype": "Student",
+      "total": 3
+    }
+  ],
+  "users_report": [
+    {
+      "id": 1151,
+      "name": "group admin",
+      "username": "groupadmin",
+      "email": "groupadmin@temp.com",
+      "firstname": "group",
+      "lastname": "admin",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "2017-05-12 12:39:52",
+      "lastlogin": "2017-05-31 08:41:54",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.193.23"
+    },
+    {
+      "id": 1364,
+      "name": "teacher one",
+      "username": "t1987",
+      "email": "teacherone@temp.com",
+      "firstname": "teacher",
+      "lastname": "one",
+      "usertype": "Teacher",
+      "status": "active",
+      "created": "2017-05-30 05:22:25",
+      "lastlogin": "2017-05-31 08:49:01",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.193.23"
+    },
+    {
+      "id": 1365,
+      "name": "student one",
+      "username": "s12",
+      "email": "studentone@temp.com",
+      "firstname": "student",
+      "lastname": "one",
+      "usertype": "Student",
+      "status": "active",
+      "created": "2017-05-30 05:23:05",
+      "lastlogin": "2017-05-31 06:46:55",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.87"
+    },
+    {
+      "id": 1366,
+      "name": "student two",
+      "username": "s13",
+      "email": "studenttwo@temp.com",
+      "firstname": "student",
+      "lastname": "two",
+      "usertype": "Student",
+      "status": "active",
+      "created": "2017-05-30 05:24:07",
+      "lastlogin": "0000-00-00 00:00:00",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.66"
+    },
+    {
+      "id": 1367,
+      "name": "student three",
+      "username": "s14",
+      "email": "studentthree@temp.com",
+      "firstname": "student",
+      "lastname": "three",
+      "usertype": "Student",
+      "status": "active",
+      "created": "2017-05-30 05:26:39",
+      "lastlogin": "0000-00-00 00:00:00",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.66"
+    },
+    {
+      "id": 1382,
+      "name": "grpa grpb",
+      "username": "grpa",
+      "email": "grp@g.com",
+      "firstname": "grpa",
+      "lastname": "grpb",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "2017-05-31 06:14:54",
+      "lastlogin": "0000-00-00 00:00:00",
+      "groupname": "bnbnbnb",
+      "lastip": "172.24.190.175"
+    },
+    {
+      "id": 1384,
+      "name": "test user",
+      "username": "testuser1",
+      "email": "testuser1@gmail.com",
+      "firstname": "test",
+      "lastname": "user",
+      "usertype": "Student",
+      "status": "inactive",
+      "created": "2017-05-31 06:33:42",
+      "lastlogin": "2017-05-31 06:36:20",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.223"
+    },
+    {
+      "id": 1396,
+      "name": "ggggg ggggg",
+      "username": "ggggg",
+      "email": "ggggg@gmail.com",
+      "firstname": "ggggg",
+      "lastname": "ggggg",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "2017-05-31 08:53:57",
+      "lastlogin": "0000-00-00 00:00:00",
+      "groupname": "ggggg",
+      "lastip": "172.24.198.113"
+    },
+    {
+      "id": 1400,
+      "name": "sgsg sgsg",
+      "username": "sgsdgsg",
+      "email": "sgsdgs@afsf.in",
+      "firstname": "sgsg",
+      "lastname": "sgsg",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "2017-05-31 09:05:57",
+      "lastlogin": "0000-00-00 00:00:00",
+      "groupname": "wewttwet",
+      "lastip": "172.24.198.113"
+    },
+    {
+      "id": 1401,
+      "name": "bnbnbn bnbnbn",
+      "username": "bnbnbn",
+      "email": "bnbnbn@dfgdf.in",
+      "firstname": "bnbnbn",
+      "lastname": "bnbnbn",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "2017-05-31 09:09:14",
+      "lastlogin": "0000-00-00 00:00:00",
+      "groupname": "bnbnbnb",
+      "lastip": "172.24.198.113"
+    }
+  ],
+  "site_user_timespent": [
+    {
+      "label": "Guest",
+      "data": "00H:00M:00S"
+    },
+    {
+      "label": "Registered",
+      "data": "20H:46M:04S"
+    }
+  ]
+,
+  "enrollments": [
+    {
+      "count": 1,
+      "label": "Enrolled Users"
+    },
+    {
+      "count": 1,
+      "label": "Not Enrolled User"
+    }
+  ],
+  "list_of_courses_assigned_by_teacher_or_parent": [
+    {
+      "course_id": 1,
+      "course_name": "SPi Global",
+      "user_id": 2,
+      "user_name": "Super User",
+      "user_type": "student"
+    }
+  ],
+  "count_of_usertypes_in_site": [],
+    "user_visits": {
+    "title": "No. of visitors",
+    "yAxis":"my text",
+    "x": [
+      "week1",
+      "week2",
+      "week3",
+      "week4"
+    ],
+    "series": [
+      {
+        "name": "Guest Users Visits",
+        "data": [
+          10,
+          20,
+          30,
+          30
+        ]
+      },
+      {
+        "name": "Registered Users Visits",
+        "data": [
+          16,
+          30,
+          37,
+          49
+        ]
+      }
+    ]
+  },
+  "source_of_traffic": {
+    "by_device": [
+      {
+        "label": "Desktop",
+        "count": 163
+      },
+      {
+        "label": "Tablet",
+        "count": 2
+      },
+      {
+        "label": "Mobile",
+        "count": 0
+      },
+      {
+        "label": "Ipad",
+        "count": 0
+      }
+    ],
+    "by_channel": [
+      {
+        "label": "Direct Traffic",
+        "count": 162
+      },
+      {
+        "label": "Facebook",
+        "count": 2
+      },
+      {
+        "label": "Google+",
+        "count": 1
+      },
+      {
+        "label": "Twitter",
+        "count": 0
+      },
+      {
+        "label": "LinkedIn",
+        "count": 0
+      }
+    ]
+  },
+  "by_geo": [    
+    [
+      "in",
+      165
+    ]
+  ],
+  "channel_triggered_users_visit": [
+    {
+      "label": "Advertisement/Campaign",
+      "data": [
+        
+      ]
+    },
+    {
+      "label": "Digital Marketing Channel",
+      "data": [
+        
+      ]
+    },
+    {
+      "label": "Website banners",
+      "data": [
+        
+      ]
+    }
+  ],
+  "conversion_ratio": [
+    {
+      "label": "Conversion Ratio",
+      "data": [
+          {
+          "date": "2017-05-22",
+          "count": 1
+        },
+        {
+          "date": "2017-05-24",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "guest_registered": [
+    {
+      "label": "Guest visits",
+      "data": [
+        {
+          "date": "2017-03-01",
+          "count": 1,
+          "Ip": [
+            {
+              "Ip": "172.24.198.8",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "date": "2017-05-22",
+          "count": 1,
+          "Ip": [
+            {
+              "Ip": "172.24.198.223",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "date": "2017-05-25",
+          "count": 1,
+          "Ip": [
+            {
+              "Ip": "172.24.198.9",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Registered users",
+      "data": []
+    }
+  ],
+
+"activityanalyse": {
+    "title": "Content Consmption Based On MediaType",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    "series": [
+      {
+        "name": "E-book",
+        "usertype" :"Registered", 
+        "data": [
+          1, 1, 1, 1, 1  
+        ],
+          "stack": "male",
+          "color": "#c56868"
+      },  
+        {
+        "linkedTo":":previous",    
+        "name": "E-book",
+        "usertype" :"Guest", 
+        "data": [
+          1, 1, 1, 1, 1
+        ],
+          "stack": "male",
+          "color": "#fd1a1a"
+      },
+      {
+        "name": "game",
+        "usertype" :"Registered", 
+        "data": [
+          2, 2, 2, 2, 2
+        ],
+          "stack": "game",
+          "color": "#7bf57b"
+      },  
+        {
+        "linkedTo":":previous",    
+        "name": "game",
+        "usertype" :"Guest",
+        "data": [
+          2, 2, 2, 2, 2
+        ],
+          "stack": "game",
+          "color": "#3aab3a"
+      },{
+        "name": "video",
+        "usertype" :"Registered", 
+        "data": [
+          3, 3, 3, 3, 3
+        ],
+          "stack": "video",
+          "color": "#d87c99"
+      },  
+        {
+        "linkedTo":":previous",    
+        "name": "video",
+        "usertype" :"Guest",
+        "data": [
+          3, 3, 3, 3, 3
+        ],
+          "stack": "video",
+          "color": "#ec1c5d"
+      }
+        
+    ]
+  },
+ "forums_discussions": {
+    "title": "No of forums and discussions",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          100,
+          200,
+          300,
+          400
+        ]
+      }
+    ]
+  },
+ "participants_forums_discussions": {
+    "title": "No of participants in forums and discussions",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          300,
+          250,
+          300,
+          350
+        ]
+      }
+    ]
+
+  },
+   "social_shares": {
+      "title": "Social Shares",
+       "y_axis_label": "Count",
+      "x": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "june"
+      ],
+      "series": [
+        {
+          "name": "Register",
+          "data": [
+            14,
+            15,
+            23,
+            25,
+            34,
+            35
+          ]
+        }
+      ]
+    },
+  "most_preferred_social_shares": [
+    {
+      "label": "Facebook",
+      "count": 200
+    },
+    {
+      "label": "Twitter",
+      "count": 100
+    },
+    {
+      "label": "Google+",
+      "count": 50
+    },
+    {
+      "label": "Linkedin",
+      "count": 10
+    }
+  ],
+"social_shares_based_on_program": { 
+   "title":"Social share Based on Program Type",
+   "y_axis_label":"Count",
+   "x":[  
+      "May",
+      "Apr",
+      "Mar",
+      "Feb",
+      "Jan"
+   ],
+   "series":[  
+      {  
+         "name":"Phonic adventures",
+         "data":[  
+            6,
+            5,
+            7,
+            1,
+            6
+         ]
+      },
+       {  
+         "name":"Number Success",
+         "data":[  
+            5,
+            2,
+            6,
+            0,
+            2
+         ]
+      },
+      {  
+         "name":"Reading success",
+         "data":[  
+            5,
+            9,
+            7,
+            5,
+            7
+         ]
+      },
+      {  
+         "name":"writing Success",
+         "data":[  
+            2,
+            2,
+            8,
+            8,
+            1
+         ]
+      },
+      {  
+         "name":"E-books",
+         "data":[  
+            7,
+            8,
+            6,
+            6,
+            3
+         ]
+      },
+      {  
+         "name":"songs & videos",
+         "data":[  
+            9,
+            3,
+            3,
+            5,
+            8
+         ]
+      }
+    ]
+},
+ "social_shares_based_on_media_type": {
+   "title":"Social share Based on Media Type",
+   "y_axis_label":"Count",
+   "x":[  
+      "May",
+      "Apr",
+      "Mar",
+      "Feb",
+      "Jan"
+   ],
+   "series":[  
+      {  
+         "name":"E-book",
+         "data":[  
+            56,
+            25,
+            67,
+            10,
+            6
+         ]
+      },
+      {  
+         "name":"Music",
+         "data":[  
+            8,
+            76,
+            88,
+            29,
+            80
+         ]
+      },
+      {  
+         "name":"Video",
+         "data":[  
+            32,
+            22,
+            78,
+            48,
+            11
+         ]
+      },
+      {  
+         "name":"Games",
+         "data":[  
+            27,
+            80,
+            66,
+            67,
+            32
+         ]
+      },
+      {  
+         "name":"Quiz",
+         "data":[  
+            97,
+            23,
+            13,
+            57,
+            84
+         ]
+      }
+    ]
+  }    
+}
+
+  
+ 

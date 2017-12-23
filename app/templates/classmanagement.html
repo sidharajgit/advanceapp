@@ -1,0 +1,255 @@
+<div layout="column" id="classmanagementdetails" class="classmanagementCls">  
+	<div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">
+		<div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+			<div class="icon_display">
+				<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+									  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+									  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+								  </svg>
+				<svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+									  <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+									  <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+								  </svg>
+			</div>
+			<div class="display_message">{{alertBaner.message}}</div>
+		</div>
+	</div>
+	<div layout="row" layout-align="end center">
+		<crossicon class="posRelative top-icon-sec" add-record="addRecord" cross-button="crossbutton" table-data="tableData" on-load-callback="classCallback(arg1)"></crossicon>
+	</div>
+	<div layout="row" class="classmanagement_table">
+		<div class="tableDiv">
+			<div ng-if="isSingleuser" class="top_sec_sg animate_slider" style="display: inline-block;overflow: hidden;">
+				<div class="user-box rowform" layout="row" layout-align="center center" flex="100">
+					<div layout="row" layout-align="space-around center" flex="100">
+						<div ng-show="showClassForm.class" flex="100">
+							<form role="form" name="form.classForm" method="post" class="ng-scope" flex="100">
+								<div class="width-class-top">
+									<div layout="row" layout-align="space-around center">
+										<div flex="100">
+											<div layout="row" layout-align="space-around center">
+												<div flex="100">
+													<div class="box-header">
+														<h3 class="box-title">Create new Class</h3>
+													</div>
+												</div>
+												<div flex="15"></div>
+												<div flex="100"></div>
+											</div>
+										</div>
+									</div>
+
+									<div layout="row" layout-align="space-around center">
+										<div flex="100">
+											<div layout="row" layout-align="space-around center">
+												<div flex="100">
+													<md-input-container class="md-block">
+														<label>Class Name</label>
+														<input type="text" name="classForm_class_name" ng-model="classUser.classname" required ng-maxlength="25" ng-pattern="/^\w+(\s\w+)*$/">
+														<div ng-messages="form.classForm.classForm_class_name.$error">
+															<span ng-message="required">This is required.</span>
+															<span ng-message="pattern">Invalid Class Name</span>
+															<span ng-message="max">Classname is too long</span>
+														</div>
+														<div ng-if="classNameCheck" ng-bind="classnameerror"></div>
+													</md-input-container>
+												</div>
+												<div flex="15"></div>
+												<div flex="100">
+													<div class="btn-sec cls1-btn-sec" style="text-align: left">
+														<button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="previousCancel('exist')">Cancel</button>
+														<button type="button" class="btn-create md-raised md-primary md-button md-ink-ripple" ng-click="classNameExistCheck()" ng-disabled="!classUser.classname">Next</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div ng-show="showClassForm.teachershow">
+							<div flex="100" layout-align="center center" layout="row" class="newtabcontent">
+								<div flex="100">
+									<div class="box-header">
+										<!--<h3 class="box-title">Assign Teacher/Parent to <span>Class</span></h3>-->
+									</div>
+									<div class="class_n_details">										
+                                        <div class="box-header">
+                                            <h3 class="box-title">Choose Class Admin</h3>
+                                        </div>
+                                        <div flex="100">
+                                            <label for="" class="name">Class Name</label>
+                                            <span class="value">{{classUser.classname}}</span>
+                                        </div>
+									</div>
+									<div class="btn_tab_class newbtntab">
+										<button type="button" ng-click="showClassForm.exist = true;showClassForm.newform = false;classUser.classadmin ='' " class="btn-create existing_btn md-raised  md-button md-ink-ripple default_btn_sty" ng-class="{active: showClassForm.exist == true}">Select Existing</button>
+										<button type="button" ng-click="showClassForm.exist = false;showClassForm.newform = true;" class="btn-create create_new_btn2 md-raised md-button md-ink-ripple default_btn_sty" ng-class="{active: showClassForm.newform == true}">Create New</button>
+									</div>
+
+									<div ng-if="showClassForm.teachershow && showClassForm.exist">
+										<table-div datasource="tableDataadmin" datatable="datatable" class="assign_usr_cls"></table-div>
+										<div class="btn-sec-exi">
+											<div class="submt-category">
+												<button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="previousCancel('exist')">Cancel</button>
+												<button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="previousCancel('prev')">Prev</button>
+												<button type="button" class="btn-create md-raised md-primary md-button md-ink-ripple" ng-disabled="!classUser.classadmin" ng-click="createClass('exist')">Create</button>
+											</div>
+										</div>
+									</div>
+
+									<div ng-if="showClassForm.teachershow && showClassForm.newform">
+										<form role="addNewTeacher" name="form.classForm" method="post" class="ng-scope" flex="100" ng-submit="createClass('new')">
+											<div layout="row" layout-align="space-around center">
+												<div class="flex-100">
+													<div layout="row" layout-align="space-around center">
+														<div flex="100">
+															<md-input-container class="md-block">
+																<label>First Name</label>
+																<input type="text" required name="classForm_firstname" ng-model="classUser.firstname" ng-pattern="/^[a-zA-Z\s]*$/">
+																<div ng-messages="form.classForm.classForm_firstname.$error">
+																	<div ng-message="required">This is required.</div>
+																	<span ng-message="pattern">Invalid First Name.</span>
+																</div>
+															</md-input-container>
+														</div>
+														<div flex="15"></div>
+														<div flex="100">
+															<md-input-container class="md-block">
+																<label>Last Name</label>
+																<input type="text" required name="classForm_lastname" ng-model="classUser.lastname" ng-pattern="/^[a-zA-Z\s]*$/">
+																<div ng-messages="form.classForm.classForm_lastname.$error">
+																	<div ng-message="required">This is required.</div>
+																	<span ng-message="pattern">Invalid Last Name.</span>
+																</div>
+															</md-input-container>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div layout="row" layout-align="space-around center"> 
+												<div class="flex-100">
+													<div layout="row" layout-align="space-around center">
+														<div flex="100">
+															<md-input-container class="md-block">
+																<label>Email ID</label>
+																<input type="email" required name="classForm_emailid" id="emailid" ng-model="classUser.email1" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/">
+																<div ng-if="useremailexist"><span class="error_msg_displ">Email ID Already Exist.</span></div>
+																<div ng-messages="form.classForm.classForm_emailid.$error">
+																	<span ng-message="required">This is required.</span>
+																	<span ng-message="pattern">Invalid Email.</span>
+																</div>
+															</md-input-container>
+														</div>
+														<div flex="15"></div>
+														<div flex="100">
+															<md-input-container class="md-block">
+																<label>User Name</label>
+																<input type="text" required name="classForm_username" id="username" ng-model="classUser.username" ng-pattern="/^[a-zA-Z0-9]*$/">
+																<div ng-if="usernamexist"><span class="error_msg_displ">Username Already Exist.</span></div>
+																<div ng-messages="form.classForm.classForm_username.$error">
+																	<div ng-message="required">This is required.</div>
+																	<span ng-message="pattern">Invalid username.</span>
+																</div>
+															</md-input-container>
+														</div>
+													</div>
+												</div>
+											</div>
+ 
+											<div layout="row" layout-align="space-around center">
+												<div class="flex-100">
+													<div layout="row" layout-align="space-around top">
+														<div flex="100">
+															<div layout="row" class="userdateofbirth ">
+																<div flex="100">
+																	<div layout="row">
+																		<div flex="100">
+																			<div layout="row">
+																				<datemonthyear datemonth="classUser.dob" agecheck="'ageabovethirteen'"></datemonthyear>
+																				<!--<div flex="30">
+																					<md-input-container class="md-block">
+																						<label for="">Day</label>
+																						<input type="number" name="classForm_birth_day">
+																					</md-input-container>
+																				</div>
+																				<div flex="30">
+																					<md-input-container class="md-block">
+																						<label for="">Month</label>
+																						<input type="number" name="classForm_birth_month">
+																					</md-input-container>
+																				</div>
+																				<div flex="40">
+																					<md-input-container class="md-block clsFrm_birth_year_container">
+																						<label>Year</label>
+																						<input type="number" name="classForm_birth_year" ng-model="classUser.birthyear" max={{currentYear-13}} min={{currentYear-100}} onKeyPress="if(this.value.length == 4) return false;" yr-integer>
+																						<div ng-messages="form.classForm.classForm_birth_year.$error">
+																							<div ng-message="min">User should be less than 100 years old</div>
+																							<div ng-message="max">User should be 13 years old or above</div>
+																						</div>
+																					</md-input-container>
+																				</div>-->
+																			</div>
+																			
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div flex="15"></div>
+														<div flex="100">
+															<md-input-container class="md-block genter_details">
+																<label>Gender</label>
+																<md-radio-group ng-model="classUser.gender" name="gender" required>
+																	<md-radio-button value="male" class="md-primary">male</md-radio-button>
+																	<md-radio-button value="female"> female </md-radio-button>
+																</md-radio-group>
+																<div ng-messages="form.classForm.gender.$error">
+																	<div ng-message="required">Gender is required.</div>
+																</div>
+															</md-input-container>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div layout="row" layout-align="space-around end">
+												<div class="flex-100">
+													<div layout="row" layout-align="space-around center">
+														<phonenumber-directive phonetrue="phoneboolvalue" placeholder="myPrompt" model='classUser.phone_no'></phonenumber-directive>
+
+													</div>
+												</div>
+												<div class="flex-15"></div>
+												<div class="flex-100">
+													<md-input-container class="md-block txtarea_md add_clas_textarea_md">
+														<label>Address</label>
+														<textarea maxlength="150" md-no-asterisk name="classForm_address" ng-model="classUser.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus></textarea>
+														<div ng-if="form.classForm.classForm_address.$viewValue" ng-messages="form.classForm.classForm_address.$error">
+															<div ng-message="maxlength">Maximum length 150.</div>
+														</div>
+													</md-input-container>
+												</div>
+											</div>
+											<div class="btn-sec-exi">
+												<div class="submt-category">
+													<button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="previousCancel('exist')">Cancel</button>
+													<button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="previousCancel('prev')">Prev</button>
+													<button type="submit" class="btn-create md-raised md-primary md-button md-ink-ripple" ng-disabled="form.classForm.$invalid || phoneboolvalue">Create</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="res_table_width"> 
+				<server-table-div datasource="tableData" ng-if="responseval" datatable="datatable" closeregisteration="closeRegisteration(response)" crossicon="crossicon"></server-table-div>
+			</div>
+		</div>
+	</div>
+</div>

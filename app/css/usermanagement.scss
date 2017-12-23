@@ -1,0 +1,1150 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-padng-lft {
+    padding-left: 0 !important;
+}
+
+.rowselect {
+    background: #ccc !important;
+}
+
+.btn-create[disabled] {
+    cursor: not-allowed !important;
+    color: #ccc !important;
+}
+
+.fa-toggle-on {
+    color: green;
+    font-size: 28px;
+}
+
+.fa-toggle-off {
+    color: red;
+    font-size: 28px;
+}
+
+.addbtn {
+    padding: 2px 3px;
+    font-size: 12px;
+}
+
+.rowform .form-group {
+    max-height: 136px;
+}
+
+.rowform .box-primary {
+    max-height: 1000px;
+}
+
+.redcolor {
+    color: red;
+}
+
+.rowform {
+    padding: 10px 20px 20px 20px;
+}
+
+.deletebtn {
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+
+.box.box-primary {
+    margin-top: 75px;
+}
+
+.addfunction {
+    height: 22px;
+    width: 22px;
+    top: 0;
+    float: right;
+    position: relative;
+    right: 0;
+    margin: 1em 0;
+    background-color: #3498db;
+    border-radius: 16px;
+    color: white;
+    line-height: 21px !important;
+    text-align: center;
+}
+
+.add-user-symbol {
+    height: 20px;
+    width: 50px;
+    top: 0;
+    float: right;
+    position: relative;
+    right: 50px;
+    margin: 1em 0;
+    background-color: black;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+}
+
+.add-user-icon {
+    height: 20px;
+    width: 20px;
+    top: 0;
+    float: right !important;
+    position: relative;
+    right: 48px;
+    margin: 1em 0;
+    background-color: #3498db;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+}
+
+.goback-user {
+    height: 20px;
+    width: 50px;
+    top: 5px;
+    float: right;
+    position: relative;
+    right: 50px;
+    margin: 1em 0;
+    background-color: #3498db;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+}
+
+.adminLoginCls {
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+    md-input-container:not(.md-input-invalid).md-input-focused .md-input,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
+    md-input-container:not(.md-input-invalid).md-input-resized .md-input {
+        border-bottom: 1px solid #9e9e9e !important;
+        box-shadow: none !important;
+    }
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+    md-input-container:not(.md-input-invalid).md-input-focused label,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon,
+    md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+        color: #878787 !important;
+        font-weight: 500;
+    }
+}
+
+.signInCls {
+    a {
+        i {
+            position: absolute;
+            color: #000;
+            margin-top: .5em;
+            margin-left: .5em;
+        }
+    }
+}
+
+.roleList {
+    label {
+        background-color: #f8f8f8;
+        padding: 0 1em;
+        font-size: .75em;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        color: #999999;
+        border: none;
+        border-radius: 0;
+        height: auto;
+        line-height: 30px;
+        margin-right: 1em;
+    }
+    label.active {
+        background-color: #3498db;
+    }
+    label:hover,
+    label:focus,
+    label:active {
+        background-color: #3498db !important;
+    }
+}
+
+.view-class-sec p {
+    color: gray;
+}
+
+.actn-btn-view {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.liveSearch input[type="text"] {
+    border-radius: 55px;
+    box-shadow: none !important;
+    border: none;
+    background: #f5f5f5;
+    min-height: 30px;
+    height: 30px;
+    padding-left: 1em;
+    float: right;
+    width: 200px;
+}
+
+.liveSearch input[type="text"]:focus {
+    border-bottom: none;
+}
+
+.table .check-box-input {
+    position: relative;
+    left: 0;
+    opacity: 1;
+}
+
+tfoot {
+    .pagination {
+        li {
+            a {
+                font-size: 14px;
+                font-weight: 600;
+                margin-right: .1em;
+                width: 30px;
+                height: 30px;
+                margin-left: auto !important;
+            }
+        }
+    }
+}
+
+.tableCls {
+    .edit-lft-sec h3,
+    .edit-rgt-sec h3 {
+        margin: 0;
+        color: #9f9f9f;
+        margin-bottom: .5em;
+        text-transform: capitalize;
+        font-size: .8rem;
+    }
+    .edit-lft-sec input,
+    .edit-rgt-sec input,
+    .edit-lft-sec textarea,
+    .edit-rgt-sec textarea {
+        font-size: .9em;
+    }
+    .actn-btn-mail {
+        @include actn-btn(30px, 30px, 50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        margin-right: 1em;
+        background-color: #A3BCFD;
+        line-height: 1px !important; //padding: 1em !important;
+        padding: 0 !important;
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .actn-btn-edit {
+        @include actn-btn(30px, 30px, 50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        margin-right: 1em;
+        background-color: #8ECCF5; //padding: 1em !important;
+        line-height: 1px !important;
+        padding: 0 !important;
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .actn-btn-edit:hover,
+    .actn-btn-delete:hover,
+    .actn-btn-mail:hover,
+    .trash_user_undo:hover,
+    .trash_user_delete:hover{
+        box-shadow: none;
+        text-decoration: none;
+    }
+    .actn-btn-edit{
+        &:hover{
+            background-color: #2980b9;
+            box-shadow: none;
+        }
+    }
+    .actn-btn-delete{
+        &:hover{
+            background-color: #c0392b;
+        }
+    }
+    .actn-btn-mail{
+        &:hover{
+            background-color: #8fa7e6;
+        }
+    }
+    .actn-btn-delete {
+        @include actn-btn(30px, 30px, 50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        margin-right: 1em;
+        background-color: #FF9E94;
+        line-height: 1px !important; //padding: 1em !important;
+        padding: 0 !important;
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .actn-btn-view {
+        @include actn-btn(0, 30px, 50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: right;
+        margin-right: 1em;
+        background-color: transparent;
+        line-height: 1px !important;
+        padding: 1em !important;
+    }
+    .actn-btn-edit i,
+    .actn-btn-delete i,
+    .actn-btn-mail i {
+        font-size: 16px;
+        color: #fff;
+        /*color: #91a3ad;*/
+    }
+}
+
+
+.row {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.cnt-sec {
+    .admincontentCls {
+        background-color: #f8f8f8;
+    }
+    .adminLeftPanelCls {
+        z-index: 100;
+    }
+}
+
+.tableDiv {
+    .box-header {
+        h3 {
+            text-transform: uppercase;
+            color: #444;
+            font-size: 1em;
+            margin-top: 10px;
+            margin-bottom: 0;
+            letter-spacing: 0.7px;
+        }
+    }
+}
+
+md-select-menu.md-default-theme md-content md-option[selected],
+md-select-menu md-content md-option[selected] {
+    color: #878787 !important;
+}
+
+md-input-container.md-input-focused:not(.md-input-has-value) md-select.md-default-theme .md-select-value.md-select-placeholder,
+md-input-container.md-input-focused:not(.md-input-has-value) md-select .md-select-value.md-select-placeholder {
+    color: #878787 !important;
+}
+
+.user-box {
+    md-input-container.md-default-theme .md-input-messages-animation,
+    md-input-container .md-input-messages-animation,
+    md-input-container.md-default-theme .md-input-message-animation,
+    md-input-container .md-input-message-animation {
+        font-size: .8em;
+    }
+    md-select.md-default-theme .md-select-value.md-select-placeholder,
+    md-select .md-select-value.md-select-placeholder {
+        color: rgba(0, 0, 0, 0.38) !important;
+    }
+    md-input-container:not([md-no-float]) .md-select-placeholder span:first-child {
+        /*color: #878787;
+        font-size: .9em;*/
+        color: #a0acbf !important;
+        font-weight: 200 !important;
+        font-size: .98em !important;
+    }
+    md-select-menu.md-default-theme md-content md-option[selected]:focus,
+    md-select-menu md-content md-option[selected]:focus {
+        color: #878787 !important;
+    }
+    md-select-menu.md-default-theme md-content md-option[selected],
+    md-select-menu md-content md-option[selected] {
+        color: #878787 !important;
+    }
+    md-input-container .md-placeholder,
+    md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+        /*color: #878787 !important;
+        font-weight: 400 !important;*/
+    }
+    md-select-menu.md-default-theme md-content md-option[selected]:focus,
+    md-select-menu md-content md-option[selected]:focus {
+        color: rgba(0, 0, 0, 0.87) !important;
+    }
+    md-select-menu.md-default-theme md-content md-option[selected],
+    md-select-menu md-content md-option[selected] {
+        color: rgba(0, 0, 0, 0.87) !important;
+    }
+    md-select.md-default-theme:focus:not([disabled]) .md-select-value,
+    md-select:focus:not([disabled]) .md-select-value {
+        color: rgba(0, 0, 0, 0.87);
+        border-bottom: 1px solid #9e9e9e;
+    }
+    .submt-sec .btn-create,
+    .submt-sec .btn-cancel {
+        background: none;
+        border: none;
+        float: right;
+    }
+    .submt-sec .btn-create {
+        color: #3498db;
+    }
+    .submt-sec .btn-cancel {
+        color: #f00;
+    }
+    label {
+        font-size: .9em;
+        color: #878787;
+        font-weight: 500;
+    }
+    .select-wrapper span.caret {
+        font-size: 0;
+    }
+    input[type="text"]:focus:not([readonly]) + label,
+    input[type="number"]:focus:not([readonly]) + label,
+    input[type="email"]:focus:not([readonly]) + label,
+    textarea:focus:not([readonly]) + label {
+        color: #878787 !important;
+    }
+    input[type="text"]:focus:not([readonly]),
+    input[type="number"]:focus:not([readonly]),
+    input[type="email"]:focus:not([readonly]),
+    textarea:focus:not([readonly]),
+    input.valid[type="text"] {
+        border-bottom: 1px solid #9e9e9e !important;
+        box-shadow: none !important;
+    }
+    .dropdown-content li > a,
+    .user-box .dropdown-content li > span {
+        color: #333 !important;
+    }
+    md-input-container.md-default-theme.md-input-focused:not(.md-input-invalid) label,
+    md-input-container.md-input-focused:not(.md-input-invalid) label,
+    md-input-container.md-default-theme.md-input-focused:not(.md-input-invalid) md-icon,
+    md-input-container.md-input-focused:not(.md-input-invalid) md-icon {
+        /*color: #878787 !important;*/
+    }
+    md-input-container.md-default-theme.md-input-focused:not(.md-input-invalid) .md-input,
+    md-input-container.md-input-focused:not(.md-input-invalid) .md-input,
+    md-input-container.md-default-theme.md-input-resized:not(.md-input-invalid) .md-input,
+    md-input-container.md-input-resized:not(.md-input-invalid) .md-input {
+        border-color: #9e9e9e;
+    }
+}
+
+.submt-sec .btn-create {
+    color: #3498db;
+}
+
+.submt-sec .btn-cancel {
+    color: #f00;
+}
+
+
+.submt-sec .btn-create {
+    color: #3498db;
+}
+
+.submt-sec .btn-cancel {
+    color: #f00;
+}
+
+.submt-category {
+    float: right;
+}
+
+.submt-category .btn-create {
+    color: #3498db;
+}
+
+.submt-category .btn-cancel {
+    color: #f00;
+}
+
+.submt-category {
+    padding: 10px 0px;
+    margin-bottom: 25px;
+}
+
+.submt-category .btn-create,
+.submt-category .btn-cancel {
+    background: none;
+    border: none;
+}
+
+.edituserviewfont h3 {
+    font-size: 1.2rem;
+}
+
+.edituserviewfont span {
+    //font-weight: bold;
+    //color: black;
+}
+
+.userclass {}
+
+.edituserviewclass {
+    max-height: 100%;
+    width: 95%;
+    .edituserviewdata {
+        margin-top: -1.5em;
+    }
+}
+
+.usermsgsec {
+    max-height: 15146px;
+    width: 100%;
+}
+
+.edituserviewfont {
+    md-input-container {
+        min-height: initial;
+        margin: 5px 0;
+        width: 100%;
+    }
+}
+
+.edituserviewfont md-input-container label {
+    font-size: 16px;
+}
+
+.userviewrow {
+    width: 100%;
+}
+
+.edituserviewdata md-list-item p {
+    color: gray;
+    font-size: .8em;
+    letter-spacing: 1px;
+}
+
+.edituserviewdata md-list-item h4 {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: none !important;
+}
+
+.edituserviewdata md-list-item {
+    max-height: 38px;
+    line-height: 13px;
+}
+
+.edituserviewdata md-list-item .viewfirstname {
+    margin-top: 16px;
+}
+
+.edituserform {
+    font-size: 13px;
+}
+
+.edituserviewdata md-list-item.md-3-line,
+md-list-item.md-3-line > .md-no-style {
+    min-height: 59px;
+}
+
+.viewfirstname {
+    margin-top: 48px;
+}
+
+.addmul-user-icon {
+    display: block;
+    margin-top: -43px;
+    margin-bottom: 10px;
+    .md-fab-action-item {
+        float: left;
+    }
+}
+
+.groupmanagementCls {
+    .top-icon-sec {
+        .md-button {
+            background-color: #3498db;
+            background: #3498db;
+            width: auto;
+            height: auto;
+            border-radius: 25px;
+            padding: .5em 20px;
+            font-size: .85em;
+        }
+        .btnDisable{
+            @include disableBtn;
+            background: #3498db !important;
+            &:focus, &:hover, &[disabled="disabled"]{
+                background: #3498db !important;
+            }
+        }
+    }
+}
+
+.admintablecls {
+    .top-icon-sec {
+        margin-left: 0 !important;
+        position: relative;
+        top: -4em;
+    }
+}
+
+.usermanagementCls {
+    .edituserviewclass {
+        .dob-label {
+            margin-top: -1.9em;
+        }
+    }
+
+    .multi-btn-sec {
+        section {
+            position: relative;
+            left: 479px;
+            bottom: 46px;
+        }
+    }
+    .tableDiv {
+        .width-user-top {
+            width: 70%;
+        }
+        .btn-sec {
+            position: static;
+            text-align: right;
+        }
+        .md-select-value {
+            min-height: inherit !important;
+            padding: 6px 0px 5px !important;
+        }
+        .md-block md-select {
+            margin-top: -9px;
+        }
+        .dob-label {
+            position: static;
+            margin: 5px 0 0;
+        }
+        .dob-label.edit-dob-label {
+            margin: -18px 0 0;
+        }
+        .edit-user-address {
+            margin-top: -30px;
+        }
+    }
+    .md-select-menu-container {
+        margin-top: 47px;
+        md-select-menu {
+            md-content {
+                margin-top: 0!important;
+            }
+        }
+    }
+
+    .top-icon-sec {
+        .md-button {
+            background-color: #3498db;
+            width: auto;
+            height: auto;
+            border-radius: 25px;
+            padding: .5em 20px;
+            font-size: .85em;
+        }
+        .btnDisable{
+            @include disableBtn;
+            background: #3498db !important;
+            &:focus, &:hover, &[disabled="disabled"]{
+                background: #3498db !important;
+            }
+        }
+        .md-button:hover {
+            background-color: #3498db !important;
+        }
+        .material-icons {
+            height: auto;
+            min-height: 0;
+            color: #fff !important;
+            line-height: 0;
+            min-width: auto;
+            width: auto;
+        }
+    }
+    .mutipleuser {
+        height: 22px;
+        width: 22px;
+        float: right;
+        position: relative;
+        background-color: #3498db;
+        border-radius: 16px;
+        color: white;
+        text-align: center;
+        bottom: 25px;
+        left: 21px;
+    }
+    .multiple-user {
+        background-color: white;
+        .multiple-content {
+            margin-top: 31px;
+            margin-left: auto;
+            margin-right: auto;
+            p{
+                font-weight: 400;
+                margin-top: 1em;
+            }
+            .filedownload {
+                background-color: #54b6e9;/*#e74c3c*/
+                width: 165px;
+                height: 32px;
+                line-height: 32px;
+                color: #fff;
+                border-radius: 25px;
+                text-align: center;
+                .csvimagename {
+                    position: relative;
+                    left: 170px;
+                    color: black;
+                    width: 355px;
+                    bottom: 50px;
+                }
+                .csvimagenameerror {
+                    position: relative;
+                    left: 140px;
+                    color: red;
+                    bottom: 47px;
+                    font-size: 11px;
+                }
+                .filedownloadicon {
+                    margin-left: 0px;
+                    font-size: 1.3em;
+                }
+                .uploadlabeltextcolor {
+                    color: #fff;
+                    font-size: 1.1em;
+                    font-weight: 200!important;
+                }
+            }
+            .file-upload {
+                color: deepskyblue;
+                position: relative;
+                left: 269px;
+                font-size: 15px;
+                text-transform: uppercase;
+                top: 31px;
+            }
+            .file-cancel {
+                color: orangered;
+                position: relative;
+                left: 292px;
+                font-size: 15px;
+                text-transform: uppercase;
+                top: 31px;
+            }
+            form{
+                position: relative;
+                margin-bottom: 45px;
+            }
+        }
+    }
+    .edituserviewfont {
+        .userimagename {
+            @include userimage-name;
+        }
+        .userimageupload {
+            width: 70px;
+            position: absolute;
+            width: 74px;
+            height: 76px;
+            border-radius: 40px;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+.phoneerrorcls {
+    color: rgb(221, 44, 0);
+}
+
+.user-edit-fst-row {
+    margin-top: 3em;
+}
+.user_edit_sec{
+    md-input-container{
+        width:100%;
+        font-size: 1em !important;
+        font-weight: 500 !important;
+        &.md-input-has-value{
+            font-weight: 400 !important;
+        }
+    }
+    
+    .prfle_img_user_edit{
+        margin-top: 1.5em;
+        margin-bottom: 6.3em;
+        position: relative;
+        img{
+            border-radius: 50% !important;
+            width: 100px !important;
+            height: 100px !important;
+            position: relative !important;
+        }
+        .md-input-custom{
+            padding: 10px 2px 26px;
+            span{
+                background-color: transparent;
+                border: none;
+                color: #3498db !important;
+                border-bottom: 1px solid #3498db;
+                padding-bottom: 0 !important;
+                height: auto;
+                border-radius: 0;
+                position: absolute;
+                margin-left: 0em;
+                padding: 0;
+                margin-top: 1.5em;
+                input{
+                    &:hover{
+                        background-color: transparent !important;
+                        box-shadow: none !important;
+                    }
+                    &:focus{
+                        background-color: transparent !important;
+                        box-shadow: none !important;
+                    }
+                    &:active{
+                        background-color: transparent !important;
+                        box-shadow: none !important;
+                    }
+                }
+            }
+        }
+        .cropArea{
+            position: absolute;
+            position: absolute;
+            right: 5px;
+            top: 0px;
+        }
+    }    
+    .user_edit_in{
+        padding: 3em 0;
+        width: 80%;
+        phonenumber-directive{
+            width: 100%;
+        }
+        md-select{
+            margin-top: 11px !important;
+        }
+    }    
+    .edit-user-address {
+        margin-top: 0 !important;
+        textarea{
+            height: 50px !important;
+            min-height: 50px !important;
+            overflow-y: auto;
+        }
+    }
+}
+.editviewuser{
+    .edit_user_inn{
+        width: 95%;
+        border: 1px solid #eff1f3;
+        position: relative;
+        .editIcon{
+            position: absolute;
+            right: 0px;
+            background: none;
+            &:hover{
+                background: none;
+            }
+        }
+        .lft{
+            background-color:#f8fafc;
+            .lft_inn{
+                padding-top: 3em;
+                .pro_name{
+                    color: #333333;
+                    font-size: 1.3em;
+                    margin-bottom: .5em;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                    margin-top:2em;
+                }
+                .pro_usr_type{
+                    color: #e1bb8c;
+                    font-size: 1.05em;
+                    text-transform: uppercase;
+                    margin-bottom: .5em;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                }
+                img{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;                    
+                }
+                .prfle_img_user_edit{
+                    width: 100px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .rgt{
+            padding: 1em;
+            width: 100%;
+            .edit_tit{
+                color: #a0acbf;
+                font-size: 1.1em;
+                line-height: 50px; 
+                
+                &.requireedit:after{
+                    content: ' *';
+                    font-size: 13px;
+                    vertical-align: top;
+                }
+            }
+            .edit_val{
+                color: #333333;
+                font-size: 1.1em;
+                width: 110px;
+                white-space: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 50%;
+            }
+            .val_container{
+                margin-bottom: 0.5em;
+                .md-errors-spacer{
+                    min-height: initial;
+                }
+                input[disabled="disabled"], textarea[disabled="disabled"]{
+                    border: none!important;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                input[disabled="true"], textarea[disabled="true"]{
+                    border: none!important;  
+                    font-size: 14px;
+                    font-weight: 500; 
+                }
+                textarea{
+                    height: 30px!important;
+                    min-height: 30px!important;
+                }
+                .datemonth-sec{
+                    display:inline-block;
+                    width:100%;
+                }
+                .edit-user-address {
+                    margin-top: 5px;
+                }
+                .addressdisabled{
+                    .md-errors-spacer{
+                        display:none;
+                    }
+                }
+                phonenumber-directive{
+                    label{
+                        opacity: 0 !important;
+                    }
+                }
+                .submt-sec {
+                    text-align: right;
+                    float: right;
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.usermanagement_table{
+    table-div{
+        width:100%;
+    }
+    table{
+        thead{
+            tr{
+                th{
+                    &:last-child{
+                        text-align:center !important;
+                    }
+                }
+            }
+        }
+    }
+    &.userListSec{
+        .md-tab{
+            font-size: 1.2em;
+            width: auto !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            &.md-disabled{
+                color: #333;
+                opacity: 1;
+                font-weight: 600;
+                width: auto !important;
+                *{
+                    color: #333;
+                    opacity: 1;
+                    font-weight: 600;
+                }
+            }
+            &.md-active{
+                border-bottom: 3px solid #3498db;
+                margin-top: 3px;
+                bottom: 2px;
+                padding-bottom: 8px;
+            }
+        }
+        
+    }
+}
+.Slide_table_sec_main{
+    table-div{
+        .Slide_table_sec{
+            label{
+                display: block;
+            }
+        }
+    }
+}
+
+.user_edit_sec_new{
+    padding: 3em 0 1em 0;
+    background-color: #fbfbfc;
+    margin: 1.5em 0;
+    md-input-container{
+        width: 80% !important;
+    }
+    .useredit_brdr_line{
+        height: 1px;
+        background-color: #eef1f3;
+        width: 90.5%;
+        margin: -1em 0 3em 0;
+    }
+    .edit-user-address{
+        margin-top: 5px !important;
+        margin: 5px 0;
+        textarea{
+            height: 100px !important;
+        }
+    }
+    .user_pro_img{
+        margin-top: -1.5em;
+        img{
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 50% !important;
+            margin-bottom: 2em !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        .edit_icon{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            background-color: #a0a0a0;
+            margin-top: -4em;
+            margin-left: 3em;
+            box-shadow: 2px 2px 2px #ccc;
+            z-index:100;   
+            position: relative;
+            i{
+                margin-top: .8em;
+            }
+            img{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin-top: .35em;
+            }
+        }
+    }
+    .submt-sec{
+        margin-right: -1em;
+    }
+    .prfle_img_user_edit {
+        position: relative;
+        .userimageupload{
+            position: absolute;
+            width: 74px;
+            height: 76px;
+            top: -25px !important;
+            border-radius: 50%;
+        }
+        .fileUpload{
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-indent: -99999px;
+            top: 20px;
+            left: 50px;
+            border: none;
+            box-shadow: 0 2px 1px 0px #ddd;
+            overflow: hidden;
+            cursor: pointer!important;
+                &:before{
+                    content: "";
+                    background: url(../images/edit-grey.png);
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                    text-indent: 99999px;
+                    width: 28px;
+                    height: 28px;
+                    display: inline-block;
+                    position: absolute;
+                    left: 5px;
+                    background-size: 20px;
+                    top: 0px;
+                }
+            input{
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                opacity: 0;
+                height: 30px;
+                width: 30px;
+                cursor: pointer!important;
+            }
+        }
+        .cropArea{
+            position: absolute;
+            top:-30px;
+            left: 50%;
+        }
+    }
+}
+
+button{
+    &.exportXLBTN {
+        position: absolute;
+        right: 30px;
+        background: transparent;
+        border: none;
+        font-weight: 500;
+        top: 20px;
+        line-height: 35px;
+        z-index: 1;
+        color: #A0ACBF;
+    }
+}

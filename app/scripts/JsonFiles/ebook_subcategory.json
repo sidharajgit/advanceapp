@@ -1,0 +1,143 @@
+{
+    "data": {
+        "customFilters": [
+            {
+                "id": 60,
+                "name": "Lesson"
+            },
+            {
+                "id": 61,
+                "name": "Lesson1"
+            },
+            {
+                "id": 62,
+                "name": "Lesson2"
+            },
+            {
+                "id": 63,
+                "name": "Lesson3"
+            }
+        ],
+        "catid": 24,
+        "catsummary": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "course": [
+            {
+                "courseid": 1,
+                "coursename": "Can you new",
+                "block": 1,
+                "description": "Some people assume that children's environment affects their outcome in life. Growing up without a father in less-than-favorable conditions, Alvin ends up in jail. However, despite a neighborhood full of gangs and drugs, his brother Roy dares to dream for a better future.  Through hard work, listening to valuable advice, and carefully choosing his friends, Roy becomes a respected doctor and a pillar of his community. \r\nChildren will appreciate this heartfelt and educational edition of the Sommer-Time Story series.  Jam-packed with valuable information, this narrative offers an inspirational history lesson. As a bonus at the end, kids can take the Dare to Dream Challenge, which provides continual guidelines for good, healthy choices throughout life.\r\n",
+                "subject": "Phonics - Phonics Adventure",
+                "grade": "Grade 1, Grade 2",
+                "format": "No",
+                "language": "No",
+                "isactive": true,
+                "ispurchasble": false,
+                "thumburl": "http://172.24.137.114/ecommerce/pub/media/catalog/product/c/a/can_you.png",
+                "Url": "http://172.24.137.114/ecommerce/the-cat.html?SID=b0b2gtf3maoha0et3mcfvn5be1",
+                "sku": "Can you new",
+                "product_of_the_week": true,
+                "is_printable": false,
+                "is_premium": false,
+                "is_featured": true,
+                "is_active" : true,
+                "book_url": "https://www.youtube.com/embed/6XhG0BKGPEk"
+            },
+            {
+                "courseid": 6,
+                "coursename": "Divide to Conquer",
+                "block": 1,
+                "description": null,
+                "subject": "Phonics - Phonics Adventure",
+                "grade": "Grade 3, Grade 4, Grade 5, Grade 6, Grade 7, Grade 8",
+                "format": "Digital",
+                "language": "English",
+                "isactive": true,
+                "ispurchasble": false,
+                "thumburl": "",
+                "Url": "http://172.24.137.114/ecommerce/divide-to-conquer.html?SID=b0b2gtf3maoha0et3mcfvn5be1",
+                "sku": "Divide to Conquer",
+                "product_of_the_week": false,
+                "is_printable": true,
+                "is_premium": true,
+                "is_featured": true,
+                "is_active" : true,
+                "book_url": ""
+            },
+            {
+                "courseid": 7,
+                "coursename": "The Great Deception",
+                "block": 1,
+                "description": null,
+                "subject": "Phonics - Phonics Adventure",
+                "grade": "Grade 3, Grade 4, Grade 5, Grade 6, Grade 7, Grade 8",
+                "format": "Digital",
+                "language": "English",
+                "isactive": true,
+                "ispurchasble": false,
+                "thumburl": "http://172.24.137.114/ecommerce/pub/media/catalog/product/g/r/greatdeception.jpg",
+                "Url": "http://172.24.137.114/ecommerce/the-great-deception.html?SID=b0b2gtf3maoha0et3mcfvn5be1",
+                "sku": "The Great Deception",
+                "product_of_the_week": false,
+                "is_printable": false,
+                "is_premium": false,
+                "is_featured": false,
+                "is_active" : true,
+                "book_url": "https://apmedialibrary.s3.amazonaws.com/Media%20Library/songs/Sommer%20Learning%20Audio%20Files/Alphabet%20Train%20Song%20for%20Letters%20A%20E.mp3"
+            },
+            {
+                "courseid": 8,
+                "coursename": "The Silent Scream",
+                "block": 1,
+                "description": null,
+                "subject": "Phonics - Phonics Adventure",
+                "grade": "Grade 3, Grade 4, Grade 5, Grade 6, Grade 7, Grade 8",
+                "format": "Digital",
+                "language": "English",
+                "isactive": true,
+                "ispurchasble": false,
+                "thumburl": "http://172.24.137.114/ecommerce/pub/media/catalog/product/s/i/silentscream.jpg",
+                "Url": "http://172.24.137.114/ecommerce/the-silent-scream.html?SID=b0b2gtf3maoha0et3mcfvn5be1",
+                "sku": "The Silent Scream",
+                "product_of_the_week": false,
+                "is_printable": true,
+                "is_premium": true,
+                "is_featured": true,
+                "is_active" : true,
+                "book_url": "http://spiglobaltestingbucket.s3.amazonaws.com/Testing/addition/assets/unit1/documents/B1U1P1.pdf"
+            },
+            {
+                "courseid": 9,
+                "coursename": "The Tiny Giant",
+                "block": 1,
+                "description": null,
+                "subject": "Phonics - Phonics Adventure",
+                "grade": "Grade 3, Grade 4, Grade 5, Grade 6, Grade 7, Grade 8",
+               "format": "Digital",
+                "language": "English",
+                "isactive": true,
+                "ispurchasble": false,
+                "thumburl": "http://172.24.137.114/ecommerce/pub/media/catalog/product/t/i/tinygiant.jpg",
+                "Url": "http://172.24.137.114/ecommerce/the-tiny-giant.html?SID=b0b2gtf3maoha0et3mcfvn5be1",
+                "sku": "The Tiny Giant",
+                "product_of_the_week": false,
+                "is_printable": false,
+                "is_premium": false,
+                "is_featured": false,
+                "is_active" : true,
+                "book_url": ""
+            }
+        ]
+    },
+    "paginateData": {
+        "total_matched_records": 5,
+        "total_records": 3,
+        "current_page": 1,
+        "start_record": 1,
+        "end_record": 3,
+        "sort": {
+            "column": "id",
+            "order": "DESC"
+        },
+        "isDbempty": false
+    }    
+}

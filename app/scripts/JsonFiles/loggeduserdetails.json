@@ -1,0 +1,204 @@
+{
+    "data": {
+    "data": [
+{
+		"adminType": "superAdmin",
+		"isAdminLoggedIn": true,
+		"groupName": [{
+			"group_id": 1,
+			"groupname": "SommerLearning.com",
+			"groupcode": "SommerGroupb5c",
+			"groupadmin": 1430,
+			"create_date": "2017-06-29 16:36:29",
+			"modified_date": "0000-00-00 00:00:00",
+			"group_status": 1,
+			"groupicon": "1498638135___pic_mountain.jpg",
+			"id": 1,
+			"roletype": 10,
+			"username": "sommeradmin",
+			"name": "Sommer Admin",
+			"userid": 1430,
+			"email": "sommeradmin@temp.com",
+			"userscnt": 93,
+			"groupadminname": "sommeradmin",
+			"registerdate": "06\/29\/2017",
+			"groupicon_smallimage": "pic_mountain.jpg",
+			"groupicon_image": "1498210585___Tulips.jpg",
+			"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+			"block": true,
+			"groupadmincount":7,
+			"parentcount":21,
+			"studentcount":40,
+			"teachercount":24
+		}, {
+			"group_id": 36,
+			"groupname": "Test",
+			"groupcode": "NewTestGroupe38",
+			"groupadmin": 1627,
+			"create_date": "2017-06-29 12:19:43",
+			"modified_date": "0000-00-00 00:00:00",
+			"group_status": 1,
+			"groupicon": "",
+			"id": 36,
+			"roletype": 10,
+			"username": "newgroupadmin",
+			"name": "sgsgs fgsfgagsg",
+			"userid": 1627,
+			"email": "dgfdagad@fsgsfga.com",
+			"userscnt": 46,
+			"groupadminname": "newgroupadmin",
+			"registerdate": "06\/29\/2017",
+			"groupicon_smallimage": "",
+			"groupicon_image": "",
+			"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+			"block": true,
+			"groupadmincount":7,
+			"parentcount":21,
+			"studentcount":40,
+			"teachercount":24
+		}, {
+			"group_id": 37,
+			"groupname": "groupname",
+			"groupcode": "groupcreate721",
+			"groupadmin": 1652,
+			"create_date": "2017-06-28 18:26:16",
+			"modified_date": "0000-00-00 00:00:00",
+			"group_status": 1,
+			"groupicon": "1498210585___Tulips.jpg",
+			"id": 37,
+			"roletype": 10,
+			"username": "groupcreate",
+			"name": "groupcreatedsfsdf groupcreate",
+			"userid": 1652,
+			"email": "groupcreate@gmail.com",
+			"userscnt": 17,
+			"groupadminname": "groupcreate",
+			"registerdate": "06\/28\/2017",
+			"groupicon_smallimage": "Tulips.jpg",
+			"groupicon_image": "1498210585___Tulips.jpg",
+			"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+			"block": true,
+			"groupadmincount":7,
+			"parentcount":21,
+			"studentcount":40,
+			"teachercount":24
+		}, {
+			"group_id": 38,
+			"groupname": "Test Group",
+			"groupcode": "TestGroup6c7",
+			"groupadmin": 1674,
+			"create_date": "2017-06-23 19:37:20",
+			"modified_date": "0000-00-00 00:00:00",
+			"group_status": 1,
+			"groupicon": "",
+			"id": 38,
+			"roletype": 10,
+			"username": "testgroupadmin",
+			"name": "testgroupadmin testgroupadmin",
+			"userid": 1674,
+			"email": "testgroupadmin@temp.com",
+			"userscnt": 9,
+			"groupadminname": "testgroupadmin",
+			"registerdate": "06\/23\/2017",
+			"groupicon_smallimage": "",
+			"groupicon_image": "",
+			"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+			"block": true,
+			"groupadmincount":7,
+			"parentcount":21,
+			"studentcount":40,
+			"teachercount":24
+		}],
+		"groupType": true,
+		"loggedBy": "super, admin",
+		"groupIcon": null,
+		"roleType": "Super Admin",
+		"usersCount": 153,
+		"sessionId": "fir381rtjr1nsg1pmivpvjsu46",
+		"loggedInUserName": "admin",
+		"userroles": [
+		  {
+			"roleid": 3,
+			"rolname": "Teacher"
+		  },
+		  {
+			"roleid": 5,
+			"rolname": "Student"
+		  },
+		  {
+			"roleid": 9,
+			"rolname": "Parent"
+		  },
+		  {
+			"roleid": 10,
+			"rolname": "Group Admin"
+		  }
+		],
+		"menu": [{
+			"name": "Dashboard",
+			"className": "fa-graduation-cap"
+		}, {
+			"name": "User Management",
+			"className": "fa-user",
+			"selected": true
+		}, {
+			"name": "Class Management",
+			"className": "fa-graduation-cap"
+		}, {
+			"name": "Content Management",
+			"className": "fa-users"
+		}, {
+			"name": "Reports & Analytics",
+			"className": "fa-graduation-cap",
+			"childList": {
+				"parentName": "Reports & Analytics",
+				"childs": [{
+					"name": "User Analytics"
+				}, {
+					"name": "Activity Analytics"
+				}, {
+					"name": "Social Media"
+				}, {
+					"name": "Class Analytics"
+				}, {
+					"name": "Program Analytics",
+					"innerchildList": {
+						"parentName": "program & Analytics",
+						"innerchilds": [{
+							"name": "Comparative reports"
+						}, {
+							"name": "Phonics Adventure"
+						}, {
+							"name": "Number Success"
+						}, {
+							"name": "Writing Success"
+						}, {
+							"name": "Reading Success"
+						}]
+					}
+				}]
+			}
+		},
+        {
+			"name": "Forum",
+			"className": "fa-user"
+		}, {
+			"name": "Survey",
+			"className": "fa-user",
+			"selected": false
+		}],
+    "profileImage":
+    { 
+        "type": "others",
+        "url": "http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/",
+        "name":"1502180859___Tulips.jpg"}
+
+	}
+    ]
+  },
+    "message": "",
+    "status": "success"
+}
+
+
+

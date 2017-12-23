@@ -1,0 +1,24 @@
+{
+	"flashcard": [{
+		"image": "dest/images/apple1.png",
+		"front": {"letter":"A a","sound":"dest/audio/a.mp3"},
+		"back": {"word":"Apple","sound":"dest/audio/apple.mp3"}
+	}, {
+		"image": "dest/images/bat.png",
+		"front": {"letter":"B b","sound":"dest/audio/b.mp3"},
+		"back": {"word":"Bat","sound":"dest/audio/bat.mp3"}
+	}, {
+		"image": "dest/images/cat.png",
+		"front": {"letter":"C c","sound":"dest/audio/c.mp3"},
+		"back": {"word":"Cat","sound":"dest/audio/cat.mp3"}
+	}, {
+		"image": "dest/images/dog.png",
+		"front": {"letter":"D d","sound":"dest/audio/d.mp3"},
+		"back": {"word":"Dog","sound":"dest/audio/dog.mp3"}
+	}, {
+		"sound": "dest/audio/egg.mp3",
+		"image": "dest/images/egg.png",
+		"front": {"letter":"E e","sound":"dest/audio/e.mp3"},
+		"back": {"word":"Egg","sound":"dest/audio/egg.mp3"}
+	}]
+}

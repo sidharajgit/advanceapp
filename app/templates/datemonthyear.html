@@ -1,0 +1,23 @@
+<div layout="row"> 
+	<md-input-container>
+	  <md-select ng-model="datemonth.month" name="month" ng-change="getDobMonth()" placeholder="month" ng-disabled="disableinput" ng-required ="isrequired"> 
+		<md-option ng-repeat="month in dobmonth" ng-value="$index+1">
+		  {{month}}
+		</md-option>
+	  </md-select>
+	</md-input-container>
+	<md-input-container>
+	  <md-select ng-model="datemonth.day" name="day" ng-change="getDobDay()" placeholder="day" ng-disabled="disableinput" ng-required ="isrequired"> 
+		<md-option ng-repeat="day in [].constructor(days) track by $index" ng-value="$index+1">
+		  {{$index+1}}
+		</md-option>
+	  </md-select>
+	</md-input-container>
+	<md-input-container>
+	  <md-select ng-model="datemonth.year" name="year" ng-change="getDobYear()" placeholder="year" ng-disabled="disableinput" ng-required ="isrequired"> 
+		<md-option ng-repeat="year in years | orderBy:'-'" ng-value="year">
+		  {{year}}
+		</md-option>
+	  </md-select>
+	</md-input-container>
+</div>

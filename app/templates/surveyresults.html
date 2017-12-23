@@ -1,0 +1,55 @@
+<alert-banner data="alertBaner" ng-if="alertBaner.showBaner"></alert-banner>
+<div ng-cloak class="report" layout="column">
+    <md-whiteframe class="survey_container">
+         <div class="survay-lst">
+        <div layout="row">
+            <div flex="100">
+                <div class="forum-headng">
+                    <h3 class="heading-til">Survey Result</h3>
+                </div>
+            </div>
+            <div flex="100">
+               <div layout="row" layout-align="end end">
+                   <md-button  md-no-ink class="md-primary" ng-click="goToContentPage()">Back To Content</md-button>
+                </div>
+            </div>
+        </div>
+        <h3 ng-bind="surveyResult.title"></h3>
+        <div layout="row">
+            <div class="admn-divider"></div>
+        </div>
+             <div layout="row" ng-repeat="surveyQes in surveyResult.questions  | limitTo : 1">
+                  
+                    <div flex="100">
+                        <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout>
+                            <div layout="row" flex="100">
+                                <div flex="30" flex-gt-sm="20" class="sur-til">
+                                   <div  layout-align="start center" flex="100">
+                                        <h3 ng-bind="surveyQes.title"></h3>
+                                        <p ng-bind="'Created on ' + surveyQes.created +' | '+'Modified on : ' + surveyQes.modified"></p>
+                                   </div>
+                                </div>
+                            </div>
+                            <md-button  md-no-ink class="md-primary" ng-repeat="surveyAns in surveyQes.answer track by $index">{{surveyAns.answer}} :  {{surveyAns.ansCount}}</md-button>
+                        </md-whiteframe>
+                    </div>
+                </div>
+                 <div layout="row" ng-repeat="surveyQes in surveyResult.questions.slice(1,surveyResult.questions.length)">
+                  
+                    <div flex="100">
+                        <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout>
+                            <div layout="row" flex="100">
+                                <div flex="30" flex-gt-sm="20" class="sur-til">
+                                   <div  layout-align="start center" flex="100">
+                                        <h3 ng-bind="surveyQes.title"></h3>
+                                        <p ng-bind="'Created on ' + surveyQes.created +' | '+'Modified on : ' + surveyQes.modified"></p>
+                                   </div>
+                                </div>
+                            </div>
+                            
+                        </md-whiteframe>
+                    </div>
+                </div>
+    </div>
+    </md-whiteframe>
+</div>

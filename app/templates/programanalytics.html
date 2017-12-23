@@ -1,0 +1,84 @@
+<div ng-cloak class="report" layout="column" ng-controller="programanalyticsController">  
+    <div ng-cloak>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Reports">
+            <md-content class="md-padding">
+              <h6 class="md-display-2">Visitors Info</h6>
+                <div layout="row" layout-align="end start" ng-click="programanalyticsdownload('programreportsexportcsv')">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                </div>  
+                <div class="tableDiv res_table_width border-top-none">
+                     <table-div datasource="tableData" datatable="tableData"></table-div>
+                </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="Analytics" ng-click="getprogramAnalyticsData()">
+               <md-content class="md-padding">
+                <div layout="row" layout-align="center start" ng-click="programanalyticsdownload('programanalyticsexportcsv')">
+                    <div class="ful_width_cont">
+                        <div class="dateCols" layout="row" layout-align="end end">
+                             <div layout="row" flex="100" ng-if="programanalytics.vmDate"  layout-align="end end">
+                                <sm-range-picker-input
+                                        fname="emplyeetyuReport" 
+                                        label="Date range"
+                                        form="test"
+                                        ng-model="programanalytics.vmDate" 
+                                        flex="50"                         
+                                        is-required="{{true}}" 
+                                        format="MM-DD-YYYY"
+                                        divider="To"              
+                                        mode=""
+                                        max-date="02-06-2017"
+                                        week-start-day="Sunday" change-date="updateCharts(data)">
+                                </sm-range-picker-input>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                </div>
+              <h4 class="md-display-2">Program Analytics</h4>
+              <div layout="row" layout-wrap>
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-xs="100" flex-gt-lg="50">
+                    <button ng-click="chartModal('lg','line',programanalytics.program.mostvisited_program)">More Filter</button>    
+                    <div  layout-align="center center" layout="column">
+                        <hc-line-chart  ng-if="programanalytics.program.mostvisited_program" chartdata="programanalytics.program.mostvisited_program"></hc-line-chart>
+                    </div>
+                </md-whiteframe>
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-xs="100" flex-gt-lg="50">
+                    <button ng-click="chartModal('lg','bar',programanalytics.program.visitors_of_program,programanalytics.program.visitors_of_program.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-chart ng-if="programanalytics.program.visitors_of_program"  chartdata="programanalytics.program.visitors_of_program"></hc-bar-chart>
+                    </div>
+                </md-whiteframe>  
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-xs="100" flex-gt-lg="50">
+                    <button ng-click="chartModal('lg','bar',programanalytics.program.social_share_based_program,programanalytics.program.social_share_based_program.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-chart ng-if="programanalytics.program.social_share_based_program"  chartdata="programanalytics.program.social_share_based_program"></hc-bar-chart>
+                    </div>
+                </md-whiteframe>   
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-xs="100" flex-gt-lg="50">
+                    <button ng-click="chartModal('lg','bar',programanalytics.program.badges_associated_witheach_program,programanalytics.program.badges_associated_witheach_program.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-chart ng-if="programanalytics.program.badges_associated_witheach_program"  chartdata="programanalytics.program.badges_associated_witheach_program"></hc-bar-chart>
+                    </div>
+                </md-whiteframe>  
+                 <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-xs="100" flex-gt-lg="50">
+                    <button ng-click="chartModal('lg','bar',programanalytics.program.average_timespent,programanalytics.program.average_timespent.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column" class="">
+                        <hc-bar-chart ng-if="programanalytics.program.average_timespent"  chartdata="programanalytics.program.average_timespent"></hc-bar-chart>
+                    </div>
+                </md-whiteframe>    
+                <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-xs="100" flex-gt-lg="50">
+                    <button ng-click="chartModal('lg','pieload',programanalytics.program.most_consumed_program,programanalytics.program.most_consumed_program.title)">More Filter</button> 
+                    <div layout-align="center center" layout="column">
+                        <hc-pie-load-chart ng-if="programanalytics.program.most_consumed_program" chartdata="programanalytics.program.most_consumed_program"></hc-pie-load-chart>
+                    </div>
+                </md-whiteframe>  
+            </div>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+    </div>
+</div>    

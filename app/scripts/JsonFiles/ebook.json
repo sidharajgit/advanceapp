@@ -1,0 +1,28 @@
+{
+	"books": {
+		"ebook1":{
+            "link": "http://34.195.78.135/sommer-readium/?epub=epub_content%2FThe_Donkey_the_Fox_and_the_Lion&",
+		     "name": "The_Donkey_the_Fox_and_the_Lion"
+        },
+        "ebook2":{
+            "link": "http://34.195.78.135/sommer-readium//?epub=epub_content%2FThe_Eagle_and_the_Chickens&",
+		     "name": "The_Eagle_and_the_Chickens"
+        },
+        "ebook3":{
+            "link": "http://34.195.78.135/sommer-readium//?epub=epub_content%2FThe_Emperor_and_the_Seed&",
+		     "name": "The_Emperor_and_the_Seed"
+        },
+        "ebook4":{
+            "link": "http://34.195.78.135/sommer-readium//?epub=epub_content%2FThe_Town_Musicians_of_Bremen&",
+		     "name": "The_Town_Musicians_of_Bremen"
+        },"ebook5":{
+            "link": "http://34.195.78.135/sommer-readium//?epub=epub_content%2FThe_Ugly_Princess&",
+		     "name": "The_Ugly_Princess"
+        },
+        "ebook6":{
+            "link": "http://34.195.78.135/sommer-readium//?epub=epub_content%2FThe_Ant_and_the_Grasshopper&",
+		     "name": "The_Ant_and_the_Grasshopper"
+        }
+	}
+
+}

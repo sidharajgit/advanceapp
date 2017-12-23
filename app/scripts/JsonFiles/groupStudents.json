@@ -1,0 +1,29 @@
+{
+	"data": [{
+		"id": "2294",
+		"name": "Teacher studentuser",
+		"username": "studentuser10",
+		"firstname": "Teacher",
+		"lastname": "studentuser",
+		"email": "studentuser10@temp.com",
+		"address": "",
+		"phone_no": "",
+		"lastvisitDate": "",
+		"roaming_content": "0",
+		"classname": "groupOne - test",
+		"is_roaming": false
+	}],
+	"paginateData": {
+		"total_records": 1,
+		"current_page": 1,
+		"start_record": 1,
+		"end_record": 1,
+		"sort": {
+			"column": "name",
+			"order": "desc"
+		}
+	},
+	"message": "",
+	"status": "success",
+	"sessioned": true
+}

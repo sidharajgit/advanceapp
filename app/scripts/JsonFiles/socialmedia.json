@@ -1,0 +1,279 @@
+{
+    "total_social_shares": [
+    {
+      "label": "Facebook",
+      "count": 10
+    },
+    {
+      "label": "Twitter",
+      "count": 524
+    },
+    {
+      "label": "Google+",
+      "count": 142
+    },
+    {
+      "label": "Linkedin",
+      "count": 302
+    }
+  ],
+  "media_type_report": [
+    {
+      "media_type": "Video",
+      "total_shares": 100,
+      "facebook_shares": 200,
+      "twitter_shares": 200,
+      "google_shares": 200,
+      "linkedin_shares": 200
+    },
+    {
+      "media_type": "Game",
+      "total_shares": 100,
+      "facebook_shares": 200,
+      "twitter_shares": 200,
+      "google_shares": 200,
+      "linkedin_shares": 200
+    },
+    {
+      "media_type": "E-book",
+      "total_shares": 100,
+      "facebook_shares": 200,
+      "twitter_shares": 200,
+      "google_shares": 200,
+      "linkedin_shares": 200
+    },
+    {
+      "media_type": "Lesions",
+      "total_shares": 100,
+      "facebook_shares": 200,
+      "twitter_shares": 200,
+      "google_shares": 200,
+      "linkedin_shares": 200
+    },
+    {
+      "media_type": "Product",
+      "total_shares": 100,
+      "facebook_shares": 200,
+      "twitter_shares": 200,
+      "google_shares": 200,
+      "linkedin_shares": 200
+    },
+    {
+      "media_type": "Songs",
+      "total_shares": 100,
+      "facebook_shares": 200,
+      "twitter_shares": 200,
+      "google_shares": 200,
+      "linkedin_shares": 200
+    }
+  ],
+   "social_shares": {
+      "title": "Social Shares",
+       "y_axis_label": "No. of shares",
+      "x": [
+        "2017-06-04",
+        "2017-06-05",
+        "2017-06-06",
+        "2017-06-07",
+        "2017-06-08",
+        "2017-06-09",
+        "2017-06-10"
+      ],
+      "series": [
+        {
+          "name": "Register",
+          "data": [
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40
+          ]
+        }
+      ]
+    },
+  "most_preferred_social_shares": [
+    {
+      "label": "Facebook",
+      "count": 200
+    },
+    {
+      "label": "Twitter",
+      "count": 100
+    },
+    {
+      "label": "Google+",
+      "count": 50
+    },
+    {
+      "label": "Linkedin",
+      "count": 10
+    }
+  ],
+  "social_shares_based_on_program": { 
+   "title":"No. of social shares by Program",
+   "y_axis_label":"No. of social shares",
+   "x":[  
+       "2017-06-07",
+        "2017-06-08",
+        "2017-06-09",
+        "2017-06-10",
+        "2017-06-11",
+        "2017-06-12",
+        "2017-06-13"
+   ],
+   "series":[  
+      {  
+         "name":"Phonic adventures",
+         "data":[  
+            6,
+            5,
+            7,
+            1,
+            6, 
+            7,
+            11
+         ]
+      },
+       {  
+         "name":"Number Success",
+         "data":[  
+            5,
+            2,
+            6,
+            0,
+            2,
+            5,
+            7
+         ]
+      },
+      {  
+         "name":"Reading success",
+         "data":[  
+            5,
+            9,
+            7,
+            5,
+            7,
+             2,
+             8
+         ]
+      },
+      {  
+         "name":"writing Success",
+         "data":[  
+            2,
+            2,
+            8,
+            8,
+            1,
+            2,
+            4
+         ]
+      },
+      {  
+         "name":"E-books",
+         "data":[  
+            7,
+            8,
+            6,
+            6,
+            3,
+            6,
+            8
+             
+         ]
+      },
+      {  
+         "name":"songs & videos",
+         "data":[  
+            9,
+            3,
+            3,
+            5,
+            8,
+            9,
+            10
+         ]
+      }
+    ]
+},
+
+  "social_shares_based_on_media_type": {
+       "title":"Social share Based on Media Type",
+   "y_axis_label":"No. of social shares",
+   "x":[  
+        "2017-06-07",
+        "2017-06-08",
+        "2017-06-09",
+        "2017-06-10",
+        "2017-06-11",
+        "2017-06-12",
+        "2017-06-13"
+   ],
+   "series":[  
+      {  
+         "name":"E-book",
+         "data":[  
+            56,
+            25,
+            67,
+            10,
+            6,
+             67,
+            10
+         ]
+      },
+      {  
+         "name":"Music",
+         "data":[  
+            8,
+            76,
+            88,
+            29,
+            80,
+             76,
+            88
+         ]
+      },
+      {  
+         "name":"Video",
+         "data":[  
+            32,
+            22,
+            78,
+            48,
+            11,
+             32,
+            22
+         ]
+      },
+      {  
+         "name":"Games",
+         "data":[  
+            27,
+            80,
+            66,
+            67,
+            32,
+             67,
+            32
+         ]
+      },
+      {  
+         "name":"Quiz",
+         "data":[  
+            97,
+            23,
+            13,
+            57,
+            84,
+             13,
+            57
+         ]
+      }
+    ]
+  }
+}

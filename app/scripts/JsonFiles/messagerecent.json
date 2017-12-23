@@ -1,0 +1,73 @@
+{
+    "data": {
+        "recentUnreadMsgList": [
+            {
+                "readStatus": 0,
+                "messageId": "12",
+                "senderId": "294",
+                "senderRoleType": "0",
+                "senderUsername": "admin",
+                "senderProfilepic": "http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/1505228377_1783159b7f6596595b_carl-sommer.png",
+                "messageSubject": "test now",
+                "messageContent": "test now",
+                "messageSentTime": "2017-09-14 06:29:32",
+                "messageType": "yes"
+            },
+            {
+                "readStatus": 1,
+                "messageId": "8",
+                "senderId": "294",
+                "senderRoleType": "0",
+                "senderUsername": "admin",
+                "senderProfilepic": "http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/1505228377_1783159b7f6596595b_carl-sommer.png",
+                "messageSubject": "recent reply",
+                "messageContent": "recent reply",
+                "messageSentTime": "2017-09-13 11:15:52",
+                "messageType": "yes"
+            },
+            {
+                "readStatus": 0,
+                "messageId": "4",
+                "senderId": "294",
+                "senderRoleType": "0",
+                "senderUsername": "admin",
+                "senderProfilepic": "http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/1505228377_1783159b7f6596595b_carl-sommer.png",
+                "messageSubject": "recent again",
+                "messageContent": "recent again",
+                "messageSentTime": "2017-09-13 10:40:18",
+                "messageType": "yes"
+            }
+        ],
+        "recentUnreadNotifyList": [
+            {
+                "readStatus": 0,
+                "messageId": "7",
+                "senderId": "294",
+                "senderRoleType": "0",
+                "senderUsername": "admin",
+                "senderProfilepic": "http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/1505228377_1783159b7f6596595b_carl-sommer.png",
+                "messageSubject": "Test Subject",
+                "messageContent": "Test Message",
+                "messageSentTime": "2017-09-13 11:15:05",
+                "messageType": "no"
+            },
+            {
+                "readStatus": 0,
+                "messageId": "6",
+                "senderId": "294",
+                "senderRoleType": "0",
+                "senderUsername": "admin",
+                "senderProfilepic": "http://172.24.137.114/sommer_learning/media/com_sommer/profile/thumb/1505228377_1783159b7f6596595b_carl-sommer.png",
+                "messageSubject": "Test Subject",
+                "messageContent": "Test Message",
+                "messageSentTime": "2017-09-13 11:02:50",
+                "messageType": "no"
+            }
+        ],
+        "msgCount": 3,
+        "notifyCount": 8
+    },
+    "message": "",
+    "status": "success",
+    "sessioned": true
+}

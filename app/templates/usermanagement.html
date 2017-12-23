@@ -1,0 +1,217 @@
+<div layout="column" class="usermanagementCls" id="usermanagementCls" ng-cloak ng-init="svc.myState">     
+    <alert-banner data="alertBaner" ng-if="alertBaner.showBaner"></alert-banner> 
+
+    <div layout="row" layout-align="end center">  
+        <crossicon class="posRelative top-icon-sec" table-type="initialtable"  table-data="tableData" cross-button="crossbutton" add-record="addRecord" on-load-callback="userCallback(arg1)"></crossicon>
+    </div> 
+     
+    <div layout="row">    
+        <div class="tableDiv">
+            <div layout="row" class="multiple-user user-box animate_slider" ng-if="isMultiuser" layout-align="center center"  flex="100" style="display: inline-block;overflow: hidden;">        
+                <div flex-gt-md="50" flex-gt-sm="60" flex="70" class="multiple-content">  
+                    <div class="box-header">
+                        <h3 class="box-title">Upload Users</h3>
+                    </div> 
+                    <p class="spec_sheet_heading"><b>Step 1</b> Download Spreadsheet Template</p>
+                    <ul class="fa-ul filedownload">
+                        <li ng-click=export()><i class="fa fa-download filedownloadicon"></i>&nbsp;&nbsp;Download File</li>
+                    </ul> 
+                    <form name="csvsubmit" ng-submit="(csvextension != true) && csvForm()">
+                        <p class="spec_sheet_heading"><b>Step 2</b> Upload the updated Spreadsheet</p>
+                        <ul class="fa-ul filedownload">
+                            <li ngf-select="uploadcsv($file)" accept=".csv, .xls, .xlsx">
+                            <i class="fa fa-paperclip filedownloadicon" aria-hidden="true"></i>                            
+                            <label id="picture" name="csvsubmit_csvFile" file-model = "csvFile" class="uploadlabeltextcolor" >Upload File</label></li>
+                                 <p class="csvimagename cls_nameCont" title="{{csvFilename}}">{{csvFilename}}</p>
+                            <span class="error csvimagenameerror" ng-show="csvextension">{{csvextensionerror}}</span> 
+                        </ul>
+                        <div class="multi-btn-sec">
+                            <section layout="row" layout-wrap>
+                                <md-button class="md-raised md-warn" ng-click="usercancel()">Cancel</md-button>
+                                <md-button type="submit" class="md-raised md-primary" ng-click="submitted=true">Upload</md-button>
+                            </section>
+                        </div>  
+                    </form>
+                </div>        
+            </div>
+            <div ng-if="isSingleuser" class="add_user_cont animate_slider" style="display: inline-block;overflow: hidden;">
+                <div class="rowform user-box">
+                    <form name="form.usermanagement" novalidate autocomplete="off" ng-submit="createUser()"> 
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Create New User</h3>
+                                        </div>    
+                                    </div>    
+                                    <div flex="15"></div>    
+                                    <div flex="100"></div>   
+                                </div>    
+                            </div>
+                        </div>
+												
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+										<md-input-container class="md-block">    
+                                            <label>User Name</label> 
+                                            <input type="text" name="usermanagement_username" id="username" ng-model="user.username" ng-pattern="/^[a-zA-Z0-9]*$/" ng-keyup="validateUserName()" > 
+											<div ng-if="userNameExist"><span class="error_msg_displ">{{UsernameError}}</span></div> 
+                                            <div ng-messages="form.usermanagement.usermanagement_username.$error">
+                                                <span ng-message="pattern">Invalid username.</span>
+                                            </div>
+                                        </md-input-container>
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">
+                                        <md-input-container class="md-block">
+                                            <label>User Type</label> 
+                                            <md-select name="usermanagement_roletype" ng-model="user.roletype" required >
+                                            <md-option ng-repeat="role in rotetype" value="{{role.roleid}}">{{role.rolname}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="form.usermanagement.usermanagement_roletype.$error">
+                                                <span ng-message="required">This is required.</span>
+                                            </div>   
+                                        </md-input-container> 
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div> 
+
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                        <md-input-container class="md-block md-input-invalid">
+                                            <label for="input_5" class="md-required">First Name</label>
+                                            <input ng-model="user.firstname" ng-pattern="/^[a-zA-Z\s]*$/" name="usermanagement_firstname" required  style="" type="text">
+                                            <div ng-messages="form.usermanagement.usermanagement_firstname.$error" >
+                                                <span ng-message="required">This is required.</span>
+                                                <span ng-message="pattern">Invalid First Name</span>
+                                            </div>
+                                        </md-input-container>
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">
+                                        <md-input-container class="md-block">   
+                                            <label>Last Name</label>   
+                                            <input type="text" name="usermanagement_lastname" ng-model="user.lastname" required ng-pattern="/^[a-zA-Z\s]*$/" >
+                                            <div ng-messages="form.usermanagement.usermanagement_lastname.$error">
+                                                <span ng-message="required">This is required.</span>
+                                                <span ng-message="pattern">Invalid Last Name.</span>
+                                            </div>
+                                        </md-input-container>     
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div>
+
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+                                        <div layout="row" class="userdateofbirth">  
+                                            <div flex="100">
+                                                <label class="doblabel">Date of Birth</label>
+                                                <div layout="row">
+                                                    <datemonthyear datemonth="user.dob" agecheck="'ageabovethirteen'" isrequired="true"></datemonthyear>
+                                                </div>
+                                            </div>    
+                                        </div>   
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">  
+										<md-input-container class="genter_details">
+										<label>Gender</label>
+											<md-radio-group name="gender" ng-model="user.gender" ng-required="true" class="" >
+												<md-radio-button value="male" class="md-primary">male</md-radio-button>
+												<md-radio-button value="female"> female </md-radio-button>
+											</md-radio-group>
+											<div ng-messages="form.usermanagement.gender.$error">
+											  <div ng-message="required">Gender is required.</div>
+											</div>
+										  </md-input-container>                                     
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div>     
+
+                      <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">   
+                                        <md-input-container class="md-block">
+											<label>Email ID</label>
+											<div>
+												<input type="email" name="usermanagement_email1"  ng-model="user.email1" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/" ng-keyup="validateEmail()" required>
+												<div ng-if="useremailexist" class="error-text">Email ID Already Exist.</div>
+												<div ng-messages="form.usermanagement.usermanagement_email1.$error">
+													<span ng-message="pattern">Invalid Email.</span>
+                                                    <span ng-message="required">This is required.</span>
+												</div>
+											</div>
+										</md-input-container>
+                                    </div>    
+                                    <div flex="15"></div>            
+                                    <div flex="100">
+                                    </div> 
+                                </div>        
+                            </div>        
+                        </div>		
+						
+						 <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row" layout-align="space-around center">
+                                    <div flex="100">
+									  <phonenumber-directive phonetrue="phoneboolvalue" placeholder="myPrompt" model='user.phone_no'></phonenumber-directive>             
+									            
+									</div>  
+                                    <div flex="15"></div>
+                                    <div flex="100">
+                                        <md-input-container class="md-block txtarea_md">
+                                            <label>Address</label>
+                                            <textarea maxlength="150" md-no-asterisk name="usermanagement_address" ng-model="user.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                            <div ng-if="form.usermanagement.usermanagement_address.$viewValue" ng-messages="form.usermanagement.usermanagement_address.$error">
+                                                <div ng-message="maxlength">Maximum length 150.</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                </div>        
+                        	</div> 		
+                        </div> 		
+
+                        <div layout="row" layout-align="space-around center">
+                            <div class="width-user-top">
+                                <div layout="row">   
+                                    <div flex="100"></div>     
+                                    <div flex="15"></div>
+                                    <div flex="100">
+                                         <div class="btn-sec">
+                                            <md-button class="md-raised md-warn" ng-click="usercancel()">Cancel</md-button>
+                                            <md-button type="submit" class="md-raised md-primary" ng-disabled="form.usermanagement.$invalid || phoneboolvalue || userNameExist || useremailexist" >Create</md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div> 
+            </div> 
+             
+			<div class="res_table_width">
+                <div layout="row" class="usermanagement_table userListSec">
+                    <md-tabs md-dynamic-height md-border-bottom flex="100"> 
+                        <md-tab label="User's List" ng-disabled="true"></md-tab>
+                        <md-tab ng-repeat="tablename in dynamictable.tablename" ng-click="getUserTableData(tablename.type)">
+                            <md-tab-label>{{tablename.name}}</md-tab-label>
+                            <md-tab-body><table-div ng-if="initialtable == tablename.type" datasource="tableData" paginationdata="pagination" datatable="datatable" get-sourcedata="changePagination(response)" closeregisteration="closeRegisteration(response)"></table-div></md-tab-body>
+                        </md-tab>
+                    </md-tabs>
+                </div>  
+            </div>  
+        </div> 
+    </div>  
+</div> 

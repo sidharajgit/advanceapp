@@ -1,0 +1,10 @@
+<div class="dd-select" ng-click="toggle()" ng-mouseleave='showOption = false'>
+	<div class="dd-selected">
+	  <span>{{select}}</span><span class="pull-right">^</span>	
+	</div>
+	<div class="dd-options" ng-show="showOption">
+		<div ng-repeat="option in selectOptions"  ng-click="selection(option)">
+			{{option.name}}
+		</div>
+	</div>
+</div>

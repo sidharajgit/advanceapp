@@ -1,0 +1,38 @@
+{
+  "name": "advancepublishing",
+  "description": "Build process for advance publishing",
+  "version": "0.0.0",
+  "scripts": {
+    "init": "npm install",
+    "install": "bower install"
+  },
+  "devDependencies": {
+    "bower-files": "^3.11.3",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-csslint": "^0.2.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-inject": "^2.2.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-order": "^1.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.8",
+    "gulp-zip": "^3.2.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-spec-reporter": "0.0.31"
+  },
+  "dependencies": {
+    "opn": "^5.1.0",
+    "smdatetimerangepicker": "^2.0.10"
+  }
+}

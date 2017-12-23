@@ -1,0 +1,170 @@
+<!-- Added edit,delete,view button here -->  
+<div ng-cloak>   
+<div ng-if="contentHead.columnName == 'addeditview'" class="act-btn-width" ng-controller="toggle_btns">
+    <a href="javascript:void(0);" class="toggle_icon_res" ng-click="toggleRed = !toggleRed"><i class="fa fa-ellipsis-v"></i></a>   
+    <div class="btn_act_icons" ng-class="{'show_act_btns': toggleRed}">
+		
+        <tooltip tooltips="" ng-if="currentStateName != 'adminLanding.classmanagement'" tooltip-template="Message" tooltip-side="top" class="tooltips _top _steady _multiline _ready"> 
+            <tip-cont> 
+                <a class="btn actn-btn-mail" ng-click="editMessage()" ng-disabled="contentBody.isMessage"><span><i class="fa fa-envelope-o"></i></span></a>
+            </tip-cont>
+        </tooltip>
+        <!-- <tooltip tooltips="" ng-if="currentStateName != 'adminLanding.classmanagement'" tooltip-template="Edit" tooltip-side="top" class="tooltips _top _steady _multiline _ready"> 
+            <tip-cont> 
+                <a class="btn actn-btn-edit" ng-click="editRow(contentBody.isprimaryuser);" ng-disabled="contentBody.isEditable && !contentBody.isAddCourse && !contentBody.isAddUser"><span><i class="fa fa-pencil"></i></span></a>  
+            </tip-cont>
+        </tooltip> -->
+        <tooltip tooltips="" ng-if="currentStateName != 'adminLanding.classmanagement'" tooltip-template="Delete" tooltip-side="top" class="tooltips _top _steady _multiline _ready"> 
+            <tip-cont> 
+                <a class="btn actn-btn-delete" ng-click="deleteRow(contentHead.actionMethods.delete.viewName)"><span><i class="fa fa-trash"></i></span></a>
+            </tip-cont>
+        </tooltip>
+        <tooltip tooltips="" ng-if="currentStateName != 'adminLanding.classmanagement'" tooltip-template="View" tooltip-side="top" class="tooltips _top _steady _multiline _ready"> 
+            <tip-cont> 
+                <a class="btn actn-btn-view" ng-class="{close_btn_act: contentBody.viewChild}" ng-hide="contentHead.ishideViewbtn" ng-disabled="contentBody.isEditable" ng-click="!contentBody.isEditable && viewRow()">
+                    <span>
+                        <span ng-if="contentBody.viewChild" class="close_btn_tb"><i class="fa fa-eye-slash"></i></span>
+                        <span ng-if="!contentBody.viewChild" class="view_btn_tb"><i class="fa fa-eye"></i></span>    
+                    </span>
+                </a>
+            </tip-cont>
+        </tooltip>
+		
+		<tooltip tooltips="" ng-if="currentStateName == 'adminLanding.classmanagement'" tooltip-template="View" tooltip-side="top" class="tooltips _top _steady _multiline _ready"> 
+            <tip-cont> 
+                <!--<a class="btn actn-btn-view" ui-sref="classDetails({table: 'users', classid: contentBody.id})" >
+                   <i class="fa fa-eye-slash"></i>
+                </a>-->
+				<a class="btn actn-btn-view" ng-click="classdetailspage()" >
+                   <i class="fa fa-eye-slash"></i>
+                </a>
+            </tip-cont>
+        </tooltip>
+        
+    </div>       
+</div>
+ 
+<div class="vsbl-xs"></div>
+	
+<div ng-if="contentHead.columnName == 'trashview'" class="act-btn-width" >
+    <a href="javascript:void(0);" class="toggle_icon_res" ng-click="toggleRed = !toggleRed"><i class="fa fa-ellipsis-v"></i></a>   
+    <div class="btn_act_icons" ng-class="{'show_act_btns': toggleRed}">	
+        <tooltip tooltips="" tooltip-template="Undo" tooltip-side="top" class="tooltips _top _steady _multiline _ready"> 
+            <tip-cont> 
+                <a class="trash_user_undo actn-btn-edit" ng-click="clickundouser(contentBody.id,'undo');"><i class="fa fa-undo"></i></a>
+            </tip-cont>
+        </tooltip>
+        <tooltip tooltips="" tooltip-template="Permanent Delete" tooltip-side="top" class="tooltips _top _steady _multiline _ready"> 
+            <tip-cont> 
+                <a class="trash_user_delete actn-btn-delete" ng-click="clickpermanantdeleteuser(contentBody.id,'permanent');"><i class="fa fa-trash"></i></a>  
+            </tip-cont>
+        </tooltip>			       
+    </div>      
+</div>	
+	
+
+<!-- Add button with values added here --> 
+<div ng-if="contentHead.columnName == 'addWithtext'" class="modif_sec_tbl" ng-mouseleave="classusercourselisthide()">  
+ 	<span class="modify_btn_wd" >  
+        <a href="javascript:void(0);" class="mus-over" ng-mouseover="classusercourselistdisplay(contentBody,contentHead.paramvalue)">{{contentBody[contentHead.bind_val]}}</a>
+        <div ng-if="contentHead.bind_val == 'user_count'" style="float: left;" ng-mouseover="classusercourselisthide()">
+     
+        </div>
+        <div ng-if="contentHead.bind_val == 'course_count'" style="float: left;" ng-mouseover="classusercourselisthide()">
+        </div>
+    </span>
+	
+	<div class="ShowList_oHv" ng-mouseleave="close_course_list()" ng-if="groupwithuser.length > 0 && courseandlist" > <!--ng-if="courseandusers.length > 0 && courseandlist"-->
+	    <div class="title_h3">
+	        <h3 ng-bind="listType"></h3>
+	        <a href="javascript:void(0);" class="ShowList_close" ng-click="close_course_list();"><i class="fa fa-times"></i></a>
+	    </div>
+		<ul class="ShowList_oHv_ul">
+			<li ng-repeat="grpclass in groupwithuser track by $index"><span ng-bind="grpclass"></span></li>
+		</ul>
+	</div>
+</div> 
+	
+
+<!-- Add and remove toggle added here -->
+<div ng-if="contentHead.columnName == 'toggleButtons'">
+     <span ng-init="addtext=false;removetext=true">
+          <a ng-hide="addtext" ng-click="addcheckuser($event,contentBody.id);addtext=true;removetext=false">Add</a>
+		  <a ng-hide="removetext" ng-click="addcheckuser($event,contentBody.id);addtext=false;removetext=true">Remove</a>
+     </span>
+</div>
+
+<!-- Add and remove toggle added here -->
+<div ng-if="contentHead.columnName == 'UpdateUserButtons'">
+     <span>
+	     <input type="hidden" ng-value="contentBody.id" ng-model="contentBody.useradd" ng-checked="{{contentBody.useradd}}">
+          <a ng-show="!contentBody.useradd" ng-click="updatecheckuseradd($event,contentBody.id,true,'enrol');">Add</a>  
+		  <a ng-show="contentBody.useradd" ng-click="updatecheckuseradd($event,contentBody.id,false,'unenrol');">Remove</a> 
+     </span>
+</div>
+
+	
+<div ng-if="contentHead.columnName == 'ClassEnrollButtons'">
+     <span>
+	  <input type="hidden" ng-value="contentBody.id" ng-model="contentBody.enrolstatus" ng-checked="{{contentBody.enrollcourse}}">
+          <a ng-show="!contentBody.enrolstatus" ng-click="addcourseenroll($event,contentBody.id,true,'enrol');">Assign</a>
+		  <a ng-show="contentBody.enrolstatus" ng-click="addcourseenroll($event,contentBody.id,false,'unenrol');">Remove</a>
+     </span>
+</div>
+<div ng-if="contentHead.columnName == 'EnrollButtons'">
+     <span>
+	  <input type="hidden" ng-value="contentBody.id" ng-model="contentBody.enrollcourse" ng-checked="{{contentBody.enrollcourse}}">
+          <a ng-show="!contentBody.enrollcourse" ng-click="addcourseenroll($event,contentBody.id,true,'enrol');">Assign</a>
+		  <a ng-show="contentBody.enrollcourse" ng-click="addcourseenroll($event,contentBody.id,false,'unenrol');">Remove</a>
+     </span>
+</div>
+
+<div ng-if="contentHead.columnName == 'linktoparent'">
+     <span>
+	  <input type="hidden" ng-value="contentBody.id" ng-model="contentBody.parentadd" ng-checked="{{contentBody.parentadd}}">
+          <a ng-show="!contentBody.parentadd" ng-click="addparentlink($event,contentBody.id,true,'link');">Link</a>
+		  <a ng-show="contentBody.parentadd" ng-click="addparentlink($event,contentBody.id,false,'delink');">Unlink</a>
+     </span>
+</div>
+	
+<div ng-if="contentHead.columnName == 'addtooltippopup'" class="textoverflow" ng-mouseleave="removetooltippopup()">  
+	<span ng-mouseover="addtooltippopup(contentBody[contentHead.bind_val],contentHead.name)" class="addtooltippopup" >{{contentBody[contentHead.bind_val]}} </span> 
+		<div class="ShowList_oHv" ng-mouseleave="removetooltippopup()" ng-if="groupwithclassbool"> 
+		<div class="title_h3">
+			<h3>{{grpClsTitle}}<span ng-if="groupwithclassbool"> - Class</span></h3>
+			<a href="javascript:void(0);" class="ShowList_close" ng-click="removetooltippopup();"><i class="fa fa-times"></i></a>
+		</div>
+		<ul class="ShowList_oHv_ul">
+			<li ng-repeat="grpclass in groupwithclass track by $index"><span ng-bind="grpclass"></span></li>
+		</ul>
+	</div>
+</div>
+	
+<div ng-if="contentHead.columnName == 'dottedIcons'" class="table_action_lt" ng-mouseleave="closeOptions()">
+    <button class="toggle_btn_tbl" ng-click="openOptions()"><i class="fa fa-ellipsis-v"></i></button>
+    <div class="option_cont_tbl" ng-if="options" ng-mouseleave="closeOptions()">
+        <ul>
+            <li><a href="javascript:void(0);" ng-click="assignContent()">Assign</a></li>
+            <li><a href="javascript:void(0);" ng-click="editStudentPopup($event);">Edit</a></li> 
+            <li><a href="javascript:void(0);" ng-click="removeUserFromClassOrGroup();">Remove</a></li>
+            <!--<li><a href="javascript:void(0);" ng-click="messagePopup($event, 'user',contentHead.apiParams,contentBody.id)">Message</a>-->
+        </ul>
+    </div>
+</div>	
+	
+<!--Class student list custom column for add to class-->
+<div ng-if="contentHead.columnName == 'addToclass' && !isHeader">
+    <div class="cta-list">
+    	<a ng-show="!contentBody.studentAdded" ng-click="toggleusertoClass(contentBody.id,true);">{{contentHead.isClass}}</a>
+     	<a ng-show="contentBody.studentAdded" ng-click="toggleusertoClass(contentBody.id,false);">Remove</a>
+    </div>      
+</div>
+
+<!--Class student list custom column for add to class-->
+<div ng-if="contentHead.columnName == 'addToclass' && isHeader"> 
+    <div class="cta-list">
+    	<button ng-show="!contentHead.addedAll" ng-click="togglealltoClass(true,'add');" ng-disabled="contentItems.length == 0" >ADD ALL</button>
+     	<button ng-show="contentHead.addedAll" ng-click="togglealltoClass(false,'remove');">REMOVE ALL</button>
+    </div>      
+</div>	
+</div>

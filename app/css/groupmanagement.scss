@@ -1,0 +1,212 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+
+.admintablecls {
+    .editgroupname{
+        border: none;
+        border-bottom: 1px solid gray;
+        width: 150px;
+        outline:none;
+        text-align: center;
+        text-overflow: ellipsis;
+     }
+    .groupmanagementCls{
+        .width-grp-top{
+            width:50%;   
+        }
+        .width-grp2-top{
+            width:100%;   
+        }
+        .tableDiv{
+            .btn-sec{
+                position: absolute;
+                /*top:9em;*/
+                margin-top: -6em;
+            }
+            .btn-sec1{
+                position: absolute;
+                /*top:25em;*/
+                right: 1em;
+                margin-top: -3em;
+            }
+            
+        }
+        .top-icon-sec{
+            .md-button{
+                md-icon{
+                    height: auto;
+                    min-height: 0;
+                    color: #fff !important;
+                    line-height: 0;
+                    min-width: auto;
+                    width: auto;
+                    
+                }
+                  }
+            .btnDisable{
+                @include disableBtn;
+                background: #3498db !important;
+                &:focus, &:hover, &[disabled="disabled"]{
+                    background: #3498db !important;
+                }
+            }
+        .md-button:hover{
+            background-color: #3498db !important;
+        }
+        }
+                        
+    }
+}
+.groupmanagementCls{
+    .width-grp-top{
+        width: 80%;
+    }
+    .groupeditmargincls{
+        margin-top: 58px;
+        .edit-rgt-sec{
+            .md-input-custom{
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+        md-input-container{
+            /*min-height: 108px;*/
+            min-height: 68px;
+            margin: 5px 0;
+            span{
+                .error{
+                    color: rgb(221,44,0);
+                }
+            } 
+        }
+    }
+    .groupviewimageupload{
+        height: 47px;
+        width: 49px;
+        border-radius: 31px;
+        position: relative;
+        left: 16px;
+        bottom: 6px;
+    }
+    md-content {
+        background-color: white;
+        .groupadd{
+            background-color: white;
+            .groupcancel{
+                position: relative;
+                left: 216px; 
+                bottom: 100px;
+            }
+            .groupnext{
+                position: relative;
+                left: 216px;
+                bottom: 100px;
+            }
+        }
+    }
+    .groupcreation{
+         background-color: white;
+        .editnameclass{
+             font-weight: 700;
+             font-size: 16px;
+             margin-left: 7em;
+            h5{
+                color: gray;
+                text-decoration: underline;
+            }
+            .editgroupname{
+                border: none;
+                border-bottom: 1px solid gray;
+                width: 70px;
+            }
+        }
+        
+        .groupassign{
+            position: relative;
+            left: 678px;
+            bottom: 93px;
+        }
+        .groupcreatecancel{
+            position: relative;
+            left: 678px;
+            bottom: 93px;
+        }
+    }
+    .groupeditviewcls{
+        .submt-sec{
+            margin-top: -8.5em;
+        }
+        form{
+            width: 60%;
+        }
+        .grp-form-sec{
+            width: 60%;
+        }
+        .groupiconcls{
+            position: relative;
+            bottom: 27px;
+            left: 2px;
+            font-size: 10px;
+        }
+        .imageclassname{
+            position: relative;
+            bottom: 24px;
+            left: 2px;
+        }
+        .groupimageupload{
+            width: 50px;
+            height: 50px;
+            bottom: 50px;
+            right: 0;
+            position: absolute;
+        }
+        .befr-img-upload{
+            bottom: 50px;   
+        }
+        md-input-container{
+           // min-height: 78px;
+            label{
+                font-size: 16px;
+            } 
+            input{
+                font-size: 14px;
+                max-height: 32px;
+            }
+        }
+        md-list-item{
+            p{
+                color: gray;
+                /*font-weight: bold;*/
+                font-size: .8em;
+            }
+            h6{
+                font-weight: bold;
+            }
+        }
+       
+    }
+    
+    .submt-sec{
+        .btn-create{
+               position: relative;
+               top: 23px;
+            }
+        .btn-cancel{
+            position: relative;
+            top: 23px;
+        }
+    }
+    
+    .norecordfoundcls{
+        height: 400px;
+        text-align: center;
+        color: orangered;
+        font-weight: 600;
+    }
+}
+.grp_add_email_container{
+    /*margin-top: 40px;
+    margin-top: -55px;*/
+}

@@ -1,0 +1,108 @@
+<md-dialog aria-label="Message" class="Modal_wrap lg-modal"> 
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <span flex></span>
+    <md-button class="md-icon-button" ng-click="cancel()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+    </md-button>
+  </div>
+</md-toolbar>
+<md-dialog-content>
+        <div class="width-add-stud">
+            <div class="box-header">
+                <h3 class="box-title">Message</h3>
+            </div>
+        <form name="form.message" novalidate autocomplete="off" ng-submit="sendMessage()">
+            <md-input-container class="md-block">
+                <label>Message Type</label>
+                <md-select name = "compose_category" ng-model="message.compose_category" required>
+                  <md-option ng-repeat="item in messageCategory" value="{{item}}">{{item}}</md-option>
+                </md-select>
+                <div ng-messages="form.message.compose_category.$error" class="custom-error">
+                    <span ng-message="required">This is required.</span>                
+                </div>
+          </md-input-container>
+            <div layout="row" layout-align="space-around center">
+                <div flex="80">
+                    <md-input-container class="md-block md-input-invalid">
+                        <label class="md-required">Subject</label>
+                        <input ng-model="message.subject_text" name="subject_text" required type="text" ng-maxlength="70">
+                        <div ng-messages="form.message.subject_text.$error">
+                            <span ng-message="required">This is required.</span>
+                            <span ng-message="maxlength">Subject should not be more than 70 characters.</span>
+                        </div>
+                    </md-input-container>
+                </div>                
+            </div>
+            <!--<div layout="row" layout-align="space-around center">
+                <div flex="100">
+                    <md-input-container class="md-block md-input-invalid">
+                        <label class="md-required">Message</label>
+                        <textarea md-no-asterisk name="message_text" ng-model="message.message_text" rows="5" md-select-on-focus required></textarea>
+                        <div ng-messages="form.message.message_text.$error">
+                            <span ng-message="required">This is required.</span>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>-->
+            
+            <!--<div layout="row" layout-align="space-around center" ng-if="message.compose_category == 'message' || message.compose_category === undefined">
+                <div flex="80">
+                    <md-input-container class="md-block">
+                        <label class="md-required">Message</label>
+                        <textarea name="message_text" ng-model="message.message_text" rows="5" ng-keyup="customWordValidation()" required></textarea>  
+                        <div ng-messages="form.message.message_text.$error">
+                            <span ng-message="required">This is required.</span>                
+                        </div>
+                    </md-input-container>
+                </div>            
+            </div> ng-if="message.compose_category != 'message' && message.compose_category !== undefined" -->
+        
+        <div layout="row" layout-align="space-around center">
+            <div flex="80">
+                <md-input-container class="compose-message-div">
+                    <label class="md-required">Message</label>
+                    <text-angular name="message_texteditor" ng-model="message.message_text" ta-toolbar="textangulartoolbar" ng-keyup="customWordValidation()" required></text-angular>         
+
+                    <div ng-messages="form.message.message_texteditor.$error" class="error-text">
+                        <span ng-message="required">This is required.</span>                
+                    </div>
+                </md-input-container>
+            </div>
+            
+        </div>
+        <div ng-show="modalMsgEditWordCount" class="error-text">
+            <span>Maximum word count is 50</span>                
+        </div>
+       <!-- <div flex="100">
+                <md-checkbox name="msgeditoron" ng-model="msgeditoron" ng-change="msgeditoronoff(msgeditoron)">Want Editor?</md-checkbox>
+            </div>-->
+          <div flex="100" ng-if="message.compose_category != 'message' && message.compose_category !== undefined">
+            <ul class="fa-ul filedownload">
+                <li ngf-select="upload($files)" ngf-multiple="true" accept=".jpg, .png, .jpeg">
+                    <i class="fa fa-paperclip filedownloadicon" aria-hidden="true"></i>
+                    <label id="picture" name="forum_image" file-model="imageFile" class="uploadlabeltextcolor">Attach Files</label></li>                                            
+            </ul>
+            
+           <div ng-if="validImage" class="UploadedImgF">
+                <p class="forumimagename" title="imgname.name" ng-repeat="imgname in validImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span class="closeBTN" ng-click="removeImage($event,$index)" style="color:red">X</span></p>
+            </div>
+                <div ng-if="invalidImage" class="UploadedImgF">
+                <p class="forumimagename" title="imgname.name" ng-repeat="imgname in invalidImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span ng-if="!imgname.valid" style="color:red"> - Invalid file</span></p>
+            </div>                                              
+        </div>  
+            
+            <div layout="row" layout-align="space-around center" flex="80">
+                <div flex="100"></div>
+                <div flex="15"></div>
+                <div flex="100">
+                    <div class="btn-sec">
+                        <md-button class="md-raised md-warn secondry_btn" ng-click="cancel()">Cancel</md-button>
+                        <md-button type="submit" class="md-raised md-primary primary_btn" ng-disabled="form.message.$invalid || modalMsgEditWordCount">Send</md-button>                                
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </md-dialog-content>    
+</md-dialog>

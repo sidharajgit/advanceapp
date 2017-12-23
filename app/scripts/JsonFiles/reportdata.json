@@ -1,0 +1,420 @@
+{
+    "users": [
+    {
+      "label": "Registered",
+      "count": 9
+    },
+    {
+      "label": "Not Activated",
+      "count": 0
+    },
+    {
+      "label": "Guest Users",
+      "count": 0
+    }
+  ],
+  "users_status": [
+    {
+      "label": "Active",
+      "count": 3
+    },
+    {
+      "label": "Inactive",
+      "count": 6
+    },
+    {
+      "label": "Deactivated",
+      "count": 1
+    },
+    {
+      "label": "Deleted",
+      "count": 0
+    }
+  ],
+  "register_report": [
+    {
+      "usertype": "Teacher",
+      "total": 1
+    },
+    {
+      "usertype": "Student",
+      "total": 3
+    }
+  ],
+  "users_report": [ 
+    {
+      "id": 1151,
+      "name": "group admin",
+      "username": "groupadmin",
+      "email": "groupadmin@temp.com",
+      "firstname": "group",
+      "lastname": "admin",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "01/06/2017 04:52:29",
+      "lastlogin": "06/30/2017 08:12:29",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.193.23"
+    },
+    {
+      "id": 1364,
+      "name": "teacher one",
+      "username": "t1987",
+      "email": "teacherone@temp.com",
+      "firstname": "teacher",
+      "lastname": "one",
+      "usertype": "Teacher",
+      "status": "active",
+      "created": "05/31/2017 14:52:29",
+      "lastlogin": "07/15/2017 18:32:29",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.193.23"
+    },
+    {
+      "id": 1365,
+      "name": "student one",
+      "username": "s12",
+      "email": "studentone@temp.com",
+      "firstname": "student",
+      "lastname": "one",
+      "usertype": "Student",
+      "status": "active",
+      "created": "05/15/2017 00:22:29",
+      "lastlogin": "07/11/2017 14:02:29",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.87"
+    },
+    {
+      "id": 1366,
+      "name": "student two",
+      "username": "s13",
+      "email": "studenttwo@temp.com",
+      "firstname": "student",
+      "lastname": "two",
+      "usertype": "Student",
+      "status": "active",
+      "created": "05/19/2017 09:00:39",
+      "lastlogin": "00/00/0000 00:00:00",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.66"
+    },
+    {
+      "id": 1367,
+      "name": "student three",
+      "username": "s14",
+      "email": "studentthree@temp.com",
+      "firstname": "student",
+      "lastname": "three",
+      "usertype": "Student",
+      "status": "active",
+      "created": "06/25/2017 15:22:29",
+      "lastlogin": "00/00/0000 00:00:00",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.66"
+    },
+    {
+      "id": 1382,
+      "name": "grpa grpb",
+      "username": "grpa",
+      "email": "grp@g.com",
+      "firstname": "grpa",
+      "lastname": "grpb",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "05/30/2017 06:14:54",
+      "lastlogin": "00/00/0000 00:00:00",
+      "groupname": "bnbnbnb",
+      "lastip": "172.24.190.175"
+    },
+    {
+      "id": 1384,
+      "name": "test user",
+      "username": "testuser1",
+      "email": "testuser1@gmail.com",
+      "firstname": "test",
+      "lastname": "user",
+      "usertype": "Student",
+      "status": "inactive",
+      "created": "06/17/2017 06:33:42",
+      "lastlogin": "07/13/2017 06:36:20",
+      "groupname": "SommerGroup",
+      "lastip": "172.24.198.223"
+    },
+    {
+      "id": 1396,
+      "name": "ggggg ggggg",
+      "username": "ggggg",
+      "email": "ggggg@gmail.com",
+      "firstname": "ggggg",
+      "lastname": "ggggg",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "01/06/2017 08:53:57",
+      "lastlogin": "00/00/0000 00:00:00",
+      "groupname": "ggggg",
+      "lastip": "172.24.198.113"
+    },
+    {
+      "id": 1400,
+      "name": "sgsg sgsg",
+      "username": "sgsdgsg",
+      "email": "sgsdgs@afsf.in",
+      "firstname": "sgsg",
+      "lastname": "sgsg",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "04/26/2017 14:52:29",
+      "lastlogin": "00/00/0000 00:00:00",
+      "groupname": "wewttwet",
+      "lastip": "172.24.198.113"
+    },
+    {
+      "id": 1401,
+      "name": "bnbnbn bnbnbn",
+      "username": "bnbnbn",
+      "email": "bnbnbn@dfgdf.in",
+      "firstname": "bnbnbn",
+      "lastname": "bnbnbn",
+      "usertype": "Group Admin",
+      "status": "active",
+      "created": "04/30/2017 09:09:14",
+      "lastlogin": "00/00/0000 00:00:00",
+      "groupname": "bnbnbnb",
+      "lastip": "172.24.198.113"
+    }
+  ],
+  "site_user_timespent": [
+    {
+      "label": "Guest",
+      "data": {"hours": "01", "minuts": "05", "seconds": "55"}
+    },
+    {
+      "label": "Registered",
+      "data": {"hours": "20", "minuts": "34", "seconds": "27"}
+    }
+  ]
+, 
+  "enrollments": [
+    {
+      "count": 1,
+      "label": "Enrolled Users"
+    },
+    {
+      "count": 1,
+      "label": "Not Enrolled User"
+    }
+  ],
+  "list_of_courses_assigned_by_teacher_or_parent": [
+    {
+      "course_id": 1,
+      "course_name": "SPi Global",
+      "user_id": 2,
+      "user_name": "Super User",
+      "user_type": "student"
+    }
+  ],
+  "count_of_usertypes_in_site": [{"count": 8, "label": "Student"}, {"count": 2, "label": "Parent"}],
+  "user_visits": {
+    "title": "Number of visitors",
+    "y_axis_label":"No. of Visits",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "Guest Users Visits",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Registered Users Visits",
+        "data": [
+          169,
+          303,
+          376,
+          498
+        ]
+      }
+    ]
+  },
+  "source_of_traffic": {
+    "by_device": [
+      {
+        "label": "Desktop",
+        "count": 163
+      },
+      {
+        "label": "Tablet",
+        "count": 2
+      },
+      {
+        "label": "Mobile",
+        "count": 0
+      },
+      {
+        "label": "Ipad",
+        "count": 0
+      }
+    ],
+    "by_channel": [
+      {
+        "label": "Direct Traffic",
+        "count": 162
+      },
+      {
+        "label": "Facebook",
+        "count": 2
+      },
+      {
+        "label": "Google+",
+        "count": 1
+      },
+      {
+        "label": "Twitter",
+        "count": 0
+      },
+      {
+        "label": "LinkedIn",
+        "count": 0
+      }
+    ]
+  },
+  "by_geo": [
+    
+    [
+      "in",
+      165
+    ],
+      [
+      "br",
+      1
+    ],
+      [
+      "fr",
+      85
+    ]
+  ],
+  "channel_triggered_users_visit":{  
+     "title":"Channel that triggered the user website visit",
+     "y_axis_label":"No. of Channels",
+     "x":[  
+        "2017-06-22",
+        "2017-06-23",
+        "2017-06-24",
+        "2017-06-25",
+        "2017-06-26",
+        "2017-06-27",
+        "2017-06-28"
+     ],
+     "series":[  
+        {  
+           "name":"Advertisement\/Campaign",
+           "data":[  
+              88,
+              28,
+              81,
+              99,
+              74,
+              21,
+              30
+           ]
+        },
+        {  
+           "name":"Digital Marketing Channel",
+           "data":[  
+              81,
+              18,
+              28,
+              99,
+              64,
+              87,
+              72
+           ]
+        },
+        {  
+           "name":"Website banners",
+           "data":[  
+              62,
+              97,
+              7,
+              95,
+              20,
+              98,
+              41
+           ]
+        }
+     ]
+  },
+  "conversion_ratio": 
+    {
+      "title": "Conversion Ratio",
+        "y_axis_label": "No. of Registered users",
+        "x": [
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017"
+        ],
+        "series": [            
+        {
+        "name": "Conversion Ratio",
+        "data": [
+          0,
+          1,
+          3,
+          5,
+        7.88
+        ]
+      }
+        ]
+    },
+  "guest_registered": [
+    {
+      "label": "Guest visits",
+      "data": [
+        {
+          "date": "2017-03-01",
+          "count": 1,
+          "Ip": [
+            {
+              "Ip": "172.24.198.8",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "date": "2017-05-22",
+          "count": 1,
+          "Ip": [
+            {
+              "Ip": "172.24.198.223",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "date": "2017-05-25",
+          "count": 1,
+          "Ip": [
+            {
+              "Ip": "172.24.198.9",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Registered users",
+      "data": []
+    }
+  ]
+}

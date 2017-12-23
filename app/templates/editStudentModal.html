@@ -1,0 +1,189 @@
+<md-dialog aria-label="Create New Class" class="Modal_wrap lg-modal">
+       <div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">
+			<div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+				<div class="icon_display">
+					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+										  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+										  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+									  </svg>
+					<svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+										  <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+										  <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+									  </svg>
+				</div>
+				<div class="display_message">{{alertBaner.message}}</div>
+			</div>
+		</div> 
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>Edit Student</h2>
+              <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+            </md-button>
+          </div>
+        </md-toolbar> 
+        <md-dialog-content>
+            <div class="width-add-stud">
+               <div class="md-dialog-content"><!---->
+                <form name="form.editStudent" novalidate autocomplete="off" ng-submit="editUser()" class="Edit_form_modal">
+                    
+                    <div class="Ma0" flex="100">
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">
+                            <!--img crop start-->
+                            <div class="cr_class_sec">
+                        <div class="md-input-custom cus-grp-icon grup_editimg">   
+                            <div class="upload_input">
+                                <input type="file" ng-click="handleFileSelect()" name="picture"  id="fileInput" ng-model="image" accept=".png, .jpg, .jpeg" />
+                            </div>
+                            <div>
+                                <div>
+                                    <img ng-if="studentProfilePic" ng-src="{{studentProfilePic}}" class="groupimageupload aftr-img-upload">
+                                </div>
+                            </div>
+                            <div class="backdrop_crop" ng-click="hidepopup()" ng-show="showDown"></div>
+                            <div class="img_cropSec" ng-show="showDown">
+                                <div>
+                                    <div class="cropAreaNs">
+                                        <ui-cropper image="myImage" area-type="rectangle" result-image="myCroppedImage" live-view="blockingObject"></ui-cropper>
+                                        <div class="render_btn"><a ng-click="hidepopup()" href="javascript:void(0);" class="cancel_btn md-raised md-warn md-button md-ink-ripple secondry_btn">Cancel</a><a ng-click="renderimage()" href="javascript:void(0);" class="md-raised md-primary md-button md-ink-ripple primary_btn">Crop &amp; Save</a></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div> 
+                        </div>
+                        </div>
+                        <div flex="15"></div>
+						<div flex="100">
+						    <md-input-container class="md-block" flex-gt-xs>
+                                <label>Username</label>
+                                <input value="{{user.username}}" disabled>
+                            </md-input-container>
+
+						  
+						</div>
+                    </div>
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">
+                            <md-input-container class="md-block md-input-invalid">
+                                <label for="input_5" class="md-required">First Name</label>
+                                <input ng-model="user.firstname" ng-pattern="/^[a-zA-Z\s]*$/" name="user_firstname" required style="" type="text">
+                                <div ng-messages="form.editStudent.user_firstname.$error">
+                                    <span ng-message="required">This is required.</span>
+                                    <span ng-message="pattern">Invalid First Name</span>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <div flex="15"></div>
+                        <div flex="100">
+                            <md-input-container class="md-block">
+                                <label>Last Name</label>
+                                <input type="text" name="user_lastname" ng-model="user.lastname" required ng-pattern="/^[a-zA-Z\s]*$/">
+                                <div ng-messages="form.editStudent.user_lastname.$error">
+                                    <span ng-message="required">This is required.</span>
+                                    <span ng-message="pattern">Invalid Last Name.</span>
+                                </div>
+                            </md-input-container>
+                        </div>
+
+                    </div>
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">
+                            <div layout="row" class="userdateofbirth">  
+                                <div flex="100">
+                                    <div flex="100">
+                                        <label class="modeldob">Date of Birth</label>
+                                    <div layout="row">
+                                        <datemonthyear datemonth="user.dob" agecheck="''" isrequired="true"></datemonthyear>
+                                    </div>
+                                </div> 
+                                </div>    
+                            </div>   
+                        </div>    
+                        <div flex="15"></div>            
+                        <div flex="100">  
+                           <md-switch class="md-primary" md-no-ink ng-model="user.roaming" aria-label="Roaming content">
+                               Roaming content
+                            </md-switch>
+                                                               
+                        </div> 
+                    </div>        
+                    
+                    <div layout="row" layout-align="space-around center">
+
+                        <div flex="100">
+                            <md-input-container class="genter_details">
+                            <label class="md-required">Gender</label>
+                                <md-radio-group name="gender" ng-model="user.gender" ng-required="true" class="" >
+                                    <md-radio-button value="male" class="md-primary">Male</md-radio-button>
+                                    <md-radio-button value="female"> Female </md-radio-button>
+                                </md-radio-group>
+                                <div ng-messages="form.editStudent.gender.$error">
+                                  <div ng-message="required">Gender is required.</div>
+                                </div>
+                              </md-input-container>  
+                        </div>
+                        <div flex="15"></div>
+                        <div flex="100">
+                           <phonenumber-directive phonetrue="phoneboolvalue" placeholder="myPrompt" model='user.phone_no'></phonenumber-directive>
+                            
+                        </div>
+
+                    </div>
+
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">
+                             <md-input-container class="md-block">
+                                <label>Email ID</label>
+                                <div>
+                                    <input type="email" name="usermanagement_email1"  ng-model="user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/" ng-keyup="validateEmail()">
+                                    <div ng-if="useremailexist" class="error-text">Email ID Already Exist.</div>
+                                    <div ng-messages="form.editStudent.usermanagement_email1.$error">
+                                        <span ng-message="pattern">Invalid Email.</span>
+                                    </div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100" style="margin-top:70px;">
+                            <md-input-container class="md-block">
+                                <label>Set Password</label>
+                                <input md-no-asterisk name="user_password" type="password" ng-model="user.password" ng-minlength="6">
+                                <div ng-messages="form.editStudent.user_password.$error">
+                                    <div ng-message="minlength">minimum length 6.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <div flex="15"></div>
+                        <div flex="100">
+                            <md-input-container class="md-block txtarea_md">
+                                <label>Address</label>
+                                <textarea maxlength="150" md-no-asterisk name="user_address" ng-model="user.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                <div ng-if="form.editStudent.user_address.$viewValue" ng-messages="form.editStudent.user_address.$error">
+                                    <div ng-message="maxlength">Maximum length 150.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100"></div>
+                        <div flex="15"></div>
+                        <div flex="100">
+                            <div class="submt-sec">
+                                <md-button class="md-raised md-warn secondry_btn" ng-click="cancel()">CANCEL</md-button>
+                                <md-button type="submit" class="md-raised md-primary primary_btn" ng-disabled="form.editStudent.$invalid || phoneboolvalue || useremailexist">SAVE</md-button>                                
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </form></div>
+                <!-- Add New User - End-->
+    
+                </div>
+        </md-dialog-content>
+</md-dialog>

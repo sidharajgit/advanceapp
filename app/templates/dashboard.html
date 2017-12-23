@@ -1,0 +1,112 @@
+<!--<div class="adminCls" layout="column" id="dashboard">
+    <div layout="row">
+        <div class="admin-head">
+            <div layout="row">
+                <div flex="100" class="top-head-icon">
+                    <md-button class="md-icon-button" aria-label="Settings" hide-gt-md="" ng-if="(loggedUserDetails.adminType == 'superAdmin' && afterCard) || loggedUserDetails.adminType == 'groupAdmin'">
+                        ng-if="(loggedUserDetails.adminType == 'superAdmin' && afterCard) || loggedUserDetails.adminType == 'groupAdmin'"
+                        <md-icon md-svg-icon="dest/images/mat_white_menu.svg" ng-click="slideMenu('left'); activeButton123()" class="ng-scope" aria-hidden="true"></md-icon>
+                    </md-button>
+                    <div class="logo-sec_header">
+                        <img src="dest\images\logo.svg">
+                    </div>
+                </div>
+                <div flex="100" class="top-head-logo">
+                    <div class="logo-sec">
+                        <img src="dest\images\logo.svg">
+                    </div>
+                </div>
+                <div flex="100">
+                    <div layout="row" layout-align="end end" class="rgt-user">
+                        <div flex="100" flex-gt-sm="90" flex-gt-md="50" class="logout-sec">
+                            <div layout="row">
+                                <div flex="100" layout-align="end end" layout="row">
+                                    <div ng-if="loggedUserDetails.loggedBy" class="logged_by">
+                                        <div class="top_sec_prof">
+                                            <a href="javascript: void(0);" ng-click="toggle_child_menu(this)">
+                                                <img ng-if="loggedUserDetails.groupicon_image" ng-src="{{loggedUserDetails.groupicon_url}}/{{loggedUserDetails.groupicon_image}}">
+                                                <img ng-if="!loggedUserDetails.groupicon_image" ng-src="dest\images\noimage.png">{{loggedUserDetails.loggedBy}}
+                                                <i class="fa fa-caret-down"></i>
+                                            </a>
+                                        </div>
+                                        <div class="bottom_sec_prof" ng-class="{'active_menu': isActive1}" ng-mouseleave="hideThisDiv(this)">
+                                            <ul>
+                                                <li>
+                                                    <span>Role: {{loggedUserDetails.roleType}}</span>
+                                                </li>
+                                                <li>
+                                                    <md-button class="md-icon-button logoutBtn" aria-label="logout" ng-click="logoutAdmin()">
+                                                        <span>
+                                            Logout
+                                        </span>
+                                                    </md-button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+  <!-- <div layout="row"  layout-wrap="" layout="row"  class="whtFrameCls add_group_sec_cls">
+    <md-whiteframe class="md-whiteframe-1dp" flex-sm="25" flex-gt-sm="25" flex-gt-md="20" layout="row" layout-align="center center" ng-click="creategroupuser($event)">	 	
+        <div>
+            <div layout="column" layout-align="center center" class="whtframecontentcls">
+                <div class="whtframeplusicon">+</div>
+                <span>Create group</span> 
+            </div>
+        </div>               
+    </md-whiteframe>
+    <md-whiteframe class="md-whiteframe-1dp" flex-sm="25" flex-gt-sm="25" flex-gt-md="20" ng-repeat="grouplist in loggedUserDetails.groupName">
+        <div class="ad-head-sec" layout="row" layout-align="end end">
+            <md-fab-speed-dial md-open=false md-direction=down
+            ng-class="'md-scale'">
+            <md-fab-trigger>
+            <md-button >
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+            <div class="fab-box"> 
+            <md-button aria-label="Edit" class="md-primary"  ng-click="vieweditgroupuser(grouplist,'edit')">
+            edit
+            </md-button>    
+            <md-button aria-label="Delete" class="md-primary" ng-click="deletegroupuser(grouplist.group_id,$index)">
+            delete
+            </md-button>    
+            </div>        
+            </md-fab-actions>
+            </md-fab-speed-dial>    
+        </div>    
+        <div layout="row" layout-align="center center" ng-click="adminPortal(grouplist)">
+            <div class="ad-logo-sec">
+                <img ng-click="adminPortal(grouplist)" ng-if="grouplist.groupicon_image" ng-src="{{grouplist.groupicon_url}}/{{grouplist.groupicon_image}}">
+                <img ng-click="adminPortal(grouplist)" ng-if="!grouplist.groupicon_image" ng-src="dest\images\noimage.png">
+            </div>
+        </div>  
+    <div layout="row" layout-align="center center">
+        <div  class="ad-hdng-sec">
+           <p ng-click="adminPortal(grouplist)" ng-if="grouplist.groupname">{{grouplist.groupname}}</p>
+        </div>
+    </div>
+    <div layout="row" layout-align="center center">
+        <div  class="ad-subhdng-sec">   
+            <p>users</p>    
+        </div>
+    </div> 
+    <div layout="row" layout-align="center center">
+        <div class="ad-count-sec">
+            <p>{{grouplist.userscnt}}</p>    
+        </div>
+    </div>   
+    <div layout="row" layout-align="center center">
+         <md-button aria-label="button" class="md-primary crvd-btn-blue" ng-click="vieweditgroupuser(grouplist,'view')">view</md-button>
+    </div>    
+    </md-whiteframe>    
+</div>-->
