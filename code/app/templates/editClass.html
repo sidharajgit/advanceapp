@@ -1,0 +1,221 @@
+<div layout="row" class="class_edit_content edit_content" id="editClass" ng-controller="classEditController" ng-cloak> 
+	<div ng-if="data.isEditable">
+    <div class="res_table_width" ng-if="data.editcourse" style="width: 100%;">
+		<!---include search bar -->
+		<div class="search_content_cont">
+			<div>
+				<md-input-container class="md-block search-container">
+					<label><!--<i class="fa fa-search"></i>--> <span>Search</span></label>
+					<input ng-model="courseSearch" class="search-input" ng-change="getClassCurrentTab(courseSearch);">
+				</md-input-container>
+			</div>
+		</div>
+		<div ng-include src="'dest/templates/classcontenttab.html'"></div> 
+	
+    <div class="submt-category">
+        <button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="class_update_cancel(data)">Close</button> 
+    </div>      
+    </div> 
+    <div class="res_table_width" ng-if="data.edituser" style="width: 100%;">
+        <table-div datasource="tableDataeditusers" datatable="datatable" crossicon = "crossicon"></table-div>
+        <div class="submt-category">
+            <button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="class_update_cancel(data)">Close</button> 
+        </div>  
+    </div> 
+    <div layout="row" class="class_edit_content edit_content" ng-if="data.editall" style="width: 100%;">
+    
+    <div layout="row" flex="100" layout-align="center center">        
+        <div class="class_edit_sec">
+        <div layout="row" layout-align="center center">
+        <div flex="60" flex-gt-xs="90" flex-gt-md="80" flex-gt-lg="70">
+        <div layout="row" flex="100">
+        <div flex="100">
+            <md-input-container class="md-block">
+                <label>Class Name</label>
+                <input type="text" required  name="class_name" ng-model="data.name" >
+                <div ng-messages="class_name.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>  
+        </div>    
+        </div>
+        <div layout="row" flex="100" class="admn_type_md">  
+        <div flex="100">
+                <div layout="row">
+                    <md-input-container class="md-block">
+                        <label>Admin Type</label>
+                        <md-select name="type" ng-model="data.roletype" ng-change="myadmintype()" aria-label="select" required> 
+                            <md-option value="3">Teacher</md-option>
+                            <md-option value="9">Parent</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-autocomplete required
+                    md-input-name="class_admin"
+                    md-no-cache="noCache"
+                    md-min-length="0"
+                    md-selected-item="selectedItemadmin"
+                    md-selected-item-change="selectedItemChangeadmin(item)"
+                    md-search-text="searchTextadmin"
+                    md-items="item in querySearchadmin(searchTextadmin)"
+                    md-item-text="item.name"
+                    md-require-match
+                    md-floating-label="Admin" class="md-block flex flex-2">
+
+                    <md-item-template>
+                        <span md-highlight-text="searchTextadmin">{{item.name}}</span>
+                    </md-item-template>
+                    <div ng-messages="class_admin.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                    </md-autocomplete>
+                </div>
+            </div>  
+        </div>
+        <div layout="row" flex="100" layout-align="end end">
+        <div flex="100"></div>
+        <div flex="100">
+            <div class="submt-category">
+                <button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="class_update_cancel(data)">Cancel</button> 
+                <button type="submit" class="btn-create md-raised md-primary md-button md-ink-ripple" ng-click="classedit(data)" ng-disabled="!data.class_admin">Update</button>   
+            </div>     
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+       <!--
+        <div class="class_edit_sec">
+        <div flex="100" layout-align="center center">
+        <div layout="row" flex="100" layout-align="center center">
+            <md-input-container class="md-block">
+                <label>Class Name</label>
+                <input type="text" required  name="class_name" ng-model="data.name" >
+                <div ng-messages="class_name.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>     
+        </div>
+        <div layout="row" flex="100" layout-align="center center" class="admn_type_md">
+            <div flex="100">
+                <div layout="row">
+                    <md-input-container class="md-block">
+                        <label>Admin Type</label>
+                        <md-select name="type" ng-model="data.roletype" ng-change="myadmintype()" aria-label="select" required> 
+                            <md-option value="3">Teacher</md-option>
+                            <md-option value="9">Parent</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-autocomplete required
+                    md-input-name="class_admin"
+                    md-no-cache="noCache"
+                    md-min-length="0"
+                    md-selected-item="selectedItemadmin"
+                    md-selected-item-change="selectedItemChangeadmin(item)"
+                    md-search-text="searchTextadmin"
+                    md-items="item in querySearchadmin(searchTextadmin)"
+                    md-item-text="item.name"
+                    md-require-match
+                    md-floating-label="Admin" class="md-block flex flex-2">
+
+                    <md-item-template>
+                        <span md-highlight-text="searchTextadmin">{{item.name}}</span>
+                    </md-item-template>
+                    <div ng-messages="class_admin.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                    </md-autocomplete>
+                </div>
+            </div>  
+        </div>
+        <div layout="row" flex="100" layout-align="end end">
+            <div class="submt-category">
+                <button type="button" class="btn-cancel md-raised md-warn md-button md-ink-ripple" ng-click="class_update_cancel(data)">Cancel</button> 
+                <button type="submit" class="btn-create md-raised md-primary md-button md-ink-ripple" ng-click="classedit(data)" ng-disabled="!data.class_admin">Update</button>   
+            </div>      
+        </div>
+        </div>
+        </div>
+        -->
+    </div>    
+    </div>
+    </div>
+    <div layout="row" class="class_edit_content edit_content">
+        <div layout="row" flex="100" layout-align="center center">
+            <div class="editclasssec">
+                <div class="view-class-sec edituserviewdata" ng-if="data.viewChild">
+          
+<!--View Class Tab Start-->
+   
+    <md-content class="cls_view_container">
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Class Detail">
+                <md-content class="md-padding">
+                   <div class="cls_viw_sec cls_viw_width">
+                       <div flex="100" layout="row">
+                           <div flex="40" class="lft">
+                               <div class="lft_inn">
+                                   <div layout="row" layout-align="center center">
+                                       <div class="pro_img_viw_cls">
+                                           <img src="dest\images\Penguins.jpg">
+                                           <h3>{{data.name}}</h3>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>       
+                           <div flex="100" class="rgt">
+                              <div class="rgt_inn">
+                                <div layout="row" class="val_container">
+                                    <div flex="50" class="edit_tit">Class Code</div>
+                                    <div flex="100" class="edit_val">{{data.classcode}}</div>
+                                </div>
+                                <div layout="row" class="val_container">
+                                    <div flex="50" class="edit_tit">Class Created Date</div>
+                                    <div flex="100" class="edit_val">{{data.registerdate}}</div>
+                                </div>
+                                <div layout="row" class="val_container">
+                                    <div flex="50" class="edit_tit">Class Admin</div>
+                                    <div flex="100" class="edit_val">{{data.class_admin}}</div>
+                                </div>
+                                <div layout="row" class="val_container">
+                                    <div flex="50" class="edit_tit">Class Admin Type</div>
+                                    <div flex="100" class="edit_val">{{data.roleType}}</div>
+                                </div>
+                                <!--<div layout="row" class="val_container">
+                                    <div flex="50" class="edit_tit">Class Name</div>
+                                    <div flex="100" class="edit_val">{{data.name}}</div>
+                                </div>-->
+                                <div layout="row" class="val_container">
+                                    <div flex="50" class="edit_tit">Group Name</div>
+                                    <div flex="100" class="edit_val">{{data.groupname}}</div>
+                                </div>
+                               </div>
+                           </div>       
+                       </div>
+                   </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Enrolled User Details">
+                <md-content class="md-padding">
+                    <div class="cls_viw_width">
+                        <div class="tabl_title" ng-if="tableDataviewusers.data.length > 0"></div>
+				        <table-div datasource="tableDataviewusers" datatable="datatable" crossicon = "crossicon" ng-if="tableDataviewusers.data.length > 0"></table-div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Course Details">
+                <md-content class="md-padding">
+                    <div class="cls_viw_width">
+                        <div class="tabl_title" ng-if="tableDataviewcoursenew.data.length > 0"></div>
+						<table-div datasource="tableDataviewcoursenew" datatable="datatable" crossicon = "crossicon" ng-if="tableDataviewcoursenew.data.length > 0"></table-div>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+   
+<!--View Class Tab End-->        
+         </div>
+            </div>
+        </div>
+    </div>
+</div>    

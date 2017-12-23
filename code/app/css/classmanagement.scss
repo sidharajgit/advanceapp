@@ -1,0 +1,165 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+.classmanagementCls{
+    .cls-tbl-btn{
+        color: #A4ACB9 !important;
+        background-color: transparent;
+        border: 1px solid #A4ACB9;
+        text-transform: uppercase;
+        border-radius: 0;
+        padding: 4px;
+        &:hover{
+            color: #fff !important;
+            background-color: #A4ACB9;
+        }
+    }
+    .width-class-top{
+        width: 60%;
+    }
+    .top-icon-sec{
+        .md-button{
+            /*display: flex;
+            align-content: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;*/
+            background-color: #3498db;
+            background: #3498db;
+            width: auto;
+            height: auto;
+            border-radius: 25px;
+            padding: .5em 20px;
+            font-size: .85em;
+        }
+        .btnDisable{
+            @include disableBtn;
+            background-color: #3498db !important;
+        }
+        .md-button:hover{
+            background-color: #3498db !important;
+        }
+        .material-icons{
+            height: auto;
+            min-height: 0;
+            color: #fff !important;
+            line-height: 0;
+            width: auto;
+        }
+    }
+    .tableDiv{
+        .step-two{
+            .btn-sec-new{
+                position: relative;
+                /*top:23em;*/
+                right:1em;
+                margin-top: 0em;
+                text-align: right;
+            }    
+            .btn-sec-exi{
+                /*position: absolute;*/
+                top:15em;
+                right: 5em;
+            }    
+        }    
+    }
+}
+.class_edit_content{
+    .editclasssec{
+        width: 100%;
+        height: 100%;
+        md-content{
+            height: 100%;    
+            padding: 16px 0;
+        }  
+        md-input-container.md-block{
+            width: 50%;
+        }
+    }
+    .res_table_width{
+        width: 98%;
+        margin: 0%;
+        .tableCls.Slide_table_sec{
+            /*box-shadow: 0px 0px 3px 1px #ccc;*/
+        }
+    }   
+}
+.toclmntbl_clsmant{
+    .tableCls .custTable .dataTable .thead .trow .tcol{
+        width: 50%;
+    }
+}
+.class_edit_sec{
+    width: 95%;
+    padding: 2em 0 2em 0;
+    background-color: #fbfbfc;
+    md-input-container{
+        width: 100%;
+    }
+    .admn_type_md{
+        md-input-container{
+            width: 50%;
+        }
+    }
+}
+.cls_view_container{
+    .cls_viw_sec{
+        margin: 0 auto;
+        border: 1px solid #eff3f7;
+        .lft{
+            background-color: #f8fafc;
+            .lft_inn{
+                padding-top: 3em;
+                img{
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                }
+                h3{
+                    font-size: 1.3em;
+                    font-weight: 500;
+                    text-align: center;
+                    margin-bottom: 0;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+        .rgt{
+
+            .rgt_inn{
+                padding: 2em;
+                .val_container{
+                    margin-bottom: 1em;
+                }
+                .edit_tit{
+                    color: #a0acbf;
+                    font-size: 1.1em;
+                }
+                .edit_val{
+                    color: #333333;
+                    font-size: 1.1em;
+                }
+            }
+        }
+    }
+    .cls_viw_width{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .tabl_title{
+        background: transparent;
+    }
+    md-pagination-wrapper {
+        /*width: 95% !important;
+        margin-left: 3.5% !important;
+        margin-right: 3.5% !important;*/
+        md-tab-item{
+            width: auto !important;
+            margin: 0 2em 0 0;
+        }
+    }
+}
+.clsFrm_birth_year_container{
+    margin-top: 40px;
+}

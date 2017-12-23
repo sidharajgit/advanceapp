@@ -1,0 +1,122 @@
+<div class="tableCls Slide_table_sec" layout="column" ng-cloak> 
+    <div layout="column">
+       <div layout="row" class="Tabl_title_header">
+           <div layout-align="space-between center" flex="100">
+                <h3 ng-if="datasource.currentpage">{{datasource.currentpage}} list</h3>
+              <!-- <h3>Class List</h3>-->
+           </div>
+       </div>
+        <div layout="row">
+            <div layout-align="space-between center" flex="60">
+                <div ng-if="datasource.ismultiDel.task && datasource.pageName != 'usermanagementtrash'" class="pull-left deletebtn"> 
+                       <tooltip tooltips="" tooltip-template="Delete" tooltip-side="right" class="tooltips _top _steady _multiline _ready"> 
+                            <tip-cont> 
+                                 <button class="btn btn-danger" ng-disabled="(checkboxenable < 2 && !headerCheck.box && !$root.appLoader)" ng-click="deleteAllrows(datasource.currentpage)">Delete</button>
+                            </tip-cont>
+                       </tooltip>
+                        
+                    </div> 
+                <div class="btn-group roleList" ng-if="datasource.isFilterbtns">  
+                  
+                    <md-button ng-repeat="tab in datasource.tabList" ng-class="{'active':tab.isActive}" class="tabBtn btn" type="button" ng-model="tab.name" btn-radio="tab" ng-click="datatable.filterTable(tab)" ng-init="tabName = tab.name">{{tab.name}}</md-button>
+                </div>
+                <ol class="breadcrumb contentBreadcrumb" ng-if="datasource.isBreadscrum">
+                  <li class="breadcrumb-item" ng-repeat="breadcrumbItem in datasource.breadcrumbList track by $index">
+                     <a ng-click="breadcrumbFnlink(breadcrumbItem, $index)">{{breadcrumbItem}}</a>  
+                    </li>
+                </ol>
+            </div>
+            <div layout-align="end start" flex="40" class="searchpagination">
+                <div ng-if="datasource.isSearch">
+      					<form id="search-form" class="form-search form-horizontal pull-right">
+      						<md-input-container class="md-block search-container">
+      							<!--<label><span>Search</span></label>-->
+      							<input ng-model="dataSearch.text" class="search-input" placeholder="Search" ng-blur="tablePageSearch()"><!--ng-change="updateSearch(dataSearch.text)"-->
+      							<button  ng-click="pageChanged(true)" class="tabl_search"><i class="fa fa-search"></i></button>
+      						</md-input-container>
+      					</form>
+                </div>            
+                <div class="newpagination">
+                    <md-input-container>
+                         <label>Show</label>
+                          <md-select ng-model="pagination.itemsPerPage" aria-label="itemsPerpage" ng-selected="true" ng-change="pageChanged()">
+                            <md-option ng-value="optn" ng-selected="optn.isSelected" ng-repeat="optn in pagination.numPages" >{{optn.value}}</md-option>
+                          </md-select>
+                        <label>entries</label>
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+    </div>              
+    
+    <div layout="column">
+        <div class ="table-responsive custTable">
+           <table class ="table dataTable" ng-table="tableParams">
+
+              <!--<caption>Responsive Table Layout</caption>-->
+
+               <thead class="thead">
+                   <tr class="trow">
+                   <th class="tcol" ng-repeat="head in datasource.headers" ng-class="{selected12312:index=='{{$index}}'}" ng-init="isHeader = true">
+                   <label for="whole_sel_checks" ng-if="$first && !datasource.isCheckboxhide" ng-disabled="!datasource.data.length"></label>
+                       <div ng-class='{textMove:$first}'>
+                            <span ng-click="setSortorder(head, $index)" ng-class="{'nocursor':!head.isSortable}" ng-if="!head.headcolumnName">{{head.name}}
+								<span class="fa-lg fa fa-sort-desc" ng-hide="head.name == 'Roaming <Content></Content>' || head.name == 'Action' || !datasource.data.length || !head.isSortable"></span>
+                                <span class="fa-lg fa fa-sort-asc" ng-hide="head.name == 'Roaming <Content></Content>'|| head.name == 'Action' || !datasource.data.length || !head.isSortable"></span>
+                                <!--<span ng-if="sortDowndecider(head)" class="fa-lg fa fa-sort-desc"></span>
+                                <span ng-if="sortUpdecider(head)" class="fa-lg fa fa-sort-asc"></span>-->
+                            </span>
+						   
+						   <span ng-class="{'nocursor':!head.isSortable}" ng-if="head.headcolumnName">  
+								<custom-column controller-name="btnactionsController" alert-baner="alertBaner" updateparentpage = "buttonToggleupdate(response)" setback = "setParentvalues(response)" emitbaner="captureBaner(response)" template-url="dest/templates/btnActions.html" content-body="body" content-head="head" content-items="datasource.data" total-records="datasource.paginateData.total_records" is-header="isHeader" assigncontent-to-table="assigncontentToStudent(response)"></custom-column>
+                            </span>
+                       </div>
+                   </th>
+                   </tr>
+                </thead>
+			   	<tbody class="tbody" ng-if="!$root.appLoader && !datasource.data.length">
+					<tr><td colspan="{{datasource.headers.length}}"><p class="no_rcd_fnd">No Records Found!</p></td></tr> 
+				</tbody>
+                <tbody class="tbody" ng-repeat="body in datasource.data track by $index" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <tr class="trow selectrow{{body.id}}" ng-click="!datasource.isrowSelect||assignRow($event,body)" id="row_{{body.id}}">
+
+                        <td class="tcol" ng-repeat="head in datasource.headers track by $index" ng-init="columnContent={'body':body,'head':head,'datasource.data':datasource.data};head.isHeader = false">
+                            <label for="one_sel_checks{{body.id}}" ng-if="$first && !datasource.isCheckboxhide"></label>
+
+                            <div ng-class="{'columnCont':(head.name != 'Name' || head.name != 'user name'),'primaryColumn':(head.name == 'Name' || head.name == 'user name') }" ng-if="!head.isImageColumn && !head.isActionColumn && !head.isDescColumn && !head.isStatusColumn && !head.isLink"> 
+                                <span class="columnSpan" title="{{body[head.bind_val]}}" ng-if="head.name !== 'Name'">{{body[head.bind_val]}}</span> 
+                                <a class="columnSpan" title="{{body[head.bind_val]}}" ng-if="head.name === 'Name'"  ng-click="navigateToStudentProfile(body)" >{{body[head.bind_val]}}</a> <!-- making user name as clickable -->
+                            </div>
+                            <div class="columnCont" ng-if="!head.isImageColumn && !head.isActionColumn && !head.isDescColumn && !head.isStatusColumn && head.isLink"> 
+                               <a ng-click="tableDatafnlink($event,body,head.funParameter)" ><span class="columnSpan" title="{{body[head.bind_val]}}">{{body[head.bind_val]}}</span></a>
+                            </div>
+                            <div ng-if="head.isImageColumn && !head.isActionColumn && !head.isDescColumn && !head.isStatusColumn && !head.isLink">
+                                <custom-column controller-name="profilePicController" template-url="dest/templates/profilePic.html" content-body="body" content-head="head" content-items="datasource.data" total-records="datasource.paginateData.total_records"></custom-column>
+                            </div>
+                            <div ng-if="!head.isImageColumn && (head.isActionColumn && !head.isHeader) && !head.isDescColumn && !head.isStatusColumn && !head.isLink">
+                                <custom-column controller-name="btnactionsController" alert-baner="alertBaner" updateparentpage = "buttonToggleupdate(response)" setback = "setParentvalues(response)" emitbaner="captureBaner(response)" template-url="dest/templates/btnActions.html" content-body="body" content-head="head" content-items="datasource.data"  total-records="datasource.paginateData.total_records" assigncontent-to-table="assigncontentToStudent(response)" removeuserfromtable="pageChanged()" ></custom-column>
+                            </div>
+                            <div ng-if="!head.isImageColumn && !head.isActionColumn && !head.isDescColumn && head.isStatusColumn && !head.isLink">
+                                <custom-column controller-name="btnStatusController" alert-baner="alertBaner" emitbaner="captureBaner(response)" template-url="dest/templates/statusicons.html" content-body="body" content-head="head" total-records="datasource.paginateData.total_records" content-items="datasource.data"></custom-column>
+                            </div>
+                            <div ng-if="!head.isImageColumn && !head.isActionColumn && head.isDescColumn && !head.isStatusColumn && !head.isLink">
+                                <span ng-class='{textMove:$first}'>{{ body[head.bind_val] | trusted }}</span>
+                            </div>
+                        </td>
+                        <!--1-->
+                    </tr>                                   
+                </tbody>
+
+               <tfoot class="tfoot" ng-if="datasource.isPagination">
+                </tfoot>
+           </table>
+            <ul uib-pagination boundary-links="true" ng-if="pagination.totalItems !== 0 && datasource.data.length !== 0" total-items="pagination.totalItems" ng-model="pagination.currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"  ng-change="pageChanged()" items-per-page="pagination.itemsPerPage.value" max-size="5"></ul>
+        </div> 
+    </div>    
+    
+    </div>
+    
+    
+    
+
+

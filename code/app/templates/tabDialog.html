@@ -1,0 +1,27 @@
+<md-dialog aria-label="Mango (Fruit)" style="position: fixed;">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Survey</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Existing Survey">
+          <md-content class="md-padding">
+            <p>This is existing survey</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="New Survey">
+          <md-content class="md-padding">
+            <p>This is new survey</p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+  </form>
+</md-dialog>

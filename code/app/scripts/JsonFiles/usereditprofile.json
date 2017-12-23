@@ -1,0 +1,24 @@
+{
+    "data":{
+        "address":"sample address",
+        "birth_year":1975,
+        "email":"hemapraveena.a@spi-global.com",
+        "firstname":"Admin121",
+        "lastname":"Admin Last Name",
+        "phone_no":"1483426009download.jpg",
+        "profile_pic":"1483426009download.jpg",
+        "profilepic":{
+            "name":"1483426009download.jpg",
+            "type":"others",
+            "url":"http://172.24.191.60/sommer_learning/media/com_sommer/profile/thumb/"
+        },
+        "regtype":"1",
+        "roleName":"Super Admin",
+        "userid":"294",
+        "username":"admin",
+        "gender": "male"
+    },
+    "message":"",    
+    "status":"Success"
+}
+

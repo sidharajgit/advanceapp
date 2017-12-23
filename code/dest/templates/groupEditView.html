@@ -1,0 +1,121 @@
+<md-dialog>    
+    <form ng-cloak ng-if="(acc.data.viewChild == 'isEditable')" name="groupeditform" autocomplete="off" ng-submit="groupeditform.$valid && (imageextension != true) && update_groupedit()">
+        <md-toolbar>    
+        <div class="md-toolbar-tools" >
+        <h2>Edit Group</h2>
+        <span flex></span>
+        <md-button aria-label="button" class="md-icon-button" ng-click="groupupdatecancel()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>    
+        </md-button>
+        </div>
+        </md-toolbar>
+        <md-dialog-content>
+        <div class="md-dialog-content">
+        <div class="pop-grp-view"> 
+            <div class="pop-box-width">
+            <div layout="row" layout-align="space-around center">
+                <div flex="100">
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">
+                            <md-input-container class="md-block">
+                                <label>Group Name</label>
+                                <input type="text" required md-no-asterisk name="groupeditform_groupname" id="groupname" ng-model="acc.data.groupname" ng-blur="validateGroupname($event)" maxlength="25" ng-change="hideErrorMsg()" ng-disabled="acc.data.group_id == 1" >
+                                <div ng-if="alertBaner.showBaner"><span class="error_msg_displ">{{alertBaner.message}}</span></div>
+                            </md-input-container>       
+                        </div>
+                        <div flex="15"></div>
+                        <div flex="100">
+                            <md-input-container class="md-block" ng-disabled="acc.data.group_id == 1">
+                                <label>Group Code</label>
+                                <input type="text" name="groupeditform_groupcode" ng-model="acc.data.groupcode" ng-disabled="true">
+                            </md-input-container>  
+                        </div>
+                    </div>
+                </div>
+        </div>
+            <div layout="row" layout-align="space-around center">
+        <div flex="100">
+        <div layout="row" layout-align="space-around center">
+        <div flex="100">
+            <md-input-container class="md-block" ng-disabled="acc.data.group_id == 1">
+                <label>Group Admin</label> 
+                <md-select class="grp-edit-select columnCont_editselect" ng-disabled="acc.data.group_id == 1" name="groupeditform_groupadminname" ng-model="acc.data.groupadminname" required multiple="" title="{{acc.data.groupadminname}}">
+                    <md-option ng-value="groupemail.username" ng-repeat="groupemail in groupAdminuser">{{groupemail.username}}</md-option>
+                </md-select>
+                <div ng-messages="groupeditform.groupadminname.$error">
+                    <span class="error" ng-show="groupeditform.$submitted && groupeditform.groupeditform_groupadminname.$error.required">Please Select Group Admin</span>                    
+                </div>
+            </md-input-container>     
+        </div>
+        <div flex="15"></div>
+        <div flex="100">
+
+            <div class="md-input-custom cus-grp-icon grup_editimg">   
+                    <div class="upload_input">
+                        <input type="file"  name="picture"  id="fileInput" ng-model="image" accept=".png, .jpg, .jpeg" />
+                    </div>
+                    <div>
+                        <div>
+                            <!--<img ng-if="userdetails.userdetailspicturecancel" ng-src="{{myCroppedImage}}" class="groupimageupload">-->
+                            <img ng-if="dataURLsa" ng-src="{{dataURLsa}}" class="groupimageupload">
+                            <img ng-if="picture" ngf-src="picture" class="groupimageupload aftr-img-upload" ng-click="iconimageupload()">
+                            <img ng-if="!picture && !group_picturecancel && !dataURLsa" ng-src="{{acc.data.groupicon_url}}/{{acc.data.groupicon_image}}" class="groupimageupload  befr-img-upload" ng-click="iconimageupload()">
+                            <!--<img ng-if="dataURLsa" ng-src="{{dataURLsa}}" />-->
+                        </div>
+                    </div>
+                    <div class="backdrop_crop" ng-click="hidepopup()" ng-show="showDown"></div>
+                    <div class="img_cropSec" ng-show="showDown">
+                        <div>
+                            <div class="cropAreaNs">
+                                <ui-cropper image="myImage" area-type="rectangle" result-image="myCroppedImage" live-view="blockingObject"></ui-cropper>
+                                <div class="render_btn"><a ng-click="hidepopup()" href="javascript:void(0);" class="cancel_btn md-raised md-warn md-button md-ink-ripple">Cancel</a><a ng-click="renderimage()" href="javascript:void(0);" class="md-raised md-primary md-button md-ink-ripple">Crop &amp; Save</a></div>
+                            </div>
+                        </div>
+
+                    </div>
+            </div> 
+        </div>
+        </div>
+        </div>
+        </div>
+        <div layout="row" layout-align="space-around center">
+        <div flex="100">
+        <div layout="row" layout-align="space-around center">
+        <div flex="100">
+            <md-input-container class="md-block" ng-disabled="acc.data.group_id == 1">
+                <label>Admin Email</label> 
+                <input type="text" md-no-asterisk name="groupeditform_adminemail" ng-disabled="acc.data.group_id == 1" ng-model="acc.data.email" ng-readonly="true" title="{{acc.data.email}}">
+            </md-input-container>      
+        </div>
+        <div flex="15"></div>
+        <div flex="100">
+            <md-input-container class="md-block" ng-disabled="acc.data.group_id == 1">
+                <label>Registered Date</label>
+                <input type="text" name="groupeditform_registered_date" ng-model="acc.data.registerdate" ng-disabled="true">                      
+            </md-input-container>
+        </div>
+        </div>
+        </div>
+        </div>
+         </div>    
+        </div> 
+        </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" style="display: block; width: 100%;">
+        <div class="cropArea" style="float: left;display: block;text-align: left;/* width: 100%; */position: absolute;bottom: 7px;" ng-show="group_picturecancel">
+            <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+        </div>
+        <div class="pop-submt-sec" style="float: right">
+        <md-button aria-label="button" class="md-raised md-warn btn-cancel" ng-click="groupupdatecancel()">Cancel</md-button>
+        <md-button aria-label="button" type="submit" class="btn-cancel md-raised md-primary md-button md-ink-ripple" ng-click="submitted=true;" ng-disabled="groupnameerror">Update</md-button> 
+        </div>
+        </md-dialog-actions>
+    </form>    
+</md-dialog>
+    
+
+
+
+
+
+

@@ -1,0 +1,353 @@
+{ 
+"visitors_of_program": {
+    "title": "Visitors at program level",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    
+    
+    "series": [
+        {
+        "name": "jan",
+        "data": [49.9, 71.5, 106.4, 129.2]
+
+        }, {
+            "name": "feb",
+            "data": [83.6, 78.8, 98.5, 93.4]
+
+        }, {
+            "name": "march",
+            "data": [48.9, 38.8, 39.3, 41.4]
+
+        }, {
+            "name": "april",
+            "data": [42.4, 33.2, 34.5, 39.7]
+
+        }
+    ]
+
+
+  },
+  "mostvisited_program": {
+    "title": "Most visited Program",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          2,
+          100,
+          500,
+          900
+        ]
+      }
+    ]
+  },
+ "social_share_based_program": {
+    "title": "Social Share Based Program",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    
+    
+    "series": [
+        {
+        "name": "jan",
+        "data": [2.9, 71.5, 106.4, 200.2]
+
+        }, {
+            "name": "feb",
+            "data": [3.6, 78.8, 150.5, 200.4]
+
+        }, {
+            "name": "march",
+            "data": [24.9, 70.8, 190.3, 290.4]
+
+        }, {
+            "name": "april",
+            "data": [24.4, 56.2, 78.5, 399.7]
+
+        }
+    ]
+
+  },   
+ 
+  "badges_associated_witheach_program": {
+    "title": "Badges Associated with each program",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    
+    
+    "series": [
+        {
+        "name": "jan",
+        "data": [12.9, 78.5, 106.4, 200.2]
+
+        }, {
+            "name": "feb",
+            "data": [45.6, 90.8, 98.5, 300.4]
+
+        }, {
+            "name": "march",
+            "data": [67.9, 38.8, 300.3, 200.4]
+
+        }, {
+            "name": "april",
+            "data": [78.4, 33.2, 21.5, 39.7]
+
+        }
+    ]
+
+  },
+  
+  "average_timespent": {
+    "title": "Average time spent on each program",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    
+    
+    "series": [
+        {
+        "name": "jan",
+        "data": [11.9, 21.5, 31.4, 56.2]
+
+        }, {
+            "name": "feb",
+            "data": [3.6, 100.8, 106.5, 200.4]
+
+        }, {
+            "name": "march",
+            "data": [20.9, 50.8, 80.3, 401.4]
+
+        }, {
+            "name": "april",
+            "data": [42.4, 52.2, 76.5, 98.7]
+
+        }
+    ]
+
+  },
+  "most_consumed_program":{
+      
+       "title": 
+             "Browser market shares January, 2015 to May, 2015",      
+      "series": [{
+            "name": "Brands",
+            "colorByPoint": true,
+            "data": [{
+                "name": "Microsoft Internet Explorer",
+                "y": 20.33
+            }, {
+                "name": "Chrome",
+                "y": 24.03,
+                "sliced": true,
+                "selected": true
+            }, {
+                "name": "Firefox",
+                "y": 10.38
+            }, {
+                "name": "Safari",
+                "y": 40.77
+            }, {
+                "name": "Opera",
+                "y": 0.91
+            }, {
+                "name": "Proprietary or Undetectable",
+                "y": 0.2
+            }]
+        }]
+      
+  },
+    "user_visit": {
+    "title": "User Visit",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          300,
+          320,
+          270,
+          498
+        ]
+      }
+    ]
+  },
+  "classes_at_phonic": {
+    "title": "Classes at Phonics Adventure",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          300,
+          350,
+          390,
+          430
+        ]
+      }
+    ]
+  },    
+  "enrollement_at_phonic": {
+    "title": "Enrollement at Phonics Adventure",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          169,
+          303,
+          376,
+          498
+        ]
+      }
+    ]
+  },        
+ "enrollement_based_textbox": {
+    "title": "Enrollement Based on Textbox",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    
+    
+    "series": [
+        {
+        "name": "jan",
+        "data": [49.9, 71.5, 106.4, 129.2]
+
+        }, {
+            "name": "feb",
+            "data": [83.6, 78.8, 98.5, 93.4]
+
+        }, {
+            "name": "march",
+            "data": [48.9, 38.8, 39.3, 41.4]
+
+        }, {
+            "name": "april",
+            "data": [42.4, 33.2, 34.5, 39.7]
+
+        }
+    ]
+
+  },   
+ 
+
+
+  "class_status":{
+      
+       "title": 
+             "class status",      
+      "series": [{
+            "name": "Brands",
+            "colorByPoint": true,
+            "data": [{
+                "name": "Microsoft Internet Explorer",
+                "y": 5.33
+            }, {
+                "name": "Chrome",
+                "y": 24.03,
+                "sliced": true,
+                "selected": true
+            }, {
+                "name": "Firefox",
+                "y": 10.38
+            }, {
+                "name": "Safari",
+                "y": 55.77
+            }, {
+                "name": "Opera",
+                "y": 0.91
+            }, {
+                "name": "Proprietary or Undetectable",
+                "y": 0.2
+            }]
+        }]
+      
+  },
+    "message": "",
+    "status": "success"
+   
+}

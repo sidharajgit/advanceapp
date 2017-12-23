@@ -1,0 +1,75 @@
+<md-dialog aria-label="Create New Class" class="Modal_wrap"> 
+	<div id="createclassmodel">
+	<form ng-cloak name="form.classForm" ng-submit="addOrEditClass()" novalidate>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+                <h2 ng-bind="(classType === 'add')  ? 'Add New Class' : 'Class Edit'"></h2>
+                <span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()">
+					<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+				</md-button>
+			</div>
+		</md-toolbar>
+
+		<md-dialog-content>
+			<div class="md-dialog-content">
+				<div class="cr_class_sec">					
+					<div class="md-input-custom cus-grp-icon grup_editimg">
+						<div class="upload_input">
+							<input type="file" ng-click="handleFileSelect()" name="picture" id="fileInput" ng-model="image" accept=".png, .jpg, .jpeg" />
+						</div>
+						<div>
+							<div>
+								<img ng-if="classImage" ng-src="{{classImage}}" class="groupimageupload aftr-img-upload">
+								<img ng-if="!picture && !classImage" src="PA_UI/dest/images/noimage.png" class="groupimageupload aftr-img-upload" ng-click="iconimageupload()">
+							</div>
+						</div>
+						<div class="backdrop_crop" ng-click="hidepopup()" ng-show="showDown"></div>
+						<div class="img_cropSec" ng-show="showDown">
+							<div>
+								<div class="cropAreaNs">
+									<ui-cropper image="myImage" area-type="rectangle" result-image="myCroppedImage" live-view="blockingObject"></ui-cropper>
+									<div class="render_btn"><a ng-click="hidepopup()" href="javascript:void(0);" class="cancel_btn md-raised md-warn md-button md-ink-ripple secondry_btn">Cancel</a><a ng-click="renderimage()" href="javascript:void(0);" class="md-raised md-primary md-button md-ink-ripple primary_btn">Crop &amp; Save</a></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<p>&nbsp;</p>
+					<div class="form_fields form-group">
+						<div layout="row" layout-align="space-around center" class="layout-align-space-around-center layout-row">
+							<md-input-container flex="100" class="cl_field flex-100">
+								<label>Class Name</label>
+								<input ng-model="classUser.classname" ng-pattern="/^\w+(\s\w+)*$/" class="form-control" name="classname" ng-maxlength="25" required ng-change="existclasserr = ''" ng-keyup="classKeyup(classUser.classname)">
+								<div ng-messages="form.classForm.classname.$error">
+									<span ng-message="required">This is required.</span>
+									<span ng-message="pattern">Invalid Class Name</span>
+									<span ng-message="max">Classname is too long</span>
+								</div>
+								<div class="error-text"><span ng-if="existclasserr">{{existclasserr}}</span></div>
+							</md-input-container> 
+                            <div flex="15" class="flex-15"></div>
+                            <md-input-container flex="100" class="cl_field flex-100" style="margin-top:-6px;">
+								<label>Class Admin</label> 
+								<md-select class="grp-edit-select columnCont_editselect" name="classAdmin" ng-model="classUser.adminid" required >
+									<md-option ng-value="classadmin.id" ng-repeat="classadmin in classAdminuser" ng-selected="{{selectedadminid == classadmin.id}}">{{classadmin.name}}</md-option>
+								</md-select>
+							</md-input-container> 
+						</div>
+						
+																																		
+						<div layout="row" layout-align="space-around center">
+							<div flex="100" class="text-right">
+								<md-button aria-label="button" class="md-raised md-warn btn-cancel secondry_btn" ng-click="cancel()">Cancel</md-button>
+								<!--<md-button ng-if="classType === 'add'" aria-label="button" type="submit" ng-disabled="createClassForm.$invalid" class="btn-cancel md-raised md-primary md-button md-ink-ripple primary_btn">Create</md-button> -->
+								<md-button ng-if="classType === 'add'" aria-label="button" type="button" ng-click="checkClassExist()">Create</md-button>
+								<md-button ng-if="classType === 'edit'" aria-label="button" type="submit" ng-disabled="createClassForm.$invalid" class="btn-cancel md-raised md-primary md-button md-ink-ripple primary_btn">Update</md-button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</md-dialog-content>
+	</form>
+	</div>		
+</md-dialog>

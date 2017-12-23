@@ -1,0 +1,211 @@
+<!--  timer check-->
+<div class="timeout-test" ng-init="pages=2">    
+    <div class="modal_alert" tabindex="-1" ng-click="logoutUser()" ng-if="!active && timer">
+        <div uib-alert close="logoutAdmin()" class="alert alert-danger" ng-if="!active && timer">
+            <!--<div class="icon_display">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+                <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                </svg>
+            </div>-->
+        <div class="display_message">Your session is going to be expired now. Do you want to continue?</div>
+        <button class="btn btn-danger timout" ng-click="start()">Yes</button>
+        <button class="btn btn-default" ng-click="logoutAdmin()">No</button>            
+        </div>
+    </div>
+</div>
+<!--timer check-->
+<div class="adminCls" layout="column" id="adminLanding" ng-cloak>
+    <div layout="row">
+        <div class="admin-head" ng-mouseleave="hideThisDiv()">
+            <div layout="row">
+                <div flex="100" class="top-head-icon" ng-class="{'active_tog_meu': isMenu_active}">
+                    <div class="logo-sec_header">
+                        <img src="dest\images\logo.svg">
+                    </div>
+                    <md-button class="md-icon-button" aria-label="Settings" hide-gt-md="">
+                        <md-icon md-svg-icon="dest/images/mat_white_menu.svg" ng-click="slideMenu('left'); activeButton123()" ng-class="{'ShowButtonArrow':(loggedUserDetails.adminType == 'superAdmin' && afterCard) || loggedUserDetails.adminType == 'groupAdmin'}" class="ng-scope" aria-hidden="true"></md-icon>
+                    </md-button>
+                </div>
+                <div flex="100" class="top-head-logo">
+                    <div class="logo-sec">
+                        <img src="dest\images\logo.svg">
+                    </div>
+                </div>
+                <div flex="100">
+                    <div layout="row" layout-align="end end" class="rgt-user">
+                        <div flex="100" flex-gt-sm="90" flex-gt-md="50" class="logout-sec">
+                            <div layout="row">
+                                <div flex="100" layout-align="end end" layout="row">                                   
+                                   <div flex="50" flex-gt-sm="40" flex-gt-md="30" layout-align="end end" layout="row">
+                                       <div ng-if="loggedUserDetails.loggedBy" class="logged_by msg_drpdwn">
+                                        <div class="top_sec_prof msg_sec" ng-mouseleave = "hideNotifyMsg()">
+                                            <div class="notification_notify">
+                                                <!--<button ng-click="messageState(2)"><i class="fa fa-bell"></i><span class="badge" ng-if="recentConversation.notifyCount > 0">{{recentConversation.notifyCount}}</span></button>--> 
+                                                <button ng-click="messageState(2)" ng-if="recentConversation.notifyCount > 0"><img src="dest/images/notification.png" /><span class="badge">{{recentConversation.notifyCount}}</span></button>
+                                                <button ng-click="messageRedirection(2)" ng-if="recentConversation.length <= 0 || recentConversation.notifyCount <= 0"><img src="dest/images/notification.png" /><!--<i class="fa fa-bell"></i>--></button>
+                                            </div>
+                                            <div class="message_notfiy">
+                                                <!--<button ng-click="messageState(1)"><i class="fa fa-envelope"></i><span class="badge" ng-if="recentConversation.msgCount > 0">{{recentConversation.msgCount}}</span></button>-->
+                                                <button ng-click="messageState(1)" ng-if="recentConversation.msgCount > 0"><img src="dest/images/message_icon.png"/><!--<i class="fa fa-envelope"></i>--><span class="badge">{{recentConversation.msgCount}}</span></button>
+                                                <button ng-click="messageRedirection(1)" ng-if="recentConversation.length <= 0 || recentConversation.msgCount <= 0"><img src="dest/images/message_icon.png"/><!--<i class="fa fa-envelope"></i>--></button>
+                                            </div>
+                                            <div class="messageNotifySec" ng-if="showNotify" ng-mouseleave = "hideNotifyMsg()">
+                                                <div class="Notifymessage" ng-repeat="recentmsg in recentConversationMsg" ng-click="viewMsgNotify(recentmsg.messageId)">
+                                                    <h3>{{recentmsg.senderUsername}}</h3>
+                                                    <span class="timing" am-time-ago="recentmsg.messageSentTime"></span>
+                                                    <div class="subj">{{recentmsg.messageSubject}}</div>
+                                                </div>                                            
+                                                <button ng-click="messageRedirection(msgType)"> View all</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   </div>
+                                   <div class="top_secs" layout-align="end end" layout="row">
+                                    <div ng-if="loggedUserDetails.loggedBy" class="logged_by" ng-mouseleave="isActive1 = false" ng-include="'app/templates/appheader.html'"></div>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section layout="row" flex="" ng-if="!isValiduser" style="margin: 0 auto;">Access Denied! You don't have sufficient privileges to this page. Please contact your super administrator.</section>
+    <div layout="row" layout-align="end center">
+        <div flex="100">
+           <div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBanercls">
+            <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBanercls">
+                <div class="icon_display">
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+              <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+              </svg>
+          </div>
+          <div class="display_message">{{alertBaner.message}}</div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <section layout="row" flex="" ng-if="isValiduser" ng-class="{'opend_menu': isActive}" class="hide_cont_menu">
+        <div layout="row" class="whole-admin-wrap" layout-wrap="">
+            <md-sidenav class="md-sidenav-left sidebar" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+                <md-content layout-padding="" class="lft-panel-wrapper no-padding">
+                    <div class="logo-sec ng-scope {{loggedUserDetails.adminType}}" ng-if="loggedUserDetails" role="button" tabindex="0">
+                        <img  ui-sref="groupdashboard" ng-if="loggedUserDetails.adminType === 'superAdmin'" src="dest\images\logo.svg" class="ng-scope norespon_logo">
+                        <img  ui-sref="groupdashboard" ng-if="loggedUserDetails.adminType === 'superAdmin'" src="dest\images\logo_res.png" class="ng-scope respon_logo">
+                        <img  ng-if="loggedUserDetails.adminType === 'groupAdmin'" src="dest\images\logo.svg" class="ng-scope norespon_logo" ng-click="reloadingpage()">
+                        <img  ng-if="loggedUserDetails.adminType === 'groupAdmin'" src="dest\images\logo_res.png" class="ng-scope respon_logo" ng-click="reloadingpage()">
+                    </div>
+                    
+                    <div class="menu-sec">
+					   <div class="menu-list" ng-repeat="parentList in menuList" ng-mouseleave="hideChildMenus()">
+                            <a href="javascript:void(0);" ng-mouseover="hasChild($index)" ng-click="changeState($index); togglemenuclk(parentList)" class="md-button md-ink-ripple" ng-class="{'visited' : parentList.selected}"><!--mouseovr()-->
+									<span class="ic_{{parentList.name}}"><span class="icon_fixs"></span></span>
+									<span class="ng-binding ng-scope menu_lk_title" ng-bind="parentList.name"></span>
+									<div class="md-ripple-container"></div>
+									<span class="fa fa-angle-right pull-right" ng-if="parentList.childList"> </span>
+				            </a>
+                            <div class="sub_menu_list">
+									<div class="sub-list menu-list" id="submenuover" ng-show="parentList.childList && menu.showChild" ng-repeat="child in parentList.childList.childs" >
+										<a class="md-button md-ink-ripple" ng-click="changeChildState($index,$parent.$index);" ng-mouseover="hasInnerChild($index,$parent.$index)" ng-class="{'visited' : child.selected}">
+											<span class="ng-binding ng-scope" ng-bind="child.name"></span>
+											<div class="md-ripple-container"></div>
+											<span class="fa fa-angle-right pull-right" ng-if="child.innerchildList.innerchilds"> </span>
+										</a>
+                                        <div class="sub_sub_menu_list"  ng-show="child.innerchildList.innerchilds && menu.showInnerChild">
+                                        <div class="sub-list menu-list" ng-repeat="innerchild in child.innerchildList.innerchilds" >
+                                            <a class="md-button md-ink-ripple" ng-click="changeInnerChildState($index,$parent.$index,$parent.$parent.$index)" ng-class="{'visited' : innerchild.selected}">
+                                                <span class="ng-binding ng-scope" ng-bind="innerchild.name"></span>
+                                                <div class="md-ripple-container"></div>
+                                            </a>
+                                        </div>
+                                        </div>
+							</div>
+				            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-sidenav>
+            <md-content flex="" class="rgt-sec">
+                <div layout="column" layout-align="top center">  
+                    <div class="admincontentCls layout-padding-20">
+                        <div class="top_header_breadcrumb">
+                            <h4><span> {{currentGroupname}}</span></h4> 
+                            <ol class="breadcrumb" ng-if="!mailnotify">
+                                <li>
+                                    <a ng-if="loggedUserDetails.adminType === 'superAdmin'" ng-click="breadcrumsicon()" class="home_link_ico" ><i class="fa fa-home"></i><span class="ng-binding ng-scope"></span></a>
+                                    <a ng-if="loggedUserDetails.adminType === 'groupAdmin'" ng-click="reloadingpage()" class="home_link_ico" ><i class="fa fa-home"></i><span class="ng-binding ng-scope"></span></a><!--ng-if="loggedUserDetails.adminType != 'groupAdmin'"-->
+                                </li>
+                                <li class="breadcrumb-item" ng-repeat="breadcrumbItem in breadcrumbList">
+                                    &nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;&nbsp;
+									<a href="#" ng-if="breadcrumbItem == 'Home'">{{breadcrumbItem}}</a><span ng-if="breadcrumbItem != 'Home'">{{breadcrumbItem}}</span>
+									<!--<a href="#" ng-if="breadcrumbItem == 'Home'">{{breadcrumbItem}}</a><span ng-if="breadcrumbItem != 'Home'">{{breadcrumbItem}}</span>-->
+                                   <!-- <a ng-click="breadcrumblistredirect()" ng-if="breadcrumbItem == 'Home' || breadcrumbItem == 'User Management'">{{breadcrumbItem}}</a><span ng-if="breadcrumbItem != 'Home' && breadcrumbItem != 'User Management'">{{breadcrumbItem}}</span>-->
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div layout="row" layout-align="center center">
+                            <div class="notify-container">
+
+                                <div layout="row" ng-if="mailnotify" class="notify-desc">
+                                    <div flex="100">
+                                        <h3>NOTIFICATION</h3>
+                                        <a ng-click="backtomessageNotification()"><i class="fa fa-home"></i></a>
+                                    </div>
+                                </div>
+
+                                <div ng-if="mailnotify" class="msgnotifysmallview notify-desc1" layout="column" ng-repeat="msgnotifyn in messageunreadNotification">
+
+                                    <md-whiteframe class="md-whiteframe-z3" layout="row" layout-align="start center">
+                                        <div layout="row" class="msgnotifysmallviewrowcls" flex="100">
+                                            <div flex="10">
+                                                <div class="notify-icon">
+                                                    <img src="dest\images\Penguins.jpg">
+                                                </div>
+                                            </div>
+                                            <div flex="70">
+                                                <h4><b>{{msgnotifyn.messageSubject}}!</b></h4>
+                                                <div class="notify_nameCont">{{msgnotifyn.messageContent}}</div>
+                                                <div class="notify_time">10 Mins ago</div>
+                                            </div>
+                                            <div flex="20" layout-align="end end">
+                                                <div class="msgnotifyeyeview" layout="row" layout-align="end center">
+                                                    <md-button type="checkbox" ng-if="!msgnotifyn.expandmessagenotify" ng-click="msgnotifyn.expandmessagenotify = true;">View</md-button>
+                                                    <md-button type="checkbox" ng-if="msgnotifyn.expandmessagenotify" ng-click="msgnotifyn.expandmessagenotify = false;">close</md-button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </md-whiteframe>
+                                    <md-whiteframe class="md-whiteframe-24dp" layout="row">
+                                        <div class="check-element animate-show-hide" ng-show="msgnotifyn.expandmessagenotify">
+                                            <div layout="column" class="drop-in">
+                                                <h4><b>{{msgnotifyn.messageSubject}}!</b></h4>
+                                                <div>{{msgnotifyn.messageContent}}</div>
+                                            </div>
+                                        </div>
+                                    </md-whiteframe>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div ui-view="" ng-if="!mailnotify" />
+                    </div>
+                </div>
+            </md-content>
+        </div>
+    </section>
+
+</div>

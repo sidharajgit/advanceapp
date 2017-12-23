@@ -1,0 +1,69 @@
+                                   
+<div class="top_sec_prof preNoImg">
+    <a href="javascript: void(0);" ng-click="toggle_child_menu(this)">
+        <img class="group_img_cent" ng-if="cacheServiceData.imageName" ng-src="{{cacheServiceData.imageName}}" loaded-img>
+        <img class="group_img_cent" ng-if="!cacheServiceData.imageName" ng-src="dest\images\noimage.png">
+        {{cacheServiceData.fullname}}
+        <i class="fa fa-caret-down"></i>
+    </a>
+</div>
+<div class="bottom_sec_prof" ng-mouseleave="hideThisDiv()" ng-class="{'active_menu': isActive1}">
+    <div class="profile_Sec_top preNoImgLG">
+        <div>                                                    
+            <img class="group_img_cent" ng-if="cacheServiceData.imageName" ng-src="{{cacheServiceData.imageName}}" loaded-img>
+        <img class="group_img_cent" ng-if="!cacheServiceData.imageName" ng-src="dest\images\noimage.png">
+        </div>
+        <div class="profile_details">
+            <p class="log_user_name">{{cacheServiceData.fullname}}</p>
+            <p class="log_type_name">{{loggedUserDetails.roleType}}</p>
+        </div>
+    </div>
+    <ul>
+        <li ng-click="myprofileedit()">My profile</li>         
+        <li>
+            <md-button class="md-icon-button logoutBtn" aria-label="logout" ng-click="logoutAdmin()">
+                <span>
+                    Logout
+                </span>
+            </md-button>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+   <!-- <div class="top_sec_prof">
+        <a href="javascript: void(0);" ng-click="toggle_child_menu(this)">
+            <img ng-if="loggedUserDetails.profileImage" ng-src="{{loggedUserDetails.profileImage.url}}{{loggedUserDetails.profileImage.name}}">
+            <img ng-if="!loggedUserDetails.profileImage" ng-src="dest\images\noimage.png">{{loggedUserDetails.loggedBy}}
+            <i class="fa fa-caret-down"></i>
+        </a>
+    </div>
+    <div class="bottom_sec_prof" ng-class="{'active_menu': isActive1}"  ng-mouseleave="hideThisDiv(this)">
+        <div class="profile_Sec_top">
+            <div>                                                    
+                <img class="group_img_cent" ng-if="loggedUserDetails.profileImage" ng-src="{{loggedUserDetails.profileImage.url}}{{loggedUserDetails.profileImage.name}}">
+                <img class="group_img_cent" ng-if="!loggedUserDetails.profileImage" ng-src="dest\images\noimage.png">
+            </div>
+            <div class="profile_details">
+                <p class="log_user_name">{{loggedUserDetails.loggedBy}}</p>
+                <p class="log_type_name">{{loggedUserDetails.roleType}}</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <span>Role: {{loggedUserDetails.roleType}}</span>
+            </li>
+            <li ng-click="myprofileedit()">My profile</li>
+            <li>
+                <md-button class="md-icon-button logoutBtn" aria-label="logout" ng-click="logoutAdmin()">
+                    <span>
+        Logout
+    </span>
+                </md-button>
+            </li>
+        </ul>
+    </div>-->

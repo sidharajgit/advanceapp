@@ -1,0 +1,10 @@
+<div layout="row" flex="100" ng-cloak>
+<md-fab-actions class="addmul-user-icon">  
+    <md-button aria-label="SingleUser" class="md-fab md-raised hvr-push" ng-class="{'btnDisable':crossButton.isSingleuser}" ng-click="toggleSingleuser()" ng-disabled="crossButton.isSingleuser" ng-if="addRecord.level1 && tableType == 'register'" title="{{addRecord.level1Title}}">
+        <md-icon><i class="fa fa-user-plus"></i> <span>{{addName.addSingleName}}</span></md-icon>
+    </md-button>
+    <md-button aria-label="MultiUser" class="md-fab md-raised hvr-push" ng-class="{'btnDisable':crossButton.isMultiuser}" ng-if="addRecord.level2 && tableType == 'register'" ng-disabled="crossButton.isMultiuser" ng-click=toggleMultiuser() title="{{addRecord.level2Title}}">
+        <md-icon><i class="fa fa-users"></i> <span>{{addName.addMultiuploadname}}</span></md-icon>
+    </md-button>
+</md-fab-actions> 
+</div>         

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\contentmanagementControllerbk.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> contentmanagementControllerbk.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.45% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/55</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.56% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/54</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">advancePubapp.controller('contentmanagementControllerbk',['$scope','sfactory','$rootScope','$filter','$mdDialog','taskService', <span class="fstat-no" title="function not covered" >function($scope,sfactory,$rootScope,$filter,$mdDialog,taskService){ </span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var userReq = {};</span>
+<span class="cstat-no" title="statement not covered" >    var tasks;</span>
+    
+    /* Method to capture emitForCloseicon */
+<span class="cstat-no" title="statement not covered" >    $scope.$on('emitForClose',<span class="fstat-no" title="function not covered" >function(event,args){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.isSingleuser = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.isMultiuser  = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.showicon     = args.showicon;</span>
+    });
+    
+    /* Method callback for close the baner alert message */
+<span class="cstat-no" title="statement not covered" >    $scope.closeBaner = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.alertBaner.showBaner = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.$emit('switchMenu',{list:$scope.listObj});</span>
+    };
+     
+    /* Method to capture baner call back from child directives */
+<span class="cstat-no" title="statement not covered" >    $scope.$on('emitFromDirectiveBaner',<span class="fstat-no" title="function not covered" >function(event,args){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.alertBaner = args.alertBaner;</span>
+<span class="cstat-no" title="statement not covered" >        if(angular.isDefined(args.list)) <span class="cstat-no" title="statement not covered" >$scope.listObj = args.list;</span></span>
+    });
+    
+<span class="cstat-no" title="statement not covered" >    $scope.showTabDialog = <span class="fstat-no" title="function not covered" >function(ev) {</span></span>
+<span class="cstat-no" title="statement not covered" >        $mdDialog.show({</span>
+          controller: 'tabDialogController',
+          templateUrl: 'dest/templates/tabDialog.html',
+          targetEvent: ev,
+          clickOutsideToClose:true
+        })
+            .then(<span class="fstat-no" title="function not covered" >function(answer) {</span>
+            }, <span class="fstat-no" title="function not covered" >function() {</span>
+            });
+      }; 
+    
+    /* Method to capture emitted values from deep child directive */
+<span class="cstat-no" title="statement not covered" >    $scope.captureBaner = <span class="fstat-no" title="function not covered" >function(value){</span></span>
+<span class="cstat-no" title="statement not covered" >        var banerData = {'message':value.message,'showBaner':value.showBaner,'banerClass':value.banerClass};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData,'list':value.switchMenu});</span>
+    };
+    
+	
+	/* Method for tab change in content management */
+<span class="cstat-no" title="statement not covered" >    $scope.getCurrentTab = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >      var tabMap = {'Phonics Adventure':0,'Number Success':1};</span>
+<span class="cstat-no" title="statement not covered" >      $scope.filteredData = $filter('filter')($scope.contentmanagement, $scope.contentSearch);</span>
+<span class="cstat-no" title="statement not covered" >      $scope.contentTabindex = ($scope.filteredData &amp;&amp; $scope.filteredData.length &gt; 0) ? tabMap[$scope.filteredData[0].name] : 0;</span>
+    };
+	
+	/* Method for viewsectioncontent */
+<span class="cstat-no" title="statement not covered" >    $scope.viewsectioncontent = <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >      data.viewsection = true;</span>
+    };
+  
+<span class="cstat-no" title="statement not covered" >	$scope.closecontent = <span class="fstat-no" title="function not covered" >function(data,$event){  </span></span>
+<span class="cstat-no" title="statement not covered" >	    $event.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >		$event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >	    data.viewsection = false;</span>
+	};
+    
+<span class="fstat-no" title="function not covered" >	function initiatecontentController(){</span>
+<span class="cstat-no" title="statement not covered" >		$scope.pagename = "contentmanagementpage";</span>
+<span class="cstat-no" title="statement not covered" >        $scope.contentTabindex = 0; </span>// It represents the current tab index for contents based on the search text...
+<span class="cstat-no" title="statement not covered" >        tasks = taskService.getTasks('contentmanagementController');</span>
+<span class="cstat-no" title="statement not covered" >		var localTask = "contentmanagement";</span>
+<span class="cstat-no" title="statement not covered" >		sfactory.serviceCall({},tasks.getContents,'listDetails').then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >			$scope.contentmanagement = response.data;  </span>
+<span class="cstat-no" title="statement not covered" >            $scope.getCurrentTab();</span>
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+		},<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >			appLoaderCheck = true;</span>
+<span class="cstat-no" title="statement not covered" >			sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.contentmanagement = response.data;  </span>
+<span class="cstat-no" title="statement not covered" >                $scope.getCurrentTab();</span>
+<span class="cstat-no" title="statement not covered" >				appLoaderCheck = false;</span>
+			},<span class="fstat-no" title="function not covered" >function(error){</span>
+			});
+		});
+<span class="cstat-no" title="statement not covered" >		$scope.courseHead = {name:'Available',bind_val:'block',isSortable:false,isStatusColumn:true,columnName:"status",actionMethods:{status:{api:'content_v2.catGroupAssign',viewName:'content',session:'listDetails',isModify:true,parentId:""}}};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		$scope.sectionHead = {name:'Available',bind_val:'block',isSortable:false,isStatusColumn:true,columnName:"status",actionMethods:{status:{api:'content_v2.sectionGroupAssign',viewName:'content',session:'listDetails',isModify:true,parentId:""}}};</span>
+		
+<span class="cstat-no" title="statement not covered" >		$scope.activitiesHead = {name:'Available',bind_val:'block',isSortable:false,isStatusColumn:true,columnName:"status",actionMethods:{status:{api:'content_v2.scormGroupAssign',viewName:'content',session:'listDetails',isModify:true,parentId:""}}};</span>
+	};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	initiatecontentController();</span>
+    
+}]);
+&nbsp;
+advancePubapp.animation('.animate_slider_cont', <span class="fstat-no" title="function not covered" >function($animate) {</span>
+<span class="cstat-no" title="statement not covered" > return {</span>
+    enter: <span class="fstat-no" title="function not covered" >function(element, done) {</span>
+<span class="cstat-no" title="statement not covered" >        element.css('display','inline-block');</span>
+<span class="cstat-no" title="statement not covered" >        element.animate({"max-height":'999px'},500,<span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >            element.css('overflow','visible');</span>
+        });
+        
+    },
+    leave: <span class="fstat-no" title="function not covered" >function(element, done) {</span>
+<span class="cstat-no" title="statement not covered" >        element.css('overflow','hidden');</span>
+<span class="cstat-no" title="statement not covered" >        element.slideUp();</span>
+<span class="cstat-no" title="statement not covered" >        element.animate({"max-height":'0'},500);</span>
+    }
+  };
+});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 18 2017 10:33:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

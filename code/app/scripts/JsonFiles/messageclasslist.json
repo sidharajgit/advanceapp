@@ -1,0 +1,22 @@
+{
+    "data":[
+        {
+            "classId": 1,
+            "groupId": 1,
+            "classAdminId": 2231,
+            "className": "Test"
+        },
+        {
+            "classId": 2,
+            "groupId": 1,
+            "classAdminId": 2231,
+            "className": "Testclass2"
+        },
+        {
+            "classId": 3,
+            "groupId": 1,
+            "classAdminId": 2234,
+            "className": "Testclass3"
+        }
+    ]
+}

@@ -1,0 +1,235 @@
+<div layout="column" class="groupmanagementCls" ng-controller="groupmanagementController">   
+    <!--<div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">{{alertBaner.message}}</div>-->
+    <md-dialog>  
+        <form ng-cloak ng-if="namegroupcreate" name="groupadd" ng-submit="creategroup()" novalidate>  
+            <md-toolbar>    
+                <div layout="row" layout-align="end center">
+                    <div flex="100">
+                       <div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">     
+                        <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+                            <div class="icon_display">
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+                              <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                  <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                                  <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                              </svg>
+                          </div>
+                          <div class="display_message">{{alertBaner.message}}</div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md-toolbar-tools" >
+                    <h2>Create New Organization</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="groupcancel()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>    
+                    </md-button>
+                </div>
+            </md-toolbar>    
+            <md-dialog-content>
+                <div class="md-dialog-content">
+                    <div class="pop-box-width pop-grp-add">
+                        <div flex="100">
+                            <md-input-container class="md-block">
+                                <label>Organization Name</label>
+                                <input type="text" required name="groupadd_groupname" ng-model="group.groupname" maxlength="25" ng-keyup="validateGroupname($event)">
+                                <div ng-messages="groupadd.groupadd_groupname.$error">
+                                    <div ng-message="required">This is required.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </md-dialog-content>
+            <md-dialog-actions layout="row">
+            <div class="pop-submt-sec">
+                <md-button class="md-raised md-warn" ng-click="groupcancel()">Cancel</md-button>
+                <md-button type="submit" class="md-raised md-primary" ng-disabled="groupadd.$invalid">Next</md-button>   
+            </div>
+            </md-dialog-actions>
+        </form>    
+    </md-dialog>     
+    <md-dialog>  
+        <form ng-cloak ng-if="!namegroupcreate" name="form.groupform"  ng-submit="form.groupform.$valid && createNewGroupUser()" novalidate autocomplete="off" class="width-grp2-top"> 
+            <md-toolbar>    
+                <div class="md-toolbar-tools" >
+                    <h2>Create Group Admin</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="groupcancel()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>    
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-dialog-content>
+                <div class="md-dialog-content">
+                    <div layout="row">    
+                        <span>Assign an admin to the group &nbsp;&nbsp;</span>								
+                        <input type="text" class="editgroupname cls_nameCont" required md-no-asterisk name="groupadd_groupname" id="groupname" ng-model="group.groupname" title="{{group.groupname}}" maxlength="25"  ng-keyup="validateGroupname($event)" ng-change="hideErrorMsgGrpnm()"/>.
+                    </div> 
+                     <div ng-if="alertBaner.showBanerGrpnm"><span class="error_msg_displ">{{alertBaner.message}}</span></div>
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">      
+                            <div class="box-header">
+                                    <h3 class="box-title">CREATE GROUP ADMIN</h3>
+                            </div>
+                        </div>
+                        <div flex="15">      
+
+                        </div>
+                        <div flex="100">      
+                            
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">      
+                            <md-input-container class="md-block">
+                                <label>First Name</label>
+                                <input type="text" name="groupadd_firstname" ng-model="group.firstname" required ng-pattern="/^[a-zA-Z\s]*$/">
+                                <div ng-messages="form.groupform.groupadd_firstname.$error">    
+                                    <span ng-message="required">This is required.</span>
+                                    <span ng-message="pattern">Invalid First Name.</span>
+                                </div>     
+                            </md-input-container>
+                        </div>
+                        <div flex="15">      
+
+                        </div>
+                        <div flex="100">      
+                            <md-input-container class="md-block">
+                                <label>Last Name</label>
+                                <input type="text" name="groupadd_lastname" ng-model="group.lastname" required ng-pattern="/^[a-zA-Z\s]*$/">
+                                <div ng-messages="form.groupform.groupadd_lastname.$error">
+                                    <span ng-message="required">This is required.</span>
+                                    <span ng-message="pattern">Invalid Last Name.</span>
+                                </div>     
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="space-around center">
+                        <div flex="100">
+                            <div layout="row">
+								<datemonthyear datemonth="group.dob" agecheck="'ageabovethirteen'" ></datemonthyear> 
+                               <!-- <div flex="100" ng-init="minimumage=13">
+                                <div layout="row">
+                                     <div flex="30">
+                                        <md-input-container class="md-block">
+                                            <label for="">Month</label>
+                                            <input type="number" name="groupadd_birth_month">
+                                        </md-input-container>
+                                     </div>
+                                     <div flex="30">
+                                        <md-input-container class="md-block">
+                                            <label for="">Day</label>
+                                            <input type="number" name="groupadd_birth_day">
+                                        </md-input-container>
+                                     </div>
+                                     <div flex="40">
+                                        <md-input-container class="md-block">    
+                                            <label>Year</label> 
+                                            <input type="number" name="groupadd_birth_year" ng-model="group.birth_year" max={{currentYear-13}} min={{currentYear-100}}  onKeyPress="if(this.value.length == 4) return false;" yr-integer>
+                                            <div ng-messages="form.groupform.groupadd_birth_year.$error">
+                                                <div ng-message="min">User should be less than 100 years old</div>
+                                                <div ng-message="max">User should be 13 years old or above</div>
+                                            </div>
+                                        </md-input-container>
+                                     </div>
+                                 </div> 
+                                </div>-->
+                            </div>                                
+                            <div layout="row">
+                                <div flex="100">
+                                    <span class="error phoneerrorcls" ng-show="groupdate">{{monthError}}</span> 
+                                </div>    
+                            </div>
+                        </div>
+                        <div flex="15"> </div>     
+                        <div flex="100">
+                          <md-input-container class="md-block">
+                                <label>User Name</label>
+                                <input type="text" name="groupadd_username" id="username" ng-model="group.username" ng-pattern="/^[a-zA-Z0-9]*$/" ng-keyup="valiateUsername($event)" ng-change="hideErrorMsgUser()">   
+                                <div ng-if="alertBaner.showBanerUser"><span class="error_msg_displ">{{alertBaner.message}}</span></div>
+                                <div ng-messages="form.groupform.groupadd_username.$error">    
+                                    <!-- <span ng-message="required">This is required</span> -->
+                                    <span ng-message="pattern">Numbers and letters only</span>    
+                                </div>
+                            </md-input-container>  
+<!--                             <md-input-container class="md-block">
+                                <label>User Name</label>
+                                <input type="text" name="groupadd_username" id="username" ng-model="group.username" required ng-pattern="/^[a-zA-Z0-9]*$/" ng-keyup="valiateUsername($event)" ng-change="hideErrorMsgUser()">   
+                                <div ng-if="alertBaner.showBanerUser"><span class="error_msg_displ">{{alertBaner.message}}</span></div>
+                                <div ng-messages="form.groupform.groupadd_username.$error">    
+                                    <span ng-message="required">This is required</span>
+                                    <span ng-message="pattern">Numbers and letters only</span>    
+                                </div>
+                            </md-input-container>   -->     
+                        </div>    
+                    </div> 
+                    <div layout="row" layout-align="space-around center">
+                    <div flex="100">
+                        <md-input-container class="md-block">
+                            <label>Email ID</label>
+                            <input type="email" name="groupadd_email1" id="email1" ng-model="group.email1" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/" ng-keyup="validateEmail($event)" ng-change="hideErrorMsgEmail()" >
+                            <div ng-if="alertBaner.showBanerEmail"><span class="error_msg_displ">{{alertBaner.message}}</span></div>
+                            <div ng-messages="form.groupform.groupadd_email1.$error">
+								<span class="error" ng-show="form.groupform.groupadd_email1.$error.required && form.groupform.groupadd_email1.$touched">This is required</span>   
+							    <span class="error" ng-show="form.groupform.groupadd_email1.$error.pattern">Invalid Email</span> 
+                               <!-- <div ng-message="required">This is required.</div>
+                                <span ng-message="pattern">Invalid Email.</span>-->
+                            </div>
+                        </md-input-container>
+<!-- 
+                        <md-input-container class="md-block">
+                            <label>Phone Number</label>
+                            <input type="number" name="groupadd_phone" id="phone" ng-model="group.phone_no"  ng-pattern="/^[0-9]{1,10}$/">
+                        </md-input-container>    
+
+                         <md-input-container class="md-block">
+                            <label>Country</label>
+                            <input type="text" name="groupadd_country" id="country" ng-model="group.country"  >
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>State</label>
+                            <input type="text" name="groupadd_state" id="state" ng-model="group.state"  >
+                        </md-input-container>     --> 
+           
+                        
+                        <md-input-container class="md-block grp_add_email_container genter_details">
+                                <label>Gender</label>
+                                <md-radio-group ng-model="group.gender" name="gender" required>
+                                    <md-radio-button value="male" class="md-primary">male</md-radio-button>
+                                    <md-radio-button value="female"> female </md-radio-button>
+                                </md-radio-group>
+								<div ng-messages="form.groupform.gender.$error">
+								  <div ng-message="required">Gender is required.</div>
+								</div>
+                        </md-input-container>                
+                                     
+                    </div>    
+                    <div flex="15"> </div>    
+                    <div flex="100">
+                        <md-input-container class="md-block txtarea_md">
+                            <label>Address</label>
+                            <textarea maxlength="150" md-no-asterisk name="groupadd_address" ng-model="group.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus></textarea>
+                            <div ng-if="form.groupform.address.$viewValue" ng-messages="form.groupform.groupadd_address.$error">
+                                <div ng-message="maxlength">Maximum length 150.</div>
+                            </div>
+                        </md-input-container>     
+                    </div>    
+                    </div> 
+                </div>
+            </md-dialog-content>
+            <md-dialog-actions layout="row">
+            <div class="pop-submt-sec">
+                <md-button class="md-raised md-warn" ng-click="groupcancel()">Cancel</md-button>
+                <md-button type="submit" class="md-raised md-primary" ng-disabled="form.groupform.$invalid || phoneboolvalue || alertBaner.showBanerEmail || alertBaner.showBanerUser">Create</md-button>     
+            </div>
+            </md-dialog-actions>
+        </form>
+    </md-dialog>
+</div>    
+       

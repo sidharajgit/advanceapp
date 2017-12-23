@@ -1,0 +1,16 @@
+
+<div> 
+    <md-switch ng-if="contentHead.columnName == 'status'" ng-model="contentBody.block" aria-label="Switch" ng-true-value=true ng-false-value=false class="md-warn" ng-change="statusChange()"></md-switch>
+	<md-switch ng-if="contentHead.columnName == 'roaming'" ng-model="contentBody.roaming_content" aria-label="Switch" ng-true-value=true ng-false-value=false class="md-warn" ng-change="statusChange()"></md-switch>
+    <div ng-if="contentHead.columnName == 'icon'" >
+        <div class="user_type_icon_sec">
+            <div title="{{contentBody[contentHead.bind_val]}}" class="user_type_icon" ng-class="getClassnames()"><span> {{contentBody[contentHead.bind_val]}}</span>
+               <!-- <span ng-if="contentBody[contentHead.bind_val] == 'Groupadmin'">Group Admin</span>    
+                <span ng-if="contentBody[contentHead.bind_val] == 'Teacher'">Teacher</span>    
+                <span ng-if="contentBody[contentHead.bind_val] == 'Parent'">Parent</span>    
+                <span ng-if="contentBody[contentHead.bind_val] == 'Student'">Student</span>    -->
+            </div>    
+        </div>    
+    </div>
+</div> 
+ 

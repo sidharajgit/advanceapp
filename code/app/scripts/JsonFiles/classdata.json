@@ -1,0 +1,40 @@
+{
+  "class_list":
+    {
+      "active_class": "5",
+      "deleted_class": "0"
+    }
+    ,
+  "class_report": [
+    {
+      "classname": "Class I",
+      "class_admin": "teacher one",
+      "enrolled_count": 3,
+      "date": "2017-05-26"
+    },
+    {
+      "classname": "Test Class",
+      "class_admin": "teacher one",
+      "enrolled_count": 4,
+      "date": "2017-05-26"
+    },
+    {
+      "classname": "Messaging Class",
+      "class_admin": "ganesh sankar",
+      "enrolled_count": 4,
+      "date": "2017-05-26"
+    },
+    {
+      "classname": "Class II",
+      "class_admin": "John Cena",
+      "enrolled_count": 0,
+      "date": "2017-05-26"
+    },
+    {
+      "classname": "Class X",
+      "class_admin": "Madhan Madhan",
+      "enrolled_count": 0,
+      "date": "2017-05-26"
+    }
+  ]
+}

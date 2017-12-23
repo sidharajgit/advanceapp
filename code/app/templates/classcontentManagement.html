@@ -1,0 +1,197 @@
+<div class="contn_div_container class-content">
+    <div class="tab_fst">
+        <md-tabs md-dynamic-height md-border-bottom ng-if="contents.tabs.categories.length" md-selected="activeparenttab">
+            <md-tab ng-repeat="tab in headerdata track by $index" ng-click="getData($index,0,true)">
+                <md-tab-label>
+                    <span >{{tab.name}}</span>
+                    <!--ng-class="{'phonicslogo':tab.name === 'Phonics Adventure', 'nslogo':tab.name === 'Number Success'}"-->
+                </md-tab-label>
+                <md-tab-body>
+                    <md-content class="md-padding" ng-class="{'PhonicsAdventureTab':tab.name === 'Phonics Adventure'}" ng-if="tab.name === 'Phonics Adventure'">
+                        <div class="tab_scnd">
+                            <div flex="100" layout="row" class="list_tab v-tab" ng-if="(contents.course.sections).length > 0">
+                                <ul>
+                                    <li>Section</li>
+                                    <li ng-repeat="section in contents.course.sections track by $index" ng-class="{active: contents.activeSection === $index}" ng-click="changeSection($index,'Phonics Adventure')">
+                                        <a ng-bind="$index+1"></a>
+                                    </li>
+                                </ul>
+                            </div> 
+                            <md-tabs md-dynamic-height md-border-bottom md-selected="activetab.childIndex">
+                                <md-tab label="" ng-repeat="textBook in contents.tabs.categories track by $index" ng-click="getLevelData($index,null,0)" ng-disabled="(tabDetails.table === 'courses' && !contents.tabs.categories[$index].isadded)">
+                                    <md-tab-label>
+                                        <span ng-class="{'lheightSt':levelstage.isadded}">
+                                            {{textBook.name}} 
+                                            <div class="level_btnscont">
+                                                <button ng-repeat="levelstage in textBook.levels track by $index" style="position: relative;" ng-class="{'active': contents.activeLevel[$index]}" ng-disabled="(tabDetails.table === 'courses' && !levelstage.isadded)" ng-click="getLevelData($parentindex,levelstage.name,$index); $event.stopPropagation();" ng-bind="levelstage.levelname" ng-if="levelstage.isadded"></button>
+                                            </div>
+                                        </span>                                        
+                                    </md-tab-label>
+                                    <md-tab-body>
+                                        <md-content class="md-padding toc-con" ng-if="contents.currentSection !== null">
+                                            <div layout="row" class="title" ng-if="tabDetails.table === 'assignContents'">
+                                                <div flex="100">
+                                                    <div class="course_name" ng-bind="(contents.activeLevel[0])  ? textBook.name+' : Level 1' : textBook.name+' : Level 2'"></div>
+                                                </div>
+                                            </div>
+                                            <div class="tab_thrd" ng-if="(contents.currentSection.isadded && contents.currentSection.isactive && tabDetails.table === 'courses') || (tabDetails.table === 'assignContents')">
+                                                <div layout="row" class="tab_title" ng-if="(contents.currentSection.lessons).length > 0">
+                                                    <md-checkbox class="chck_title_befr" ng-model="contents.currentSection.isadded" ng-change="changeSectionStatus()" ng-if="tabDetails.table === 'assignContents'">
+                                                    </md-checkbox>
+                                                    <h3 ng-if="tabDetails.table === 'assignContents' || (tabDetails.table === 'courses' && contents.currentSection.isadded)" ng-bind="'Section '+(contents.activeSection +1)+' : '+(contents.currentSection.name)"></h3>
+                                                </div>
+                                                <div class="brdr_line"></div>
+                                                <div class="masonry">
+                                                    <div class="item" ng-repeat="lesson in contents.currentSection.lessons" ng-if="(tabDetails.table === 'assignContents' && lesson.isactive) || (tabDetails.table === 'courses' && lesson.isadded && lesson.isactive)" ng-init="outerIndex = $index">
+                                                        <md-checkbox aria-label="Select All" class="title_checkbx" ng-model="lesson.isadded" ng-click="changeLessonStatus($index)" ng-if="tabDetails.table === 'assignContents' && lesson.isactive">
+                                                            <span ng-bind="lesson.type"></span>
+                                                        </md-checkbox>
+                                                        <h4 ng-bind="lesson.type" class="title_tr_tb" ng-if="tabDetails.table === 'courses'  && lesson.isadded && lesson.isactive"></h4>
+                                                   		<div class="demo-select-all-checkboxes" flex="100" ng-repeat="activity in lesson.activities" ng-init="innerIndex = $index;activity.showtooltip=false;" ng-mouseleave="activity.showtooltip = false;">
+                                                            <md-checkbox ng-if="tabDetails.table === 'assignContents' && activity.isactive" ng-model="activity.isadded" ng-change="changeActivityStatus(outerIndex,innerIndex)">{{activity.name}}</md-checkbox>
+															<!--<a ng-click="activity.showtooltip=true" ng-if="tabDetails.table === 'assignContents' && activity.isactive" class="dnIC"><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                            </a>
+                                                             <div class="coursePlayPV" ng-if="activity.showtooltip" ng-mouseleave="activity.showtooltip = false;">
+                                                                    <ul>
+                                                                        <li>Start Here</li>    
+                                                                        <li  ng-if="tabDetails.table === 'assignContents' && activity.isactive"><a ng-click="loadCoursePlayer(activity)">Preview</a></li>    
+                                                                    </ul>
+                                                             </div> -->                                                            
+                                                            <span ng-bind="activity.name" ng-if="tabDetails.table === 'courses' && activity.isadded && activity.isactive"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab_thrd" ng-if="(contents.course && contents.currentSection && !(contents.currentSection.isadded && contents.currentSection.isactive) && (tabDetails.table === 'courses')) || (contents.course && !contents.course.sections.length && tabDetails.table === 'assignContents')">
+                                                <p class="noRcrd">No data found!</p>
+                                            </div>
+
+                                        </md-content>
+                                    </md-tab-body>
+                                </md-tab>
+                            </md-tabs>
+                        </div>
+                    </md-content>
+                    <md-content class="md-padding" ng-class="{'NumberSuccessTab': tab.name === 'Number Success'}" ng-if="tab.name === 'Number Success'">
+                      <div class="tab_scnd">
+                           <div flex="100" layout="row" class="list_tab v-tab" ng-if="(contents.course.units.length > 0 && contents.currentSection !== null)">
+                                <ul>
+                                    <li ng-if="contents.course.units">Units</li>
+                                    <li ng-repeat="section in contents.course.units track by $index" ng-class="{active: contents.activeSection === $index}" ng-click="changeSection($index,'Number Success')">
+                                        <a ng-bind="$index+1"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <md-tabs md-dynamic-height md-border-bottom md-selected="activetab.childIndex">
+                                <md-tab label="" ng-repeat="textBook in contents.tabs.categories track by $index" ng-click="getLevelData($index,null,0)" ng-disabled="(tabDetails.table === 'courses' && !contents.tabs.categories[$index].isadded)">
+                                    <md-tab-label>
+                                        {{textBook.name}}
+                                    </md-tab-label>
+                                    <md-tab-body>
+                                        <md-content class="md-padding toc-con" ng-if="contents.currentSection !== null">
+                                            <div flex class="top-strip">
+                                                <md-checkbox class="chck_title_befr" ng-model="contents.currentSection.isadded" ng-change="changeUnitStatus()" ng-if="tabDetails.table === 'assignContents'">
+                                                </md-checkbox>
+                                                <h3 ng-bind="'Unit : '+(contents.currentSection.name)" class="numstrip-title"></h3>
+                                            </div>
+                                            <div class=" masonry">
+                                                <div class="item" ng-repeat="filtertype in contents.filters track by $index" >
+                                                    <div flex="100" layout-margin>
+                                                        <div class="strip" ng-if="tabDetails.table === 'assignContents'">
+                                                            <md-checkbox ng-change="changeNSCourse(filtertype,contents.currentSection['isadded'+ (filtertype | lowercase)])" ng-model="contents.currentSection['isadded'+ (filtertype | lowercase)]" ng-disabled="!contents.currentSection['isactive'+(filtertype | lowercase)]">{{filtertype}}</md-checkbox>
+                                                        </div>
+                                                        <div class="strip" ng-if="tabDetails.table === 'courses'">
+                                                            <span ng-bind="filtertype"></span>
+                                                        </div>
+                                                        <div class="demo-select-all-checkboxes m17" flex="100" ng-repeat="activity in contents.currentSection[filtertype] track by $index" ng-mouseleave="activity.showtooltip=false;" ng-if="(( contents.currentSection['isadded'+(filtertype | lowercase)] && tabDetails.table === 'courses') || (tabDetails.table === 'assignContents')) && contents.currentSection['isactive'+(filtertype | lowercase)]">
+                                                            <md-checkbox ng-if="tabDetails.table === 'assignContents' && activity.isactive " ng-model="activity.isadded" ng-change="changeNSActivityStatus($index,filtertype)"> {{activity.name}}</md-checkbox>
+                                                            <!--<a ng-click="activity.showtooltip=true;" ng-if="tabDetails.table === 'assignContents' && activity.isactive" class="dnIC">
+                                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                            </a>
+                                                             <div class="coursePlayPV" ng-if="activity.showtooltip" ng-mouseleave="activity.showtooltip=false;">       
+                                                                    <ul>
+                                                                        <li  ng-if="tabDetails.table === 'assignContents' && activity.isactive"><a ng-click="loadNsCoursePlayer(activity,filtertype)">Preview</a></li>
+                                                                    </ul>
+                                                             </div>-->  
+                                                            <span ng-bind="activity.name" ng-if="tabDetails.table === 'courses' && activity.isadded && activity.isactive" ng-bind="activity.name"></span>
+                                                        </div>
+                                                        <div ng-if="!((( contents.currentSection['isadded'+(filtertype | lowercase)] && tabDetails.table === 'courses') || (tabDetails.table === 'assignContents')) && contents.currentSection['isactive'+(filtertype | lowercase)])">
+                                                        No data found!
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </md-content>
+                                    </md-tab-body>
+                                </md-tab>
+                            </md-tabs>
+                        </div>
+                    </md-content> 
+                    <md-content ng-if="tab.name === 'Writing Success'">
+                       <div class="tab_scnd wirtingsuccess-main">
+                            <md-tabs md-dynamic-height md-border-bottom md-selected="activetab.childIndex">
+                                <md-tab label="" ng-repeat="textBook in contents.tabs.categories track by $index" ng-click="switchWritingsuccess($index,0,'childtabUpdate')" ng-disabled="(tabDetails.table === 'courses' && !contents.tabs.categories[$index].isadded)" ng-init="outerIndex = $index">
+                                    <md-tab-label>
+                                        {{textBook.name}}
+                                        <div class="level_btnscont">
+                                            <button ng-repeat="tab in contents.tabs.categories[$index].levels track by $index"  class="level-btn" ng-class="{'active': tab.isActive}" ng-bind="tab.name" ng-click="switchWritingsuccess(outerIndex,$index,'section'); $event.stopPropagation();"></button>
+                                        </div>
+                                    </md-tab-label>
+                                    <md-tab-body>
+                                        <md-content class="md-padding toc-con" ng-if="contents.currentSection !== null">
+                                            <div class="writing-tit"><h3 ng-bind="textBook.key"></h3></div>
+                                            <div class="writing-subtit">
+                                                <md-checkbox aria-label="level" ng-model="contents.currentSection.isadded" ng-change="changeWSSectionStatus()" ng-if="tabDetails.table === 'assignContents'" ng-disabled="!contents.currentSection.isactive" ng-class="{'chkbox-disable': !contents.currentSection.isactive}">{{writingSuccess.selectedLevel.name}}</md-checkbox>
+                                                <span ng-if="tabDetails.table === 'courses'" ng-bind="writingSuccess.selectedLevel.name"></span>
+                                            </div>                                            
+                                           <div layout="row" ng-if="tabDetails.table === 'assignContents' || (tabDetails.table === 'courses')">
+                                               <div class="item write-firstcol" ng-if="tabDetails.table === 'assignContents'">
+                                                   <div class="writeyellow-title">
+                                                        <p ng-bind="writingSuccess.selectedLevel.key === 'uppercase' ? 'A-Z' : (writingSuccess.selectedLevel.key === 'lowercase' ? 'a-z' : '0-9')"></p>
+                                                   </div>
+                                                   <div class="writemanu">
+                                                       <div ng-repeat="menu in writingSuccess.menuList track by $index">
+                                                          <md-checkbox aria-label="menu" ng-model="writingSuccess.menustatus[$index].isadded" ng-disabled="!writingSuccess.menustatus[$index].isactive" ng-change="changeWSMenuStatus($index)" ng-class="{'chkbox-disable': !writingSuccess.menustatus[$index].isactive}"></md-checkbox>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                                <div class="item" flex="33" ng-repeat="subsection in contents.currentSection.subsection track by $index" ng-init="innerIndex = $index" ng-if="tabDetails.table === 'assignContents' || (tabDetails.table === 'courses')">
+                                                    <div flex="100" layout-margin>
+                                                        <div class="writeyellow-title" ng-if="tabDetails.table === 'assignContents'">
+                                                            <md-checkbox aria-label="subsection" ng-model="subsection.isadded" ng-change="changeWSLessonStatus(innerIndex)" ng-disabled="!subsection.isactive"  ng-class="{'chkbox-disable': !subsection.isactive}">{{subsection.name}}</md-checkbox>
+                                                        </div>
+                                                        <div class="writeyellow-title" ng-if="tabDetails.table === 'courses'">
+                                                            <span ng-bind="subsection.name"></span>
+                                                        </div>
+                                                        <div class="demo-select-all-checkboxes m17" flex="100" ng-repeat="activity in subsection.activities track by $index">
+                                                            <md-checkbox aria-label="acyivity" ng-if="tabDetails.table === 'assignContents'" ng-model="activity.isadded" ng-change="changeWSActivityStatus(innerIndex,$index)" ng-disabled="!activity.isactive" ng-class="{'chkbox-disable': !activity.isactive}">{{activity.name}}</md-checkbox>
+                                                            <!--<a ng-click="activity.showtooltip=true" ng-if="tabDetails.table === 'assignContents' && activity.isactive" class="dnIC"><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                            </a>
+                                                             <div class="coursePlayPV" ng-if="activity.showtooltip" ng-mouseleave="activity.showtooltip = false;">
+                                                                    <ul>
+                                                                        <li  ng-if="tabDetails.table === 'assignContents' && activity.isactive"><a ng-click="loadWSCourseplayer(subsection.key,activity.name)">Preview</a></li>    
+                                                                    </ul>
+                                                             </div>-->
+                                                            <span ng-bind="activity.name" ng-if="tabDetails.table === 'courses' && activity.isadded && activity.isactive"></span>
+                                                        </div>
+                                                        <div ng-if="tabDetails.table === 'courses' && !subsection.isadded">
+                                                            No data found!
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </md-content>
+                                    </md-tab-body>
+                                </md-tab>
+                            </md-tabs>
+                        </div>
+                    </md-content>
+                    <md-content ng-if="!(tab.name === 'Number Success' || tab.name === 'Phonics Adventure' || tab.name === 'Writing Success')">
+                        No data found!
+                    </md-content>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+    </div>
+</div>
+

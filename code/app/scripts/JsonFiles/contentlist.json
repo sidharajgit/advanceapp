@@ -1,0 +1,117 @@
+{
+  "data": [
+    {
+      "id": 31,
+      "name": "Phonics",
+      "summary": "Phonics",
+      "block": true,
+      "coursecnt": 2,
+      "lessoncnt": 2,
+      "activitycnt": 2,
+      "courses": [
+        {
+          "id": 31,
+          "name": "TextBook1",
+          "summary": "Phonics",
+          "block": true,
+          "feetype": "FREE",
+          "sections": [
+            {
+              "id": 2,
+              "name": "Section1",
+              "summary": "Section1_A-E",
+              "block": true,
+              "activities": [
+                {
+                  "id": 1,
+                  "name": "Section1-A-E",
+                  "summary": "Section1- A-E Description",
+                  "block": false
+                },
+                {
+                  "id": 3,
+                  "name": "Section1_F-J_Scorm",
+                  "summary": "Section1_F-J_Scorm Description",
+                  "block": true
+                }
+              ]
+            },
+            {
+              "id": 7,
+              "name": "Section2",
+              "summary": "Section2_A-E",
+              "block": true,
+              "activities": [
+                {
+                  "id": 4,
+                  "name": "Section2_A-E",
+                  "summary": "Section 2 - A-E Description",
+                  "block": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 35,
+          "name": "TextBook2",
+          "summary": "Phonics_TextBook2",
+          "block": true,
+          "feetype": "FREE",
+          "sections": [
+            {
+              "id": 4,
+              "name": "Section1",
+              "summary": "Section3_Test",
+              "block": true,
+              "activities": [
+                {
+                  "id": 5,
+                  "name": "Section1_Test Scorm",
+                  "summary": "Section1_Test Scorm Description",
+                  "block": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "NumberSuccess",
+      "summary": "NumberSuccess Textbook1",
+      "block": true,
+      "coursecnt": 1,
+      "lessoncnt": 1,
+      "activitycnt": 1,
+      "courses": [
+        {
+          "id": 32,
+          "name": "Textbook1",
+          "summary": "NumberSuccess Textbook1",
+          "block": true,
+          "feetype": "FREE",
+          "sections": [
+            {
+              "id": 3,
+              "name": "Section1",
+              "summary": "Section1_Phonics",
+              "block": true,
+              "activities": [
+                {
+                  "id": 2,
+                  "name": "Scrompackage2",
+                  "summary": "Scrompackage2 description",
+                  "block": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "success",
+  "message": ""
+}

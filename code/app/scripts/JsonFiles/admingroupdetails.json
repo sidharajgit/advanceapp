@@ -1,0 +1,375 @@
+{ 
+	"adminType": "superAdmin111111111111111",
+	"isAdminLoggedIn": true,
+	"activegroup": "sommer group",
+	"groupName": [{
+		"group_id": 1,
+		"groupname": "SommerLearning.com",
+		"groupcode": "SommerGroupb5c",
+		"groupadmin": 1430,
+		"create_date": "2017-06-30 11:53:39",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "1498638135___pic_mountain.jpg",
+		"id": 1,
+		"roletype": 10,
+		"username": "sommeradmin",
+		"name": "Sommer Admin",
+		"userid": 1430,
+		"email": "sommeradmin@temp.com",
+		"userscnt": 38,
+		"groupadminname": "sommeradmin",
+		"registerdate": "06\/30\/2017",
+		"groupicon_smallimage": "pic_mountain.jpg",
+		"groupicon_image": "1498638135___pic_mountain.jpg",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 51,
+		"groupname": "test21",
+		"groupcode": "ABCGroup98b",
+		"groupadmin": "1837,1818",
+		"create_date": "2017-07-04 15:25:00",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "1499162100___Media-Control-2.png",
+		"id": 51,
+		"roletype": 10,
+		"username": 123456,
+		"name": "number user",
+		"userid": 1837,
+		"email": "numberuser@temp.com",
+		"userscnt": 5,
+		"groupadminname": 123456,
+		"registerdate": "07\/04\/2017",
+		"groupicon_smallimage": "Media-Control-2.png",
+		"groupicon_image": "1499162100___Media-Control-2.png",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 52,
+		"groupname": "XYZA group",
+		"groupcode": "XYZGroup05a",
+		"groupadmin": 1823,
+		"create_date": "2017-07-03 09:53:13",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 52,
+		"roletype": 10,
+		"username": "xyzadmin",
+		"name": "xyz admin",
+		"userid": 1823,
+		"email": "xyz@temp.com",
+		"userscnt": 1,
+		"groupadminname": "xyzadmin",
+		"registerdate": "07\/03\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 53,
+		"groupname": "cfg group",
+		"groupcode": "cfggroup1c0",
+		"groupadmin": 1824,
+		"create_date": "2017-07-03 10:48:53",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 53,
+		"roletype": 10,
+		"username": "testhju",
+		"name": "cfg group cfg group",
+		"userid": 1824,
+		"email": "testhju@gmail.com",
+		"userscnt": 1,
+		"groupadminname": "testhju",
+		"registerdate": "07\/03\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 54,
+		"groupname": "testgrp",
+		"groupcode": "testdup401",
+		"groupadmin": 1826,
+		"create_date": "2017-07-03 11:08:43",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 54,
+		"roletype": 10,
+		"username": "testdup",
+		"name": "testdup testdup",
+		"userid": 1826,
+		"email": "testdup@gmail.com",
+		"userscnt": 1,
+		"groupadminname": "testdup",
+		"registerdate": "07\/03\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 55,
+		"groupname": "meen test",
+		"groupcode": "meentesta0a",
+		"groupadmin": 1833,
+		"create_date": "2017-07-05 18:50:54",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "1499260854___download.jpeg",
+		"id": 55,
+		"roletype": 10,
+		"username": "meen",
+		"name": "meen m",
+		"userid": 1833,
+		"email": "meen@xyz.com",
+		"userscnt": 3,
+		"groupadminname": "meen",
+		"registerdate": "07\/05\/2017",
+		"groupicon_smallimage": "download.jpeg",
+		"groupicon_image": "1499260854___download.jpeg",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 56,
+		"groupname": "somrgrp",
+		"groupcode": "somrgrp9dc",
+		"groupadmin": 1840,
+		"create_date": "2017-07-03 16:54:46",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 56,
+		"roletype": 10,
+		"username": "somrgrp",
+		"name": "somrgrp somrgrp",
+		"userid": 1840,
+		"email": "somrgrp@gmail.com",
+		"userscnt": 1,
+		"groupadminname": "somrgrp",
+		"registerdate": "07\/03\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 57,
+		"groupname": "trwqs",
+		"groupcode": "trwqsefd",
+		"groupadmin": 1850,
+		"create_date": "2017-07-04 18:29:01",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 57,
+		"roletype": 10,
+		"username": "trwqso",
+		"name": "trwqso trwqso",
+		"userid": 1850,
+		"email": "trwqso@gmail.com",
+		"userscnt": 1,
+		"groupadminname": "trwqso",
+		"registerdate": "07\/04\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 59,
+		"groupname": "Test21",
+		"groupcode": "Test21560",
+		"groupadmin": 1852,
+		"create_date": "2017-07-05 10:02:07",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 59,
+		"roletype": 10,
+		"username": "testgroupadmintwo",
+		"name": "testgroupadmintwo testgroupadmintwo",
+		"userid": 1852,
+		"email": "testgroupadmintwo@temp.com",
+		"userscnt": 1,
+		"groupadminname": "testgroupadmintwo",
+		"registerdate": "07\/05\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 60,
+		"groupname": "grpnew",
+		"groupcode": "grpnew665",
+		"groupadmin": 1857,
+		"create_date": "2017-07-05 11:04:57",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "1499232897___meena.jpg",
+		"id": 60,
+		"roletype": 10,
+		"username": "grpnew",
+		"name": "grpnew grpnew",
+		"userid": 1857,
+		"email": "grpnew@gmail.com",
+		"userscnt": 1,
+		"groupadminname": "grpnew",
+		"registerdate": "07\/05\/2017",
+		"groupicon_smallimage": "meena.jpg",
+		"groupicon_image": "1499232897___meena.jpg",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 61,
+		"groupname": "Test22",
+		"groupcode": "Test228d7",
+		"groupadmin": 1858,
+		"create_date": "2017-07-05 11:04:30",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 61,
+		"roletype": 10,
+		"username": "testtwotwoadmin",
+		"name": "testtwotwo testtwotwo",
+		"userid": 1858,
+		"email": "testwotwoadmin@spi-global.com",
+		"userscnt": 1,
+		"groupadminname": "testtwotwoadmin",
+		"registerdate": "07\/05\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 62,
+		"groupname": "test2",
+		"groupcode": "test25f1",
+		"groupadmin": 1861,
+		"create_date": "2017-07-06 08:10:16",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 62,
+		"roletype": 10,
+		"username": "dfg",
+		"name": "jd dsf",
+		"userid": 1861,
+		"email": "dsfd@df.gtr",
+		"userscnt": 1,
+		"groupadminname": "dfg",
+		"registerdate": "07\/06\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true
+	}, {
+		"group_id": 63,
+		"groupname": "hgf",
+		"groupcode": "hgf3a2",
+		"groupadmin": 1862,
+		"create_date": "2017-07-06 09:01:00",
+		"modified_date": "0000-00-00 00:00:00",
+		"group_status": 1,
+		"groupicon": "",
+		"id": 63,
+		"roletype": 10,
+		"username": "kj",
+		"name": "nbv bf",
+		"userid": 1862,
+		"email": "hgh@hgf.kj",
+		"userscnt": 1,
+		"groupadminname": "kj",
+		"registerdate": "07\/06\/2017",
+		"groupicon_smallimage": "",
+		"groupicon_image": "",
+		"groupicon_url": "http:\/\/172.24.137.114\/sommer_learning\/media\/com_sommer\/groupicon\/thumb\/",
+		"block": true 
+	}],
+	"groupType": true,
+	"loggedBy": "super, admin",
+	"groupIcon": null,
+	"roleType": "Super Admin",
+	"usersCount": 58,
+	"sessionId": "k6h9lmkscmn2ujo0ktl38dg1i3",
+	"loggedInUserName": "admin",
+	"userroles": [
+		  {
+			"roleid": 3,
+			"rolname": "Teacher"
+		  },
+		  {
+			"roleid": 5,
+			"rolname": "Student"
+		  },
+		  {
+			"roleid": 9,
+			"rolname": "Parent"
+		  },
+		  {
+			"roleid": 10,
+			"rolname": "Group Admin"
+		  }
+		],
+	
+	"menu": [{
+		"name": "Dashboard",
+		"className": "fa-graduation-cap"
+	}, {
+		"name": "User Management",
+		"className": "fa-user",
+		"selected": true
+	}, {
+		"name": "Content Management",
+		"className": "fa-users"
+	}, {
+		"name": "Class Management",
+		"className": "fa-graduation-cap"
+	}, {
+		"name": "Reports & Analytics",
+		"className": "fa-graduation-cap",
+		"childList": {
+			"parentName": "Reports & Analytics",
+			"childs": [{
+				"name": "User Analytics"
+			}, {
+				"name": "Activity Analytics"
+			}, {
+				"name": "Social Media"
+			}, {
+				"name": "Class Analytics"
+			}, {
+				"name": "Program Analytics",
+				"innerchildList": {
+					"parentName": "program & Analytics",
+					"innerchilds": [{
+						"name": "Comparative reports"
+					}, {
+						"name": "Phonics Adventure"
+					}, {
+						"name": "Number Success"
+					}, {
+						"name": "Writing Success"
+					}, {
+						"name": "Reading Success"
+					}]
+				}
+			}]
+		}
+	}, {
+		"name": "Forum",
+		"className": "fa-user"
+	}, {
+		"name": "Survey",
+		"className": "fa-user",
+		"selected": false
+	}],
+    "profileImage":{
+        "type":"others",
+        "name":"",
+        "url":""
+    }
+}

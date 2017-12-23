@@ -1,0 +1,76 @@
+ <md-tabs md-dynamic-height md-border-bottom="" md-selected="contentTabindex"> 
+        <div ng-if="contentmanagement.length > 0 && filteredData.length">
+            <md-tab md-dynamic-height md-border-bottom="" ng-repeat="tab in contentmanagement" ng-disabled="tab.disabled" label="{{tab.name}}"> 
+                <div class="demo-tab tab{{$index%4}}" style="padding: 25px 0px; text-align: center;">
+                    <md-list-item class="md-3-line contentmdlistcls" ng-click="null" ng-repeat="courses in tab.courses | filter:contentSearch" ng-class="{active:index=='{{$index}}'}">
+                        <div class="md-list-item-text" layout="column" >
+                            <div class="content_list_sc" ng-click="viewsectioncontent(courses, $index)">
+                                <div layout="row">
+                                    <div flex="5" flex-sm="10" flex-md="10">
+                                        <div class="tab-img">
+                                            <img src="dest\images\bookname.jpeg">
+                                        </div>
+                                    </div>
+                                    <div flex="45">
+                                        <h3 class="book-title"><b> {{courses.name}}</b> &nbsp;<span class="emaildate"></span></h3>
+                                    </div>
+                                    <div flex="50">
+                                        <div layout="row" layout-align="end end">
+                                            <div flex="100" class="contnt-lst-sec">
+                                                <!--<md-button class="cntn-btn">Test</md-button>-->
+												<div ng-if="pagename == 'contentmanagementpage'">
+													 <custom-column controller-name="btnStatusController" alert-baner="alertBaner" emitbaner="captureBaner(response)" template-url="dest/templates/statusicons.html" content-body="courses" content-head="courseHead" class="togle-sec"></custom-column>
+												</div>
+                                                <!--<md-button class="survy_pop" ng-click="test()">Test</md-button>-->
+                                                <md-button class="md-primary md-raised contentviewbuttoncls tab-btn" ng-if="!courses.viewsection" ng-click="viewsectioncontent(courses, $index)">
+                                                    view
+                                                </md-button>
+                                                <md-button class="md-primary md-raised contentviewbuttoncls tab-btn close_btn_rd" ng-if="courses.viewsection" ng-click="closecontent(courses,$event)">
+                                                    close
+                                                </md-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="courses.viewsection" class="course_bottom animate_slider_cont"> 
+									<md-tabs md-dynamic-height md-border-bottom="" class="tab-fst">
+										<md-tab md-dynamic-height md-border-bottom="" ng-repeat="section in courses.sections" ng-disabled="tab.disabled">
+                                            <md-tab-label><span>{{section.section}}</span><span>{{section.name}}</span></md-tab-label>
+												<md-tab-body>
+													<div class="top_Sec_cont">
+														<h3>{{section.section}} &#58; <b>{{section.name}}</b></h3>
+														<div layout="column" layout-align="end end" class="layout-align-end-end layout-column" ng-if="pagename == 'contentmanagementpage'"> 
+															   <custom-column controller-name="btnStatusController" alert-baner="alertBaner" emitbaner="captureBaner(response)" template-url="dest/templates/statusicons.html" content-body="section" content-head="sectionHead" class="togle-sec" ng-if="courses.block" ></custom-column>   
+														</div>
+													</div>
+													<div class="md-3-line contentmdlistcls activity_list_cont_main_rel" ng-repeat="lesson in section.lessons | filter:contentSearch">
+														<div class="lesson_type_Sec">
+															<h4>{{lesson.type}}</h4>
+														</div>
+														<div class="md-list-item-text layout-column activity_list_cont_main" layout="column" ng-repeat="activity in lesson.activities | filter:contentSearch">
+														  <div layout="row" layout-align="end end">
+															   <div flex="70">
+																   <h3><b class="ng-binding">{{activity.type}}</b></h3>    
+																   <h5 class="tab-desc">{{activity.name}}</h5>
+															   </div>
+															   <div flex="30" ng-if="pagename == 'contentmanagementpage'" > 
+																   <custom-column controller-name="btnStatusController" alert-baner="alertBaner" emitbaner="captureBaner(response)" template-url="dest/templates/statusicons.html" content-body="activity" content-head="activitiesHead" class="togle-sec" ng-if="section.block && courses.block"></custom-column>
+															   </div>  
+															  <div flex="30" ng-if="pagename == 'classeditcourse'">
+																  <custom-column controller-name="btnactionsController" alert-baner="alertBaner" emitbaner="captureBaner(response)" template-url="dest/templates/btnActions.html" content-body="activity" content-head="activitiesHead" class="togle-sec" ></custom-column>
+															  </div>  
+														  </div>
+														</div>
+													</div>
+											</md-tab-body>
+										</md-tab>
+									</md-tabs>
+                            </div>
+                        </div>
+                        <md-divider class="contentmddivider"></md-divider> 
+                    </md-list-item>
+                </div>
+            </md-tab>
+        </div>
+    </md-tabs>

@@ -1,0 +1,77 @@
+<alert-banner data="alertBaner" ng-if="alertBaner.showBaner"></alert-banner>
+<div ng-cloak class="report" layout="column">
+   <div layout="row" layout-align="end end">
+       <md-button  md-no-ink class="md-primary" ng-click="goBack(true)">Back to Survey</md-button>
+    </div>
+    <md-whiteframe class="md-whiteframe-3dp forum_form_sec survey-temp-sec" flex="100" layout="row" layout-padding>
+        <!--<div flex ="30"></div>-->
+        <div flex="90" flex-gt-md="100">
+            <form name="surveyForm.add" ng-submit="saveSurvey()">
+                <div class="box-header">
+                    <h3 class="box-title">Add New Survey Template</h3>
+                </div>
+                <div layout="row">
+                    <span> Title :</span>
+                    <span ng-if="surveyType === 'add' || surveyType === 'view'" ng-bind="survey.title" class="title"></span>
+                    <md-input-container ng-if="surveyType === 'edit'" class="md-block">
+                        <input type="text" md-asterisk ng-model="survey.title" name="title"  ng-class="requiredupdate" required>
+                        <div ng-messages="surveyForm.add.title.$error">
+                            <div ng-message="required" ng-if="surveyForm.add.title.$dirty">This is required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <span>Category :</span>
+                    <md-button ng-if="surveyType === 'add' || surveyType === 'view'" md-no-ink class="md-primary" ng-bind="(surveyType === 'add') ? survey.type.category : survey.categoryName"></md-button> 
+                    <div  ng-if="surveyType === 'edit'" layout="column" ng-repeat="surveyCategory in survey.categories">
+                        <md-button  md-no-ink ng-class="{'md-primary':surveyCategory.isSelected}" ng-bind="surveyCategory.category" ng-click="changeCategory($index)"></md-button> 
+                    </div>
+                </div>
+                <div layout="row" flex="100" ng-repeat="question in survey.questions track by $index" class="survey-temp-list">
+                    <span ng-bind="($index+1)"></span>
+                    <md-input-container class="md-block flex-60">
+                        <input type="text" md-asterisk ng-model="survey.questions[$index].title" name="question_{{$index}}"  ng-class="requiredupdate" ng-disabled="surveyType === 'view'" required>
+                        <div ng-messages="surveyForm.add['question_' + $index].$error">
+                            <div ng-message="required" ng-if="surveyForm.add['question_' + $index].$dirty">This is required</div>
+                        </div>
+                    </md-input-container>
+                    <div class="flex-40 rating-info">
+                        <div class="icon-info">
+                            <div class="thumbs-icon">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <i class="fa fa-thumbs-o-down"></i>
+                            </div>
+                            <div class="stars-icon">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        
+                        
+                        <span ng-mouseover="hoverIn($index)" ng-mouseleave="hoverOut($index)" ng-bind="($index === 0) ? 'Thumbs' : 'Rating'"></span>
+                        <b><span ng-show="survey.showDescription[$index]" class="animate-show" ng-bind="survey.description[$index]"></span></b> 
+                    </div>
+                </div>
+                <div  ng-if="surveyType !== 'view'">
+                    <div layout="row" flex="100">
+                        <md-button  md-no-ink class="md-primary" ng-click="addMoreQuestions()" ng-disabled="surveyForm.add.$invalid">Add More Questions</md-button> 
+                    </div>
+
+                    <div flex="30" layout-align="end end" layout="row">
+                        <md-button class="md-raised md-warn" ng-click="goBack(true)">Cancel</md-button> 
+                        <md-button  md-no-ink class="md-primary"  ng-if="surveyType === 'add'" ng-click="goBack(false,'new')">Prev</md-button> 
+                        <md-button  md-no-ink class="md-primary" type="submit" ng-disabled="surveyForm.add.$invalid">Save</md-button> 
+                    </div>
+               </div>
+            </form>
+        </div>   
+    </md-whiteframe>
+</div>

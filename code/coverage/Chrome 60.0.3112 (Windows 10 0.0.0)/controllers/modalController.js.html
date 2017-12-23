@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\modalController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> modalController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.23% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/93</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/73</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.23% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/93</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">advancePubapp.controller('modalController',['$scope','$uibModalInstance','items', 'sfactory','reportService','$rootScope','$filter','$stateParams','$http', '$document','$timeout','sessionService',<span class="fstat-no" title="function not covered" >function ($scope,$uibModalInstance, items,sfactory,reportService,$rootScope,$filter,$stateParams,$http, $document,$timeout,sessionService) {</span>
+  
+<span class="cstat-no" title="statement not covered" >    var sourceData,dataRange,chartArray; </span>
+    
+<span class="cstat-no" title="statement not covered" >    $scope.switchDateRange = <span class="fstat-no" title="function not covered" >function (selection) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var dateRange;</span>
+<span class="cstat-no" title="statement not covered" >        switch (selection) {</span>
+            case 0:
+<span class="cstat-no" title="statement not covered" >                    dateRange=getLast7days();</span>
+<span class="cstat-no" title="statement not covered" >                    break; </span>
+            case 1:
+<span class="cstat-no" title="statement not covered" >                    dateRange=getThisMonthdays();</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+            case 2:
+<span class="cstat-no" title="statement not covered" >                    dateRange=getLastMonthdays();</span>
+<span class="cstat-no" title="statement not covered" >                    break; </span>
+            case 3:
+<span class="cstat-no" title="statement not covered" >                    dateRange=getThisQuarterdays();</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+            case 4:
+<span class="cstat-no" title="statement not covered" >                    dateRange=getYearToDateDays();</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+            case 5:
+<span class="cstat-no" title="statement not covered" >                    dateRange=getYearDays();</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        $scope.activeMenu = selection;         </span>
+<span class="cstat-no" title="statement not covered" >        $scope.daterangecustompickmodal = dateRange.startDate+" To "+dateRange.endDate;</span>
+<span class="cstat-no" title="statement not covered" >        updateChart(dateRange.startDate,dateRange.endDate);</span>
+    };
+    
+<span class="cstat-no" title="statement not covered" >    $scope.changeSourceOfTraffic = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        if($scope.dataSource){</span>
+<span class="cstat-no" title="statement not covered" >            var trafficData = ($scope.chartData.traffic.byDevice) ? $scope.chartData.chartdata.by_device : $scope.chartData.chartdata.by_channel;            </span>
+<span class="cstat-no" title="statement not covered" >            $scope.chartData.chartdata.change(reportService.loadPiechart(trafficData,"Source of Traffic"));</span>
+        }else{
+<span class="cstat-no" title="statement not covered" >            var trafficData = ($scope.chartData.traffic.byDevice) ? sourceData.chartdata.by_device : sourceData.chartdata.by_channel;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.chartData.chartdata.change(reportService.loadPiechart(trafficData,"Source of Traffic"));</span>
+        }        
+    };
+  
+<span class="cstat-no" title="statement not covered" >    $scope.ok = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        $uibModalInstance.close('selectedData');</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.cancel = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        $uibModalInstance.dismiss('cancel');</span>
+    };
+    
+<span class="cstat-no" title="statement not covered" >    $scope.saveChartObj = <span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >        chartArray[0] = response;</span>
+    };
+    
+<span class="cstat-no" title="statement not covered" >    $scope.export = <span class="fstat-no" title="function not covered" >function(download){</span></span>
+<span class="cstat-no" title="statement not covered" >        reportService.exportCharts(chartArray,{type:download});</span>
+    };
+    
+<span class="fstat-no" title="function not covered" >    function updateChart(start_date,end_date){</span>
+<span class="cstat-no" title="statement not covered" >        var modalanalyticsscope = angular.element(jQuery("#adminLanding")).scope();</span>
+<span class="cstat-no" title="statement not covered" >        $scope.resportsessionid = angular.isDefined(modalanalyticsscope.loggedUserDetails.sessionId) ? modalanalyticsscope.loggedUserDetails.sessionId : "";</span>
+        
+<span class="cstat-no" title="statement not covered" >        var chartProperties = _.detect($scope.chartData.chartProperties, <span class="fstat-no" title="function not covered" >function(item){ </span></span>
+            
+<span class="cstat-no" title="statement not covered" >        return item.chartTitle === $scope.chartData.chartdata.title;}</span>); 
+<span class="cstat-no" title="statement not covered" >        dataRangeStr = JSON.stringify({</span>
+            start_date: start_date,
+            end_date: end_date,
+            program_id:($scope.chartData.reportsProgram === undefined) ? "" : $scope.chartData.reportsProgram,
+            group_id  : sessionService.get('grp_id'),
+            sessionId: sessionService.get('session_Id')
+        });
+        
+<span class="cstat-no" title="statement not covered" >        if($scope.chartData.chartType == "world"){ </span>
+<span class="cstat-no" title="statement not covered" >            liveTask = 'analyticsbygeography';</span>
+        }else{
+<span class="cstat-no" title="statement not covered" >            liveTask = chartProperties.taskUrl;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCallReports(dataRangeStr,liveTask).then(<span class="fstat-no" title="function not covered" >function(response) { </span></span>
+<span class="cstat-no" title="statement not covered" >             var data;</span>
+<span class="cstat-no" title="statement not covered" >            if(angular.isDefined(response)){ </span>
+<span class="cstat-no" title="statement not covered" >                if($filter('lowercase')(response.status) == 'success'){ </span>
+<span class="cstat-no" title="statement not covered" >                    if($scope.chartData.chartType == "world"){                       </span>
+                        
+<span class="cstat-no" title="statement not covered" >                        $scope.chartData.chartdata.change(response.data.by_geo); </span>
+<span class="cstat-no" title="statement not covered" >                        $scope.chartData.chartdata.data = response.data.by_geo;</span>
+                        
+                    }else{
+<span class="cstat-no" title="statement not covered" >                        if(chartProperties.type === 'pie'){</span>
+<span class="cstat-no" title="statement not covered" >                            if(angular.isDefined(chartProperties.traffic)){ </span>
+<span class="cstat-no" title="statement not covered" >                                $scope.dataSource = true;</span>
+                                /*data = $scope.chartData.traffic.byDevice ? $scope.chartData.traffic.byDevice : $scope.chartData.traffic.byChannel;*/
+<span class="cstat-no" title="statement not covered" >								data = $scope.chartData.traffic.byDevice ? response.data.source_of_traffic.by_device : response.data.source_of_traffic.by_channel;</span>
+<span class="cstat-no" title="statement not covered" >								$scope.chartData.chartdata.by_channel = response.data.source_of_traffic.by_channel;</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.chartData.chartdata.by_device = response.data.source_of_traffic.by_device;                                </span>
+                            }else{
+<span class="cstat-no" title="statement not covered" >                               data = response.data[chartProperties.key];</span>
+                            }                            
+                            
+                            /*data = angular.isDefined(chartProperties.traffic) ? ($scope.chartData.traffic.byDevice ? response.data.source_of_traffic.by_device : response.data.source_of_traffic.by_channel) : response.data[chartProperties.key];*/
+<span class="cstat-no" title="statement not covered" >                            $scope.chartData.chartdata.change(reportService.loadPiechart(data,chartProperties.chartTitle));</span>
+                        }
+                        else{ 
+<span class="cstat-no" title="statement not covered" >                            if(chartProperties.key == 'user_visits' || chartProperties.key == 'conversion_ratio' || chartProperties.key == 'no_of_class' || chartProperties.key == 'no_students_enrolled_with_classes' || chartProperties.key == 'activityanalyse' || chartProperties.key == 'forums_discussions' || chartProperties.key == 'participants_forums_discussions' || chartProperties.key == 'social_shares' || chartProperties.key == 'social_shares_based_on_program' || chartProperties.key == 'social_shares_based_on_media_type' || chartProperties.key == 'most_visited'|| chartProperties.key == 'visitors_at_program_level'|| chartProperties.key == 'social_shares_based_on_program'|| chartProperties.key == 'badges_associated_witheach_program'|| chartProperties.key == 'average_timespent_on_each_program'|| chartProperties.key == 'most_consumed_program'||chartProperties.key == 'channel_triggered_users_visit'){</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.chartData.chartdata.change(response.data[chartProperties.key]);</span>
+                            }
+                            else{                       <span class="cstat-no" title="statement not covered" >$scope.chartData.chartdata.change(reportService.updateChart(response.data[chartProperties.key],chartProperties.chartTitle,dateRange));</span>
+                            }
+                       }
+                    }           
+                    
+                    
+                }
+            }
+<span class="cstat-no" title="statement not covered" >           $rootScope.appLoader = false;		</span>
+          
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >            var localTask = "updatedreportdata";</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                var data;</span>
+<span class="cstat-no" title="statement not covered" >                if($scope.chartData.chartType == "world"){               </span>
+                        
+<span class="cstat-no" title="statement not covered" >                        $scope.chartData.chartdata.change(response.data.by_geo); </span>
+<span class="cstat-no" title="statement not covered" >                        $scope.chartData.chartdata.data = response.data.by_geo;</span>
+                        
+                    }else{
+<span class="cstat-no" title="statement not covered" >                        if(chartProperties.type === 'pie'){  </span>
+<span class="cstat-no" title="statement not covered" >                            data = angular.isDefined(chartProperties.traffic) ? ($scope.chartData.traffic.byDevice ? response.data.by_device : response.data.by_channel) : response.data[chartProperties.key];</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.chartData.chartdata.change(reportService.loadPiechart(data,chartProperties.chartTitle));</span>
+                        }
+                        else{ 
+<span class="cstat-no" title="statement not covered" >                                if(chartProperties.key == 'user_visits' || chartProperties.key == 'conversion_ratio' || chartProperties.key == 'no_of_class' || chartProperties.key == 'no_students_enrolled_with_classes' || chartProperties.key == 'activityanalyse' || chartProperties.key == 'forums_discussions' || chartProperties.key == 'participants_forums_discussions' || chartProperties.key == 'social_shares' || chartProperties.key == 'social_shares_based_on_program' || chartProperties.key == 'social_shares_based_on_media_type'){</span>
+<span class="cstat-no" title="statement not covered" >                                    $scope.chartData.chartdata.change(response.data[chartProperties.key]);</span>
+                                }
+                                else{            
+<span class="cstat-no" title="statement not covered" >                                    $scope.chartData.chartdata.change(reportService.updateChart(response.data[chartProperties.key],chartProperties.chartTitle,dateRange));</span>
+                                }
+                               }
+                    }
+                  
+            }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+            });
+        }); 
+    };
+    
+<span class="fstat-no" title="function not covered" >    function initiateController(){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.dataSource = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.chartData = angular.copy(items);</span>
+<span class="cstat-no" title="statement not covered" >        chartArray=[];</span>
+        
+<span class="cstat-no" title="statement not covered" >        if(angular.isDefined(items.chartdata.by_channel)){</span>
+<span class="cstat-no" title="statement not covered" >            sourceData = angular.copy(items);</span>
+<span class="cstat-no" title="statement not covered" >            var trafficData = items.traffic.byDevice ? items.chartdata.by_device : items.chartdata.by_channel;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.chartData.chartdata = reportService.loadPiechart(trafficData,"Source of Traffic");</span>
+        }
+        
+        
+<span class="cstat-no" title="statement not covered" >        $scope.rangeSelection =['Last 7 Days','This Month','Last Month','This Quarter','This Year'];</span>
+        /*$scope.activeMenu = 0;*/
+<span class="cstat-no" title="statement not covered" >        $scope.daterangecustompickmodal = $scope.chartData.dateRange;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.dateoptions={</span>
+            "locale": {
+              "format": "MM-DD-YYYY",
+            },
+            showDropdowns:true,
+            autoApply:true,
+            maxDate : new Date(),
+            eventHandlers: {
+                'apply.daterangepicker': <span class="fstat-no" title="function not covered" >function(ev, picker) { </span>
+<span class="cstat-no" title="statement not covered" >                    updateChart(ev.model.startDate.format('MM-DD-YYYY'),ev.model.endDate.format('MM-DD-YYYY'));                    </span>
+                }
+            }
+        };
+<span class="cstat-no" title="statement not covered" >        $scope.customView = true;</span>
+<span class="cstat-no" title="statement not covered" >        var worlds = $scope.chartData.chartType;</span>
+               
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.downloadbtn = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.isActive = !$scope.isActive;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    $scope.closedownload = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.isActive = false;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    initiateController();</span>
+}]);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 18 2017 10:33:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

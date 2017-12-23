@@ -1,0 +1,235 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+.report{
+    md-content{
+        /*background-color: #eeeeee !important;*/
+        background-color: #f5f5f5 !important;
+        padding: 16px 0 0 0;
+    }
+    .white-tile{
+        box-shadow: 0px 1px 4px 0px #ccc; 
+        background-color: #fff; 
+        margin-bottom: .6em;
+        .tile-heading{
+            /*margin: 27px 27px 10px 22px;*/
+            margin: 10px;
+            .tile-text{
+                color:	rgb(34,177,76);
+                font-size: 15px;
+                margin-bottom: .3em;
+                span{
+                    color: #333;
+                    font-size: .8em;
+                    &.cln{
+                        color: #000;
+                        font-size: 1.2em;
+                    }
+                }
+            } 
+            hr {
+                border: solid 1px #333333;
+            }
+        }
+        .error{
+            color:red;
+        }
+        .frame-header{
+            font-weight: bold;
+            font-size:15px;
+        }
+        .chart-heading{
+            color: #333333;
+            font-size: 15px !important;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+        
+        /*hc-pie-chart, hc-line-chart {
+            .highcharts-container {
+                width: 100% !important;
+                height: 500px !important;
+                
+            }
+        }*/
+        /*hc-world-chart {
+            .highcharts-container {
+                margin: auto;
+                svg{
+                    width: 100% !important;
+                    height: 100% !important;    
+                }
+            }
+        }*/
+    }
+    .report_hedr_sec{
+        margin: 1em 0;
+        md-input-container{
+                width: 100%;
+        }
+        .heading-til{
+            margin-top: .6em;    
+        }
+    }   
+.anlytcs_wrap{
+    margin-top: -3em;
+}
+.by-toggle-div{
+     position: relative;
+     z-index: 1000;
+    
+     md-switch{
+        width: auto !important;
+        margin: 0 .5em !important;
+        .md-bar{
+            background-color: #7cb5ec !important;
+        }
+     }
+     span{
+        margin: .5em;
+     }
+}
+.highcharts-title{
+    font-size: 15px !important;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    tspan{
+        font-size: 15px !important;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+    }
+}    
+.more-fltr-btn{
+    position: absolute !important;
+    top:0;
+    right: 0;
+    background: #E7ECF2 !important;
+    color: #333 !important;
+    min-width: auto !important;
+    min-height: auto !important;
+    &:hover{
+        background-color: #3498DB !important;
+        color: #fff !important;
+    }
+}    
+.more-fltr-btn-regi{
+    right: 10em !important;
+}
+}
+.range-picker > div:last-child button[ng-click="vm.cancel()"] {
+    background-color: transparent !important;
+    border: 1px solid #959EAD;
+    color: #959EAD !important;
+    border-radius: 25px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    min-width: 90px;
+    height: 32px;
+    min-height: 32px;
+    line-height: 32px;
+}
+#picker{
+    md-toolbar{
+        height: 40px;
+        min-height: 40px;
+        padding: .1em;
+        .md-toolbar-tools{
+            height: 40px;
+            min-height: 40px;
+            padding: .1em;
+            .date-display{
+                font-size: .85em;
+            }
+        }
+    }
+}
+
+#modal-body{
+    .by-toggle-div{
+     position: relative;
+     z-index: 1000;
+     width: 250px;
+     display: block;
+     clear: both;
+     display: inline-block;
+    margin: auto;
+     md-switch{
+        width: 50px !important;
+        margin: 0 0.9em !important;
+        float: left;
+        .md-bar{
+            background-color: #7cb5ec !important;
+        }
+     }
+     span{
+        margin: .5em;
+        float: left;
+     }
+}    
+}
+
+/*.highcharts-name-brazil, .highcharts-name-france, .highcharts-name-india{
+    cursor: pointer;
+}*/
+.highcharts-series-group{
+    cursor: pointer;
+}
+
+/*.frame-header{
+    .information_icon{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    tip{
+        width:auto !important;
+        height:auto !important;
+        min-width: 500px !important;
+        max-width: 100% !important;
+        left: 10px !important;
+        top: 10px !important;
+    }
+}*/
+.tile-heading{
+    i{
+        float: right;
+        font-size: 16px;
+    }
+    .ShowList_oHv{
+            right: 5%;
+            height: auto;
+            padding: 1em;
+            background-color: #fff;
+            color: #000;
+            border-radius: 5px;
+            box-shadow: 0px 0px 4px 1px #808080;
+            top: 5%;
+            width: auto;
+            left: 1.5%;
+        ul{
+            margin: 0 !important;
+            padding: 0 !important;
+            li{
+                color: #000;
+                margin-bottom: .3em;
+                width: auto;
+                white-space: normal;
+                margin-left: 0 !important;
+                padding: 0 !important;
+                font-size: 13px;
+                &:before{
+                    content: "";
+                    margin: 0 !important;
+                    padding: 0 !important;
+                }
+                span{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,272 @@
+<div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">
+    <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+        <div class="icon_display">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+            <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                  <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                                  <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                              </svg>
+        </div>
+        <div class="display_message">{{alertBaner.message}}</div>
+    </div>
+</div>
+
+<div ng-cloak class="report" layout="column">
+    <div layout="row">
+        <div flex="100">
+            <div class="forum-headng">
+                <h3 class="heading-til">Forum</h3>    
+            </div>
+        </div>    
+        <div flex="100">
+            <div layout="row" layout-align="end end" class="forum_btn_sec" ng-if="forum.formList">
+                <md-button md-no-ink class="md-primary crvd-btn-blue" ng-click="addNewTopic()" ng-if="!forum.addNewTopic"><i class="fa fa-plus-circle"></i> New Topic</md-button>    
+            </div>    
+        </div> 
+    </div>
+    <div class="forum-lst" ng-if="forum.formList">
+    <div layout="row">
+        <div class="admn-divider"></div>
+    </div>
+    <div layout="row">
+        <div class="forum-tab" flex="100">
+            <div ng-cloak>
+                <md-content>
+                    <md-whiteframe class="md-whiteframe-3dp forum_form_sec" flex="100" layout="row" ng-if="forum.addNewTopic" layout-padding>
+                        <div flex="90" flex-gt-md="100">
+                            <form name="forum.add" ng-submit="addNewForum()">
+                            <div class="box-header">
+                                <h3 class="box-title">Add New Topic</h3>
+                            </div> 
+                            <div layout="row" flex="100">
+                                <div  layout="column" flex="50">
+                                    <md-input-container class="md-block">
+                                        <label class="md-required">Title</label>
+                                        <input type="text" md-asterisk ng-model="forum.title" name="title"  ng-class="requiredupdate" required>
+                                        <div ng-messages="forum.add.title.$error">
+                                            <div ng-message="required" ng-if="forum.add.title.$dirty">This is required</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                            <div layout="row" flex="100">
+                                <div  layout="column" flex="100">
+                                    <md-input-container class="md-block">
+                                        <label class="md-required">Message</label>
+                                        <textarea md-no-asterisk name="message" ng-model="forum.message" md-maxlength="500" ng-maxlength="500" rows="5" md-select-on-focus required></textarea>
+                                        <div ng-messages="forum.add.message.$error">
+                                          <div ng-message="required" ng-if="forum.add.message.$dirty">This is required</div>
+                                        </div>
+                                    </md-input-container>  
+                                </div>
+                                </div>
+                            <div flex="100">
+                                        <ul class="fa-ul filedownload">
+                                            <li ngf-select="upload($files)" ngf-multiple="true" accept=".jpg, .png, .jpeg">
+                                                <i class="fa fa-paperclip filedownloadicon" aria-hidden="true"></i>
+                                                <label id="picture" name="forum_image" file-model="imageFile" class="uploadlabeltextcolor">Attach Files</label></li>                                            
+                                        </ul>
+                                        <!--<div ng-if="imageFileName">
+                                            <p class="foruminagename" title="imageFileName" ng-repeat="imgname in imageFileName track by $index">{{imgname.name}}<span ng-if="!imgname.valid" style="color:red"> - Invalid file</span> <span ng-if="imgname.valid" ng-click="removeImage($event,$index)">X</span></p>
+                                        </div>-->
+                                       <div ng-if="validImage" class="UploadedImgF">
+                                            <p class="forumimagename" title="validImage" ng-repeat="imgname in validImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span class="closeBTN" ng-click="removeImage($event,$index)" style="color:red">X</span></p>
+                                        </div>
+                                            <div ng-if="invalidImage" class="UploadedImgF">
+                                            <p class="forumimagename" title="invalidImage" ng-repeat="imgname in invalidImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span ng-if="!imgname.valid" style="color:red"> - Invalid file</span></p>
+                                        </div>
+                                        <span class="error forumImageerror" ng-show="forum.picture.isError">{{errorMessage}}</span>                                   
+                                        </div>
+                                
+                            <!--<div layout="row" flex="100">
+                            <div  layout="column" flex="50">
+                                <md-input-container  class="md-block">
+                                    <label class="md-required">Post Category</label>
+                                    <md-select ng-model="forum.postCategory" ng-change="getPostToOptions()" required>
+                                        <md-option ng-value="category" ng-repeat="category in forum.postCategories" ng-bind="category" ng-init="forum.postCategory = forum.postCategories[0]"></md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div  layout="column" flex="50">
+                                <md-input-container  class="md-block">
+                                    <label class="md-required">Post to</label>
+                                    <md-select ng-model="forum.postTo" required>
+                                        <md-option ng-value="user" ng-repeat="user in forum.postList" ng-bind="user" ng-init="updatePostList()"></md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            
+                            
+                            </div>-->
+                            <div layout="row" flex="100">
+                                <div  layout="column" class="multi-btn-sec" flex="100">
+                                    <section layout="row" layout-wrap>
+                                        <md-button class="md-raised md-warn" ng-click="cancelNewTopic()">Cancel</md-button>
+                                        <md-button type="submit" ng-disabled="forum.add.$invalid" class="md-raised md-primary" >Post</md-button>
+                                    </section>
+                                </div> 
+                            </div>
+                            </form>
+                        </div> 
+                        <div flex ="30"></div>
+                    </md-whiteframe>
+                   
+                    <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex.tab" ng-if="tabs.length">
+                        <!--<md-tab label="Posted By" class="tab-title" ng-disabled="true">
+                            
+                        </md-tab>-->  
+                        <md-tab label="{{tab}}" ng-click="filterForums($index)" ng-repeat="tab in tabs track by $index">
+                            <md-content class="md-padding">
+                               <!--ng-click ="expandedView($index)"-->
+                                <md-whiteframe  ng-if="forumData.filteredForums.length"  ng-click="gotoFrmTopic(forum.topicId);" ng-repeat = "forum in forumData.filteredForums track by $index" class="md-whiteframe-3dp" flex="100" layout="row"  layout-padding>
+                                    <div class="img-sec">
+                                        <img ng-if="forum.profilePic != ''" src="{{forum.profilePic}}">
+                                        <img ng-if="forum.profilePic == ''" src="{{noImage}}">
+                                    </div>
+                                    <div flex="80">
+                                    <h3 ng-bind ="forum.topicTitle"></h3>   
+                                    <p class="comnts">Posted by <span class="name" ng-bind="forum.topicCreatedBy"></span> | <span><i class="fa fa-clock-o"></i></span> <span ng-bind="forum.topicCreatedOn"></span></p>    
+                                    </div>    
+                                    <div flex="20" layout="row" layout-align="end center">
+                                    <p class="comnts"><span><i class="fa fa-comments"></i></span> <span class="name" ng-bind="forum.countDiscussion"></span> Comments</p>
+                                    <!--Dotted line icons for action columns-->
+                                    <!--<div class="table_action_lt"  ng-if="forum.myforums=='My Forums'" ng-mouseleave="toggleOptions($index)">
+                                        <button class="toggle_btn_tbl" ng-mouseover="toggleOptions($index)"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div class="option_cont_tbl" ng-show="toggle['list'+($index)]" >
+                                            <ul>
+                                                <li><a href="javascript:void(0);" ng-click="deleteForum(forum.topicId,$event);">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>-->
+                                    <div layout="row" ng-if="forum.myforums== 'My Forums' || roleType == 'Super Admin'" layout-align="end end" flex="20" flex-gt-xs="30" flex-gt-sm="20" flex-gt-md="20" flex-gt-lg="15">
+                                        <a ng-click="deleteForum(forum.topicId,$event);" class="btn-delt-sec sur-act-btn">
+                                            <div>
+                                                <span>
+                                                    <i class="fa fa-trash-o"></i>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    </div>        
+                                </md-whiteframe>
+                                <span ng-if="forumData.filteredForums && !forumData.filteredForums.length" class="no_data_ms">No data found!</span>
+                            </md-content>
+                        </md-tab>
+                        
+                    </md-tabs>
+                    <div ng-if="!tabs.length" align="middle">
+                        <h2>No data found!</h2>
+                    </div>
+                </md-content>
+            </div>
+    </div> 
+    </div>
+    </div>
+    <div class="forum-des" ng-if="forum.expanded">
+        <div layout="row">
+            <div flex="100">
+              <!-- ng-click="changeFormDisplay(true,false)"-->
+                <div class="forum-headng" style="text-align:right;">                   
+                    <button class="md-primary md-button" type="button" ng-click="getFrmList()"><span class="ng-scope">Back to Forum</span></button>
+                </div>
+            </div>
+        </div>
+        <div layout="row">
+            <div class="admn-divider"></div>
+        </div>
+        <div layout="row" >
+            <md-whiteframe  class="md-whiteframe-3dp" flex="100">
+            <div layout-padding>
+            <div class="detail-sec">
+                <div layout="row" flex="100">
+                    <div flex="80">
+                        <h3 ng-bind="forumData.filteredForums[editIndex].topicTitle"></h3>   
+                        <p class="comnts">Posted by <span class="name" ng-bind="forumData.filteredForums[editIndex].topicCreatedBy"></span> | <span><i class="fa fa-clock-o"></i></span><span ng-bind="forumData.filteredForums[editIndex].topicCreatedOn"></span></p>
+                        <p ng-bind="forumData.filteredForums[editIndex].topicMessage"></p>
+                         <div class="forumImgGal">
+                            <ul >
+                              <li class="img-sec" ng-repeat="attachment in forumData.filteredForums[editIndex].topicAttachment track by $index">
+                                <a ng-click="openLightboxModal(forumData.filteredForums[editIndex].topicAttachment, $index)">
+                                  <img ng-src="{{attachment}}" class="img-thumbnail">
+                                </a>
+                              </li>
+                            </ul>
+                            </div>
+                    </div>  
+                    <div flex="20" layout="row" layout-align="end center">
+                        <p class="comnts"><span><i class="fa fa-comments"></i></span> <span class="name" ng-bind="forumData.filteredForums[editIndex].countDiscussion"></span>Comments</p>
+                    </div>
+                 </div>
+                <div layout="row" flex="100">
+                    <div class="admn-divider"></div>
+                </div>
+                <p ng-if="!forum.discussions.length">No discussions found!</p>
+                <div  ng-if="forum.discussions.length" ng-repeat="discussion in forum.discussions track by $index">
+                <div layout="row" flex="100">   
+                 </div>
+                <div layout="row"  class="forum-desc-inn">
+                    <div layout="row" flex="100">
+                        <div flex="10" layout-align="center center" layout="row">
+                            <div class="img-sec">
+                                <img ng-if="discussion.profilePic != ''" src="{{discussion.profilePic}}">
+                                <img ng-if="discussion.profilePic == ''" src="{{noImage}}">
+                            </div>    
+                        </div>    
+                        <div flex="90"> 
+                            <span ng-bind="(discussion.discussUserFirstname)+' '+(discussion.discussUserLastname)" class="forum-name"></span>
+                            <p ng-bind="discussion.discussionMessage"></p>
+                            <span ng-bind="discussion.discussionCreatedOn"></span>
+                            <div class="forumImgGal">
+                            <ul >
+                              <li class="img-sec" ng-if="discussion.topicAttachment.length" ng-repeat="attachment in discussion.topicAttachment track by $index">
+                                <a ng-click="openLightboxModal(discussion.topicAttachment, $index)">
+                                  <img ng-src="{{attachment}}" class="img-thumbnail">
+                                </a>
+                              </li>
+                            </ul>
+                            </div>
+                            <div class="admn-divider"></div>    
+                        </div>    
+                    </div>    
+                 </div>
+                </div>
+            </div>  
+            </div>
+           <form name="add_reply" ng-submit="addReply()">
+            <div layout="row" flex="100" layout-align="center end" class="replay-sec">  
+                <div flex="80">
+                    <md-input-container class="md-block">
+                    <label>Reply here</label>
+                    <textarea md-no-asterisk name="address" ng-model="forum.add.message" md-maxlength="500" ng-maxlength="500" rows="5" md-select-on-focus ng-ng-keyup="delete_space()" required="true"></textarea>
+                    </md-input-container> 
+                </div>
+                <div flex="100">
+                <ul class="fa-ul filedownload">
+                    <li ngf-select="upload($files)" ngf-multiple="true" accept=".jpg, .png, .jpeg">
+                        <i class="fa fa-paperclip filedownloadicon" aria-hidden="true"></i>
+                        <label id="picture" name="forum_image" file-model="imageFile" class="uploadlabeltextcolor">Attach Files</label></li>                                            
+                </ul>
+                <!--<div ng-if="imageFileName">
+                    <p class="foruminagename" title="imageFileName" ng-repeat="imgname in imageFileName track by $index">{{imgname.name}}<span ng-if="!imgname.valid" style="color:red"> - Invalid file</span> <span ng-if="imgname.valid" ng-click="removeImage($event,$index)">X</span></p>
+                </div>-->
+                    <div ng-if="validImage" class="UploadedImgF">
+                    <p class="forumimagename" title="validImage" ng-repeat="imgname in validImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span class="closeBTN" ng-click="removeImage($event,$index)" style="color:red">X</span></p>
+                </div>
+                <div ng-if="invalidImage"  class="UploadedImgF">
+                    <p class="forumimagename" title="invalidImage" ng-repeat="imgname in invalidImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span ng-if="!imgname.valid" style="color:red"> - Invalid file</span></p>
+                </div>
+                <span class="error forumImageerror" ng-show="forum.picture.isError">{{errorMessage}}</span>                                   
+                </div>
+                <div flex="20" layout-align="end end" layout="row">
+                    <md-button class="md-raised md-warn" ng-click="cancelReply()">Reset</md-button>
+                    <md-button md-no-ink  type="submit" class="md-primary" ng-disabled="add_reply.$invalid">Send</md-button>    
+                </div>
+            </div> 
+          </form>
+            </md-whiteframe> 
+        </div>
+    </div>
+</div>    

@@ -1,0 +1,371 @@
+<div ng-cloak>
+<div class="modal_alert" tabindex="-1" ng-if="alertBaner.showBaner">
+    <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+        <div class="icon_display">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+        </div>
+    <div class="display_message">{{alertBaner.message}}</div>
+    </div>
+</div>
+<div layout="row" flex="100" class="msg-screen">
+    <div flex="40" flex-gt-md="40" flex-gt-sm="40" class="msg-box-lft">
+        <div class="msg-bx-header">
+            <div flex="100" layout="row" class="msgtype">
+                <div flex="65" class="lft">
+                    <!--<md-tabs flex="100" md-selected="selectedIndex" md-dynamic-height md-border-bottom>
+                        <md-tab label="Inbox" ng-click="msgType = 'yes';callConversationList()"></md-tab>
+                        <md-tab label="Notification" ng-click="msgType = 'no';callConversationList()"></md-tab>
+                    </md-tabs>-->
+                    {{(msgType == 'yes')? "Inbox":"Notification"}}
+                </div>
+                <div flex="35" class="rgt" layout="row" layout-align="end end" ng-if="msgType == 'yes'">                    				
+					<a href="javascript:void(0);" ng-show="!shwcompsbx" class="compose_btn" ng-click="showcomposebox()"><i class="fa fa-plus-circle"></i> <span>Compose</span></a>
+                    <a href="javascript:void(0);" ng-show="shwcompsbx" class="compose_btn nocursor"><i class="fa fa-plus-circle"></i> <span>Compose</span></a>
+                </div>
+                
+            </div>    
+        </div>
+        <div class="divider"></div>
+        <div ng-if="inboxdetails">
+            <div class="msg-bx-serch">
+                <md-input-container class="md-block">
+                    <input type="text" placeholder="Search" ng-model="search.inboxsearch" ng-focus="shwconts.contactBox=false;">
+                    <i class="fa fa-search icon"></i>
+                </md-input-container>
+            </div>
+            <div class="UserListMessage">
+                <div ng-repeat="inboxmsg in inboxdetails | filter: search.inboxsearch" ng-click="getindexCount($index);msgReadUnread('read',inboxmsg.receiverUserReadStatus);">
+                    <div class="msg-cntn-bx" ng-class="{ readmsg: inboxmsg.senderReadStatus === 0, active: indxcount === $index}" ng-if="userId == inboxmsg.senderId">
+                        <div flex="100" layout="row">
+                            <div flex="15" class="img-sec preLoadIMg">
+                                <img ng-if="!inboxmsg.receiverUserProfilepic" src="dest/images/user.png">
+                                <img ng-if="inboxmsg.receiverUserProfilepic" src="{{inboxmsg.receiverUserProfilepic}}" loaded-img>
+                            </div>
+                            <div flex="65">
+                                <h3 class="name">{{inboxmsg.receiverUserUsername}}</h3>
+                                <!--<h3 ng-if="userId != inboxmsg.senderId" class="name">{{inboxmsg.senderUsername}}</h3>-->
+                                <p class="message clmcunt">{{inboxmsg.messageSubject}}</p>
+                            </div>
+                            <div flex="20">
+							<p ng-if="inboxmsg.mailAttachment.length > 0"><i class="fa fa-paperclip"></i></p>
+								<p ng-if="inboxmsg.messageCategory=='mail'"><i class="fa fa-envelope-o"></i></p>
+                                <p class="time" am-time-ago="inboxmsg.messageUpdateTime"></p>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="msg-cntn-bx" ng-class="{ readmsg: inboxmsg.receiverUserReadStatus === 0, active: indxcount === $index}" ng-if="userId != inboxmsg.senderId">
+                        <div flex="100" layout="row">
+                            <div flex="15" class="img-sec">
+                                <img ng-if="!inboxmsg.senderProfilepic" src="{{templatepath}}dest/images/user.png">
+                                <img ng-if="inboxmsg.senderProfilepic" src="{{inboxmsg.senderProfilepic}}">
+                            </div>
+                            <div flex="65">
+                                <!--<h3 ng-if="userId == inboxmsg.senderId" class="name">{{inboxmsg.receiverUserUsername}}</h3>-->
+                                <h3 class="name">{{inboxmsg.senderUsername}}</h3>
+                                <p class="message clmcunt">{{inboxmsg.messageSubject}}</p>
+                            </div>
+                            <div flex="20">
+								<p ng-if="inboxmsg.mailAttachment.length > 0"><i class="fa fa-paperclip"></i></p>
+								<p ng-if="inboxmsg.messageCategory=='mail'"><i class="fa fa-envelope-o"></i></p>
+                                <p class="time" am-time-ago="inboxmsg.messageUpdateTime"></p>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider divider1"></div>
+                </div>
+            </div>
+        </div> 
+        <div ng-if="inboxdetails.length === 0" class="no-msg-notify">{{msgType == 'yes' ? 'No messages' : 'No notification'}}</div>
+        
+    </div>    
+    <div flex="5" class="msg-box-gap">
+    </div>
+    
+    <div flex="100" flex-gt-md="100" flex-gt-sm="100" class="msg-box-rgt shwsubbx" ng-hide="shwcompsbx" ng-if="inboxdetails.length > 0">
+        <div layout="row" class="top-sec">
+            <div flex="100">
+                <h6 ng-if="userId == inboxdetails[indxcount].senderId"><span>{{inboxdetails[indxcount].receiverUserUsername}}</span></h6>
+                <h6 ng-if="userId != inboxdetails[indxcount].senderId"><span>{{inboxdetails[indxcount].senderUsername}}</span></h6>
+                <h6>Subject : <span class="sub">{{inboxdetails[indxcount].messageSubject}}</span></h6>
+            </div>
+            <div flex="100" layout="row" layout-align="end center" ng-mouseleave="shwreplybox = false">
+                <div class="time"><!--{{inboxdetails[indxcount].messageUpdateTime}}--></div>
+                <!--<div class="icon"><i class="fa fa-star-o"></i></div>-->
+                <div class="reply-bar">
+                    <a href="javascript:void(0);" title="delete" ng-click="msgActions('delete')"><i class="fa fa-trash-o"></i></a>
+                    <!--<a href="javascript:void(0);" ng-click="shwreplybox = !shwreplybox"><i class="fa fa-ellipsis-v"></i></a>
+                    <div class="reply-box" ng-show="shwreplybox">
+                        <ul>
+                        <li ng-if="msgType == 'yes'"><a><span><i class="fa fa-reply"></i></span> Reply</a></li>  
+                        <li ng-click="msgActions('delete')"><a href="javascript:void(0);">Delete</a></li>
+                        </ul>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+		<!--For showing the first message with message category-->
+        <div class="cntn-sec" ng-if="inboxdetails[indxcount].messageCategory == 'message'">
+               <div class="send_msg_sec" ng-if="inboxdetails[indxcount].senderId == userId">
+                    <div class="send_msg" ng-bind-html="inboxdetails[indxcount].messageContent"></div> 
+                    <span class="Timing_msg">{{inboxdetails[indxcount].messageSentTime}}</span>
+                   <span class="delete-msg-only"><i class="fa fa-trash-o"></i></span>
+                    <!--<img ng-if="!inboxdetails[indxcount].senderProfilepic" src="dest/images/user.png" alt="">
+                    <img ng-if="inboxdetails[indxcount].senderProfilepic" src="{{inboxdetails[indxcount].senderProfilepic}}" alt="">-->
+                   
+               </div>
+            <div class="receive_msg_sec" ng-if="inboxdetails[indxcount].senderId != userId">
+                <img ng-if="!inboxdetails[indxcount].senderProfilepic" src="dest/images/user.png" alt="">
+                <img ng-if="inboxdetails[indxcount].senderProfilepic" src="{{inboxdetails[indxcount].senderProfilepic}}" alt="">
+                <div class="receive_msg" ng-bind-html="inboxdetails[indxcount].messageContent"></div>
+                <span class="Timing_msg">{{inboxdetails[indxcount].messageSentTime}}</span>
+                <span class="delete-msg-only"><i class="fa fa-trash-o"></i></span>
+            </div>
+            <!--For showing the reply message-->
+            <div ng-if="inboxdetails[indxcount].messageReply.length > 0" ng-repeat="inboxreplymsg in inboxdetails[indxcount].messageReply" class="cntn-sec-replymessage $index">            
+                <!--<div class="cntn-sec" ng-bind-html="inboxreplymsg.messageContent"></div>-->
+                <div class="send_msg_sec" ng-if="inboxreplymsg.senderId == userId">
+                    <div class="send_msg" ng-bind-html="inboxreplymsg.messageContent"></div>
+                    <span class="Timing_msg">{{inboxreplymsg.messageSentTime}}</span>
+                    <span class="delete-msg-only"><i class="fa fa-trash-o"></i></span>
+                    <!--<img ng-if="!inboxreplymsg.senderProfilepic" src="dest/images/user.png" alt="">
+                    <img ng-if="inboxreplymsg.senderProfilepic" src="{{inboxreplymsg.senderProfilepic}}" alt="">-->
+                </div>
+                <div class="receive_msg_sec" ng-if="inboxreplymsg.senderId != userId">
+                    <img ng-if="!inboxreplymsg.senderProfilepic" src="dest/images/user.png" alt="">
+                    <img ng-if="inboxreplymsg.senderProfilepic" src="{{inboxreplymsg.senderProfilepic}}" alt="">
+                    <div class="receive_msg" ng-bind-html="inboxreplymsg.messageContent"></div>
+                    <span class="Timing_msg">{{inboxreplymsg.messageSentTime}}</span>
+                    <span class="delete-msg-only"><i class="fa fa-trash-o"></i></span>
+                </div>
+            </div>
+        </div>
+        <!-- For showing the messages with mail category-->
+        <div class="cntn-sec" ng-if="inboxdetails[indxcount].messageCategory == 'mail'">
+           <div class="send_msg_sec">
+                <div class="send_msg" ng-bind-html="inboxdetails[indxcount].messageContent"></div> 
+                <span class="Timing_msg">{{inboxdetails[indxcount].messageSentTime}}</span>
+               <span class="delete-msg-only"><i class="fa fa-trash-o"></i></span>
+                <!--<img ng-if="!inboxdetails[indxcount].senderProfilepic" src="dest/images/user.png" alt="">
+                <img ng-if="inboxdetails[indxcount].senderProfilepic" src="{{inboxdetails[indxcount].senderProfilepic}}" alt="">-->
+           </div>
+		   <div ng-if="inboxdetails[indxcount].mailAttachment.length > 0">
+                <p>Attachments:</p>
+                <p ng-repeat="item in inboxdetails[indxcount].mailAttachment">{{item.split('/').pop()}}</p>
+            </div>
+        </div>
+        <form name="replymessageform" ng-submit="replymessage()" novalidate autocomplete="off" class="replymessageform" ng-if="msgType == 'yes' && replyboxShown">
+            <div layout="row" class="reply-sec" layout-align="start center">            
+                <div flex="100">
+                    <div flex="100" ng-if="replyeditoron">
+                        <md-input-container>
+                        <div flex="100">
+                            <textarea name="replymessagebox" ng-if="!replyeditoron" placeholder="Reply Here" ng-model="reply.message" required ng-keyup="replyMsgEditWord()"></textarea>                                      
+                        </div>
+                        <div ng-messages="replymessageform.replymessagebox.$error">
+                            <span ng-message="required">This is required.</span>                
+                        </div>
+                    </md-input-container>
+                    </div>
+                    <div flex="100" ng-if="!replyeditoron">
+                    <md-input-container>
+                        <div flex="100">                            
+                            <text-angular name="replymessageboxeditor" ng-model="reply.message" ta-toolbar="textangulartoolbar" placeholder="Reply here" required ng-keyup="replyMsgEditWord()"></text-angular>           
+                        </div>
+                        <div ng-messages="replymessageform.replymessageboxeditor.$error">
+                            <span ng-message="required">This is required.</span>                
+                        </div>                        
+                    </md-input-container>
+                    </div>
+                    <div ng-show="replyMsgEditWordCount"  class="custom-error">
+                        <span>Maximum word count is 50</span>                
+                    </div>
+                    <!--<div flex="100">
+                        <md-checkbox name="replyeditoron" ng-model="replyeditoron" ng-change="replyeditoronoff(replyeditoron)">Want Editor?</md-checkbox>
+                    </div>-->
+                </div>
+            </div>
+        
+            <div layout="row" layout-align="end end" flex="100">
+                <div class="submt-sec">                         
+                    <md-button type="submit" ng-disabled="replymessageform.$invalid || replyMsgEditWordCount" class="md-raised md-primary">Send</md-button>                    
+                </div>
+            </div>
+        </form>       
+        </div>
+    	
+        
+    
+    <div flex="100" flex-gt-md="100" flex-gt-sm="100" class="msg-box-rgt shwsubbx" ng-hide="shwcompsbx" ng-if="inboxdetails.length === 0"></div>
+    
+    <div flex="100" flex-gt-md="100" flex-gt-sm="100" class="msg-box-rgt msg-box-rgt-compose"  ng-show="shwcompsbx">
+    <div layout="row">
+    <div flex-gt-sm="100" flex-gt-md="100" class="lft">
+    <form name="composemessageform" ng-submit="composemessage()" novalidate autocomplete="off" class="composemessageform">
+        
+        <md-input-container class="md-block">
+        <label>Message Type</label>
+        <md-select name = "composecategory" ng-model="compose.category" required>
+          <md-option ng-repeat="item in messageCategory" value="{{item}}">{{item}}</md-option>
+        </md-select>
+        <div ng-messages="composemessageform.composecategory.$error" class="custom-error">
+            <span ng-message="required">This is required.</span>                
+        </div>
+      </md-input-container>
+        <md-content class="md-padding autocomplete" layout="column">
+            <md-contact-chips               
+               ng-model = "contacts"                              
+               md-contacts = "querySearch($query)"
+               md-contact-name = "name"               
+               md-require-match = "true"
+               md-highlight-flags = "i"               
+               filter-selected = "filterSelected"
+               placeholder = "To*">
+            </md-contact-chips>
+        </md-content>
+        <div ng-show="showcontactlist" class="custom-error">
+            <span>This is required.</span>                
+        </div>        
+        <md-input-container class="md-block">
+            <label>Subject</label>
+            <input type="text" name="composesubject" ng-model="compose.subject" ng-focus="shwconts.contactBox=false;checkingcontactlist()" ng-blur="checkingcontactlist()" required ng-maxlength="70">
+            <div ng-messages="composemessageform.composesubject.$error" class="custom-error">
+                <span ng-message="required">This is required.</span>   
+				<span ng-message="maxlength">Subject should not be more than 70 characters.</span>				
+            </div>
+        </md-input-container> 
+        <!--<md-input-container class="md-block">
+            <label>Message</label>
+        </md-input-container>-->
+        <!--<div flex="100" ng-if="compose.category == 'message' || compose.category === undefined">
+            <md-input-container class="md-block">
+                <label>Message</label>
+                <textarea name="composemessage" ng-model="compose.message" rows="5" ng-keyup="editorrequired()" ng-focus="shwconts.contactBox=false;checkingcontactlist()" ng-blur="checkingcontactlist()" required></textarea>  
+                <div ng-messages="composemessageform.composemessage.$error" class="custom-error">
+                    <span ng-message="required">This is required.</span>                
+                </div>
+            </md-input-container>
+        </div> ng-if="compose.category != 'message' && compose.category !== undefined"-->
+        
+        <div flex="100">            
+            <md-input-container class="compose-message-div">
+                <text-angular name="composemessageeditor" ng-model="compose.message" placeholder="Message" ta-toolbar="textangulartoolbar" ng-keyup="editorrequired()" required></text-angular>         
+            
+                <div ng-messages="composemessageform.composemessageeditor.$error" class="custom-error">
+                    <span ng-message="required">This is required.</span>                
+                </div>
+            </md-input-container>
+        </div>
+        <div ng-show="composeMsgEditWordCount" class="custom-error">
+            <span>Maximum word count is 50</span>                
+        </div>
+        <!--<div flex="100">
+                <md-checkbox name="msgeditoron" ng-model="msgeditoron" ng-change="msgeditoronoff(msgeditoron)">Want Editor?</md-checkbox>
+            </div>-->
+        
+        
+        <div flex="100" ng-if="compose.category != 'message' && compose.category !== undefined">
+            <ul class="fa-ul filedownload">
+                <li ngf-select="upload($files)" ngf-multiple="true" accept=".jpg, .png, .jpeg">
+                    <i class="fa fa-paperclip filedownloadicon" aria-hidden="true"></i>
+                    <label id="picture" name="forum_image" file-model="imageFile" class="uploadlabeltextcolor">Attach Files</label></li>                                            
+            </ul>
+            
+           <div ng-if="validImage" class="UploadedImgF">
+                <p class="forumimagename" title="imgname.name" ng-repeat="imgname in validImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span class="closeBTN" ng-click="removeImage($event,$index)" style="color:red">X</span></p>
+            </div>
+                <div ng-if="invalidImage" class="UploadedImgF">
+                <p class="forumimagename" title="imgname.name" ng-repeat="imgname in invalidImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span ng-if="!imgname.valid" style="color:red"> - Invalid file</span></p>
+            </div>                                              
+        </div>
+        
+        
+        <div class="btn-sec">
+            <md-button class="md-raised md-warn" ng-click="checkConfrim()" ng-if="inboxdetails.length > 0" >Cancel</md-button>
+            <md-button type="submit" ng-disabled="composemessageform.$invalid || contacts.length == 0 || composeMsgEditWordCount" class="md-raised md-primary">Send</md-button>
+        </div>
+    </form>    
+    </div>
+    <div flex="5"></div>    
+    <a href="javascript:void(0);" ng-click="shwconts.contactBox = true;checkingcontactlist()" class="conts_btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+    <div flex="30" flex-gt-lg="30" flex-gt-md="40" layout="row" layout-align="end end" class="rgt" ng-show="shwconts.contactBox">
+        <div class="compose_bx">
+        <div class="fxed_sec">
+            <div class="head_sec">
+            <h3 ng-click="shwconts.contactBox=false;checkingcontactlist()"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Contacts</h3>    
+            </div>    
+            <div class="divider"></div>
+            <div class="search_bx">
+                <md-input-container>
+                    <label>Search</label>
+                    <input type="text" ng-model="searchcontact">    
+                    <i class="fa fa-search icon"></i>
+                </md-input-container>
+            </div>
+            <md-tabs md-selected="selectedContactIndex" md-dynamic-height md-border-bottom>
+                <md-tab ng-if="classdetails">
+                    <md-tab-label>
+                        Class
+                    </md-tab-label>
+                    <md-tab-body>
+                        <div class="contacts">            
+                            <div class="contact-blck" ng-repeat="sclass in classdetails | filter:{className : searchcontact}">
+                                <div ng-click="addFromContacts(sclass,'yes')">                                
+                                    <img src="dest\images\noimage.png">
+                                    <h3>{{sclass.className}}</h3><i ng-if="toUserCheck(sclass,'yes')" class="fa fa-check-square" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </md-tab-body>
+                                      
+                </md-tab>
+                 <md-tab ng-if="contactdetails">
+                      
+                     <md-tab-label>
+                        <span ng-if="selectedContactIndex == 0">{{shwconts.userTypeDrop}}</span> 
+                        <md-select ng-model="shwconts.userTypeDrop" class="md-no-underline" ng-if="selectedContactIndex == 1">
+                            <md-option ng-if="userRoleType == 'Group Admin'" value="Super admin">Support</md-option>
+                            <md-option ng-if="userRoleType != 'Group Admin'" value="Group Admin">Group admin</md-option>
+                            <md-option value="Teacher">Teacher</md-option>
+                            <md-option value="Parent">Parent</md-option>
+                            <md-option value="Student">Student</md-option>
+                        </md-select>
+                         
+                      </md-tab-label>
+                     <md-tab-body>
+                         <div class="contacts">            
+                        <div class="contact-blck" ng-repeat="scontacts in contactdetails | filter:{username : searchcontact,roleType: shwconts.userTypeDrop}">
+                            <div ng-click="addFromContacts(scontacts,'no')">
+                                <img ng-if="scontacts.profilepic.name && scontacts.profilepic.type == 'others'" src="{{scontacts.profilepic.url}}{{scontacts.profilepic.name}}">
+                                <img ng-if="scontacts.profilepic.name && scontacts.profilepic.type == 'social'" src="{{scontacts.profilepic.name}}">
+                                <img ng-if="!scontacts.profilepic.name" src="dest\images\noimage.png">
+                                <h3>{{scontacts.username}}</h3><i ng-if="toUserCheck(scontacts,'no')" class="fa fa-check-square" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                     </md-tab-body>
+                    
+                </md-tab>
+            </md-tabs>
+        </div>
+        
+        
+        
+        
+            
+            
+          </div>   
+            
+            
+        </div>
+    </div>
+    </div>
+    </div>   
+    
+</div>

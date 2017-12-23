@@ -1,0 +1,236 @@
+<div layout="row" class="stud-prof-cat">
+	<section layout="row" layout-align="center">
+		<md-button ng-if="userRole!='parent'" ng-class="{'active-grp':selection.selectedTab == 'class'}" class="left " ng-click="selectTab('class')">Class Assignments</md-button>
+		<md-button ng-if="userRole!='parent'" ng-class="{'active-grp':selection.selectedTab == 'group'}" class="middle" ng-click="selectTab('group')">Group Assignments</md-button>
+		<md-button ng-class="{'active-grp':selection.selectedTab == 'individual'}" class="middle" ng-click="selectTab('individual')">Individual Assignments</md-button>
+		<md-button ng-class="{'active-grp':selection.selectedTab == 'profile'}" class="right" ng-click="selectTab('profile')">Student Profile</md-button>
+
+		<div class="user-logo  userProfile">
+			<img class="img-circle" ng-if="userdetails.profile_pic !=''" ng-src="{{userdetails.profile_picurl}}{{userdetails.profile_pic}}">
+			<img class="img-circle" ng-if="userdetails.profile_pic ==''" ng-src="{{noImageUrlPath}}">
+			<label>{{userdetails.firstname}}</label>
+		</div>
+	</section>
+</div>
+
+<div class="stud-prof-con">
+	<div layout="row" ng-if="selection.selectedTab !=='profile' && assignments" class="stud-prof-sub">
+		<ul class="subjects">
+			<li ng-class="{'activeTabcl':selection.selectedSub == 'Phonics Adventure'}"><a ng-class="{'active-sub':selection.selectedSub == 'Phonics Adventure'}" href="" ng-click="selectSub('Phonics Adventure')"> Phonics Adventure </a></li>
+			<li ng-class="{'activeTabcl':selection.selectedSub == 'Number Success'}"><a ng-class="{'active-sub':selection.selectedSub == 'Number Success'}" href="" ng-click="selectSub('Number Success')"> Number Success </a></li>
+			<li ng-class="{'activeTabcl':selection.selectedSub == 'Writing Success'}"><a ng-class="{'active-sub':selection.selectedSub == 'Writing Success'}" href="" ng-click="selectSub('Writing Success')"> Writing Success </a></li>
+		</ul>
+	</div>
+
+	<!-- filter NS and PA  -->
+	<div ng-if="!appLoader">
+		<div layout="row" ng-if="(selection.selectedTab !=='profile' && selection.selectedSub == 'Phonics Adventure' || selection.selectedSub == 'Writing Success') && 	(filters.length)" class="progress-filter">
+			<label>Filter by</label>
+			<div class="course-filter">
+				<ul ng-model="selection.filter">
+					<li class="all-icon" ng-if="selection.selectedSub =='Phonics Adventure'" ng-click="selectAct('All')" value="All" ng-class="{'active':selection.selectedAct === 'All' }">Course</li>
+					<li ng-class="{'video-icon':filter==='Song','lesson-icon':filter === 'Lesson','game-icon':filter==='Game','e-book-icon':filter === 'ebookvideo', 'interactivity-icon':filter === 'Interactivity','active':selection.selectedAct === filter  }" ng-click='selectAct(filter)' ng-repeat="filter in filters">
+						{{filter}}
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="progress-filter" ng-if="selection.selectedTab !=='profile' && selection.selectedSub == 'Number Success'" layout="row">
+			<div class="course-filter">
+				<ul ng-model="selection.filter">
+					<li ng-class="{'problem-icon':filter==='Problem','lesson-icon':filter === 'Lesson', 'on-location-icon':filter === 'Onlocation', 'test-icon':filter === 'Test','active':selection.selectedAct === filter }" ng-click='selectNSTab(filter,$index)' ng-repeat="filter in filters"> {{filter}}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- filter NS and PA  -->
+
+		<!-- class and group tab -->
+
+		<div ng-if="selection.selectedSub === 'Phonics Adventure' && selection.selectedTab !=='profile' && selection.selectedTab !=='individual'">
+			<div ng-if="selection.selectedAct === 'All' ">
+				<div class="assignment-container" ng-repeat="class in assignments" ng-if="!assignments.courses && selection.selectedTab !=='profile'">
+					<h3 class="class-head">{{class.label}}</h3>
+					<div ng-repeat="s in class.sections" class="sections">
+
+						<div ng-repeat="l in s.lesson" class="ht80px">
+							<div class="secTitleSec">
+								<h3 class="section-head">
+									Section {{s.sectionName.substring(7, s.sectionName.indexOf(" "))}}, {{s.sectionName.substring(s.sectionName.indexOf(" "), s.sectionName.length)}}</h3>
+								<span class="lesson-name"> {{l.lessonName}}</span>
+							</div>
+							<span>
+                             <ul class="progress-circle" >                  
+                              <li ng-repeat="a in l.activities">         
+                                      <div title="{{a.activity_type}}"  class="activity-circle" ng-class="{'not-started':a.course_status === 'not attempted','completed':a.course_status === 'completed','inprogress':a.course_status === 'incomplete' }"> 
+
+                                      <a href="#" ng-click="viewActivity($event)" ng-class="{'icon-lesson':a.activity_type === 'Lesson','icon-video':a.activity_type === 'Video','icon-game':a.activity_type === 'Game','icon-ebook':a.activity_type === 'eBook','icon-video':a.activity_type === 'Song','icon-interact':a.activity_type == 'Interactivity' }">                                        
+                                      </a>
+
+                                    </div>		                 
+            					</li>
+            				</ul> 
+                         </span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div ng-if="selection.selectedAct !== 'All' && selection.selectedTab !=='profile'">
+
+				<div title="{{activity.lesson_activity}}" ng-repeat="activity in Activities" class="activity-box" ng-if="selection.selectedAct === activity.activity_type">
+					<div class="activity-img">
+						<span ng-class="{'inprogress':activity.course_status === 'incomplete','completed':activity.course_status === 'completed'}">
+                           <div class="icon-in-progress" aria-hidden="true" ng-if="activity.course_status === 'incomplete' "></div>
+                           <div class="icon-completed" aria-hidden="true"  ng-if="activity.course_status === 'completed' "></div>
+                        </span>
+					</div>
+					<label>
+                  {{ activity.lesson_activity | limitTo: 30 }}{{activity.lesson_activity.length > 30 ? '...' : ''}}
+                </label>
+				</div>
+			</div>
+
+			<div ng-if="activityDataAvalibility===-1" class="empty-data">
+				<h1>Data Not Available</h1>
+			</div>
+		</div>
+
+		<div ng-if="selection.selectedSub === 'Number Success' &&  selection.selectedTab !=='profile' && selection.selectedTab !=='individual' ">
+			<br>
+			<div class="assignment-container" ng-repeat="class in assignments" ng-if="!assignments.courses && selection.selectedTab !=='profile'">
+				<h3 class="class-head">{{class.label}}</h3>
+				<div title="{{activity.lesson_activity}}" ng-repeat="activity in Activities" class="activity-box" ng-if="selection.selectedAct === activity.activity_type">
+					<div class="activity-img">
+						<span ng-class="{'inprogress':activity.course_status === 'incomplete','completed':activity.course_status === 'completed'}">
+                           <div class="icon-in-progress" aria-hidden="true" ng-if="activity.course_status === 'incomplete' "></div>
+                           <div class="icon-completed" aria-hidden="true"  ng-if="activity.course_status === 'completed' "></div>
+                        </span>
+					</div>
+					<label>
+                              {{ activity.lesson_activity | limitTo: 30 }}{{activity.lesson_activity.length > 30 ? '...' : ''}}
+                         </label>
+				</div>
+			</div>
+
+			<div ng-if="activityDataAvalibility===-1" class="empty-data">
+				<h1>Data Not Available</h1>
+			</div>
+		</div>
+		<div ng-if="selection.selectedSub === 'Writing Success' &&  selection.selectedTab !=='profile' && selection.selectedTab !=='individual' ">
+			<div data-ng-repeat="(key, activity) in Activities" class="writing-studentdash">
+				<h2>{{key}}</h2>
+				<ul>
+					<li data-ng-repeat="lesson in activity" ng-if="selection.selectedAct === lesson.activity_type && lesson.isactive">
+						<div class="writelistin"><label>{{ lesson.name }}</label>
+							<span ng-class="{'inprogress':lesson.course_status === 'incomplete','completed':lesson.course_status === 'completed'}"></span>
+						</div>
+					</li>
+					<h4 ng-if="isNoDataFound(key)">Data not Available</h4>
+				</ul>
+			</div>
+			<div ng-if="activityDataAvalibility===-1" class="empty-data">
+				<h1>Data Not Available</h1>
+			</div>
+		</div>
+		<div ng-if="((selection.selectedSub === 'Reading Success' || selection.selectedSub === 'Typing Success') && selection.selectedTab !=='individual') ">
+			<div class="empty-data">
+				<h1>Data Not Available</h1>
+			</div>
+		</div>
+		<!-- class and group tab -->
+
+		<!-- Individual Tab Content -->
+		<div class="assignment-container" ng-if="selection.selectedTab ==='individual'">
+			<div ng-if="selection.selectedAct === 'All' && selection.selectedSub === 'Phonics Adventure'">
+				<div ng-repeat="s in assignments.courses.sections" class="sections">
+					<span class="section-name">
+                 Section {{s.sectionName.substring(7, s.sectionName.indexOf(" "))}}, {{s.sectionName.substring(s.sectionName.indexOf(" "), s.sectionName.length)}}
+                </span>
+					<div ng-repeat="l in s.lesson" style="padding: 12px 0px;">
+						<span>Lesson Name : {{l.lessonName}} </span>
+						<span>
+                        <ul class="progress-circle" >                  
+                          <li ng-repeat="a in l.activities">                      
+                                <div title="{{a.activity_type}}"  class="activity-circle" ng-class="{'not-started':a.course_status === 'not attempted','completed':a.course_status === 'completed','inprogress':a.course_status === 'incomplete' }" >
+
+                                    <a href="#" ng-click="viewActivity($event)" ng-class="{'lesson-icon':a.activity_type === 'Lesson','video-icon':a.activity_type === 'Video','game-icon':a.activity_type === 'Game','e-book-icon':a.activity_type === 'eBook','icon-video':a.activity_type === 'Song','problem-icon':a.activity_type==='Problem','lesson-icon':a.activity_type === 'Lesson', 'on-location-icon':a.activity_type === 'Onlocation', 'test-icon':a.activity_type === 'Test','icon-interact':a.activity_type == 'Interactivity' }">
+                                    </a>
+                                </div>                     
+                            </li>
+                        </ul> 
+                     </span>
+					</div>
+				</div>
+				<div ng-if="activityDataAvalibility===-1" class="empty-data">
+					<h1>Data Not Available</h1>
+				</div>
+			</div>
+
+			<div class="assignment-container" ng-if="selection.selectedSub === 'Number Success'">
+				<div ng-repeat="class in assignments">
+					<div title="{{activity.lesson_activity}}" ng-repeat="activity in Activities" class="activity-box" ng-if="selection.selectedAct === activity.activity_type">
+						<div class="activity-img">
+							<span ng-class="{'inprogress':activity.course_status === 'incomplete','completed':activity.course_status === 'completed'}">
+                           <div class="icon-in-progress" aria-hidden="true" ng-if="activity.course_status === 'incomplete' "></div>
+                           <div class="icon-completed" aria-hidden="true"  ng-if="activity.course_status === 'completed' "></div>
+                        </span>
+						</div>
+						<label>
+                              {{ activity.lesson_activity | limitTo: 30 }}{{activity.lesson_activity.length > 30 ? '...' : ''}}
+                         </label>
+					</div>
+				</div>
+				<div ng-if="activityDataAvalibility===-1" class="empty-data">
+					<h1>Data Not Available</h1>
+				</div>
+			</div>
+
+
+			<div ng-if="selection.selectedAct !== 'All' && selection.selectedSub !== 'Number Success' && selection.selectedSub !== 'Writing Success'">
+
+				<div title="{{activity.lesson_activity}}" ng-repeat="activity in Activities" class="activity-box" ng-if="selection.selectedAct === activity.activity_type">
+					<div class="activity-img">
+						<span ng-class="{'inprogress':activity.course_status === 'incomplete','completed':activity.course_status === 'completed'}">
+                           <div class="icon-in-progress" aria-hidden="true" ng-if="activity.course_status === 'incomplete' "></div>
+                           <div class="icon-completed" aria-hidden="true"  ng-if="activity.course_status === 'completed' "></div>
+                   </span>
+					</div>
+					<label>
+                  {{ activity.lesson_activity | limitTo: 30 }}{{activity.lesson_activity.length > 30 ? '...' : ''}}
+                </label>
+				</div>
+				<div ng-if="activityDataAvalibility===-1" class="empty-data">
+					<h1>Data Not Available</h1>
+				</div>
+			</div>
+
+
+			<div ng-if="selection.selectedSub === 'Writing Success' &&  selection.selectedTab !=='profile'">
+				<div data-ng-repeat="(key, activity) in Activities" class="writing-studentdash">
+					<h2>{{key}}</h2>
+					<ul>
+						<li data-ng-repeat="lesson in activity" ng-if="selection.selectedAct === lesson.activity_type && lesson.isactive">
+							<div class="writelistin"><label>{{ lesson.name }}</label>
+								<p ng-if="lesson.isactive"><i class="fa fa-check" aria-hidden="true"></i></p>
+							</div>
+						</li>
+						<h4 ng-if="isNoDataFound(key)">Data not Available</h4>
+					</ul>
+				</div>
+				<div ng-if="activityDataAvalibility===-1" class="empty-data">
+					<h1>Data Not Available</h1>
+				</div>
+			</div>
+
+		</div>
+		<!-- Individual Tab Content -->
+
+		<!-- Profile Tab Content -->
+		<div ng-if="selection.selectedTab ==='profile'">
+			<div ng-include="template">
+
+			</div>
+		</div>
+	</div>

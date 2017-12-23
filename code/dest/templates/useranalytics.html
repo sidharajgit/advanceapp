@@ -1,0 +1,268 @@
+<div ng-cloak class="report" layout="column"> 
+   <div layout="row">
+       <div flex="100">
+      <md-tabs md-dynamic-height md-border-bottom>
+         <md-tab label="Reports" ng-click="isAnalytics = false;">
+            <md-content class="md-padding" ng-if="users.reports">
+                <div layout="row" class="report_hedr_sec">
+                    <div flex="100">
+                        <div class="forum-headng">
+                            <h3 class="heading-til">User Report</h3>    
+                        </div>  
+                    </div> 
+                    <button class="download_csv_btn" ng-click="reportdownloadbtn()">Download</button>
+                     <div class="down_list_Sec" ng-class="{'download_act': isActive_downreport}" ng-mouseleave="reportclosedownload()">
+                        <ul>                                
+                            <li><a href="javascript:void(0);" ng-click="downloadReport('userreportsexportcsv')">Download CSV</a></li>                                
+                        </ul>
+                    </div>
+                </div>
+                   
+                <div layout="row" flex="100"  layout-wrap class="White_frm_list">
+                    <md-whiteframe class="md-whiteframe-1dp white-tile" flex-md="100" flex-lg="30" flex-gt-lg="30" flex="100">
+                        <div class="tile-heading">
+                           
+                            <span class="frame-header">Users </span>
+                            <i class="fa fa-info-circle" aria-hidden="true" ng-mouseleave="chartModalUsers()" ng-mouseover="chartModalUsers()"></i>
+                            <div class="modalmsguserstime">   
+                                <div class="ShowList_oHv" ng-show="modalMsgUsers" >
+                                   <ul>
+                                        <h5>Users:</h5>
+                                        <li><span>Registered:</span> - Number of user registered in Sommerlearning.com.</li>
+                                        <li><span>Not Activated:</span> - Number of users registered but not activated their account.</li>
+                                        <li><span>Guest Users:</span> - Number of non-registered users visit.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                         <hr/>
+                            <div layout="row" > 
+                              <div layout="column" flex="33" ng-repeat="data in users.reports.users"  layout-align="center center">                                  
+                                 <div flex="2" class="tile-text">{{data.count}}</div> 
+                                 <div flex="1">{{data.label}}</div> 
+                             </div>   
+                            </div>  
+                        </div>
+                        <div ng-show="modalMsg" ng-click="chartModalMsg()">
+                            
+                        </div>
+                        
+                        </md-whiteframe>
+                    <md-whiteframe class="md-whiteframe-1dp white-tile" flex-md="100" flex-lg="30" flex-gt-lg="30" flex="100">
+                        <div class="tile-heading">
+                            <span class="frame-header">Registered Users Status</span>
+                            <i class="fa fa-info-circle" aria-hidden="true" ng-mouseleave="chartModalUserStatus()" ng-mouseover="chartModalUserStatus()"></i>
+                            <div class="modalmsguserstatus">                                
+                                <div class="ShowList_oHv" ng-show="modalMsgUserStatus" >
+                                   <ul>
+                                   <h5>Registered Users Status:</h5>
+                                    <li><span>Active</span> - Number of users logged in for last 30 days.<br /></li>
+                                    <li><span>Inactive</span> - Number of users not logged in for last 30 days.<br /></li>
+                                    <li><span>Deactivated</span> - Number of users deactivated by Admin.<br /></li>
+                                    <li><span>Deleted</span> - Number of users deleted by Admin.<br /></li>
+                                    </ul>
+                                </div>                                 
+                            </div>
+                         <hr/>
+                            <div layout="row" > 
+                              <div layout="column" flex="30" ng-repeat="data in users.reports.users_status"  layout-align="center center">
+                                 <div flex="2" class="tile-text">{{data.count}}</div> 
+                                 <!--<div flex="2" class="tile-text">00<span>H</span>:00<span>M</span>:00<span>S</span></div>-->
+                                 <div flex="1">{{data.label}}</div> 
+                             </div>   
+                            </div>       
+                         </div>
+                        </md-whiteframe>
+                    <md-whiteframe class="md-whiteframe-1dp white-tile" flex-md="100" flex-lg="30" flex-gt-lg="30" flex="100">
+                        <div class="tile-heading">
+                            <span class="frame-header">Average Time Spent
+                            <!--<tooltip tooltips="" tooltip-template="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec eleifend urna.Vivamus egestas purus sed odio eleifend," tooltip-side="right" class="tooltips _right _steady _multiline _ready"> 
+                                    <span class="information_icon">
+                                        <tip-cont>
+                                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        </tip-cont>
+                                    </span>
+                                </tooltip>-->
+                            </span>
+                            <i class="fa fa-info-circle" aria-hidden="true" ng-mouseleave="chartModalUsersTime()" ng-mouseover="chartModalUsersTime()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv" ng-show="modalMsgUsersTime" >
+                                   <ul>
+                                   <h5>Average Time Spent:</h5>
+                                    <li><span>Guest</span> - Average time spent on sommerlearning.com by guest users.</li>
+                                    <li><span>Registered</span> - Average time spent on sommerlearning.com by registered users.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                         <hr/>
+                         <div layout="row" >
+                              <div layout="column" flex="33" ng-repeat="data in users.reports.site_user_timespent"  layout-align="center center">
+                                 <!--<div flex="2" class="tile-text">{{data.data}}</div> -->
+                                 <div flex="2" class="tile-text">{{data.data.hours}}<span>H</span> <span class="cln">:</span> {{data.data.minuts}}<span>M</span>
+                                 <span class="cln">:</span> {{data.data.seconds}}<span>S</span></div> 
+                                 <div flex="1">{{data.label}}</div> 
+                             </div>   
+                            </div> 
+                        </div>
+                        </md-whiteframe>
+                </div>
+               <div flex="100" class="useranalytics_table">
+                  <div class="tableDiv res_table_width">
+                     <table-div datasource="tableData" datatable="tableData" closeregisteration="closeRegisteration(response)"></table-div>
+                  </div>
+               </div>
+                
+                </md-content>
+         </md-tab>
+         <md-tab label="Analytics" ng-click="getAnalyticsData()">
+            <md-content class="md-padding" ng-if="users.analytics">
+                 <div layout="row" class="report_hedr_sec">
+                    <div flex="100">
+                        <div class="forum-headng">
+                            <h3 class="heading-til">User Analytics</h3>    
+                        </div>  
+                    </div>
+                    <div flex="100" layout-align="end end" layout="row">
+                    <div flex="100" layout="row">
+                        <div flex="100" class="dateCols" layout="row" layout-align="end end">
+                            <div class="date_range_picker">
+<!--                            <input date-range-picker class="form-control date-picker" type="text" ng-model="datePicker" />-->                             
+                                <input date-range-picker name="daterange1" class="form-control date-picker" placeholder="{{daterangecustompick}}" type="text" ng-model="daterangecustompick" options="dateoptions" readonly/>
+                            </div> 
+                        </div>
+                   </div>  
+                    <div flex="100" flex-gt-sm="40" flex-gt-lg="30" layout-align="end end" layout="row" class="width-datepiker-btn">
+                        <button class="download_csv_btn" ng-click="downloadbtn()">Download</button>
+                         <div class="down_list_Sec" ng-class="{'download_act': isActive_down}" ng-mouseleave="closedownload()">
+                            <ul>
+                                <li><a href="javascript:void(0);" ng-click="downloadReport('useranalyticsexportcsv')">Download CSV</a></li>
+                                <li><a href="javascript:void(0);" ng-click="export('application/pdf')">Download PDF</a></li>
+                                <li><a href="javascript:void(0);" ng-click="export('image/png')">Download PNG</a></li>
+                            </ul>
+                        </div>
+                    </div>        
+                    </div> 
+                </div> 
+                  <div layout="row" layout-wrap >
+                        <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">                            
+                            <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','line',users.analytics.user_visits)">More Filter</button> 
+                            <i class="fa fa-info-circle chart_info_ms" aria-hidden="true" ng-mouseleave="noofvisitors()" ng-mouseover="noofvisitors()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv chart_infor_ms" ng-show="noofvisitorsSec" >
+                                <ul>
+                                    <h5>Number of Visitors:</h5><li>Number of Registered and guest visitors based on the date range selected.</li>
+                                </ul>
+                            </div>
+                            </div>   
+                            <div  layout-align="center center" layout="column">
+                                <hc-line-chart  ng-if="users.analytics.user_visits && isAnalytics" chartdata="users.analytics.user_visits" chartobj="saveChartObj(response)"></hc-line-chart>
+                            </div>                             
+                        </md-whiteframe>
+                    
+                        <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                            <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','pie',registeredUsers)">More Filter</button>
+                            <i class="fa fa-info-circle chart_info_ms" aria-hidden="true" ng-mouseleave="registeredusers()" ng-mouseover="registeredusers()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv chart_infor_ms" ng-show="registeredusersSec" >
+                                <ul>
+                                    <h5>Registered Users at sommerlearning:</h5><li>Number of registered Students, Parents, Teachers and Group Admins based on the date range selected.</li>
+                                </ul>
+                            </div>
+                            </div>
+                            <div  layout-align="center center" layout="column">
+                                <hc-pie-chart ng-if="registeredUsers  && isAnalytics" chartdata="registeredUsers" chartobj="saveChartObj(response)"></hc-pie-chart>
+                            </div>
+                        </md-whiteframe>
+                                  
+                        <md-whiteframe class="md-whiteframe-1dp white-tile geography_full" flex-gt-xs="100" flex-gt-lg="100">
+                            <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','world',usersAnalyticsByGeo)">More Filter</button> 
+                            <i class="fa fa-info-circle chart_info_ms" aria-hidden="true" ng-mouseleave="sourceoftraffic()" ng-mouseover="sourceoftraffic()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv chart_infor_ms" ng-show="sourceoftrafficSec" >
+                                <ul>
+                                    <h5>Source of traffic by Geography:</h5><li>Number of visitors by geography based on the date range selected. Respective maps are highlighted.</li>
+                                </ul>
+                            </div>
+                            </div>                           
+                            <!--<div id="geography-map" ></div>-->
+                            <hc-world-chart ng-if="usersAnalyticsByGeo && isAnalytics" chartdata="usersAnalyticsByGeo" chartobj="saveChartObj(response)"></hc-world-chart>    
+                        </md-whiteframe>
+                    
+                        <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                             <!--<md-switch ng-model="traffic.byDevice" aria-label="Switch 1" ng-change="changeTrafficData()"><span ng-if="traffic.byDevice">By Device</span><span ng-if="!traffic.byDevice">By Channel</span></md-switch>-->
+                             <button  class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','pie',users.analytics.source_of_traffic,traffic)">More Filter</button>
+                             <i class="fa fa-info-circle chart_info_ms" aria-hidden="true" ng-mouseleave="souoftraffic()" ng-mouseover="souoftraffic()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv chart_infor_ms" ng-show="souoftrafficSec" >
+                                <ul>
+                                    <h5>Source of traffic:</h5>
+                                    <li><span>Source of traffic by device</span> - Devices from where the sommerlearning.com site has been accessed most. Stats are based on the date range selected.</li>
+                                    <li><span>Source of traffic by Channel</span> - From where the users have been landed to sommerlearning.com. eg. Direct traffic(sommerlearning.com), Facebook, Twitter, Google+, LinkedIn. Stats are based on the date range selected.</li>
+                                </ul>
+                            </div>
+                            </div>
+                             <div  layout-align="center center" layout="column">
+                                <hc-pie-chart ng-if="sourceOfTraffic && isAnalytics" chartdata="sourceOfTraffic" chartobj="saveChartObj(response)"></hc-pie-chart>
+                             </div>
+                             <div style="text-align: center;width: 250px;margin: auto;">
+                                 <div class="by-toggle-div" layout="100">
+                                     <span>By Channel</span>
+                                     <md-switch ng-model="traffic.byDevice" aria-label="Switch 1" ng-change="changeTrafficData()"></md-switch>
+                                     <span>By Device</span> 
+                                 </div>
+                             </div>
+                        </md-whiteframe>
+                        
+                        <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                              <button  class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','pie',userEnrollment)">More Filter</button>
+                              <i class="fa fa-info-circle chart_info_ms" aria-hidden="true" ng-mouseleave="enrollusers()" ng-mouseover="enrollusers()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv chart_infor_ms" ng-show="enrollusersSec" >
+                                <ul>
+                                    <h5>Enrolled and Self enrolled students:</h5>
+                                    <li>Number of students self registered in the system versus enrolled by teacher based on date range selected.</li>
+                                </ul>
+                            </div>
+                            </div>
+                              <div  layout-align="center center" layout="column">
+                                  <hc-pie-chart ng-if="userEnrollment && isAnalytics" chartdata="userEnrollment" chartobj="saveChartObj(response)"></hc-pie-chart>      
+                              </div>
+                        </md-whiteframe>
+                    
+                        <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                              <button  class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','bar',channelTriggeredData)">More Filter</button>
+                              <i class="fa fa-info-circle chart_info_ms" aria-hidden="true" ng-mouseleave="channeltrigger()" ng-mouseover="channeltrigger()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv chart_infor_ms" ng-show="channeltriggerSec" >
+                                <ul>
+                                    <h5>Channel that triggered the user website visit :</h5>
+                                    <li>Users got land to the sommerlearning.com from any advertisement channel based on the date range selected.</li>
+                                </ul>
+                            </div>
+                            </div>
+                              <div  layout-align="center center" layout="column">
+                                  <hc-bar-chart  ng-if="channelTriggeredData && isAnalytics"  chartdata="channelTriggeredData" chartobj="saveChartObj(response)"></hc-bar-chart>
+                              </div>
+                        </md-whiteframe>
+                      
+                        <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                            <button  class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','line',users.analytics.conversion_ratio)">More Filter</button>
+                            <i class="fa fa-info-circle chart_info_ms" aria-hidden="true" ng-mouseleave="convoradio()" ng-mouseover="convoradio()"></i>
+                            <div class="modalmsguserstime">                                
+                                <div class="ShowList_oHv chart_infor_ms" ng-show="convoradioSec" >
+                                <ul>
+                                    <h5>Conversion Ratio:</h5>
+                                    <li>Number of users visited the site as a guest user site and got registered. Stats are based on the date range selected.</li>
+                                </ul>
+                            </div>
+                            </div>   
+                            <div  layout-align="center center" layout="column">
+                                <hc-line-chart  ng-if="users.analytics.conversion_ratio && isAnalytics" chartdata="users.analytics.conversion_ratio" chartobj="saveChartObj(response)"></hc-line-chart>
+                            </div>
+                        </md-whiteframe>
+                </div>  
+            </md-content>
+         </md-tab>
+      </md-tabs>
+      </div>
+   </div>
+</div>

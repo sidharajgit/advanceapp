@@ -1,0 +1,78 @@
+<alert-banner data="alertBaner" ng-if="alertBaner.showBaner"></alert-banner>
+<div ng-cloak class="report" layout="column">
+    <md-whiteframe class="survey_container">
+         <div class="survay-lst">
+        <div layout="row">
+            <div flex="100">
+                <div class="forum-headng">
+                    <h3 class="heading-til">Survey</h3>
+                </div>
+            </div>
+            <div flex="100">
+               <div layout="row" layout-align="end end">
+                   <md-button  md-no-ink class="md-primary text-uppercase" ng-click="addNewSurvey(true)" ng-disabled="survey.addNew">Add New Survey</md-button>
+                </div>
+            </div>
+        </div>
+        <div layout="row">
+            <div class="admn-divider"></div>
+        </div>
+             <div ng-if="survey.addNew">
+                <md-whiteframe class="md-whiteframe-3dp forum_form_sec" flex="100" layout="row"layout-padding>
+                        <div flex ="30"></div>
+                        <div flex="90" flex-gt-md="100">
+                            <form name="survey.add" ng-submit="addSurvey()">
+                                <div class="box-header">
+                                    <h3 class="box-title">Add New Survey Template</h3>
+                                </div>
+                                <div layout="row">
+                                 <span> Survey Category :</span>  
+                                <div layout="column" ng-repeat="surveyCategory in survey.categories">
+                                    <md-button  md-no-ink ng-class="{'md-primary':surveyCategory.isSelected}" ng-bind="surveyCategory.category" ng-click="changeCategory($index)"></md-button> 
+                                </div>
+                                </div>
+                                <div layout="row" flex="100">
+                                    <div  layout="column" flex="50">
+                                        <md-input-container class="md-block">
+                                            <label class="md-required">Survey Title</label>
+                                            <input type="text" md-asterisk ng-model="survey.title" name="title"  ng-class="requiredupdate" required>
+                                            <div ng-messages="survey.add.title.$error">
+                                                <div ng-message="required" ng-if="survey.add.title.$dirty">This is required</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div flex="30" layout-align="end end" layout="row">
+                                    <md-button class="md-raised md-warn" ng-click="addNewSurvey(false)">Cancel</md-button> 
+                                    <md-button  md-no-ink class="md-primary" ng-disabled="survey.add.$invalid" type="submit" >Next</md-button> 
+                                </div>
+                            </form>
+                        </div>
+                    </md-whiteframe>
+                 <h3 class="box-title">Survey Templates</h3>
+             </div>
+             <div ng-if="survey.list">
+                 <div layout="row" ng-repeat="survey in survey.list track by $index">
+                    <div flex="100">
+                        <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout>
+                            <div layout="row" flex="100" ng-click="viewEditSurvey($index,'view')">
+                                <div flex="40" flex-gt-sm="50" class="sur-til">
+                                   <div  layout-align="start center" flex="100">
+                                        <h3 ng-bind="survey.title"></h3>
+                                        <p ng-bind="'Published on ' + survey.published +' | '+'Category : ' + survey.categoryName"></p>
+                                   </div>
+                                </div>
+                            </div>
+                            <md-button  md-no-ink class="btn actn-btn-edit" ng-disabled="survey.postStatus" ng-click="viewEditSurvey($index,'edit')"><span><i class="fa fa-pencil"></i></span></md-button>
+                            <md-button  md-no-ink class="btn actn-btn-delete" ng-disabled="survey.postStatus" ng-click="deleteSurvey($index)"><span><i class="fa fa-trash"></i></span></md-button>
+                            <md-checkbox ng-model="survey.enable" ng-change="checkAvalibility($index)">{{survey.enable ? 'Enabled' : 'Enable'}}</md-checkbox>
+                        </md-whiteframe>
+                    </div>
+                </div>
+             </div>                
+             <div align="middle" ng-if="!survey.list">                 
+                     <h2>No survey found</h2>                                 
+             </div>
+    </div>
+    </md-whiteframe>
+</div>

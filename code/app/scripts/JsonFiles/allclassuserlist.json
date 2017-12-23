@@ -1,0 +1,14 @@
+{
+"data": 
+{"data":[
+{
+"id":"1","name":"cam martion", "username":"cam martion","email":"cam@example.com","phoneno":"7896541230","usertype":"student","user_code":"cam001","block":"1","useradd":true
+},
+{
+"id":"2","name":"sam martion","username":"sam martion","email":"sam@example.com","phoneno":"8896541230","usertype":"teacher","user_code":"sam002","block":"1","useradd":false
+},
+{
+"id":"3","name":"sri sai","username":"sri sai","email":"cam@example.com","phoneno":"7796541230","usertype":"parent","user_code":"cam001","block":"1","useradd":true
+}
+
+]}} 

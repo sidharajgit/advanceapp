@@ -1,0 +1,248 @@
+  <div ng-cloak ng-controller="myprofileController"> 
+    <div flex="100">
+        <div layout="row" layout-align="end center">
+            <div flex="100">
+                <div class="modal_alert" tabindex="-1" ng-if="alertBaner.showBaner">
+                    <div uib-alert dismiss-on-timeout="4000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+                        <div class="icon_display">
+                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+                            <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+              </svg>
+                        </div>
+                        <div class="display_message">{{alertBaner.message}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="myprofile_container" layout="row" layout-align="center center">
+            <div flex="100" flex-xs="100" flex-gt-md="85" flex-gt-sm="100" flex-gt-lg="60">
+                <form name="profile_edit_form" ng-submit="(imageextension != true) && update_adminprofile()" novalidate autocomplete="off" class="profile_edit_form">
+                    <div layout="row" class="myprfle">
+                        <div flex="100" layout="row" class="pro_img" ng-show="!studentProfile">
+                            <div flex="100">
+                                <div class="profile_edit_img">
+                                    <div class="upload_input"><input type="file" ng-click="handleFileSelect()" name="picture"  id="fileInput" ng-model="image" accept=".png, .jpg, .jpeg" ng-disabled="isDisableFields" /></div>
+                                    <div>
+                                        <div>
+                                            <img ng-if="image" ngf-src="image" class="groupimageupload aftr-img-upload">
+                                            <img ng-if="!image && !userdetails.userdetailspicturecancel  && !dataURLsa" ng-src="{{profileimage}}" class="groupimageupload  befr-img-upload">
+                                            <img ng-if="dataURLsa" ng-src="{{dataURLsa}}" />
+                                        </div>
+                                    </div>
+                                    <div class="backdrop_crop" ng-click="hidepopup()" ng-show="showDown"></div>
+                                    <div class="img_cropSec" ng-show="showDown">
+                                        <div>
+                                            <div class="cropAreaNs">
+                                                <ui-cropper image="myImage" area-type="rectangle" result-image="myCroppedImage" live-view="blockingObject"></ui-cropper>
+                                                <div class="render_btn"><a ng-click="hidepopup()" href="javascript:void(0);" class="cancel_btn md-raised md-warn md-button md-ink-ripple secondry_btn">Cancel</a><a ng-click="renderimage()" href="javascript:void(0);" class="md-raised md-primary md-button md-ink-ripple primary_btn action_btn">Crop &amp; Save</a></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div flex="30" layout="row">&nbsp;</div>
+                        <div flex="100">
+                            
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle">
+                        <div flex="100" layout="row">
+                            <div class="Tabl_title_header">
+                                <h3>Personal Information</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle">
+                        <div flex="100" layout="row">
+                            <div class="pro_brdr_line"></div>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle input_myprfle_div">
+                        <div flex="100">
+                            <md-input-container class="md-block input_myprfle">
+                                <label>First Name</label>
+                                <input type="text" required name="firstname" ng-model="userdetails.firstname" ng-pattern="/^[a-zA-Z\s]*$/" ng-disabled="isDisableFields">
+                                <div ng-messages="profile_edit_form.firstname.$error">
+                                    <span ng-message="required">This is required.</span>
+                                    <span ng-message="pattern">Invalid name</span>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <div flex="30"></div>
+                        <div flex="100">
+                            <md-input-container class="md-block input_myprfle">
+                                <label>Last Name</label>
+                                <input type="text" required name="lastname" ng-model="userdetails.lastname" ng-pattern="/^[a-zA-Z\s]*$/" ng-disabled="isDisableFields">
+                                <div ng-messages="profile_edit_form.lastname.$error">
+                                    <span ng-message="required">This is required.</span>
+                                    <span ng-message="pattern">Invalid name</span>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle pro_no_edit">
+                        <div flex="100">
+                            <md-input-container class="md-block">
+                                <div flex="100" class="pro_no_edit_txt">User Name</div>
+                                <div flex="100" class="pro_no_edit_val">{{userdetails.username}} <span><img src="{{templatepath}}dest/images/username.png"></span></div>
+                            </md-input-container>
+                        </div>
+                        <div flex="30"></div>
+                        <div flex="100">
+                            <md-input-container class="md-block">
+                                <div flex="100" class="pro_no_edit_txt">User Type</div>
+                                <div flex="100" class="pro_no_edit_val">{{userdetails.roleName}}<span><img src="{{templatepath}}dest/images/usertype.png"></span></div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle">
+                        <div flex="100">
+                            <md-input-container class="md-block genter_details">
+                                <label>Gender</label>
+                                <md-radio-group ng-model="userdetails.gender" ng-disabled="isDisableFields" ng-required="true" name="gender">
+                                    <md-radio-button value="male" class="md-primary">Male</md-radio-button>
+                                    <md-radio-button value="female"> Female </md-radio-button>
+                                </md-radio-group>
+                                <div ng-messages="profile_edit_form.gender.$error">
+                                    <div ng-message="required">Please choose your gender</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <div flex="30"></div>
+                        <div flex="100"> 
+                            <label for="Birth" class="doblabel">Date of Birth</label>
+                            <div layout="row">
+                                <datemonthyear datemonth="userdetails.dob" agecheck="'ageabovethirteen'" disableinput="isDisableFields"  ng-if="isMyProfile" isrequired="isStudentAndSelfsigned"></datemonthyear>
+                                
+                                <datemonthyear datemonth="userdetails.dob" agecheck="''"  ng-if="!isMyProfile" isrequired="!isMyProfile"></datemonthyear>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle">
+                        <div flex="100" layout="row">
+                            <div class="Tabl_title_header">
+                                <h3>Contact Information</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle">
+                        <div flex="100" layout="row">
+                            <div class="pro_brdr_line"></div>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle pro_no_edit">
+                        <div flex="100">
+                            <md-input-container>
+                                <label>Email</label>
+                                <input ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' ng-keyup="validateEmail()" ng-model="userdetails.email" name="useremail" ng-required="!isDisableFields && isMyProfile" ng-disabled="isDisableFields">
+                                <span class="error-text" ng-if="myprofile.emailError">User Email Already Exist.</span>
+                                <div ng-messages="profile_edit_form.useremail.$error">
+                                    <span ng-show="profile_edit_form.useremail.$error.pattern">Invalid Email</span>
+                                    <span ng-show="profile_edit_form.useremail.$error.required">This is required.</span>
+                                </div>
+                            </md-input-container>
+                            <phonenumber-directive phonetrue="phoneboolvalue" placeholder="myPrompt" model='userdetails.phone_no' disableinput="isDisableFields"></phonenumber-directive>
+                        </div>
+                        <div flex="30"></div>
+                        <div flex="100">
+                            <md-input-container class="md-block pro_txt_area_container">
+                                <label>Address</label>
+                                <textarea maxlength="150" md-no-asterisk name="address" ng-disabled="isDisableFields" ng-model="userdetails.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                <div ng-if="profile_edit_form.address.$viewValue" ng-messages="profile_edit_form.address.$error">
+                                    <div ng-message="maxlength">Maximum length 150.</div>
+                                </div>
+
+                                <md-icon>
+                                    <img src="{{templatepath}}dest/images/address.png">
+                                </md-icon>
+                            </md-input-container>
+                        </div>
+                    </div>
+
+                    <div layout="row" class="myprfle reset_pwd_btn" ng-if="!studentProfile && !isDisableFields">
+                        <div flex="100">
+                            <md-input-container class="md-block">
+                                <a href="javascript:void(0);" ng-click="reset_pwd()">Reset Password</a>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle reset_pwd_div" ng-show="shwpwddiv" ng-if="!studentProfile">
+                        <div class="pwd_div" flex="95">
+                            <div layout="row">
+                                <div flex="100">
+                                    <md-input-container class="md-block">
+                                        <label>Current Password</label>
+                                        <input type="password" name="old_password" ng-model="userdetails.old_password" ng-blur="oldpasswordcheck()" ng-required="reset_pwd_visible">
+                                        <div class="custom-error" ng-show="!passcheck">Current password doesn't match.</div>
+                                    </md-input-container>
+                                </div>
+                                <div flex="15"></div>
+                                <div flex="100">
+                                    <md-input-container class="md-block">
+                                        <label>New Password</label>
+                                        <input type="password" name="new_password" ng-minlength="6" ng-maxlength="12" ng-model="userdetails.new_password" ng-blur="newpasswordcheck()" ng-required="userdetails.old_password">
+                                        <div class="custom-error" ng-show="!newpasscheck">Current password cannot be same as old password.</div>
+                                        <div ng-messages="profile_edit_form.new_password.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="minlength">Password should be atleast 6 characters.</div>
+                                            <div ng-message="maxlength">Password should not more than 12 characters.</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div flex="15"></div>
+                                <div flex="100">
+                                    <md-input-container class="md-block">
+                                        <label>Confirm Password</label>                                        
+                                        <input type="password" name="new_password_confirm" ng-model="userdetails.new_password_confirm" ng-match="userdetails.new_password" ng-required="userdetails.new_password">
+                                        <div ng-messages="profile_edit_form.new_password_confirm.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="match">Password not matched.</div>
+                                        </div>
+                                        
+                                        
+                                    </md-input-container>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle" ng-if="studentProfile">
+                        <div class="pwd_div" flex="95">
+                            <div layout="row">
+                                <div flex="100">
+                                    <md-input-container class="md-block">
+                                        <label>Set Password</label>
+                                        <input type="password" name="new_password" ng-minlength="6" ng-model="userdetails.new_password">
+                                        <div ng-messages="profile_edit_form.new_password.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="minlength">Password should be 6 characters.</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" class="myprfle" flex="95">
+                        <div flex="100">
+                        </div>
+                        <div flex="30"></div>
+                        <div flex="100">
+                            <div class="submt-sec">
+                                <md-button class="md-raised md-warn secondry_btn" ng-click="updateuserprofilecancel()">Cancel</md-button>
+                                <md-button type="submit" class="md-raised md-primary primary_btn action_btn" ng-disabled="profile_edit_form.$invalid || phoneboolvalue || !passcheck || myprofile.emailError">Save</md-button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

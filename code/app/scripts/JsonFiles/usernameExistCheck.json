@@ -1,0 +1,24 @@
+{ 
+    "data": [
+        {
+            "data": "2"
+        }
+    ],
+	"existaccount": [
+        {
+            "firstname": "test",
+            "lastname": "test",
+            "userid": "2",
+            "username": "test",
+			"email1": "test82@gmail.com",
+			"birth_year": 2017,
+			"gender": "male",
+			"roletype": "3",
+			"address": "test account"
+        }
+    ],
+    "message": "Username is not registered",
+    "status": "Success",
+	"sessioned":true
+}
+

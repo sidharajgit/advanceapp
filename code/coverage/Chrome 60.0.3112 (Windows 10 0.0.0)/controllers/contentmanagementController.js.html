@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\contentmanagementController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> contentmanagementController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.97% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/67</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.97% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/67</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">advancePubapp.controller('contentmanagementController', ['$scope', 'sfactory', '$rootScope', 'taskService', <span class="fstat-no" title="function not covered" >function($scope, sfactory, $rootScope, taskService) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var localTask, tasks, dataRequest;</span>
+&nbsp;
+    /* Method to change activity status */
+<span class="cstat-no" title="statement not covered" >    $scope.changeActivityStatus = <span class="fstat-no" title="function not covered" >function(parentIndex, Index) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var activityStatusObject = _.countBy(_.pluck($scope.contents.currentSection.lessons[parentIndex].activities, 'block'), <span class="fstat-no" title="function not covered" >function(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return value === true ? 'true' : 'false';</span>
+        });
+<span class="cstat-no" title="statement not covered" >        dataRequest = {</span>
+            id: $scope.contents.currentSection.lessons[parentIndex].activities[Index].id,
+            course_id: $scope.contents.currentSection.lessons[parentIndex].activities[Index].course_id,
+            action: ($scope.contents.currentSection.lessons[parentIndex].activities[Index].block) ? 'act' : 'deact'
+        };
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(dataRequest, tasks.activityAssign, 'listDetails').then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.contents.course.sections[$scope.contents.activeSection].lessons[parentIndex].activities[Index].block = response.data.block;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.contents.currentSection.lessons[parentIndex].block = (activityStatusObject.true &gt; 0);</span>
+<span class="cstat-no" title="statement not covered" >            updateSectionStatus();</span>
+<span class="cstat-no" title="statement not covered" >            $scope.contents.currentSection = $scope.contents.course.sections[$scope.contents.activeSection];</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>});
+    };
+&nbsp;
+    /* Method to change lesson status */
+<span class="cstat-no" title="statement not covered" >    $scope.changeLessonStatus = <span class="fstat-no" title="function not covered" >function(index) {</span></span>
+<span class="cstat-no" title="statement not covered" >        dataRequest = {</span>
+            lesson_courses: $scope.contents.currentSection.lessons[index].lesson_courses,
+            lesson_activities: $scope.contents.currentSection.lessons[index].lesson_activities,
+            action: ($scope.contents.currentSection.lessons[index].block) ? 'deact' : 'act'
+        };
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(dataRequest, tasks.lessonAssign, 'listDetails').then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            _.each($scope.contents.currentSection.lessons[index].activities, <span class="fstat-no" title="function not covered" >function(activity) {</span></span>
+<span class="cstat-no" title="statement not covered" >                activity.block = response.data.block;</span>
+            });
+<span class="cstat-no" title="statement not covered" >            updateSectionStatus();</span>
+<span class="cstat-no" title="statement not covered" >            $scope.contents.currentSection = $scope.contents.course.sections[$scope.contents.activeSection];</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>});
+    };
+&nbsp;
+    /* Method to change section status */
+<span class="cstat-no" title="statement not covered" >    $scope.changeSectionStatus = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        dataRequest = {</span>
+            action: ($scope.contents.currentSection.block) ? 'act' : 'deact',
+            section_courses: $scope.contents.currentSection.section_courses,
+            section_activities: $scope.contents.currentSection.section_activities
+        };
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(dataRequest, tasks.sectionAssign, 'listDetails').then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            _.each($scope.contents.course.sections[$scope.contents.activeSection].lessons, <span class="fstat-no" title="function not covered" >function(lesson) {</span></span>
+<span class="cstat-no" title="statement not covered" >                lesson.block = response.data.block;</span>
+<span class="cstat-no" title="statement not covered" >                _.each(lesson.activities, <span class="fstat-no" title="function not covered" >function(activity) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    activity.block = response.data.block;</span>
+                });
+            });
+<span class="cstat-no" title="statement not covered" >            $scope.contents.currentSection = $scope.contents.course.sections[$scope.contents.activeSection];</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>});
+    };
+&nbsp;
+    /* Method to change course status */
+<span class="cstat-no" title="statement not covered" >    $scope.changeCourseStatus = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        dataRequest = {</span>
+            id: $scope.contents.course.id,
+            action: ($scope.contents.course.block) ? 'deact' : 'act'
+        };
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(dataRequest, tasks.courseAssign, 'listDetails').then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            _.each($scope.contents.course.sections, <span class="fstat-no" title="function not covered" >function(section) {</span></span>
+<span class="cstat-no" title="statement not covered" >                section.block = response.data.block;</span>
+<span class="cstat-no" title="statement not covered" >                _.each(section.lessons, <span class="fstat-no" title="function not covered" >function(lesson) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    lesson.block = response.data.block;</span>
+<span class="cstat-no" title="statement not covered" >                    _.each(lesson.activities, <span class="fstat-no" title="function not covered" >function(activity) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        activity.block = response.data.block;</span>
+                    });
+                });
+            });
+<span class="cstat-no" title="statement not covered" >            $scope.contents.currentSection = $scope.contents.course.sections[$scope.contents.activeSection];</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>});
+    };
+&nbsp;
+    /* Method to change section tabs */
+<span class="cstat-no" title="statement not covered" >    $scope.changeSection = <span class="fstat-no" title="function not covered" >function(index) {</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.contents.activeSection = index;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.contents.currentSection = $scope.contents.course.sections[index];</span>
+    };
+&nbsp;
+    /* Method to update section section status according to lesson and activity status */
+<span class="fstat-no" title="function not covered" >    function updateSectionStatus() {</span>
+<span class="cstat-no" title="statement not covered" >        var lessonStatusObject = _.countBy( _.pluck($scope.contents.currentSection.lessons, 'block'), <span class="fstat-no" title="function not covered" >function(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return value === true ? 'true' : 'false';</span>
+        });
+<span class="cstat-no" title="statement not covered" >        $scope.contents.currentSection.block = (lessonStatusObject.true &gt; 0);</span>
+    };
+&nbsp;
+    /* Method to get Level-1 or Level-2 contents */
+<span class="cstat-no" title="statement not covered" >    $scope.getLevelData = <span class="fstat-no" title="function not covered" >function(index) {</span></span>
+<span class="cstat-no" title="statement not covered" >        dataRequest = {</span>
+            content: 'textbook' + (($scope.contents.levels[index]) === 'Level 1' ? ((2 * index) + 1) : (2 * (index + 1)))
+        };
+<span class="cstat-no" title="statement not covered" >        getContents();</span>
+    };
+&nbsp;
+    /* Method to get contents */
+<span class="fstat-no" title="function not covered" >    function getContents() {</span>
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(dataRequest, tasks.getContents, 'listDetails').then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.contents.course = response.data;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.contents.currentSection = response.data.sections[0];</span>
+<span class="cstat-no" title="statement not covered" >            $scope.contents.activeSection = 0;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.contents.course = response.data;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.contents.currentSection = response.data.sections[0];</span>
+<span class="cstat-no" title="statement not covered" >                $scope.contents.activeSection = 0;</span>
+            }, <span class="fstat-no" title="function not covered" >function(error) {</span>});
+        });
+    };
+&nbsp;
+    /* Method to initialize  Controller */
+<span class="fstat-no" title="function not covered" >    function initializeController() {</span>
+<span class="cstat-no" title="statement not covered" >        localTask = 'contentmanagement';</span>
+<span class="cstat-no" title="statement not covered" >        tasks = taskService.getTasks('contentmanagementController');</span>
+<span class="cstat-no" title="statement not covered" >        $scope.contents = {</span>
+            types: ['Phonics Adventure', 'Number Success'],
+            textBooks: ['Kindergarten', 'Grade 1', 'Grade 2', 'Grade 3'],
+            levels: ['Level 1', 'Level 1', 'Level 1', 'Level 1']
+        };
+<span class="cstat-no" title="statement not covered" >        dataRequest = {</span>
+            content: 'textbook1'
+        };
+<span class="cstat-no" title="statement not covered" >        getContents();</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    initializeController();</span>
+}]);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 18 2017 10:33:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

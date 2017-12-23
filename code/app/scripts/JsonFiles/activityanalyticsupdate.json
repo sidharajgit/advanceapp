@@ -1,0 +1,131 @@
+{
+"activityanalyse": {
+    "title": "Content consmption Based on MediaType",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    "series": [
+      {
+        "name": "E-book",
+        "usertype" :"Registered", 
+        "data": [
+          1, 1, 1, 1, 1  
+        ],
+          "stack": "male",
+          "color": "#c56868"
+      },  
+        {
+        "linkedTo":":previous",    
+        "name": "E-book",
+        "usertype" :"Guest", 
+        "data": [
+          1, 1, 1, 1, 1
+        ],
+          "stack": "male",
+          "color": "#fd1a1a"
+      },
+      {
+        "name": "game",
+        "usertype" :"Registered", 
+        "data": [
+          2, 2, 2, 2, 2
+        ],
+          "stack": "game",
+          "color": "#7bf57b"
+      },  
+        {
+        "linkedTo":":previous",    
+        "name": "game",
+        "usertype" :"Guest",
+        "data": [
+          2, 2, 2, 2, 2
+        ],
+          "stack": "game",
+          "color": "#3aab3a"
+      },{
+        "name": "video",
+        "usertype" :"Registered", 
+        "data": [
+          3, 3, 3, 3, 3
+        ],
+          "stack": "video",
+          "color": "#d87c99"
+      },  
+        {
+        "linkedTo":":previous",    
+        "name": "video",
+        "usertype" :"Guest",
+        "data": [
+          3, 3, 3, 3, 3
+        ],
+          "stack": "video",
+          "color": "#ec1c5d"
+      }
+        
+    ]
+  },
+ "forums_discussions": {
+    "title": "No of forums and discussions",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          100,
+          200,
+          300,
+          400
+        ]
+      }
+    ]
+  },
+ "participants_forums_discussions": {
+    "title": "No of participants in forums and discussions",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          200,
+          250,
+          300,
+          350
+        ]
+      }
+    ]
+  }     
+}

@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\surveyController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> surveyController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.5% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/200</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.59% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/196</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">advancePubapp.controller('surveymanagementController',['$scope','sfactory','$mdDialog','$rootScope','$filter',<span class="fstat-no" title="function not covered" >function($scope,sfactory,$mdDialog,$rootScope,$filter){ </span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var banerData,questionTypeOptions,surveyServices,localTask,newQuestions; </span>
+    /* Method called when click on new survey */
+<span class="cstat-no" title="statement not covered" >    $scope.addNewSurvey= <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.completed = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.addNew = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.isEditable = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.title="";</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.view =false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.editIndex = null;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.toggle = {};</span>
+    }; 
+    
+    /* Method called on cancel click */
+<span class="cstat-no" title="statement not covered" >    $scope.cancel = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.isEditable  =false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.completed = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.addNew = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.toggle = {};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.addQuestionToSurvey = false;</span>
+    };
+    
+    /* Method to verify the new survey name*/
+<span class="cstat-no" title="statement not covered" >    $scope.verifySurveyName = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        var serviceDataReq ={title:$scope.survey.newSurvey.title};</span>
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(serviceDataReq, surveyServices.surveyExist,surveyServices.type).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if(angular.isDefined(response)){</span>
+<span class="cstat-no" title="statement not covered" >                if($filter('lowercase')(response.status) === 'success'){</span>
+<span class="cstat-no" title="statement not covered" >                   selectQuestionType();</span>
+                }
+                else{
+<span class="cstat-no" title="statement not covered" >                    showBanner(response.message,response.status);</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.survey.newSurvey.title ="";</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >                sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    selectQuestionType();</span>
+                }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+                });
+            }); 
+    };
+    
+    /* Method to open list when click on edit button */
+<span class="cstat-no" title="statement not covered" >    $scope.editQuestion = <span class="fstat-no" title="function not covered" >function(index){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.toggle['list'+(index+1)] = angular.copy(!$scope.toggle['list'+(index+1)]);</span>
+<span class="cstat-no" title="statement not covered" >        $scope.form.survey.save.$setPristine();</span>
+<span class="cstat-no" title="statement not covered" >        $scope.form.survey.save.$setUntouched();</span>
+        
+    };
+    
+    /* Method to start adding new questions to the survey */
+<span class="fstat-no" title="function not covered" >     function selectQuestionType(){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.editSurveyData={title:angular.copy($scope.survey.newSurvey.title),questions:[]};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.isEditable = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.addNew = false;</span>
+    };
+    
+    /* Method to open edit survey screen*/
+<span class="cstat-no" title="statement not covered" >    $scope.editSurvey= <span class="fstat-no" title="function not covered" >function(index){</span></span>
+<span class="cstat-no" title="statement not covered" >        if($scope.surveyData.surveys[index].users_count !== 0) { <span class="cstat-no" title="statement not covered" >return false;}</span>;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.editIndex=index;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.isEditable = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.addQuestionToSurvey = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.editSurveyData = angular.copy($scope.surveyData.surveys[index]);</span>
+        
+<span class="cstat-no" title="statement not covered" >        $scope.isActive = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.isActive = !$scope.isActive;</span>
+    };
+  
+    /* Method to show view survey screen*/
+<span class="cstat-no" title="statement not covered" >    $scope.viewSurvey = <span class="fstat-no" title="function not covered" >function(index){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.completed = false;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.view = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.viewIndex = index;</span>
+    };
+    
+    /* Method to exit view survey screen*/
+<span class="cstat-no" title="statement not covered" >    $scope.exitViewSurvey = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.completed = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.view = false;</span>
+    };
+    
+    /* Method to close notification banner*/
+<span class="cstat-no" title="statement not covered" >    $scope.closeBaner = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.alertBaner.showBaner = false;</span>
+    };
+    
+    /* Method to show notification */
+<span class="fstat-no" title="function not covered" >    function showBanner(message,status){</span>
+<span class="cstat-no" title="statement not covered" >        banerData.message = message;</span>
+<span class="cstat-no" title="statement not covered" >        banerData.banerClass = ($filter('lowercase')(status) === 'success') ? 'alert-success' : 'alert-danger';</span>
+<span class="cstat-no" title="statement not covered" >        banerData.showBaner=true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.alertBaner = angular.copy(banerData);</span>
+    }
+    
+    /* Method to add new questions to the display area */
+<span class="fstat-no" title="function not covered" >    function addToDisplay(newQuestion){</span>
+<span class="cstat-no" title="statement not covered" >        var questionObj ={},item ={};</span>
+<span class="cstat-no" title="statement not covered" >        newQuestion.quest_options=[];</span>
+<span class="cstat-no" title="statement not covered" >        _.each(newQuestion.options,<span class="fstat-no" title="function not covered" >function(obj,index){</span></span>
+<span class="cstat-no" title="statement not covered" >            item.id=index;</span>
+<span class="cstat-no" title="statement not covered" >            item.title=obj;</span>
+<span class="cstat-no" title="statement not covered" >            newQuestion.quest_options.push(item);</span>
+<span class="cstat-no" title="statement not covered" >            item={};</span>
+        });
+<span class="cstat-no" title="statement not covered" >        questionObj.type_id = newQuestion.quest_type ;</span>
+<span class="cstat-no" title="statement not covered" >        questionObj.title = newQuestion.quest_title;</span>
+<span class="cstat-no" title="statement not covered" >        questionObj.options =newQuestion.quest_options;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.editSurveyData.questions.push(questionObj);</span>
+    };
+    
+     /* Method to add new survey*/
+<span class="cstat-no" title="statement not covered" >    $scope.addNewQuestion = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        var newQuestion={};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.addQuestionToSurvey = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.addQuestionToSurvey = false;</span>
+<span class="cstat-no" title="statement not covered" >        newQuestion.quest_title = $scope.survey.newSurvey.newquestion.question;</span>
+<span class="cstat-no" title="statement not covered" >        newQuestion.quest_type =  _.find($scope.surveyData.questionstypes, <span class="fstat-no" title="function not covered" >function(obj){</span> <span class="cstat-no" title="statement not covered" >return obj.type == $scope.survey.newSurvey.newquestion.questionType;}</span>).id;</span>
+<span class="cstat-no" title="statement not covered" >        newQuestion.options=_.pluck($scope.survey.newSurvey.newquestion.optnsCount,'value');</span>
+<span class="cstat-no" title="statement not covered" >        addToDisplay(newQuestion);</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.newquestion ={};</span>
+    };
+    
+    /* Method to save new survey*/
+<span class="cstat-no" title="statement not covered" >    $scope.saveSurvey = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        if(_.isNull($scope.editIndex)){</span>
+<span class="cstat-no" title="statement not covered" >            saveNewSurvey();</span>
+        }
+        else{
+<span class="cstat-no" title="statement not covered" >            saveEditedSurvey();</span>
+        }
+    };
+    
+<span class="fstat-no" title="function not covered" >    function saveEditedSurvey(){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.addQuestionToSurvey = false;</span>
+<span class="cstat-no" title="statement not covered" >        var item={},data;</span>
+<span class="cstat-no" title="statement not covered" >        var updatedData = angular.copy($scope.editSurveyData);</span>
+<span class="cstat-no" title="statement not covered" >        var serviceDataReq = {</span>
+            id:updatedData.id,
+            title:updatedData.title,
+            questions:[]
+        }
+<span class="cstat-no" title="statement not covered" >        _.each($scope.surveyData.surveys[$scope.editIndex].questions,<span class="fstat-no" title="function not covered" >function(obj,index){</span></span>
+<span class="cstat-no" title="statement not covered" >            if(!_.isEqual(obj, $scope.editSurveyData.questions[index])){</span>
+<span class="cstat-no" title="statement not covered" >                data =angular.copy($scope.editSurveyData.questions[index]);</span>
+<span class="cstat-no" title="statement not covered" >                item.id = data.id;</span>
+<span class="cstat-no" title="statement not covered" >                item.type_id = data.type_id;</span>
+<span class="cstat-no" title="statement not covered" >                item.title = data.title;</span>
+<span class="cstat-no" title="statement not covered" >                item.options = data.options;</span>
+<span class="cstat-no" title="statement not covered" >                serviceDataReq.questions.push(item);</span>
+<span class="cstat-no" title="statement not covered" >                item={};</span>
+            }
+        });
+<span class="cstat-no" title="statement not covered" >        for(var i=$scope.surveyData.surveys[$scope.editIndex].questions.length;i&lt;$scope.editSurveyData.questions.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >            var question = angular.copy($scope.editSurveyData.questions[i]);</span>
+<span class="cstat-no" title="statement not covered" >            item.id = 0;</span>
+<span class="cstat-no" title="statement not covered" >            item.type_id = question.type_id;</span>
+<span class="cstat-no" title="statement not covered" >            item.title=question.title;</span>
+<span class="cstat-no" title="statement not covered" >            item.options = _.pluck(question.options,'title');</span>
+<span class="cstat-no" title="statement not covered" >            serviceDataReq.questions.push(item);</span>
+<span class="cstat-no" title="statement not covered" >            item={};</span>
+        }
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(serviceDataReq , surveyServices.editSurvey,surveyServices.type).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if(angular.isDefined(response)){</span>
+<span class="cstat-no" title="statement not covered" >                showBanner(response.message,response.status);</span>
+<span class="cstat-no" title="statement not covered" >                if($filter('lowercase')(response.status) === 'success'){</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.surveyData.surveys[$scope.editIndex] = angular.copy(response.data);</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.cancel();</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.surveyData.surveys[$scope.editIndex] = $scope.editSurveyData;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.cancel();</span>
+            });
+    };
+    
+    /* Method to save new survey*/
+<span class="fstat-no" title="function not covered" >    function saveNewSurvey(){</span>
+<span class="cstat-no" title="statement not covered" >        var serviceDataReq = angular.copy($scope.editSurveyData);</span>
+<span class="cstat-no" title="statement not covered" >        _.each(serviceDataReq.questions,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >            obj.options = _.pluck(obj.options,'title');</span>
+        })
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(serviceDataReq , surveyServices.addSurvey,surveyServices.type).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if(angular.isDefined(response)){</span>
+<span class="cstat-no" title="statement not covered" >                showBanner(response.message,response.status);</span>
+<span class="cstat-no" title="statement not covered" >                if($filter('lowercase')(response.status) === 'success'){</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.surveyData.surveys.push(response.data);</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.cancel();</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.surveyData.surveys.push($scope.editSurveyData);</span>
+<span class="cstat-no" title="statement not covered" >                $scope.cancel();</span>
+            });
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.showNewQuestionForm = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.newquestion={};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.addQuestionToSurvey=true;</span>
+    };
+    
+<span class="cstat-no" title="statement not covered" >    $scope.cancelAddQuestion= <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.addQuestionToSurvey=false;</span>
+    };
+    
+    /* Method to delete survey or delete question from a survey*/
+<span class="cstat-no" title="statement not covered" >    $scope.delete = <span class="fstat-no" title="function not covered" >function(index, type) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if($scope.surveyData.surveys[index].users_count !== 0) { <span class="cstat-no" title="statement not covered" >return false;}</span>;</span>
+<span class="cstat-no" title="statement not covered" >        var confirm = $mdDialog.confirm()</span>
+            .title('Are you sure want to delete the ' + type + '?')
+            .textContent('')
+            .ariaLabel('Lucky day')
+            .ok('Delete')
+            .cancel('Cancel');
+<span class="cstat-no" title="statement not covered" >            $mdDialog.show(confirm).then(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                if(_.isNull($scope.editIndex) || angular.isDefined($scope.surveyData.surveys[$scope.editIndex].questions[index])){</span>
+<span class="cstat-no" title="statement not covered" >                    deleteItem(index,type);</span>
+                }
+                else{
+<span class="cstat-no" title="statement not covered" >                    $scope.editSurveyData.questions.splice(index, 1);</span>
+                }
+            }, <span class="fstat-no" title="function not covered" >function() {</span>
+            });
+    };
+    
+<span class="fstat-no" title="function not covered" >    function deleteItem(index,type){</span>
+<span class="cstat-no" title="statement not covered" >            var serviceName = (type === 'Survey') ? surveyServices.deleteSurvey : surveyServices.deleteQuestion;</span>
+<span class="cstat-no" title="statement not covered" >            var data = (type === 'Survey') ? {</span>
+                surveyid: $scope.surveyData.surveys[index].id
+            } : {
+                surveyid: $scope.surveyData.surveys[$scope.editIndex].id,
+                questionid: $scope.surveyData.surveys[$scope.editIndex].questions[index].id
+            };
+<span class="cstat-no" title="statement not covered" >            sfactory.serviceCall(data, serviceName, surveyServices.type).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (angular.isDefined(response)) {</span>
+<span class="cstat-no" title="statement not covered" >                    showBanner(response.message, response.status);</span>
+<span class="cstat-no" title="statement not covered" >                    if ($filter('lowercase')(response.status) === 'success') {</span>
+<span class="cstat-no" title="statement not covered" >                        if (type === 'Survey') {</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.survey.newSurvey.isEditable = false;</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.surveyData.surveys.splice(index, 1);</span>
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            $scope.surveyData.surveys[$scope.editIndex].questions.splice(index, 1);</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.editSurveyData.questions.splice(index, 1);</span>
+<span class="cstat-no" title="statement not covered" >                            if($scope.editSurveyData.questions.length === 0){</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.survey.newSurvey.isEditable = false;</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.survey.completed = true;</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.surveyData.surveys.splice($scope.editIndex, 1);</span>
+                            }
+                        }
+                    }
+                }
+<span class="cstat-no" title="statement not covered" >                $rootScope.appLoader = false;</span>
+            }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >                if (type === 'Survey') {</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.survey.newSurvey.isEditable = false;</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.surveyData.surveys.splice(index, 1);</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    $scope.surveyData.surveys[$scope.editIndex].questions.splice(index, 1);</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.editSurveyData.questions.splice(index, 1);</span>
+<span class="cstat-no" title="statement not covered" >                    if($scope.editSurveyData.questions.length === 0){</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.survey.newSurvey.isEditable = false;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.survey.completed = true;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.surveyData.surveys.splice($scope.editIndex, 1);</span>
+                    }
+                }
+            });
+    };
+    /* Method to display choice options according to the option count*/
+<span class="cstat-no" title="statement not covered" >    $scope.getOptionCount = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.form.survey.save.$setPristine();</span>
+<span class="cstat-no" title="statement not covered" >        $scope.form.survey.save.$setUntouched();</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey.newSurvey.newquestion.optnsCount =[];</span>
+<span class="cstat-no" title="statement not covered" >        var item={};</span>
+<span class="cstat-no" title="statement not covered" >         var optnCount=_.find(questionTypeOptions, <span class="fstat-no" title="function not covered" >function(obj){</span> <span class="cstat-no" title="statement not covered" >return obj.type === $scope.survey.newSurvey.newquestion.questionType;}</span>).options;</span>
+<span class="cstat-no" title="statement not covered" >        _.each(new Array(optnCount).fill(0),<span class="fstat-no" title="function not covered" >function(obj,index){</span></span>
+<span class="cstat-no" title="statement not covered" >            item.name = index;</span>
+<span class="cstat-no" title="statement not covered" >            item.value="";</span>
+<span class="cstat-no" title="statement not covered" >            $scope.survey.newSurvey.newquestion.optnsCount.push(item);</span>
+<span class="cstat-no" title="statement not covered" >            item={};</span>
+        });
+    };
+    
+    /* Method to fetch survey details and question types on initial load*/
+<span class="fstat-no" title="function not covered" >    function getSurveyList(){</span>
+<span class="cstat-no" title="statement not covered" >         sfactory.serviceCall({}, surveyServices.surveyList,surveyServices.type).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if(angular.isDefined(response)){</span>
+<span class="cstat-no" title="statement not covered" >                   $scope.surveyData = response.data;</span>
+<span class="cstat-no" title="statement not covered" >                   $scope.questionType =_.pluck(response.data.questionstypes, "type");</span>
+                }
+<span class="cstat-no" title="statement not covered" >            $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >                sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    $scope.surveyData = response.data;</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.questionType =_.pluck(response.data.questionstypes, "type");</span>
+                }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+                });
+        });
+    };
+    
+    /* Method to initialize the controller*/
+<span class="fstat-no" title="function not covered" >    function initilizeController(){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.form = {};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.survey={completed:true,new:false,addQuestionToSurvey:false,newSurvey:{isEditable:false}};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.isArray = angular.isArray;</span>
+<span class="cstat-no" title="statement not covered" >        banerData = {message:'',showBaner:false,banerClass:''};</span>
+        
+        //Variable to match the question type and option count
+<span class="cstat-no" title="statement not covered" >         questionTypeOptions = [</span>
+            {type : "Multi-Choice",options:4},
+            {type : "Fill-In",options:0},
+            {type : "Either-Option",options:2}
+        ];
+        
+        //Varible to match webservices
+<span class="cstat-no" title="statement not covered" >        surveyServices ={</span>
+            surveyList      :'survey.survey_list',
+            deleteSurvey    :'survey.delete_survey',
+            deleteQuestion  :'survey.survey_remove_question',
+            addSurvey       :'survey.add_survey',
+            surveyExist     :'survey.survey_exist',
+            editSurvey      :'survey.edit_survey',
+            type            :'listDetails'
+        };
+<span class="cstat-no" title="statement not covered" >        $scope.editIndex = null;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.toggle = {};</span>
+        //Local task initialization
+<span class="cstat-no" title="statement not covered" >        localTask = "survey";</span>
+        
+<span class="cstat-no" title="statement not covered" >        getSurveyList();</span>
+    };
+    
+<span class="cstat-no" title="statement not covered" >    initilizeController();</span>
+}]);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 18 2017 10:33:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

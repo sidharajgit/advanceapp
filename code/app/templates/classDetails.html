@@ -1,0 +1,155 @@
+<div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">
+    <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+        <div class="icon_display">
+            <svg class="checkmark" ng-if="alertBaner.showBaner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+             </svg>
+            <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+        </div>
+        <div class="display_message">{{alertBaner.message}}</div>
+    </div>
+</div>
+<div ng-cloak>
+    <md-content ng-if="selectedTab.inputTab !== undefined" style="background: transparent" class="no_bg_tb"> 
+        <md-tabs ng-show="(selectedTab.inputTab === 0 ) ? tableType[selectedTab.inputTab] !== 'assignContents' : tableType[selectedTab.inputTab-2] !== 'assignContents'" md-dynamic-height md-stretch-tabs md-border-bottom md-selected="selectedTab.inputTab" class="Main_nav_tab">
+            <md-tab label="{{className}} {{classStudentDetails.length}} students" ng-click="initializeTab(0)">
+                <md-tab-label ng-mouseleave="changeClassOptions(false)">	
+                   <div ng-mouseleave="changeClassOptions(false)">
+                    <span>  
+                        <b ng-bind="className" data-toggle="tooltip" title="{{className}}" class=" clGrpName"></b>
+                        <span class="stuCount" data-toggle="tooltip" title="Number of Students" ng-if="classTableData.paginateData.total_records > 1" ng-bind="(classTableData.paginateData.total_records)"></span>
+                    <span class="stuCount" data-toggle="tooltip" title="Number of Students" ng-if="classTableData.paginateData.total_records === 0">0</span>
+                    <span class="stuCount" data-toggle="tooltip" title="Number of Students" ng-if="classTableData.paginateData.total_records === 1" ng-bind="(classTableData.paginateData.total_records)"></span>
+                    </span>
+                    
+                    </div> 
+                    <button class="toggle_btn_tp" ng-click="changeClassOptions(true,$event)"><i class="fa fa-cog"></i></button>
+                    <div class="option_cont" ng-if="classOptions" ng-mouseleave="changeClassOptions(false)">
+                        <ul>
+                            <li><a href="javascript:void(0);" ng-click="editClassOrGroup($event, 'class');">Edit</a></li>
+                            <li><a href="javascript:void(0);" ng-click="deleteClass();">Delete</a></li>
+                            <li><a href="javascript:void(0);" ng-click="messagePopup($event, 'class',0);">Message</a></li>
+                        </ul>
+                    </div>
+                </md-tab-label>
+                <md-tab-body>
+                    <md-content class="md-padding">
+                        <!-- Student list Sec (For Class) -->
+                        <div class="slide_left_cont animate-if" ng-if="tableType[0] === 'users'">
+                            <div class="left-cont">
+                                <div class="com-head">
+                                <button ng-click="addStudentPopup($event,'existing')" ng-if="(classTableData.data.length || !classTableData.paginateData.isDbempty)" class="add_user_op">Add Student to Class</button></div>
+                                <students-in-class students-list="classTableData" parent-pagetitle="Student in class" ng-if=" (classTableData.data.length || !classTableData.paginateData.isDbempty) && isGroupData.bool" assigncontent-to-class-page ="assignContent(response)"></students-in-class>
+                                
+                                <div class="add-stu-class" ng-click="addStudentPopup($event,'new')" ng-if=" !classTableData.data.length && classTableData.paginateData.isDbempty">
+                                    <div><img src="{{domainURL}}dest/images/add_user.png" alt=""><span ng-bind="icons.addClassusericon"></span></div>
+                                </div>
+                            </div>
+                            <div class="right-cont">
+                                <div class="assign-cont" ng-click="changeTable(0,'courses')">
+                                    <p class="tog_text_cen"><span>ASSIGNED</span> <span>CONTENT OF THE CLASS</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Student list Sec - End (For Class)-->
+  
+
+                        <!-- Assign Content Sec (For Class) -->
+                        <div class="slide_right_cont animate-if" ng-if="tableType[0] != 'users'">
+                            <div class="left-cont">
+                                <div class="assign-cont" ng-click="changeTable(0,'users')" ng-if="tableType[0] === 'courses' || tableType[0] === 'assignContents' || tableType[0] === 'addContents'">
+                                    <p class="tog_text_cen">STUDENTS IN CLASS
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="right-cont">
+                               
+                                <div class="add-stu-class" ng-click="changeTable(0,'addContents')" ng-if="tableType[0] === 'addContents'">
+                                    <div><img src="{{domainURL}}dest/images/content.png" alt=""><span ng-bind="icons.addClassconticon"></span></div>
+                                </div>
+                                <div class="row com-head">
+                                <h5 class="pull-left"> Assigned Course </h5><button ng-click="changeTable(0,'assignContents')" ng-if="tableType[0] === 'courses'" class="add_user_op modify_cont" >Modify Content</button>
+                                </div>
+                                <content-management ng-if="selectedTab.inputTab === 0 && tableType[0] === 'courses' && headerdata" headerdata="headerdata" tabname="tab.name" activetab="activetab"></content-management>
+                            </div>
+                        </div>
+                        <!-- Assign Content Sec - End (For Class) -->
+                    </md-content>
+                </md-tab-body>
+            </md-tab>
+            <md-tab ng-click="editClassOrGroup($event, 'groupadd')" class="add-new-grp"><span class="cr_new_grp" style="padding-top: 45px;"><span>Create New group</span></span>
+            </md-tab> 
+            <md-tab label="{{tab.groupname}} {{tab.userCount}} students" ng-repeat="tab in tabs track by $index" >
+                <md-tab-label ng-mouseleave="grpoptions = false">
+                    <div ng-click="initializeTab($index+2, tab.groupId, tab.groupname)" ng-mouseleave="grpoptions = false">
+                        <span>
+                            <b ng-bind="tab.groupname" data-toggle="tooltip" title="{{tab.groupname}}" class="clGrpName"></b>
+                            <span class="stuCount" data-toggle="tooltip" title="Number of Students" ng-if="tab.userCount > 1" ng-bind="(tab.userCount)"></span>
+                            <span class="stuCount" data-toggle="tooltip" title="Number of Students" ng-if="tab.userCount === 0">0</span>
+                            <span class="stuCount" data-toggle="tooltip" title="Number of Students" ng-if="tab.userCount === 1" ng-bind="(tab.userCount)"></span> 
+                        </span>
+					</div>
+                    <button class="toggle_btn_tp" ng-click="grpoptions = !grpoptions"><i class="fa fa-cog"></i></button>
+                    <div class="option_cont" ng-if="grpoptions" ng-mouseleave="grpoptions = false" ng-hide="!grpoptions">
+                        <ul>
+                            <li><a href="javascript:void(0);" ng-click="editClassOrGroup($event, 'groupedit');">Edit</a></li>
+                            <li><a href="javascript:void(0);" ng-click="deleteGroup(tab);">Delete</a></li>
+                            <li><a href="javascript:void(0);" ng-click="messagePopup($event, 'group',tab.groupId);">Message</a></li>
+                        </ul>
+                    </div>
+                </md-tab-label>
+                <md-tab-body>
+                    <md-content class="md-padding" ng-if="selectedTab.inputTab === ($index+2)">
+                        <!-- Student list Sec (For Group) -->
+                        <div class="slide_left_cont " ng-if="tableType[$index] === 'users'"> 
+                            <div class="left-cont">
+                                <div class="com-head">
+                                <button ng-click="addStudentPopup($event,'existing')" ng-if="tableType[$index] === 'users' && (groupTableData.data.length || !groupTableData.paginateData.isDbempty)" class="add_user_op">Add Student to Group</button>
+                                </div>
+                                <students-in-class students-list="groupTableData" parent-pagetitle="Student in group" ng-if="tableType[$index] === 'users' && (groupTableData.data.length || !groupTableData.paginateData.isDbempty) && isGroupData.bool" assigncontent-to-class-page ="assignContent(response)"></students-in-class>
+                                <div class="add-stu-class" ng-click="addStudentPopup($event,'new')" ng-if="tableType[$index] === 'users' && !groupTableData.data.length && groupTableData.paginateData.isDbempty">
+                                    <div><img src="{{domainURL}}dest/images/add_user.png" alt=""><span ng-bind="icons.addGroupusericon"></span></div>
+                                </div>
+                            </div>
+                            <div class="right-cont">
+                                <div class="assign-cont" ng-click="changeTable($index,'courses')" ng-if="tableType[$index] === 'users'">
+                                    <p class="tog_text_cen"><span>ASSIGNED</span> <span>CONTENT TO GROUP</span></p>
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- Student list Sec - End (For Group)-->
+                        <!-- Assign Content Sec (For Group) -->
+                        <div class="slide_right_cont " ng-if="tableType[$index] != 'users'">
+                            <div class="left-cont">
+                                <div class="assign-cont" ng-click="changeTable($index,'users')" ng-if="tableType[$index] === 'courses' || tableType[$index] === 'assignContents' || tableType[$index] === 'addContents'">
+                                    <p class="tog_text_cen">STUDENTS IN GROUP</p>
+                                </div>
+                            </div>
+                            <div class="right-cont">
+                                <div class="add-stu-class" ng-click="changeTable($index,'assignContents')" ng-if="tableType[$index] === 'addContents'">
+                                    <div><img src="{{domainURL}}dest/images/content.png" alt=""><span ng-bind="icons.addGrpconticon"></span></div>
+                                </div>
+                                 <div class="com-head">
+                                <button ng-click="changeTable(0,'assignContents')" ng-if="tableType[$index] === 'courses'" class="modify_cont">Modify Content</button>
+                                </div>
+                                <content-management ng-if="tableType[$index] === 'courses' && headerdata" headerdata="headerdata" tabname="userTable.nameOfUser === '' ? tab.groupname : userTable.nameOfUser" activetab="activetab"></content-management>
+                            </div>
+                        </div>
+                        <!-- Assign Content Sec - End (For Group) -->
+                    </md-content>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+        <div ng-if="(selectedTab.inputTab === 0 ) ? tableType[selectedTab.inputTab] === 'assignContents' : tableType[selectedTab.inputTab-2] === 'assignContents'" class="ModifyContSec">
+        <div class=" back-link" ng-click="changeTable(tabIndex,'courses')" >
+    <a>Back to Course</a>    
+</div>
+             <content-management ng-if="headerdata" headerdata="headerdata" tabname="tab.name" activetab="activetab"></content-management>
+        </div>
+    </md-content> 
+</div>

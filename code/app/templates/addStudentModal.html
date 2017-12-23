@@ -1,0 +1,228 @@
+<md-dialog aria-label="Create New Class" class="Modal_wrap lg-modal">
+	<!--<form ng-cloak name="createClassForm" ng-submit="addStudents(createClassForm.$valid)" novalidate>-->
+	<div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">
+		<div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+			<div class="icon_display">
+				<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                      </svg>
+				<svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                          <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                                          <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                                      </svg>
+			</div>
+			<div class="display_message">{{alertBaner.message}}</div>
+		</div>
+	</div>
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<span flex></span>
+			<h2 ng-if="!multistudent && !newstudent && parentData.parentPage != 'group'" style="width:100%;"><span ng-if="!newstudent && !multistudent">Add Student to Class</span></h2>
+			<h2 ng-if="parentData.parentPage == 'group'"><span ng-if="!newstudent && !multistudent" style="width:100%;">Add Student to Group</span></h2>
+			<md-button class="md-icon-button" ng-click="cancelModel()">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-dialog-content>
+		<div class="md-dialog-content">
+			<div ng-if="!newstudent && !multistudent" style="display:inline-block; width:100%;">
+				<h5 class="pull-left">Existing Students</h5>
+				<md-button class="md-raised md-primary add_user_op" ng-if="!newstudent && !multistudent && parentData.parentPage != 'group'" ng-disabled="(classusercnt && classusercnt >= 100)" ng-click="createMultiStudent(1)">Add Multiple Student</md-button>
+				<md-button class="md-raised md-primary add_user_op" ng-if="!newstudent && !multistudent && parentData.parentPage != 'group'" ng-disabled="(classusercnt && classusercnt >= 100)" ng-click="createNewStudent(1)">Add New Student</md-button>
+
+			</div>
+
+			<div class="width-add-stud">
+
+				<!-- Add New User - Start-->
+				<div ng-if="newstudent">
+					<!---->
+					<form name="form.usermanagement" novalidate autocomplete="off" ng-submit="createUser()">
+						<div layout="row" layout-align="space-around center">
+							<div flex="100">
+								<div class="box-header">
+									<h3 class="box-title">Add New Student</h3>
+								</div>
+							</div>
+						</div>
+						<div class="Ma0" flex="100">
+							<div layout="row" layout-align="space-around center">
+								<div flex="100">
+									<md-input-container class="md-block md-input-invalid">
+										<label for="input_5" class="md-required">First Name</label>
+										<input ng-model="user.firstname" ng-pattern="/^[a-zA-Z\s]*$/" name="usermanagement_firstname" required style="" type="text">
+										<div ng-messages="form.usermanagement.usermanagement_firstname.$error">
+											<span ng-message="required">This is required.</span>
+											<span ng-message="pattern">Invalid First Name</span>
+										</div>
+									</md-input-container>
+								</div>
+								<div flex="15"></div>
+								<div flex="100">
+									<md-input-container class="md-block">
+										<label>Last Name</label>
+										<input type="text" name="usermanagement_lastname" ng-model="user.lastname" required ng-pattern="/^[a-zA-Z\s]*$/">
+										<div ng-messages="form.usermanagement.usermanagement_lastname.$error">
+											<span ng-message="required">This is required.</span>
+											<span ng-message="pattern">Invalid Last Name.</span>
+										</div>
+									</md-input-container>
+								</div>
+							</div>
+
+							<div layout="row" layout-align="space-around center">
+								<div flex="100">
+									<md-input-container class="md-block genter_details">
+										<label class="md-required">Gender</label>
+										<md-radio-group name="gender" ng-model="user.gender" ng-required="true" class="">
+											<md-radio-button value="male" class="md-primary">Male</md-radio-button>
+											<md-radio-button value="female"> Female </md-radio-button>
+										</md-radio-group>
+										<div ng-messages="form.usermanagement.gender.$error">
+											<div ng-message="required">Gender is required.</div>
+										</div>
+									</md-input-container>
+								</div>
+								<div flex="15"></div>
+								<div flex="100">
+									<md-switch class="md-primary" md-no-ink ng-model="user.roaming" aria-label="Roaming content">
+										Roaming content
+									</md-switch>
+								</div>
+							</div>
+
+
+							<div layout="row" layout-align="space-around center">
+								<div flex="100">
+									<md-input-container class="md-block">
+										<label>User Name</label>
+										<input type="text" name="usermanagement_username" id="username" ng-model="user.username" required ng-pattern="/^[a-zA-Z0-9]*$/" ng-keyup="onUsernameChange()">
+										<div ng-if="usernamexist && user.username.length" class="error-text">Username Already Exist.</div>
+										<div ng-messages="form.usermanagement.usermanagement_username.$error">
+											<span ng-message="required">This is required.</span>
+											<span ng-message="pattern">Invalid username.</span>
+										</div>
+									</md-input-container>
+								</div>
+								<div flex="15"></div>
+								<div flex="100">
+									<div layout="row" class="userdateofbirth">
+										<div flex="100">
+											<label class="modeldob">Date of Birth</label>
+											<div layout="row">
+												<datemonthyear datemonth="user.dob" agecheck="''" isrequired="true"></datemonthyear>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div layout="row" layout-align="space-around center">
+								<div flex="100">
+									<div layout="row" class="userdateofbirth">
+										<div flex="100">
+											<md-input-container class="md-block">
+												<label>Email ID</label>
+												<div>
+													<input type="email" name="usermanagement_email1" ng-model="user.email1" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/" ng-keyup="validateEmail()">
+													<div ng-if="useremailexist" class="error-text">Email ID Already Exist.</div>
+													<div ng-messages="form.usermanagement.usermanagement_email1.$error">
+														<span ng-message="pattern">Invalid Email.</span>
+													</div>
+												</div>
+											</md-input-container>
+										</div>
+									</div>
+								</div>
+								<div flex="15"></div>
+								<div flex="100">
+									<phonenumber-directive phonetrue="phoneboolvalue" placeholder="myPrompt" model='user.phone_no'></phonenumber-directive>
+								</div>
+							</div>
+							<div layout="row" layout-align="space-around center">
+								<div flex="100" style="margin-top:70px;">
+									<md-input-container class="md-block">
+										<label>Set Password</label>
+										<div>
+											<input ng-model="user.password" name="password" required type="password">
+										</div>
+										<div ng-messages="form.usermanagement.password.$error">
+											<span ng-message="required">This is required.</span>
+										</div>
+									</md-input-container>
+								</div>
+								<div flex="15"></div>
+								<div flex="100">
+									<md-input-container class="md-block txtarea_md">
+										<label>Address</label>
+										<textarea maxlength="150" md-no-asterisk name="usermanagement_address" ng-model="user.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus></textarea>
+										<div ng-if="form.usermanagement.usermanagement_address.$viewValue" ng-messages="form.usermanagement.usermanagement_address.$error">
+											<div ng-message="maxlength">Maximum length 150.</div>
+										</div>
+									</md-input-container>
+								</div>
+							</div>
+
+							<div layout="row" layout-align="space-around center">
+								<div flex="100"></div>
+								<div flex="15"></div>
+								<div flex="100">
+									<div class="submt-sec">
+										<md-button class="md-raised md-warn secondry_btn" ng-click="createNewStudent(2)">Cancel</md-button>
+										<md-button type="submit" class="md-raised md-primary primary_btn" ng-disabled="form.usermanagement.$invalid || phoneboolvalue || usernamexist || useremailexist">Create</md-button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- Add New User - End-->
+				<!-- Add New User - End-->
+				<!--- Add new multiple student - Start-->
+				<div flex-gt-md="100" flex-gt-sm="100" flex="100" class="multiple-content" ng-if="multistudent">
+					<div class="box-header">
+						<h3 class="box-title">Add Multiple Student</h3>
+					</div>
+					<div class="cent_cnt">
+						<p class="spec_sheet_heading"><b>Step 1</b> Download Spreadsheet Template</p>
+						<ul class="fa-ul filedownload">
+							<li ng-click=export()><i class="fa fa-download filedownloadicon"></i>&nbsp;&nbsp;Download File</li>
+						</ul>
+						<form name="csvsubmit" ng-submit="(csvextension != true) && csvForm()">
+							<p class="spec_sheet_heading"><b>Step 2</b> Upload the selected Spreadsheet</p>
+							<ul class="fa-ul filedownload">
+								<li ngf-select="uploadcsv($file)" accept=".csv, .xls, .xlsx">
+									<i class="fa fa-paperclip filedownloadicon" aria-hidden="true"></i>
+									<label id="picture" name="csvsubmit_csvFile" file-model="csvFile" class="uploadlabeltextcolor">Upload File</label></li>
+								<p class="csvimagename cls_nameCont" title="{{csvFilename}}">{{csvFilename}}</p>
+								<span class="error csvimagenameerror" ng-show="csvextension">{{csvextensionerror}}</span>
+							</ul>
+							<div class="submt-sec">
+								<md-button class="md-raised md-warn secondry_btn" ng-click="createMultiStudent(2)">Cancel</md-button>
+								<md-button type="submit" ng-disabled="csvextension" class="md-raised md-primary primary_btn" ng-click="submitted=true">Upload</md-button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!--- Add new multiple student - End-->
+				<!-- Add New User from Table - Start-->
+				<div>
+					<students-in-class students-list="classStudentDetails" ng-if="tableType[0] === 'users' && classStudentDetails.length"></students-in-class>
+				</div>
+				<!-- Add New User from Table - End-->
+			</div>
+			<!--Table for existing user list-->
+			<div class="width-List-stud" ng-if="!newstudent && !multistudent">
+				<div class="res_table_width table-responsive">
+					<server-table-div class="table student-table" ng-if="modalData.bool" datasource="existingUserlist" datatable="datatable" closeregisteration="closeRegisteration(response)" buttonupdate="buttonUpdate(response)"></server-table-div>
+				</div>
+			</div>
+			<div ng-if="!newstudent && !multistudent" class="submt-sec" style="clear:both;">
+				<md-button class="md-raised md-warn secondry_btn" ng-click="cancelSelections()">Cancel</md-button>
+				<md-button class="md-raised md-primary primary_btn" ng-click="enrollStudents()" ng-disabled="(studentsToadd === '' && !ischeckedall) && !newstudentAdded">Done</md-button>
+			</div>
+		</div>
+	</md-dialog-content>
+	<!--</form>-->
+</md-dialog>

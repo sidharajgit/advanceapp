@@ -1,0 +1,122 @@
+{
+	"letters": [{
+		"highlightColor": "yellow"
+	}, {
+		"responseTime": "4000"
+	}, {
+		"letter": {
+			"text": "a",
+			"sound": "audio/a.mp3"
+		},
+		"image": {
+			"url": "images/templateImg/apple1.png",
+			"sound": "audio/apple.mp3"
+		},
+		"stressletters": {
+			"stress1": {
+				"text": "ap",
+				"sound": "audio/ap.mp3"
+			},
+			"stress2": {
+				"text": "ple",
+				"sound": "audio/ple.mp3"
+			}
+		},
+		"completeWord": {
+			"text": "Apple",
+			"sound": "audio/apple.mp3"
+		}
+	}, {
+		"letter": {
+			"text": "b",
+			"sound": "audio/b.mp3"
+		},
+		"image": {
+			"url": "images/templateImg/bat.png",
+			"sound": "audio/bat.mp3"
+		},
+		"stressletters": {
+			"stress1": {
+				"text": "b",
+				"sound": "audio/b.mp3"
+			},
+			"stress2": {
+				"text": "at",
+				"sound": "audio/at.mp3"
+			}
+		},
+		"completeWord": {
+			"text": "Bat",
+			"sound": "audio/bat.mp3"
+		}
+	}, {
+		"letter": {
+			"text": "c",
+			"sound": "audio/c.mp3"
+		},
+		"image": {
+			"url": "images/templateImg/cat.png",
+			"sound": "audio/cat.mp3"
+		},
+		"stressletters": {
+			"stress1": {
+				"text": "c",
+				"sound": "audio/c.mp3"
+			},
+			"stress2": {
+				"text": "at",
+				"sound": "audio/at.mp3"
+			}
+		},
+		"completeWord": {
+			"text": "Cat",
+			"sound": "audio/cat.mp3"
+		}
+	}, {
+		"letter": {
+			"text": "d",
+			"sound": "audio/d.mp3"
+		},
+		"image": {
+			"url": "images/templateImg/dog.png",
+			"sound": "audio/dog.mp3"
+		},
+		"stressletters": {
+			"stress1": {
+				"text": "d",
+				"sound": "audio/d.mp3"
+			},
+			"stress2": {
+				"text": "og",
+				"sound": "audio/og.mp3"
+			}
+		},
+		"completeWord": {
+			"text": "Dog",
+			"sound": "audio/dog.mp3"
+		}
+	}, {
+		"letter": {
+			"text": "e",
+			"sound": "audio/e.mp3"
+		},
+		"image": {
+			"url": "images/templateImg/egg.png",
+			"sound": "audio/egg.mp3"
+		},
+		"stressletters": {
+			"stress1": {
+				"text": "e",
+				"sound": "audio/e.mp3"
+			},
+			"stress2": {
+				"text": "gg",
+				"sound": "audio/gg.mp3"
+			}
+		},
+		"completeWord": {
+			"text": "Egg",
+			"sound": "audio/egg.mp3"
+		}
+	}] 
+}

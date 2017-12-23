@@ -1,0 +1,193 @@
+{
+  "class_list": [
+    {
+      "label": "Active",
+      "count": 0
+    },
+    {
+      "label": "Deleted",
+      "count": 0
+    }
+  ],
+  "class_report": [
+    {
+      "classname": "clsmath",
+      "class_admin": "priya riya",
+      "class_size": 4,
+      "enrolled_count": 1,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "username": "getuser,student,stacktest,sgsgsg",
+      "class_id": 2,
+      "course_id": "13,16,17,15",
+      "date": "2017-06-01"
+    },
+    {
+      "classname": "Class Champs",
+      "class_admin": "teacher teacher",
+      "class_size": 3,
+      "enrolled_count": 0,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "username": "actuser,cvcvcv,qwqwqw",
+      "class_id": 3,
+      "course_id": "",
+      "date": "2017-06-01"
+    },
+    {
+      "classname": "class new",
+      "class_admin": "sakthi ",
+      "class_size": 5,
+      "enrolled_count": 1,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "username": "actuser,cvcvcv,qwqwqw,sakthitest,gsg",
+      "class_id": 4,
+      "course_id": "2,5,4,3,16,13,17,15,12,7,14",
+      "date": "2017-06-01"
+    },
+    {
+      "classname": "testhj",
+      "class_admin": "Padmaja Bandi",
+      "class_size": 4,
+      "enrolled_count": 2,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "username": "cvcvcv,student,stacktest,teststudent1",
+      "class_id": 5,
+      "course_id": "12,2,5,3,4,11",
+      "date": "2017-06-01"
+    },
+    {
+      "classname": "cls",
+      "class_admin": "priya riya",
+      "class_size": 1,
+      "enrolled_count": 0,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "username": "qwqwqw",
+      "class_id": 6,
+      "course_id": "",
+      "date": "2017-06-02"
+    },
+    {
+      "classname": "clsd",
+      "class_admin": "priya riya",
+      "class_size": 2,
+      "enrolled_count": 0,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "username": "qwqwqw,testuser",
+      "class_id": 7,
+      "course_id": "",
+      "date": "2017-06-02"
+    }
+  ],
+  "top_x_class": [
+    {
+      "class_name": "clsmath",
+      "class_admin": "priya riya",
+      "class_size": "4",
+      "clss_enrolled_count": 4,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "created_date": "2017-06-01"
+    },
+    {
+      "class_name": "Class Champs",
+      "class_admin": "teacher teacher",
+      "class_size": "3",
+      "clss_enrolled_count": 3,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "created_date": "2017-06-01"
+    },
+    {
+      "class_name": "class new",
+      "class_admin": "sakthi ",
+      "class_size": "5",
+      "clss_enrolled_count": 5,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "created_date": "2017-06-01"
+    },
+    {
+      "class_name": "testhj",
+      "class_admin": "Padmaja Bandi",
+      "class_size": "4",
+      "clss_enrolled_count": 4,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "created_date": "2017-06-01"
+    },
+    {
+      "class_name": "cls",
+      "class_admin": "priya riya",
+      "class_size": "1",
+      "clss_enrolled_count": 1,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "created_date": "2017-06-02"
+    },
+    {
+      "class_name": "clsd",
+      "class_admin": "priya riya",
+      "class_size": "2",
+      "clss_enrolled_count": 2,
+      "class_parents": 0,
+      "class_teachers": 0,
+      "created_date": "2017-06-02"
+    }
+  ],
+  "no_of_class": {
+    "title": "Number of Classes",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "Number of classes",
+        "data": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "no_students_enrolled_with_classes": {
+    "title": "Number of Students enrolled with classes",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      { 
+        "name": "Students Enrolled", 
+        "data":[
+            0,
+            0,
+            0,
+            3
+        ]
+      }
+    ]
+  },
+  "title": "Class Status",
+  "class_status": [
+    {
+      "label": "Active",
+      "count": 0
+    },
+    {
+      "label": "Deleted",
+      "count": 1
+    }
+  ]
+}

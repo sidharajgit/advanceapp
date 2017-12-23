@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services\reportService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">services/</a> reportService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.14% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/114</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.25% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/112</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">advancePubapp.service('reportService', <span class="fstat-no" title="function not covered" >function() {</span>
+    
+<span class="cstat-no" title="statement not covered" >    this.loadPiechart = <span class="fstat-no" title="function not covered" >function (data,title){</span></span>
+<span class="cstat-no" title="statement not covered" >       var updatedData= {</span>
+            title: title,
+            data: []
+        }
+<span class="cstat-no" title="statement not covered" >        var item={};</span>
+<span class="cstat-no" title="statement not covered" >        if(_.reduce(_.pluck(data, 'count'), <span class="fstat-no" title="function not covered" >function(data, num) {</span> <span class="cstat-no" title="statement not covered" >return data + num}</span>, 0) !== 0){</span>
+<span class="cstat-no" title="statement not covered" >           angular.forEach(data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                item.name = obj.label;</span>
+<span class="cstat-no" title="statement not covered" >                item.y = obj.count;</span>
+<span class="cstat-no" title="statement not covered" >                updatedData.data.push(item);</span>
+<span class="cstat-no" title="statement not covered" >                item={};</span>
+            });
+        }
+<span class="cstat-no" title="statement not covered" >        return updatedData;</span>
+    };
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getLabels(data){</span>
+<span class="cstat-no" title="statement not covered" >        var labelArray=[];</span>
+<span class="cstat-no" title="statement not covered" >        _.each(data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >            labelArray.push(obj.label);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        return labelArray;</span>
+    };
+    
+<span class="fstat-no" title="function not covered" >    function getChartData(data,XAxis,filter,key){</span>
+<span class="cstat-no" title="statement not covered" >        var dataArray = new Array(XAxis.length).fill(0);</span>
+<span class="cstat-no" title="statement not covered" >        if(filter === 'year'){</span>
+<span class="cstat-no" title="statement not covered" >                angular.forEach(data.data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                if(XAxis.indexOf(new Date(obj.date).getFullYear()) !== -1){</span>
+<span class="cstat-no" title="statement not covered" >                    dataArray[XAxis.indexOf(new Date(obj.date).getFullYear())] = dataArray[XAxis.indexOf(new Date(obj.date).getFullYear())] + obj[key];</span>
+                    }
+                });
+        }
+        else <span class="cstat-no" title="statement not covered" >if(filter === 'month'){</span>
+<span class="cstat-no" title="statement not covered" >                angular.forEach(data.data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                    dataArray[XAxis.indexOf(XAxis[new Date(obj.date).getMonth()])] = dataArray[XAxis.indexOf(XAxis[new Date(obj.date).getMonth()])]+obj[key];</span>
+                });
+        }
+        else <span class="cstat-no" title="statement not covered" >if(filter === 'week'){</span>
+<span class="cstat-no" title="statement not covered" >                angular.forEach(data.data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                    dataArray[getWeekNumber(obj.date)-1] = dataArray[getWeekNumber(obj.date)-1]+obj[key];</span>
+                });
+        }
+        else <span class="cstat-no" title="statement not covered" >if(filter === 'day'){</span>
+<span class="cstat-no" title="statement not covered" >                angular.forEach(data.data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                    dataArray[XAxis.indexOf(obj.date)] = dataArray[XAxis.indexOf(obj.date)]+obj[key];</span>
+                });
+        }
+<span class="cstat-no" title="statement not covered" >        return dataArray;</span>
+    };
+    
+<span class="cstat-no" title="statement not covered" >    this.updateChart = <span class="fstat-no" title="function not covered" >function(data,title,dateRange){</span></span>
+<span class="cstat-no" title="statement not covered" >        var labels = getLabels(data);</span>
+<span class="cstat-no" title="statement not covered" >        var startYear = new Date(dateRange.startDate).getFullYear();</span>
+<span class="cstat-no" title="statement not covered" >        var lastYear = new Date(dateRange.endDate).getFullYear();</span>
+<span class="cstat-no" title="statement not covered" >        var years=[],seriesData=[],item={},updatedData={},monthArray=[],weekArray=[],daysArray=[];</span>
+<span class="cstat-no" title="statement not covered" >        var startMonth = new Date(dateRange.startDate).getMonth();</span>
+<span class="cstat-no" title="statement not covered" >        var endMonth = new Date(dateRange.endDate).getMonth();</span>
+<span class="cstat-no" title="statement not covered" >        var startWeekNo = getWeekNumber(dateRange.startDate);</span>
+<span class="cstat-no" title="statement not covered" >        var endWeekNo = getWeekNumber(dateRange.endDate);</span>
+<span class="cstat-no" title="statement not covered" >        var diffDays = Math.round(Math.abs((new Date(dateRange.startDate).getTime() - new Date(dateRange.endDate).getTime()) / (24 * 60 * 60 * 1000)));</span>
+<span class="cstat-no" title="statement not covered" >        var key = (title === 'Conversion Ratio : Guest to registrants') ? 'percentage' : 'count';</span>
+<span class="cstat-no" title="statement not covered" >        if (startYear !== lastYear){</span>
+            //Yearly Data
+<span class="cstat-no" title="statement not covered" >            seriesData =[];</span>
+<span class="cstat-no" title="statement not covered" >             for(var i = startYear ; i&lt;=lastYear ; i++){</span>
+<span class="cstat-no" title="statement not covered" >                 years.push(i);</span>
+             }
+<span class="cstat-no" title="statement not covered" >             updatedData = getSeriesData(data,years,'year',key);</span>
+        }
+        else <span class="cstat-no" title="statement not covered" >if (startYear == lastYear) {</span>
+<span class="cstat-no" title="statement not covered" >            if (startMonth !== endMonth) {</span>
+                //Monthly Data
+<span class="cstat-no" title="statement not covered" >                seriesData =[];</span>
+<span class="cstat-no" title="statement not covered" >                monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];</span>
+<span class="cstat-no" title="statement not covered" >                updatedData = getSeriesData(data,monthArray,'month',key);</span>
+            }
+             else <span class="cstat-no" title="statement not covered" >if (startMonth == endMonth) {</span>
+<span class="cstat-no" title="statement not covered" >                if (diffDays &lt; 7 &amp;&amp; startWeekNo === endWeekNo) {</span>
+<span class="cstat-no" title="statement not covered" >                    daysArray = getDailyrange(getweekDuration(new Date(dateRange.startDate)).firstDate,getweekDuration(new Date(dateRange.startDate)).lastDate,startMonth+1,startYear)</span>
+<span class="cstat-no" title="statement not covered" >                    updatedData = getSeriesData(data,daysArray,'day',key);</span>
+                }
+                else{
+                    //Weekly Data
+<span class="cstat-no" title="statement not covered" >                     for (var i = 0; i &lt; weekCount(lastYear, endMonth + 1, 0); i++) {</span>
+<span class="cstat-no" title="statement not covered" >                       weekArray.push("Week " + (i + 1));</span>
+                     }
+<span class="cstat-no" title="statement not covered" >                    updatedData = getSeriesData(data,weekArray,'week',key);</span>
+                }
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        return updatedData;</span>
+    };
+    
+<span class="fstat-no" title="function not covered" >    function getSeriesData(data,Xaxis,filter,key){</span>
+<span class="cstat-no" title="statement not covered" >        var updatedData=[],seriesData=[],item={};</span>
+<span class="cstat-no" title="statement not covered" >        _.each(data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                item.data = getChartData(obj,Xaxis,filter,key);</span>
+<span class="cstat-no" title="statement not covered" >                seriesData.push(item);</span>
+<span class="cstat-no" title="statement not covered" >                item ={};</span>
+            });
+<span class="cstat-no" title="statement not covered" >            updatedData.x = Xaxis;</span>
+<span class="cstat-no" title="statement not covered" >            updatedData.series = getSeries(seriesData);</span>
+<span class="cstat-no" title="statement not covered" >        return updatedData;</span>
+    };
+      
+<span class="fstat-no" title="function not covered" >    function getSeries(data){</span>
+<span class="cstat-no" title="statement not covered" >        var totalData=0;</span>
+<span class="cstat-no" title="statement not covered" >        _.each(data, <span class="fstat-no" title="function not covered" >function(item) {</span></span>
+<span class="cstat-no" title="statement not covered" >            totalData = totalData + _.reduce(item.data, <span class="fstat-no" title="function not covered" >function(data, num) {</span> <span class="cstat-no" title="statement not covered" >return data + num}</span>, 0);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        if(totalData === 0){</span>
+<span class="cstat-no" title="statement not covered" >            angular.forEach(data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                obj.data =[];</span>
+            });
+        }
+<span class="cstat-no" title="statement not covered" >        return data;</span>
+    };
+    
+<span class="cstat-no" title="statement not covered" >    this.loadChart = <span class="fstat-no" title="function not covered" >function (data,title){</span></span>
+<span class="cstat-no" title="statement not covered" >        var daysArray = Last7Days().split(',').reverse();</span>
+<span class="cstat-no" title="statement not covered" >        var seriesData=[],item={},chartData={};</span>
+<span class="cstat-no" title="statement not covered" >        var key = (title === 'Conversion Ratio : Guest to registrants') ? 'percentage' : 'count';</span>
+<span class="cstat-no" title="statement not covered" >        var percentage = new Array(daysArray.length).fill(0);</span>
+<span class="cstat-no" title="statement not covered" >        _.each(data, <span class="fstat-no" title="function not covered" >function(obj) {</span></span>
+<span class="cstat-no" title="statement not covered" >            item.name = obj.label;</span>
+<span class="cstat-no" title="statement not covered" >            item.data = getData(obj.data,daysArray,key);</span>
+<span class="cstat-no" title="statement not covered" >            item.selected= true;</span>
+<span class="cstat-no" title="statement not covered" >            seriesData.push(item);</span>
+<span class="cstat-no" title="statement not covered" >            item={};</span>
+        });
+<span class="cstat-no" title="statement not covered" >        chartData.title = title;</span>
+<span class="cstat-no" title="statement not covered" >        chartData.x = daysArray;</span>
+<span class="cstat-no" title="statement not covered" >        chartData.series = getSeries(seriesData);</span>
+<span class="cstat-no" title="statement not covered" >        return chartData;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getData(data,daysArray,key){</span>
+<span class="cstat-no" title="statement not covered" >        var lineData= new Array(daysArray.length).fill(0);</span>
+<span class="cstat-no" title="statement not covered" >        angular.forEach(data,<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >            if(daysArray.indexOf(obj.date) !== -1){</span>
+<span class="cstat-no" title="statement not covered" >                lineData[daysArray.indexOf(obj.date)] = lineData[daysArray.indexOf(obj.date)]+obj[key];</span>
+            }
+        });
+<span class="cstat-no" title="statement not covered" >        return lineData;</span>
+    };
+  
+<span class="fstat-no" title="function not covered" >    function getSVG(charts) {</span>
+<span class="cstat-no" title="statement not covered" >        var svgArr = [],</span>
+            top = 0,
+            width = 0;
+<span class="cstat-no" title="statement not covered" >        Highcharts.each(charts, <span class="fstat-no" title="function not covered" >function (chart) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var svg = chart.getSVG(),</span>
+                svgWidth = +svg.match(
+                    /^&lt;svg[^&gt;]*width\s*=\s*\"?(\d+)\"?[^&gt;]*&gt;/
+                )[1],
+                svgHeight = +svg.match(
+                    /^&lt;svg[^&gt;]*height\s*=\s*\"?(\d+)\"?[^&gt;]*&gt;/
+                )[1];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            svg = svg.replace(</span>
+                '&lt;svg',
+                '&lt;g transform="translate(0,' + top + ')" '
+            );
+<span class="cstat-no" title="statement not covered" >            svg = svg.replace('&lt;/svg&gt;', '&lt;/g&gt;');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            top += svgHeight;</span>
+<span class="cstat-no" title="statement not covered" >            width = Math.max(width, svgWidth);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            svgArr.push(svg);</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return '&lt;svg height="' + top + '" width="' + width +</span>
+            '" version="1.1" xmlns="http://www.w3.org/2000/svg"&gt;' +
+            svgArr.join('') + '&lt;/svg&gt;';
+    };
+    
+<span class="cstat-no" title="statement not covered" >    this.exportCharts = <span class="fstat-no" title="function not covered" >function (charts, options) {</span></span>
+<span class="cstat-no" title="statement not covered" >        options = Highcharts.merge(Highcharts.getOptions().exporting, options);</span>
+<span class="cstat-no" title="statement not covered" >        Highcharts.post(options.url, {</span>
+            filename: options.filename || 'chart',
+            type: options.type,
+            width: options.width,
+            svg: getSVG(charts)
+        });
+    };
+&nbsp;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 18 2017 10:33:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

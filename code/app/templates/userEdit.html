@@ -1,0 +1,400 @@
+<div ng-cloak>
+    <!--<div class="edit_content edituserform" layout="row">
+        <div layout="row" flex="100" layout-align="center center">
+            <div class="edituserviewclass">
+                <form ng-if="acc.data.isEditable" name="usereditform" ng-submit="(imageextension != true) && update_useredit()" novalidate autocomplete="off" class=" edituserviewfont">
+
+                    <div layout="row" class="user_edit_sec_new" layout-align="center center">
+                        <div class="width-edit-sec" flex="60" flex-gt-xs="90" flex-gt-md="80" flex-gt-lg="70">
+                            <div layout="row">
+                                <div flex="100">
+                                    <div class="prfle_img_user_edit" ng-controller="imageupload">
+                                        <div class="upload_input"><input type="file" ng-click="handleFileSelect()" name="picture" id="fileInput" ng-model="image" accept=".png, .jpg, .jpeg" /></div>
+                                        <div>
+                                            <div>
+                                                 <img ng-if="!dataURLsa" ng-src="{{acc.data.profile_picurl}}/{{acc.data.profile_pic}}" class="userimageupload">   
+                                                <img ng-if="dataURLsa" ng-src="{{dataURLsa}}" class="userimageupload">
+                                            </div>
+                                        </div>
+                                        <div class="backdrop_crop" ng-click="hidepopup()" ng-show="showDown"></div>
+                                        <div class="img_cropSec" ng-show="showDown">
+                                            <div>
+                                                <div class="cropAreaNs">
+                                                    <ui-cropper image="myImage" area-type="rectangle" result-image="myCroppedImage" live-view="blockingObject"></ui-cropper>
+                                                    <div class="render_btn"><a ng-click="hidepopup()" href="javascript:void(0);" class="cancel_btn md-raised md-warn md-button md-ink-ripple">Cancel</a><a ng-click="renderimage()" href="javascript:void(0);" class="md-raised md-primary md-button md-ink-ripple">Crop &amp; Save</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div flex="15">
+                                </div>
+                                <div flex="100">
+                                    <md-input-container class="md-block">
+                                        <label>User Type</label>
+                                        <input type="text" name="usereditform_type" ng-model="acc.data.roleType" ng-disabled="true" ng-if="acc.data.enrolled_class || acc.data.enrolled_group">
+
+                                        <md-select name="usereditform_roletype" ng-model="acc.data.roletype" ng-if="!acc.data.enrolled_class && !acc.data.enrolled_group">
+                                            <md-option ng-repeat="role in rotetype" value="{{role.roleid}}">{{role.rolname}}</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div flex="100">
+                                    <div class="useredit_brdr_line"></div>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div flex="100">
+                                    <md-input-container class="md-block">
+                                        <label>First Name</label>
+                                        <input type="text" name="usereditform_firstname" ng-model="acc.data.firstname" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                                        <div ng-messages="usereditform.usereditform_firstname.$error">
+                                            <span ng-message="required">This is required.</span>
+                                            <span ng-message="pattern">Invalid name</span>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div flex="15"></div>
+                                <div flex="100">
+                                    <md-input-container class="md-block">
+                                        <label>Last Name</label>
+                                        <input type="text" name="usereditform_lastname" ng-model="acc.data.lastname" required ng-pattern="/^[a-zA-Z\s]*$/">
+                                        <div ng-messages="usereditform.usereditform_lastname.$error">
+                                            <span ng-message="required">This is required.</span>
+                                            <span ng-message="pattern">Invalid name</span>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div flex="100">
+                                    <md-input-container class="md-block genter_details">
+                                        <label>Gender</label>
+                                        <md-radio-group ng-model="acc.data.gender" required name="usereditform_gender">
+                                            <md-radio-button value="male" class="md-primary">male</md-radio-button>
+                                            <md-radio-button value="female"> female </md-radio-button>
+                                        </md-radio-group>
+                                        <div ng-messages="usereditform.usereditform_gender.$error">
+                                            <div ng-message="required">Please choose your gender</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div flex="15"></div>
+                                <div flex="100">
+                                    <div layout="row">
+                                        <div flex="30">
+                                            <md-input-container class="md-block">
+                                                <label for="">Day</label>
+                                                <input type="number" name="usereditform_birth_day">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex="30">
+                                            <md-input-container class="md-block">
+                                                <label for="">Month</label>
+                                                <input type="number" name="usereditform_birth_month">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex="40">
+                                            <md-input-container class="md-block">
+                                                <label>Year</label>
+                                                <input type="number" name="usereditform_birth_year" ng-model="acc.data.birth_year" max={{currentYear-13}} min={{currentYear-100}} onKeyPress="if(acc.data.birth_year.length == 4) return false;" yr-integer>
+                                                <div ng-messages="usereditform.usereditform_birth_year.$error">
+                                                    <div ng-message="min">User should be less than 100 years old</div>
+                                                    <div ng-message="max">User should be 13 years old or above</div>
+                                                </div>
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div flex="100">
+                                    <div class="useredit_brdr_line"></div>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div flex="100">
+                                    <phonenumber-directive phonetrue="phoneboolvalue" placeholder="myPrompt" model='acc.data.phone_no'></phonenumber-directive>
+                                    <md-input-container class="md-block">
+                                        <label>Set Password</label>
+                                        <input md-no-asterisk name="usereditform_password" type="password" ng-model="acc.data.password" ng-minlength="6">
+                                        <div ng-messages="usereditform.usereditform_password.$error">
+                                            <div ng-message="minlength">minimum length 6.</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div flex="15"></div>
+                                <div flex="100">
+                                    <md-input-container class="md-block txtarea_md edit-user-address">
+                                        <label>Address</label>
+                                        <textarea maxlength="150" md-no-asterisk name="usereditform_address" ng-model="acc.data.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                        <div ng-if="usereditform.address.$viewValue" ng-messages="usereditform.usereditform_address.$error">
+                                            <div ng-message="maxlength">Maximum length 150.</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                            <div layout="row" flex="90">
+                                <div flex="100"></div>
+                                <div flex="15"></div>
+                                <div flex="100">
+                                    <div class="submt-sec">
+
+                                        <button type="button" class="btn-create md-raised md-warn md-button md-ink-ripple" ng-click="cancelEdit()">Cancel</button>
+                                        <button type="submit" class="btn-cancel md-raised md-primary md-button md-ink-ripple" ng-disabled="usereditform.$invalid || phoneboolvalue || imageextension">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="edit_content edituserform" layout="row">
+        <div layout="row" flex="100" layout-align="center center">
+            <div class="edituserviewclass">
+                <div ng-if="acc.data.viewChild">
+                    <div class="editviewuser">
+                        <div layout="row" flex="100">
+                            <div layout="row" layout-align="center center" flex="100">
+                                <div layout="row" class="edit_user_inn">
+                                    <div flex="40" class="lft">
+                                        <div class="lft_inn">
+											 <div flex="100" ng-if="!viewmode">
+												<!--img crop start-->
+												<div class="prfle_img_user_edit" ng-controller="imageupload">
+													<div class="upload_input"><input type="file" ng-click="handleFileSelect()" name="picture" id="fileInput" ng-model="image" accept=".png, .jpg, .jpeg" /></div>
+													<div>
+														<div>
+															 <img ng-if="!dataURLsa" ng-src="{{acc.data.profile_picurl}}/{{acc.data.profile_pic}}" class="userimageupload">   
+															<img ng-if="dataURLsa" ng-src="{{dataURLsa}}" class="userimageupload">
+														</div>
+													</div>
+													<div class="backdrop_crop" ng-click="hidepopup()" ng-show="showDown"></div>
+													<div class="img_cropSec" ng-show="showDown">
+														<div>
+															<div class="cropAreaNs">
+																<ui-cropper image="myImage" area-type="rectangle" result-image="myCroppedImage" live-view="blockingObject"></ui-cropper>
+																<div class="render_btn"><a ng-click="hidepopup()" href="javascript:void(0);" class="cancel_btn md-raised md-warn md-button md-ink-ripple">Cancel</a><a ng-click="renderimage()" href="javascript:void(0);" class="md-raised md-primary md-button md-ink-ripple">Crop &amp; Save</a></div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!--img crop end-->
+											</div>
+											
+                                            <div layout="row" ng-if="viewmode" layout-align="center <!--  -->enter"> 
+                                                <img src="{{acc.data.profile_picurl}}/{{acc.data.profile_pic}}">
+                                            </div>
+                                            <div layout="row" layout-align="center center">
+                                                <div class="pro_name">{{acc.data.username}}</div>
+                                            </div>
+                                            <div layout="row" layout-align="center center">
+                                                <div class="pro_usr_type">{{acc.data.roleType}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div flex="100">
+										<div class="rgt">
+										 <tooltip tooltips="" ng-if="currentStateName != 'adminLanding.classmanagement'" tooltip-template="Edit" tooltip-side="top" class="tooltips _top _steady _multiline _ready editIcon"> 
+											<tip-cont> 
+												<a class="btn actn-btn-edit" ng-if="adminUserType != 'Organization Admin'" ng-click="changeEditViewMode(acc.data.roletype)" ng-disabled="!viewmode"><span><i class="fa fa-pencil"></i></span></a> 
+											</tip-cont>
+										</tooltip> 
+										<form name="usereditform" ng-submit="(imageextension != true) && update_useredit()" novalidate autocomplete="off" class=" edituserviewfont">		
+										<md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding style="margin-top: 30px;">
+											<div class="rgt">	
+											 <div layout="row" class="val_container"> 
+												  <div flex="50" class="edit_tit requireedit">First Name</div>
+												  <md-input-container> <!-- {{viewmode}} -->
+													<input type="text" name="usereditform_firstname" ng-model="acc.data.firstname" ng-pattern="/^[a-zA-Z\s]*$/" ng-disabled="viewmode" ng-required="userNameEditable">
+													<div ng-messages="usereditform.usereditform_firstname.$error">
+														<span ng-message="required">This is required.</span>
+														<span ng-message="pattern">Invalid name</span>
+													 </div>
+												  </md-input-container>
+											</div>
+											<div layout="row" class="val_container">
+												  <div flex="50" class="edit_tit requireedit">Last Name</div>
+												 <md-input-container>
+													<input type="text" name="usereditform_lastname" ng-model="acc.data.lastname" ng-pattern="/^[a-zA-Z\s]*$/" ng-disabled="viewmode" ng-required="userNameEditable">
+												  </md-input-container>
+											</div>
+											<div layout="row" class="val_container">
+												  <div flex="50" class="edit_tit requireedit">User Name</div>
+												  <md-input-container>
+												  <input type="text" ng-model="acc.data.username" disabled="true" ng-required="!userNameEditable">
+												  </md-input-container>
+											</div>	
+											<div layout="row" class="val_container">
+												  <div flex="50" class="edit_tit">Role Type</div>
+												  <md-input-container>
+												  <input type="text" ng-model="acc.data.roleType" disabled="true">
+												  </md-input-container>
+											</div>	
+											<div layout="row" class="val_container">
+												  <div flex="50" class="edit_tit">Registered Date</div>
+												  <md-input-container>
+												  <input type="text" ng-model="acc.data.registerdate" disabled="true">
+												  </md-input-container>
+											</div>	
+											<div layout="row" class="val_container">
+												  <div flex="50" class="edit_tit requireedit">Email</div>
+												  <md-input-container>
+												        <input type="email" name="usermanagement_email1"  ng-model="acc.data.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/" ng-keyup="validateEmail()" ng-disabled="viewmode" ng-required="userNameEditable">
+                                                        <div ng-if="useremailexist" class="error-text">Email ID Already Exist.</div>
+                                                        <div ng-messages="usereditform.usermanagement_email1.$error">
+                                                            <span ng-message="pattern">Invalid Email.</span>
+                                                            <span ng-message="required">This is required.</span>
+                                                        </div>
+												  </md-input-container>
+											</div> 
+								
+                                            <div layout="row" class="val_container">  
+                                                <div flex="50" class="edit_tit">Date of Birth</div>
+												  <md-input-container ng-if="viewmode">
+												  <!--<input type="text" ng-model="acc.data.registerdate" disabled="true" required>-->
+													   <label ng-if="acc.data.dob.month && acc.data.dob.day && acc.data.dob.year">{{acc.data.dob.month}}/{{acc.data.dob.day}}/{{acc.data.dob.year}}</label>
+												  </md-input-container>                                                 
+												<datemonthyear datemonth="acc.data.dob" ng-if="!viewmode" agecheck="''" isrequired="true" disableinput="viewmode" class="datemonth-sec"></datemonthyear>
+                                            </div>
+												
+											<div layout="row" class="val_container">
+												  <div flex="50" class="edit_tit">Address</div>	
+												<md-input-container class="md-block txtarea_md edit-user-address" ng-class="{'addressdisabled' : viewmode}"> 
+													<textarea maxlength="150" md-no-asterisk name="usereditform_address" ng-model="acc.data.address" md-maxlength="150" ng-maxlength="150" rows="5" md-select-on-focus ng-disabled="viewmode"></textarea>
+													<div ng-if="usereditform.address.$viewValue" ng-messages="usereditform.usereditform_address.$error">
+													<div ng-message="maxlength">Maximum length 150.</div>
+													</div>
+												</md-input-container>
+											</div>	
+                                            <div layout="row" class="val_container">
+                                                <div flex="50" class="edit_tit">Phone Number</div> 
+                                                <phonenumber-directive phonetrue="phoneboolvalue" placeholder="myPrompt" model='acc.data.phone_no' iseditable="viewmode"></phonenumber-directive>
+                                            </div>
+												
+											<div layout="row" class="val_container" ng-if="!viewmode">
+												 <div flex="50" class="edit_tit">Set Password</div>		
+												 <md-input-container class="md-block">
+													 <input ng-model="acc.data.password" name="usereditform_password" ng-attr-type="{{showPassword ? 'text' : 'password'}}" ng-minlength="6">
+                                				<a href="javascript:void(0);" id="userEditPass" name="reveal"  value="1" title="Show password" tabindex="1003"><i class="fa" ng-class="{'fa-eye':showPassword, 'fa-eye-slash':!showPassword}" aria-hidden="true" id="showhideeye" ng-click="showPassword = !showPassword;"></i></a>
+													<div ng-messages="usereditform.usereditform_password.$error">
+														<div ng-message="minlength">minimum length 6.</div>
+													</div>
+												</md-input-container>	
+											</div>	
+												
+											<div layout="row" class="val_container">
+												 <div flex="50" class="edit_tit">Class name</div>		
+												 <md-input-container class="md-block">
+													<label>{{acc.data.classname}}</label> 
+												</md-input-container>	
+											</div>	 
+												
+											<div layout="row" class="val_container">
+                                                <div class="submt-sec" ng-if="!viewmode">
+                                                <button type="button" class="btn-create md-raised md-warn md-button md-ink-ripple" ng-click="EditModeCancel()">Cancel</button>
+                                                <button type="submit" class="btn-cancel md-raised md-primary md-button md-ink-ripple" ng-disabled="usereditform.$invalid || phoneboolvalue || imageextension || useremailexist">Update</button>
+                                            </div>                                    
+                                            </div>
+											</div>
+											
+										  </md-content>
+                                            <button class="md-button md-primary" ng-click="getStudentReport()" ng-if="acc.data.roleType === 'Student'">More Details</button>
+										  </form>	
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="edit_content edituserform" layout="row">
+        <div layout="row" flex="100" layout-align="center center">
+            <div class="usermsgsec">
+                <div ng-if="acc.data.isMessage">
+                    <div layout="row">
+                        <div flex="100">
+                            <div class="user-msg-lft" layout="row" layout-align="center center">
+                                <form name="usermessage" novalidate autocomplete="off" ng-submit="createMessage()" flex="50">
+                                    <md-input-container class="md-block">
+                                        <label>Message Type</label>
+                                        <md-select name = "usermessage_category" ng-model="message.compose_category" required>
+                                          <md-option ng-repeat="item in messageCategory" value="{{item}}">{{item}}</md-option>
+                                        </md-select>
+                                        <div ng-messages="usermessage.usermessage_category.$error" class="custom-error">
+                                            <span ng-message="required">This is required.</span>                
+                                        </div>
+                                  </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>To</label>
+                                        <input type="text" name="usermessage_messageTo" ng-model="acc.data.username" required ng-disabled="true">
+                                        <div ng-messages="usermessage.usermessage_messageTo.$error">
+                                            <span ng-message="required">This is required.</span>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <label>Subject</label>
+                                        <input type="text" name="usermessage_messageSubject" ng-model="message.messageSubject" required>
+                                        <div ng-messages="usermessage.usermessage_messageSubject.$error">
+                                            <span ng-message="required">This is required.</span>
+                                        </div>
+                                    </md-input-container>
+
+                                    <!--<md-input-container class="md-block txtarea_md" ng-if="message.compose_category == 'message' || message.compose_category === undefined">
+                                        <label>Message</label>
+                                        <textarea rows="5" name="usermessage_messageContent" md-select-on-focus ng-model="message.messageContent" required></textarea>
+                                        <div ng-messages="usermessage.usermessage_messageContent.$error">
+                                            <span ng-message="required">This is required.</span>
+                                        </div>
+                                    </md-input-container>  ng-if="message.compose_category != 'message' && message.compose_category !== undefined" -->
+                                    
+                                    <md-input-container class="md-block txtarea_md">
+                                        <label>Message</label>
+                                        <text-angular name="usermessage_messageContenteditor" ng-model="message.messageContent" ta-toolbar="textangulartoolbar" ng-keyup="customWordValidation()" required></text-angular>         
+
+                                        <div ng-messages="usermessage.usermessage_messageContenteditor.$error" class="error-text">
+                                            <span ng-message="required">This is required.</span>                
+                                        </div>
+                                    </md-input-container>
+                                    <div flex="100" ng-if="message.compose_category != 'message' && message.compose_category !== undefined">
+                                        <ul class="fa-ul filedownload">
+                                            <li ngf-select="upload($files)" ngf-multiple="true" accept=".jpg, .png, .jpeg">
+                                                <i class="fa fa-paperclip filedownloadicon" aria-hidden="true"></i>
+                                                <label id="picture" name="forum_image" file-model="imageFile" class="uploadlabeltextcolor">Attach Files</label></li>                                            
+                                        </ul>
+
+                                       <div ng-if="validImage" class="UploadedImgF">
+                                            <p class="forumimagename" title="imgname.name" ng-repeat="imgname in validImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span class="closeBTN" ng-click="removeImage($event,$index)" style="color:red">X</span></p>
+                                        </div>
+                                            <div ng-if="invalidImage" class="UploadedImgF">
+                                            <p class="forumimagename" title="imgname.name" ng-repeat="imgname in invalidImage track by $index"><span class="img-thumb"><img src="{{imgname.imgfile}}"></span> <span ng-if="!imgname.valid" style="color:red"> - Invalid file</span></p>
+                                        </div>                                              
+                                    </div>
+                                    
+                                    <div layout="row" layout-align="end center">
+                                        <div class="msg-submit-sec">
+                                            <button type="button" class="btn-create md-raised md-warn md-button md-ink-ripple" ng-click="cancelMessage()">Cancel</button>
+                                            <button type="submit" class="btn-create md-raised md-primary md-warn md-button md-ink-ripple" ng-disabled="usermessage.$invalid">Send</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,311 @@
+<alert-banner data="alertBaner" ng-if="alertBaner.showBaner"></alert-banner>
+<div class="contn_div_container">
+<h3>Assign course</h3>
+<div class="tab_fst contentmainmgt">
+   <md-tabs md-dynamic-height md-border-bottom md-selected="activeparenttab">
+      <md-tab  ng-repeat="tab in contents.tabs track by $index" ng-click="getTabData($index,tab.name)">
+         <md-tab-label>
+            <span>{{tab.name}}</span>
+         </md-tab-label>
+         <md-tab-body>
+            <div class="tab_scnd">
+               <div flex="100" layout="row" class="list_tab" ng-if="(contents.currentSection !== null && contents.currentSection !== undefined) && tab.name !== 'Media Library'">
+                  <ul>
+                     <li ng-bind="(tab.name === 'Phonics Adventure' ? 'Sections' : (tab.name === 'Number Success' ? 'Units' : ''))"></li>
+                     <li ng-repeat="section in (tab.name === 'Phonics Adventure' ? contents.course.sections : contents.course.units) track by $index" ng-class="{active: contents.activeSection === $index}" ng-click="changeTab($index,tab.name)"><a ng-bind="$index+1"></a></li>
+                  </ul>
+               </div>
+               <md-content class="md-padding" ng-if="tab.name === 'Phonics Adventure'">
+                  <md-tabs md-dynamic-height md-border-bottom >
+                     <md-tab ng-repeat="textBook in tab.categories track by $index" ng-click="getChildTabData($parent.$index,$index)">
+                         <md-tab-label>
+                            <span>{{textBook.name}}</span>
+                              <div class="level_btnscont toggle-button">
+                               <button ng-repeat="level in textBook.levels track by $index" ng-class="{'btn-primary': contents.activeLevel[$index]}" ng-click="getChildTabData(0,$index,level)" ng-bind="level.levelname" class="btn"></button>
+                            </div>
+                         </md-tab-label>
+                         <md-tab-body>
+                         <div ng-if="(contents.currentSection !== null && contents.currentSection !== undefined)">
+                            <div layout="row"  class="title">
+                               <div flex="100">
+                                  <div ng-bind="(contents.activeLevel[0])  ? textBook.name+' : Level 1' : textBook.name+' : Level 2'" class="course_name"></div>
+
+
+                                      <div class="course-filter">
+                                        <ul ng-model="selection.filter">
+                                            <li class="all-icon" ng-click="selectAct('all')" ng-class="{'active':selection.filter === 'all' }">Course</li>
+                                    <!--         <li class="all-icon" ng-click="selectAct('E-Books')" ng-class="{'active':selection.filter === 'E-Books' }">E-Books</li>
+                                            <li class="all-icon" ng-click="selectAct('Videos')" ng-class="{'active':selection.filter === 'Videos' }">Videos</li>
+                                            <li class="all-icon" ng-click="selectAct('Games')" ng-class="{'active':selection.filter === 'Games' }">Games</li> -->
+                                            <li ng-class="{'video-icon':filter==='Song','lesson-icon':filter === 'Lesson','game-icon':filter == 'Game','e-book-icon':filter == 'ebookvideo', 'interactivity-icon':filter == 'Interactivity','problem-icon':filter==='Problem', 'on-location-icon':filter === 'Onlocation', 'test-icon':filter === 'Test','active':selection.filter === filter  }" ng-click='selectAct(filter)' ng-repeat="filter in contents.filters"> {{filter}}
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                               </div>
+                            </div>
+                            <div class="tab_thrd" ng-if="!angular.equals({}, contents.currentSection)">
+                               <div layout="row" class="tab_title">
+                                  <md-checkbox aria-label="PA_section" class="chck_title_befr" ng-model="contents.currentSection.block" ng-change="changePASectionStatus()">                          
+                                  </md-checkbox>
+                                  <h3 ng-bind="'Section '+((contents.activeSection)+1)+' : '+(contents.currentSection.name)"></h3>
+                               </div>
+                               <div class="brdr_line"></div>
+                               <div  class="masonry">
+                                  <div layout="row" class="item" ng-repeat="lesson in contents.currentSection.lessons track by $index" ng-init="outerIndex = $index">
+                                     <div flex="100">
+                                        <md-checkbox aria-label="PA_lesson" ng-if="!angular.equals({}, lesson)" aria-label="Select All" class="title_checkbx" ng-model="lesson.block" ng-click="changePALessonStatus($index)">
+                                           <span ng-bind="lesson.type"></span>
+                                        </md-checkbox>
+                                        <div class="demo-select-all-checkboxes" flex="100" ng-repeat="activity in lesson.activities track by $index" ng-if=" selection.filter==='all' || selection.filter===activity.type" ng-mouseleave="showCoursepreview = false;">
+                                           <md-checkbox aria-label="PA_activity" ng-model="activity.block" ng-if="!angular.equals({}, activity)" ng-change="changePAActivityStatus(outerIndex,$index)">{{activity.name}} -{{activity.type}}</md-checkbox>
+                                           <a ng-init="showCoursepreview = false;" ng-click="showCoursepreview = !showCoursepreview;"  class="dnIC">
+                                           <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                           </a>
+                                           <div class="coursePlayPV" ng-show="showCoursepreview" ng-mouseleave="showCoursepreview = false;">
+                                              <ul>
+                                                 <li ng-show="!activity.survey_assigned_status">
+                                                    <span ng-click="assignUnassignSurvey($parent.$index,$index,activity,true)">Assign Survey</span>
+                                                 </li>
+                                                 <li ng-show="activity.survey_assigned_status && !activity.survey_taken_status">
+                                                    <span ng-click="assignUnassignSurvey($parent.$index,$index,activity,false)">Unassign Survey</span>
+                                                 </li>
+                                                 <li ng-show="activity.survey_taken_status" ng-click="viewSurveyResults(activity);">
+                                                    <span>Survey Results</span>
+                                                 </li>
+                                              </ul>
+                                           </div>
+                                           <span class="statusSpan" ng-if="activity.survey_assigned_status"><b>S</b></span>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                             <div class="tab_thrd" ng-if="(angular.equals({}, contents.currentSection) || contents.currentSection === null || contents.currentSection === undefined || !contents.course.length === 0) && !appLoader">
+                                 <h2>No data found!</h2>
+                             </div>
+                        </md-tab-body>                   
+                      </md-tab>
+                  </md-tabs>
+               </md-content>
+               <md-content class="md-padding toc-con" ng-class="{'number_Success':tab.name === 'Number Success'}" ng-if="tab.name === 'Number Success'" >
+                  <md-tabs md-dynamic-height md-border-bottom  md-selected="activetab.childIndex">
+                     <md-tab label="{{textBook.name}}" ng-repeat="textBook in tab.categories track by $index" ng-click="getChildTabData($parent.$index,$index)" >
+                        <div layout="row" class="tab_title" ng-if="(contents.currentSection !== undefined && contents.currentSection !== null && !angular.equals({},contents.currentSection))">
+                           <md-checkbox aria-label="NS_units" class="chck_title_befr" ng-model="contents.currentSection.block" ng-change="changeNSUnitStatus()"></md-checkbox>
+                           <h3 ng-bind="'Unit '+((contents.activeSection)+1)+' : '+(contents.currentSection.name)"></h3>
+                        </div>
+                        <div class="masonry"  ng-if="!angular.equals({}, contents.currentSection)">
+                           <div class="item" ng-repeat="filtertype in contents.filters track by $index" ng-if="contents.currentSection[filtertype].length">
+                              <div flex="100" layout-margin >
+                                 <div style="background: #f0f3f7;padding: 10px;" class="strip">
+                                    <md-checkbox aria-label="NS_lesson" ng-change="changeNSLessonStatus(filtertype)" class="title_checkbx" ng-model="contents.currentSection['block'+ (filtertype | lowercase)]">{{filtertype}}</md-checkbox>
+                                 </div>
+                                 <div ng-repeat="activity in contents.currentSection[filtertype] track by $index" class="m17 demo-select-all-checkboxes" flex="100" ng-if="!angular.equals({},activity)">
+                                    <md-checkbox aria-label="NS_activity" ng-model="activity.block" ng-change="changeNSActivityStatus($index,filtertype)"> {{activity.name}}</md-checkbox>
+                                    <a ng-init="showCoursepreview = false;" ng-click="showCoursepreview = !showCoursepreview;"  class="dnIC">
+                                           <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                           </a>
+                                           <div class="coursePlayPV" ng-show="showCoursepreview" ng-mouseleave="showCoursepreview = false;">
+                                              <ul>
+                                                 <li ng-show="!activity.survey_assigned_status">
+                                                    <span ng-click="assignUnassignSurvey($parent.$index,$index,activity,true)">Assign Survey</span>
+                                                 </li>
+                                                 <li ng-show="activity.survey_assigned_status && !activity.survey_taken_status">
+                                                    <span ng-click="assignUnassignSurvey($parent.$index,$index,activity,false)">Unassign Survey</span>
+                                                 </li>
+                                                 <li ng-show="activity.survey_taken_status" ng-click="viewSurveyResults(activity);">
+                                                    <span>Survey Results</span>
+                                                 </li>
+                                              </ul>
+                                           </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                         <div class="tab_thrd" ng-if="(angular.equals({}, contents.currentSection) || contents.currentSection === undefined || contents.currentSection === null || !contents.course.length === 0) && !appLoader">
+                           <h2>No data found!</h2>
+                         </div>
+                     </md-tab>
+                  </md-tabs>
+               </md-content>
+               <md-content class="md-padding" ng-class="{'media-lib':tab.name === 'Media Library'}" ng-if="tab.name === 'Media Library'" >
+                  <md-tabs md-dynamic-height md-border-bottom>
+                     <md-tab label="{{media.name}}" ng-repeat="media in mediaLibrary.content.section" ng-click="changeMediaLibTab(media.name,media.id)">                    
+                        <md-content>
+                            <div class="row media-select">
+                                <div class="col-sm-9 col-md-8">
+                                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                                        <div class="media-dropdown" ng-if="mediaLibMainCategory">
+                                            <p class="media-label">Select Category</p>
+                                            <drop-down selected-option="selected" options="selectOptions.section" on-select="getSubjectAct(option)"></drop-down>
+                                        </div>
+                                        <div class="media-dropdown" ng-if="mediaLibSubCategory">
+                                            <p class="media-label">Select Sub Category</p>
+                                            <drop-down-child selected-option="sub_selected" options="sub_selectOptions.section" on-sub-select="getActivity(option)"></drop-down-child>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-4 text-right">
+                                    <div class="gl-icons">
+                                        <span class="list" ng-class="{active: switchMode=='grid'}" ng-click="switchDisplyMode('grid');listvw=false;">
+                                            <i class="fa fa-th"></i>
+                                        </span>
+                                         <span class="grid" ng-class="{active: switchMode=='list'}" ng-click="switchDisplyMode('list');listvw=true;" >
+                                             <i class="fa fa-list"></i>
+                                        </span>
+                                        <span class="mlitemperpage">Item per page
+                                            <select ng-model="selection.itemperpage" ng-options="option for option in selection.itemperpageOptions" ng-selected="selection.itemperpage" ng-change="changePageItemCount()">                                                
+                                            </select>
+                                        </span>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        <div class="dd-filters mediafilters">
+                          <span>Filter By: </span>
+                            <span ng-repeat="indfilter in filters">
+                                <dropdown-multiselect pre-selected="selection.filters[indfilter.name]" model="selection.filters[indfilter.name]" options="indfilter.section" filter-type="indfilter.name" filtercall="changeFilter(res)"></dropdown-multiselect>                               
+                            </span>
+                            <span ng-if="customFilters">
+                                <dropdown-multiselect pre-selected="selection.filters['customFilters']" model="selection.filters['customFilters']" options="activities.customFilters" filter-type="'customFilters'" filtercall="changeFilter(res)"></dropdown-multiselect>
+                            </span>
+                            
+                          <div class="search-item pull-right">
+                                <form ng-submit="searchCall()">
+                                    <input type="text" ng-model="medialib.search" placeholder="Search">
+                                    <button class="mediaLibSearch" ng-click="searchCall()" ><i class="fa fa-search"></i></button>
+                                </form>
+                          </div>
+                        </div>
+                        <div class="activity-container" ng-if="!mdlibpagination.pagination.isDbempty">
+                            <div class="grid-view" ng-if="switchMode=='grid'">   
+                                 <div  class="activity-box" ng-repeat="act in activities.course">
+                                   <div class="activity-img preloaderImg">                              
+                                       <img ng-if="act.thumburl && !printableFormat" ng-src="{{act.thumburl}}" alt="" loaded-img>                                       
+                                       <img ng-if="!act.thumburl && !printableFormat" src="{{noassetimage}}" alt="" loaded-img>
+                                       <img ng-if="printableFormat" ng-src="{{act.book_url.replace('.pdf','.png')}}" alt="" loaded-img>
+                                       <span class="inprogress" ng-if="act.product_of_the_week && bookOfWeek">Book of the week</span>
+                                       <span class="inprogress" ng-if="act.product_of_the_week && videoOfWeek">Video of the week</span>
+                                   </div>
+                                   <label ng-if="openContentLink != 'none'" ng-click="assetPopup($index)">{{act.coursename}}</label>                                     
+                                    <label ng-if="openContentLink == 'none' && !printableFormat"><a href="https://www.advancepublishing-stg.com/cloud-reader/?epub={{act.book_url}}" target="_blank">{{act.coursename}}</a></label>
+                                     <!-- Course label for worksheets alone - start -->
+                                     <label ng-if="openContentLink == 'none' && printableFormat && act.book_url==''">{{act.coursename}}</label>
+                                     <label ng-if="openContentLink == 'none' && printableFormat && act.book_url !=''" ><a href="{{act.book_url}}" target="_blank">{{act.coursename}}</a></label>
+                                     <!-- Course label for worksheets alone - end -->
+                                     <div class="icon-list">
+                                         <span class="product-active" ng-class="{active: act.is_active}" ng-click="actionChanges('active',act.courseid)" title="Show/Hide"><img src="dest/images/show.png"></span>
+                                        <span class="top-week" ng-if="productWeek" ng-class="{active: act.product_of_the_week}" ng-click="actionChanges('product',act.courseid)" title="Product of the week"><img src="dest/images/top-of-the-week.png"></span>
+                                         <span class="printable" ng-if="printableFormat" ng-class="{active: act.is_printable}" ng-click="actionChanges('print',act.courseid)" title="Print"><img src="dest/images/print.png"></span>
+                                         <span class="payable" ng-class="{active: act.is_premium}" ng-click="actionChanges('premium',act.courseid)" title="Premium"><img src="dest/images/payable.png"></span>
+                                         <span class="premium" ng-class="{active: act.is_featured}" ng-click="actionChanges('feature',act.courseid)" title="Feature"><img src="dest/images/premium.png"></span>
+                                     </div>
+                                </div>
+
+                            </div>
+
+                            <div class="list-view" ng-if="switchMode=='list'">                        
+                                <div class="activity-list"  ng-repeat="act in activities.course">
+                                    <div class="activity-img preloaderImg">                                    
+                                        <img ng-if="act.thumburl && !printableFormat" ng-src="{{act.thumburl}}" alt="" loaded-img>
+                                       <img ng-if="!act.thumburl && !printableFormat" src="{{noassetimage}}" alt="" loaded-img>
+                                        <img ng-if="printableFormat" ng-src="{{act.book_url.replace('.pdf','.png')}}" alt="" loaded-img>
+                                    </div>
+                                    <div class="list-title">
+                                         <label ng-if="openContentLink != 'none'" ng-click="assetPopup(act.book_url)">{{act.coursename}}</label>                                
+                                    <label ng-if="openContentLink == 'none' && !printableFormat"><a href="https://www.advancepublishing-stg.com/cloud-reader/?epub={{act.book_url}}" target="_blank">{{act.coursename}}</a></label>
+                                        <!-- Course label for worksheets alone - start -->
+                                      <label ng-if="openContentLink == 'none' && printableFormat && act.book_url==''">{{act.coursename}}</label>
+                                     <label ng-if="openContentLink == 'none' && printableFormat && act.book_url !=''" ><a href="{{act.book_url}}" target="_blank">{{act.coursename}}</a></label>
+                                        <!-- Course label for worksheets alone - End -->
+                                        <span class="inprogress" ng-if="act.product_of_the_week && bookOfWeek">Book of the week</span>
+                                        <span class="inprogress" ng-if="act.product_of_the_week && videoOfWeek">Video of the week</span>
+                                    </div> 
+                                    <div class="icon-list">
+                                        <span class="product-active" ng-class="{active: act.is_active}" ng-click="actionChanges('active',act.courseid)" title="Show/Hide"><img src="dest/images/show.png"></span>
+                                        <span class="top-week" ng-if="productWeek" ng-class="{active: act.product_of_the_week}" ng-click="actionChanges('product',act.courseid)" title="Product of the week"><img src="dest/images/top-of-the-week.png"></span>
+                                         <span class="printable" ng-if="printableFormat" ng-class="{active: act.is_printable}" ng-click="actionChanges('print',act.courseid)" title="Print"><img src="dest/images/print.png"></span>
+                                         <span class="payable" ng-class="{active: act.is_premium}" ng-click="actionChanges('premium',act.courseid)" title="Premium"><img src="dest/images/payable.png"></span>
+                                         <span class="premium" ng-class="{active: act.is_featured}" ng-click="actionChanges('feature',act.courseid)" title="Feature"><img src="dest/images/premium.png"></span>
+                                     </div>
+                                </div>  
+                            </div> 
+
+                        </div>
+                        <div class="no-assets-class" ng-if="mdlibpagination.pagination.isDbempty">
+                            No {{selectedMediaLibTab}} found
+                        </div>
+                            <!--  Pagination starts -->
+                        <div class="row">
+                            <div class="media-pagination">                            
+                            <div class="col-sm-12 col-md-12">
+                                <h6 class="page-count" >
+                                    Page {{mdlibpagination.currentPage}} of {{numPages}}
+                                </h6>
+                            <ul uib-pagination total-items="mdlibpagination.pagination.total_matched_records" ng-model="mdlibpagination.currentPage" max-size="mdlibpagination.paginationList" class="pagination pagination-lg" boundary-links="true" num-pages="numPages" ng-click="getPageData()" items-per-page="selection.itemperpage"></ul>
+                            </div>
+                            </div>
+                        </div>
+                            <!--  Pagination Ends -->
+                       
+                          
+                        </md-content>
+                     </md-tab>
+  
+                  </md-tabs>
+               </md-content>
+                <md-content ng-if="tab.name === 'Writing Success'">
+                   <div class="tab_scnd wirtingsuccess-main">
+                            <md-tabs md-dynamic-height md-border-bottom  md-selected="activetab.childIndex">
+                                <md-tab ng-repeat="textBook in contents.selectedTab.categories track by $index" ng-click="switchWritingsuccess($index,0)" ng-init="outerIndex = $index">
+                                    <md-tab-label>
+                                        <span>{{textBook.name}}</span>
+                                        <div class="level_btnscont toggle-button" ng-if="activetab.childIndex === outerIndex">
+                                                    <button ng-repeat="tab in contents.selectedTab.categories[$index].levels track by $index" style="position: relative;" ng-class="{'btn-primary': tab.isActive}" ng-bind="tab.name" ng-click="switchWritingsuccess(outerIndex,$index); $event.stopPropagation();" class="btn"></button>
+                                       </div>
+                                    </md-tab-label>
+                                    <md-tab-body>
+                                        <md-content class="md-padding toc-con" ng-if="contents.currentSection !== null">
+                                            <div class="writing-tit"><h3 ng-bind="textBook.key"></h3></div>
+                                            <div class="writing-subtit">
+                                                <md-checkbox aria-label="WS_section" ng-model="contents.currentSection.block" ng-change="changeWSSectionStatus()"  ng-disabled="!contents.currentSection.isenabled" ng-class="{'chkbox-disable': !contents.currentSection.isenabled}">{{writingSuccess.selectedLevel.name}}</md-checkbox>
+                                            </div>                                            
+                                           <div layout="row">
+                                               <div class="item write-firstcol">
+                                                   <div class="writeyellow-title">
+                                                        <p ng-bind="writingSuccess.selectedLevel.key === 'uppercase' ? 'A-Z' : (writingSuccess.selectedLevel.key === 'lowercase' ? 'a-z' : '0-9')"></p>
+                                                   </div>
+                                                   <div class="writemanu">
+                                                       <div ng-repeat="menu in writingSuccess.menuList track by $index">
+                                                          <md-checkbox aria-label="WS_menu" ng-model="writingSuccess.menustatus[$index].block"  ng-change="changeWSMenuStatus($index)" ng-disabled="!writingSuccess.menustatus[$index].isenabled" ng-class="{'chkbox-disable': !writingSuccess.menustatus[$index].isenabled}"></md-checkbox>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                                <div class="item" flex="33" ng-repeat="subsection in contents.currentSection.subsection track by $index" ng-init="innerIndex = $index">
+                                                    <div flex="100" layout-margin>
+                                                        <div class="writeyellow-title">
+                                                            <md-checkbox aria-label="WS_subsection" ng-model="subsection.block" ng-change="changeWSLessonStatus(innerIndex)"  ng-disabled="!subsection.isenabled" ng-class="{'chkbox-disable': !subsection.isenabled}">{{subsection.name}}</md-checkbox>
+                                                        </div>
+                                                        <div class="demo-select-all-checkboxes m17" flex="100" ng-repeat="activity in subsection.activities track by $index">
+                                                            <md-checkbox aria-label="WS_activity" ng-model="activity.block" ng-change="changeWSActivityStatus(innerIndex,$index)" ng-disabled="!activity.isenabled" ng-class="{'chkbox-disable': !activity.isenabled}">{{activity.name}}</md-checkbox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </md-content>
+                                    </md-tab-body>
+                                </md-tab>
+                            </md-tabs>
+                        </div>
+                </md-content>
+                <md-content ng-if="!(tab.name === 'Number Success' || tab.name === 'Phonics Adventure' || tab.name === 'Media Library' || tab.name === 'Writing Success')">
+                    <h2 class="contentnorecord">No data Found!</h2>
+                </md-content>
+            </div>
+         </md-tab-body>
+      </md-tab>
+   </md-tabs>
+</div>

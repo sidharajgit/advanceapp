@@ -1,0 +1,105 @@
+<div ng-cloak class="report" layout="column">
+   <div layout="row">
+       <div flex="100">
+      <md-tabs md-dynamic-height md-border-bottom>
+         <md-tab label="Reports" ng-click="isAnalytics = false;">
+            <md-content class="md-padding" ng-if="socialShareData">
+                <div layout="row" class="report_hedr_sec">
+                    <div flex="100">
+                        <div class="forum-headng">
+                            <h3 class="heading-til">Social Media Report</h3>    
+                        </div>  
+                    </div>    
+                    <!--<div flex="100" layout-align="end end">
+                        <button class="download_csv_btn" ng-click="downloadReport('socialreportsexportcsv')">Download</button>
+                    </div>   --> 
+                    <button class="download_csv_btn" ng-click="reportdownloadbtn()">Download</button>
+                     <div class="down_list_Sec" ng-class="{'download_act': isActive_downreport}" ng-mouseleave="reportclosedownload()">
+                        <ul>                                
+                            <li><a href="javascript:void(0);" ng-click="downloadReport('socialreportsexportcsv')">Download CSV</a></li>                                
+                        </ul>
+                    </div>
+                </div>
+                <div layout="row" layout-wrap class="White_frm_list">
+                    <md-whiteframe class="md-whiteframe-1dp white-tile" flex="30">
+                        <div class="tile-heading">
+                         <span class="frame-header">Total Social Shares</span>
+                         <hr/>
+                         <div layout="row" > 
+                              <div layout="column" flex="40" ng-repeat="data in socialShareData">
+                                 <div flex="2" class="tile-text">{{data.count}}</div> 
+                                 <div flex="1">{{data.label}}</div> 
+                             </div>   
+                         </div>
+                        </div>
+                        </md-whiteframe>
+                    
+                </div>
+                <div class="tableDiv res_table_width">
+                     <table-div datasource="tableData" datatable="tableData"></table-div>
+                </div>
+            </md-content>
+         </md-tab>
+         <md-tab label="Analytics" ng-click="getAnalyticsData()">
+            <md-content class="md-padding" ng-if="socialShares">
+                <div layout="row" class="report_hedr_sec">
+                    <div flex="100">
+                        <div class="forum-headng">
+                            <h3 class="heading-til">Social Media Analytics</h3>    
+                        </div>  
+                    </div>  
+                    
+                    <div flex="100" layout-align="end end" layout="row">
+                    <div flex="100" layout="row">
+                        <div flex="100" class="dateCols"  layout-align="end end" layout="row">
+                            <div class="date_range_picker">
+                                <input date-range-picker name="daterangesocial" class="form-control date-picker" placeholder="{{socialdaterangecustompick}}" type="text"
+                                    ng-model="socialdaterangecustompick" options="dateoptions" readonly />
+                            </div> 
+                        </div>
+                    </div>    
+                    <div flex="100" flex-gt-sm="40" flex-gt-lg="30" layout-align="end end" layout="row" class="width-datepiker-btn">
+                        <button class="download_csv_btn" ng-click="downloadbtn()">Download</button>
+                         <div class="down_list_Sec" ng-class="{'download_act': isActive_down}" ng-mouseleave="closedownload()">
+                            <ul>
+                                <li><a href="javascript:void(0);" ng-click="downloadReport('socialanalyticsexportcsv')">Download CSV</a></li>
+                                <li><a href="javascript:void(0);" ng-click="export('application/pdf')">Download PDF</a></li>
+                                <li><a href="javascript:void(0);" ng-click="export('image/png')">Download PNG</a></li>
+                            </ul>
+                        </div>
+                    </div>        
+                    </div>       
+                </div>
+                  <div layout="row" layout-wrap>
+                  <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                        <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','line',socialSharesLinechart,'Social Share')">More Filter</button>    
+                        <div  layout-align="center center" layout="column">
+                            <hc-line-chart ng-if="socialSharesLinechart && isAnalytics" chartdata="socialSharesLinechart" chartobj="saveChartObj(response)"></hc-line-chart>
+                        </div>
+                    </md-whiteframe>
+                  <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                         <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','pie',preferredSocialMedia,preferredSocialMedia.title)">More Filter</button>
+                         <div  layout-align="center center" layout="column">
+                            <hc-pie-chart ng-if="preferredSocialMedia && isAnalytics"  chartdata="preferredSocialMedia" chartobj="saveChartObj(response)"></hc-pie-chart>
+                         </div>
+                    </md-whiteframe>
+                  <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                         <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','bar',programBasedDataBarChart,programBasedDataBarChart.title)">More Filter</button>
+                        <div  layout-align="center center" layout="column">
+                            <hc-bar-chart ng-if="programBasedDataBarChart && isAnalytics" chartdata="programBasedDataBarChart" chartobj="saveChartObj(response)"></hc-bar-chart>
+                        </div>
+                    </md-whiteframe>
+                  <md-whiteframe class="md-whiteframe-1dp white-tile" flex-gt-lg="45">
+                         <button class="more-fltr-btn download_csv_btn" ng-click="chartModal('lg','bar',mediaBasedDataBarChart,mediaBasedDataBarChart.title)">More Filter</button>
+                        <div layout-align="center center" layout="column">
+                            <hc-bar-chart ng-if="mediaBasedDataBarChart && isAnalytics"  chartdata="mediaBasedDataBarChart" chartobj="saveChartObj(response)"></hc-bar-chart>
+                        </div>
+                    </md-whiteframe>
+                </div>  
+            </md-content>
+             
+        </md-tab>
+      </md-tabs>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,105 @@
+{
+	"data": {
+		"classdeatils": {
+			"profilepic_url": "http:\/\/172.24.137.114\/sommer_learning\/\/media\/com_sommer\/classicon\/thumb\/",
+			"imagename": "1504706400_179059afff60403e3_classone.png"
+		},
+		"groupdeatils": [{
+			"groupname": "test124891099",
+			"classname": "Classone",
+			"groupid": "4",
+			"usercnt": 1
+		}, {
+			"groupname": "fsdd",
+			"classname": "Classone",
+			"groupid": "158",
+			"usercnt": 1
+		}, {
+			"groupname": "grp3",
+			"classname": "Classone",
+			"groupid": "166",
+			"usercnt": 1
+		}, {
+			"groupname": "grpf",
+			"classname": "Classone",
+			"groupid": "190",
+			"usercnt": 0
+		}],
+		"classstudentdeatils": [{
+			"id": "2308",
+			"name": "testy testy",
+			"username": "testyyyy",
+			"firstname": "testy",
+			"lastname": "testy",
+			"email": "testy@gmail.com",
+			"gender": "",
+			"address": "",
+			"phone_no": "",
+			"lastvisitDate": "",
+			"profile_pic": "",
+			"roaming_content": true,
+			"class_id": "2",
+			"classgroupname": "test124891099-Classone,fsdd-Classone,grp3-Classone",
+			"classname": "Classone,Classone,Classone",
+			"isemail_temp": false,
+			"birth_year": "",
+			"profilepicurl": "http:\/\/172.24.137.114\/sommer_learning\/\/media\/com_sommer\/profile\/thumb\/"
+		},
+		{
+			"id": "2309",
+			"name": "testy testy",
+			"username": "testyyyy",
+			"firstname": "testy",
+			"lastname": "testy",
+			"email": "testy@gmail.com",
+			"gender": "",
+			"address": "",
+			"phone_no": "",
+			"lastvisitDate": "",
+			"profile_pic": "",
+			"roaming_content": true,
+			"class_id": "2",
+			"classgroupname": "test124891099-Classone,fsdd-Classone,grp3-Classone",
+			"classname": "Classone,Classone,Classone",
+			"isemail_temp": false,
+			"birth_year": "",
+			"profilepicurl": "http:\/\/172.24.137.114\/sommer_learning\/\/media\/com_sommer\/profile\/thumb\/"
+		},
+								
+		{
+			"id": "2311",
+			"name": "testy testy",
+			"username": "testyyyy",
+			"firstname": "testy",
+			"lastname": "testy",
+			"email": "testy@gmail.com",
+			"gender": "",
+			"address": "",
+			"phone_no": "",
+			"lastvisitDate": "",
+			"profile_pic": "",
+			"roaming_content": true,
+			"class_id": "2",
+			"classgroupname": "test124891099-Classone,fsdd-Classone,grp3-Classone",
+			"classname": "Classone,Classone,Classone",
+			"isemail_temp": false,
+			"birth_year": "",
+			"profilepicurl": "http:\/\/172.24.137.114\/sommer_learning\/\/media\/com_sommer\/profile\/thumb\/"
+		}],
+		"paginateData": {
+			"total_matched_records": 1,
+			"total_records": 1,
+			"current_page": 1,
+			"start_record": 1,
+			"end_record": 1,
+			"sort": {
+				"column": "name",
+				"order": "desc"
+			},
+			"isDbempty": false
+		}
+	},
+	"message": "",
+	"status": "Success",
+	"sessioned": true
+}

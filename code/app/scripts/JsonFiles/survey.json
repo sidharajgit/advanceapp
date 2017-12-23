@@ -1,0 +1,100 @@
+{
+	"categories": [{
+		"id": 1,
+		"category": "Game"
+	}, {
+		"id": 2,
+		"category": "Video"
+	}, {
+		"id": 3,
+		"category": "Ebook"
+	}, {
+		"id": 4,
+		"category": "Interactivity"
+	}, {
+		"id": 5,
+		"category": "Lesson"
+	}],
+	"surveys": [
+            {
+                "id": 14,
+                "categoryId": 5,
+                "categoryName": "Lesson",
+                "title": "Lesson1",
+                "enable": true,
+                "postStatus":true,
+                "published": "10/17/17"
+            },
+            {
+                "id": 4,
+                "categoryId": 4,
+                "categoryName": "Interactivity",
+                "title": "Interactivity",
+                "enable": true,
+                "postStatus":false,
+                "published": "10/16/17"
+            },
+            {
+                "id": 15,
+                "categoryId": 5,
+                "categoryName": "Lesson",
+                "title": "Lesson2",
+                "enable": false,
+                "postStatus":false,
+                "published": "10/17/17"
+            },
+            {
+                "id": 3,
+                "categoryId": 3,
+                "categoryName": "Ebook",
+                "title": "Ebook",
+                "enable": true,
+                "postStatus":true,
+                "published": "10/09/17"
+            },
+            {
+                "id": 2,
+                "categoryId": 2,
+                "categoryName": "Video",
+                "title": "Video",
+                "enable": true,
+                "postStatus":true,
+                "published": "10/09/17"
+            },
+            {
+                "id": 1,
+                "categoryId": 1,
+                "categoryName": "Game",
+                "title": "Game",
+                "enable": true,
+                "postStatus":true,
+                "published": "10/09/17"
+            }
+        ],
+    "surveydetails":{
+            "id": 4,
+            "title": "Lesson",
+            "categoryName":"Game",
+            "published": "10/16/17",
+            "questions": [
+                {
+                    "id": 12,
+                    "title": "Do you like the lesson?",
+                    "created": "10/16/17",
+                    "modified": "2017-10-16 07:10:49"
+                },
+                {
+                    "id": 13,
+                    "title": "Rate the lesson?",
+                    "created": "10/16/17",
+                    "modified": "2017-10-16 07:10:49"
+                },
+                {
+                    "id": 14,
+                    "title": "Rate the quality of lesson?",
+                    "created": "10/16/17",
+                    "modified": "2017-10-16 07:10:49"
+                }
+            ]
+        }
+}

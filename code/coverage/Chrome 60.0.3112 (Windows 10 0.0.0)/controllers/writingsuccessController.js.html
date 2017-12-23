@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\writingsuccessController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> writingsuccessController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.82% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.94% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/81</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">advancePubapp.controller('writingsuccessController',['$scope', 'sfactory','$uibModal','$rootScope','$filter','$log', <span class="fstat-no" title="function not covered" >function($scope,sfactory,$uibModal,$rootScope,$filter,$log) {</span>
+<span class="cstat-no" title="statement not covered" >    var reportDataReq; </span>
+    
+    //Method  for number success report
+<span class="fstat-no" title="function not covered" >    function writingsuccessreport(reportDataReq){</span>
+<span class="cstat-no" title="statement not covered" >    	var task = 'programreportsind';</span>
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCallReports(reportDataReq, task).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if(angular.isDefined(response)){</span>
+<span class="cstat-no" title="statement not covered" >            if($filter('lowercase')(response.status) == 'success'){</span>
+<span class="cstat-no" title="statement not covered" >                $scope.tableData.data =response.data.program_report;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.writingsuccess.overall = response.data.users_at_program;</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                $rootScope.appLoader = false;</span>
+            }	
+        }
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >            var localTask = "writingsuccessreports";</span>
+<span class="cstat-no" title="statement not covered" >                sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.tableData.data =response.data.data.program_report;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.writingsuccess.overall = response.data.data.users_at_program;</span>
+            }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+            });
+        });
+    }
+    
+    //Method for number success analytics
+<span class="cstat-no" title="statement not covered" >    $scope.getwritingSuccessAnalyticsData = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        var task = 'programanalyticsind';</span>
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCallReports(reportDataReq, task).then(<span class="fstat-no" title="function not covered" >function(response) {            </span></span>
+<span class="cstat-no" title="statement not covered" >            if(angular.isDefined(response.data)){</span>
+<span class="cstat-no" title="statement not covered" >                $scope.writingsuccess.number= response.data;                </span>
+<span class="cstat-no" title="statement not covered" >                $rootScope.appLoader = false;</span>
+            }
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >        var localTask = "writingsuccessreports";</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.writingsuccess.number= response.data.analyticsdata;</span>
+            }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+            });
+        });
+    }
+    
+     /* Method to show filter modal */
+<span class="cstat-no" title="statement not covered" >    $scope.chartModal = <span class="fstat-no" title="function not covered" >function(size, chartType, data, chartHeader,traffic) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var modalInstance = $uibModal.open({</span>
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'dest/templates/chartsModal.html',
+            controller: 'modalController',
+            size: size,
+            resolve: {
+                items: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >                    return {</span>
+                        chartType: chartType,
+                        chartdata: data,
+                        header: chartHeader, 
+                        traffic:traffic,
+                        dateRange:$scope.daterangecustompick,
+                        chartProperties:chartProperties,
+                        reportsProgram: "Writing Success"
+                    };
+                }
+            }
+        });
+<span class="cstat-no" title="statement not covered" >        modalInstance.result.then(<span class="fstat-no" title="function not covered" >function(selectedItem) {</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.selected = selectedItem;</span>
+        }, <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            $log.info('Modal dismissed at: ' + new Date());</span>
+        });
+    };
+    
+      /*Method for update data based on calender*/
+<span class="fstat-no" title="function not covered" >    function updateCharts(start_date,end_date){</span>
+<span class="cstat-no" title="statement not covered" >          var requestData = JSON.stringify({</span>
+                'start_date': start_date,
+                'end_date': end_date,
+                'program_id': "Writing Success"
+        });
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCallReports(requestData, 'programanalyticsind').then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >			if(angular.isDefined(response)){</span>
+<span class="cstat-no" title="statement not covered" >				if($filter('lowercase')(response.status) == 'success'){</span>
+<span class="cstat-no" title="statement not covered" >					$scope.writingsuccess.number.most_visited.change(response.data.most_visited);</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.writingsuccess.number.most_visited.x = (response.data.most_visited.x);</span>
+<span class="cstat-no" title="statement not covered" >					$scope.writingsuccess.number.classes_at_program.change(response.data.classes_at_program);</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.writingsuccess.number.classes_at_program.x = (response.data.classes_at_program.x);</span>
+<span class="cstat-no" title="statement not covered" >					$scope.writingsuccess.number.enrollment_at_program.change(response.data.enrollment_at_program);</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.writingsuccess.number.enrollment_at_program.x = (response.data.enrollment_at_program.x);</span>
+                    
+<span class="cstat-no" title="statement not covered" >                   $scope.writingsuccess.number.enrollement_based_on_textbook.change(response.data.enrollement_based_on_textbook);  </span>
+<span class="cstat-no" title="statement not covered" >					$rootScope.appLoader = false;</span>
+				}
+			 }	
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >        var localTask = "writingsuccessanalytics";</span>
+<span class="cstat-no" title="statement not covered" >        sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.writingsuccess.number.most_visited.change(response.data.analyticsdata.most_visited);</span>
+<span class="cstat-no" title="statement not covered" >            $scope.writingsuccess.number.classes_at_program.change(response.data.analyticsdata.classes_at_program);            </span>
+<span class="cstat-no" title="statement not covered" >            $scope.writingsuccess.number.enrollment_at_program.change(response.data.analyticsdata.enrollment_at_program);            </span>
+<span class="cstat-no" title="statement not covered" >            $scope.writingsuccess.number.enrollement_based_on_textbook.change(response.data.analyticsdata.enrollement_based_on_textbook);            </span>
+             
+            }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+            });
+        });
+    }
+&nbsp;
+    //Method for activities download
+<span class="cstat-no" title="statement not covered" >   $scope.writingsuccessdownload = <span class="fstat-no" title="function not covered" >function(task){</span></span>
+<span class="cstat-no" title="statement not covered" >         if($scope.startDate &amp;&amp; $scope.endDate){</span>
+<span class="cstat-no" title="statement not covered" >            var start = new Date($scope.startDate).getFullYear()+"-"+(Number(new Date($scope.startDate).getMonth())+1)+"-"+new Date($scope.startDate).getDate();</span>
+<span class="cstat-no" title="statement not covered" >            var end = new Date($scope.endDate).getFullYear()+"-"+(Number(new Date($scope.endDate).getMonth())+1)+"-"+new Date($scope.endDate).getDate();</span>
+<span class="cstat-no" title="statement not covered" >            window.location = appUrl+task+"?start_date="+start+"&amp;end_date="+end+"&amp;program_id=Writing Success";</span>
+        }
+        else{
+<span class="cstat-no" title="statement not covered" >            window.location = appUrl+task+"?program_id=Writing Success";</span>
+        }
+    }
+<span class="cstat-no" title="statement not covered" >    $scope.downloadbtn = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.isActive_down = !$scope.isActive_down;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    $scope.closedownload = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.isActive_down = false;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.reportdownloadbtn = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.isActive_downreport = !$scope.isActive_downreport;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    $scope.reportclosedownload = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.isActive_downreport = false;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.saveChartObj = <span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >        var chartObject =_.find(chartArray, <span class="fstat-no" title="function not covered" >function(obj){</span> <span class="cstat-no" title="statement not covered" >return obj.title.textStr  == response.title.textStr;}</span>);</span>
+<span class="cstat-no" title="statement not covered" >        if(angular.isDefined(chartObject)){</span>
+<span class="cstat-no" title="statement not covered" >            chartArray[chartArray.findIndex(x =&gt; <span class="cstat-no" title="statement not covered" >x.title.textStr === response.title.textStr)</span>] = response;</span>
+        }
+        else{
+<span class="cstat-no" title="statement not covered" >            chartArray.push(response);</span>
+        }
+    };
+    
+<span class="cstat-no" title="statement not covered" >    $scope.export = <span class="fstat-no" title="function not covered" >function(download){</span></span>
+<span class="cstat-no" title="statement not covered" >        reportService.exportCharts(chartArray,{type:download});</span>
+    };
+	 //Method for initilize controller
+<span class="fstat-no" title="function not covered" >    function initilizewritingsuccess(){        </span>
+<span class="cstat-no" title="statement not covered" >        $scope.writingsuccess = {};</span>
+<span class="cstat-no" title="statement not covered" >        reportDataReq = {</span>
+            'program_id': "Writing Success"
+        };
+<span class="cstat-no" title="statement not covered" >        writingsuccessreport(reportDataReq);</span>
+<span class="cstat-no" title="statement not covered" >        $scope.writingsuccess.vmDate = Last7Days().split(',')[Last7Days().split(',').length-1]+" To "+Last7Days().split(',')[0];</span>
+<span class="cstat-no" title="statement not covered" >        $scope.tableData = {</span>
+            pageName: 'writingsuccesstable',
+            isFilterbtns: false,
+            isSearch: true,
+            isPagination: true,
+            sortType: '',
+            isCheckboxhide: true,
+            headers: [{name: 'Course',bind_val: 'label',isSortable: true},
+                {name: 'No of enrolled users',bind_val: 'no_of_enrolled_users',isSortable: true},
+                {name: 'no of Activity',bind_val: 'no_of_activities',isSortable: true},
+                {name: 'no of Student Completed Course',bind_val: 'no_of_students_completed',isSortable: true},
+                {name: 'no of visit',bind_val: 'no_of_visits',isSortable: true},
+                {name: 'no of shares',bind_val: 'no_of_shares',isSortable: true},
+                {name: 'Time spent',bind_val: 'time_spent',isSortable: true},                
+            ],
+            data: []
+        };
+<span class="cstat-no" title="statement not covered" >		$scope.daterangecustompick = $scope.writingsuccess.vmDate;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.dateoptions={</span>
+            "locale": {
+              "format": "MM-DD-YYYY",
+            },
+            showDropdowns:true,
+            autoApply:true,
+            maxDate : new Date(),
+            eventHandlers: {
+                'apply.daterangepicker': <span class="fstat-no" title="function not covered" >function(ev, picker) {</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.daterangecustompick = ev.model.startDate.format('MM-DD-YYYY')+ ' To '+ev.model.endDate.format('MM-DD-YYYY');</span>
+<span class="cstat-no" title="statement not covered" >                    updateCharts(ev.model.startDate.format('MM-DD-YYYY'),ev.model.endDate.format('MM-DD-YYYY'));                    </span>
+                }
+            }
+        };
+<span class="cstat-no" title="statement not covered" >		    chartProperties=[</span>
+            {
+                chartTitle:"Writing Success- User visits",
+                taskUrl :"uservisitbyprogram",
+                key:"most_visited",
+                type:"line"
+            },
+            {
+                chartTitle:"Classes at Writing Success",
+                taskUrl :"classesatprogram",
+                key:"classes_at_program",
+                type:"line"
+            },
+            {
+                chartTitle:"Enrollment at Writing Success",
+                taskUrl :"enrolledatprogram",
+                key:"enrollment_at_program",
+                type:"line"
+            }, 
+            {
+                chartTitle:"Enrollement Based On Textbook",
+                taskUrl :"enrollementbasedontextbook",
+                key:"enrollement_based_on_textbook",
+                type:"bar"
+            }
+        ];
+    }    
+<span class="cstat-no" title="statement not covered" >    initilizewritingsuccess();</span>
+}]);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 18 2017 10:33:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

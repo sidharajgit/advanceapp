@@ -1,0 +1,137 @@
+<!--New Admin Panel-->
+<div layout="row" class="admin_container" id="admin" ng-cloak>
+<md-content ng-if="!isLoggedin">
+<div layout="row" layout-align="end center" class="login-pop">
+    <div flex="100">    
+        <div uib-alert dismiss-on-timeout="5000" close="closeBaner()" class="alert custom-alert cenmsg" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">{{alertBaner.message}}</div>    
+    </div>
+</div>
+<div layout="row" class="adminLoginCls" flex="100" layout-align="center center">
+<!--
+<div class="login-pop">
+   <div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">
+        <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert custom-alert cenmsg" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+           <div style="display: inline-block; width: 100%; text-align: center;">
+             <div class="icon_display">
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+              <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+              </svg>
+          </div>
+        </div>
+          <div class="display_message">{{alertBaner.message}}</div>
+       </div> 
+   </div>
+</div>
+-->
+<!--
+<div class="lft-wrap">
+<p>Welcome Admin</p>
+</div>    
+<div class="rgt-wrap">
+ <div class="logform-valid">
+	<form class="admin_login" name="admin_login" autocomplete="off" ng-enter="submit_login_admin()">
+		<div class="signInCls" ng-if="!isForgotpwd" layout="column" layout-align="center stretch">
+			<md-input-container  class="md-block">
+				<label>User Name / Email</label>
+				<input required="" tabindex="1" name="admin_login_username" type="text" ng-model="admin.admin_username">
+				<div ng-messages="admin_login.admin_login_username.$error">
+					<div ng-message="required">Username is required.</div>
+				</div>
+			</md-input-container>
+            <md-input-container ng-class="{'md-input-has-value': admin.admin_password}"  class="md-block">
+				<label>Password</label>
+				<input required="" tabindex="2" name="admin_login_password" type="{{showPwd}}" ng-model="admin.admin_password">
+				<a href="#"><i ng-click="showPwdChange()" class="fa fa-eye-slash" title="Show Password" ng-if="showPwd == 'password'"></i><i class="fa fa-eye" tabindex="3" ng-click="showPwdChange()" title="Hide Password" ng-if="showPwd == 'text'"></i></a>
+				<div ng-messages="admin_login.admin_login_password.$error">
+					<div ng-message="required">Password is required.</div>
+				</div>
+			</md-input-container>
+			<div class="forget-pw">
+				<a href="javascript:void(0);" class="forgotpw-link" ng-click="forgotPwd()">Forgot My Password</a>
+			</div>          
+			<div class="signbtn">
+				<md-button class="md-raised md-primary" tabindex="3" ng-click="submit_login_admin()" ng-disabled="!admin.admin_username || !admin.admin_password">Login</md-button>
+			</div>  
+		</div>
+	<div ng-if="isForgotpwd">
+		<div class="forgetPwdName" layout="column" layout-align="center stretch">
+			<md-input-container>
+				<label>User Name / Email Id</label>
+				<input type="text" name="admin_login_adminMail" ng-model="admin.adminMail"/> 
+			</md-input-container>
+			<div layout="row" layout-align="end center" class="frgt-pwd-btns">
+				<md-button  class="md-raised md-warn" ng-click="setbackTosignin($event)">Cancel</md-button>
+				<md-button ng-disabled="!admin.adminMail" class="md-raised md-primary" ng-click="resetAdminPwd($event)">Submit</md-button>
+			</div>
+		</div>   
+	</div>    
+	</form>
+</div>    
+</div>    
+-->
+<div class="login_screen">
+    <div class="logform-valid">
+        <form class="admin_login" name="admin_login" autocomplete="off" ng-enter="submit_login_admin()">
+            <div class="signInCls" ng-if="!isForgotpwd" layout="column" layout-align="center stretch">
+               <div class="logo_sec">
+                   <img src="dest/images/sommer_logo.png">
+               </div>
+                <md-input-container  class="md-block">
+                    <label>User Name</label>
+                    <input required="" tabindex="1" name="admin_login_username" type="text" ng-model="admin.admin_username">
+                    <div ng-messages="admin_login.admin_login_username.$error" class="admin_err_msg">
+                        <div ng-message="required">Username is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container ng-class="{'md-input-has-value': admin.admin_password}"  class="md-block">
+                    <label>Password</label>
+                    <input required="" tabindex="2" name="admin_login_password" type="{{showPwd}}" ng-model="admin.admin_password">
+                    <a href="#"><i ng-click="showPwdChange()" class="fa fa-eye-slash" title="Show Password" ng-if="showPwd == 'password'"></i><i class="fa fa-eye" tabindex="3" ng-click="showPwdChange()" title="Hide Password" ng-if="showPwd == 'text'"></i></a>
+                    <div ng-messages="admin_login.admin_login_password.$error" class="admin_err_msg">
+                        <div ng-message="required">Password is required.</div>
+                    </div>
+                </md-input-container>
+                <div class="signbtn">
+                    <md-button class="md-raised md-primary" tabindex="3" ng-click="submit_login_admin()" ng-disabled="!admin.admin_username || !admin.admin_password">Login</md-button>
+                </div>  
+                <div class="forget-pw">
+                    <a href="javascript:void(0);" class="forgotpw-link" ng-click="forgotPwd()">Forgot Password</a>
+                </div>          
+            </div>
+            <div ng-if="isForgotpwd">
+                <div class="forgetPwdName" layout="column" layout-align="center stretch">
+                   <div class="logo_sec">
+                       <img src="dest/images/sommer_logo.png">
+                   </div>
+					 <md-input-container>
+                        <label>Email Id</label>
+						 <input ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' ng-model="admin.adminMail" name="admin_login_adminMail" required>
+						<div ng-messages="admin_login.admin_login_adminMail.$error" class="admin_err_msg">							
+							<span ng-show="admin_login.admin_login_adminMail.$error.pattern">Please enter a valid email address</span>
+						    <span ng-show="admin_login.admin_login_adminMail.$error.required && admin_login.admin_login_adminMail.$touched">This is required.</span>	
+						</div>
+                    </md-input-container>
+                 <!--   <md-input-container>
+                        <label>User Name / Email Id</label>
+                        <input type="text" name="admin_login_adminMail" ng-model="admin.adminMail"/> 
+                    </md-input-container>-->
+                    <div layout="row" layout-align="end center" class="frgt-pwd-btns">
+                        <md-button  class="md-raised md-warn" ng-click="setbackTosignin($event)">Cancel</md-button>
+                        <md-button ng-disabled="!admin.adminMail" class="md-raised md-primary" ng-click="resetAdminPwd($event)">Submit</md-button>
+                    </div>
+                </div>   
+            </div>    
+        </form>
+    </div>    
+</div>
+
+
+</div>    
+</md-content>
+  <div ui-view="" ng-if="isLoggedin"></div>
+</div>

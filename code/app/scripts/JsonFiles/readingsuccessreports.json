@@ -1,0 +1,349 @@
+{  
+    "data": {
+        "users_at_program": {
+            "program": "Reading Success",
+            "users": [
+                {
+                    "label": "Active Users",
+                    "count": 7
+                },
+                {
+                    "label": "Inactive Users",
+                    "count": 12
+                },
+                {
+                    "label": "Deactivated Users",
+                    "count": 0
+                },
+                {
+                    "label": "Deleted Users",
+                    "count": 0
+                }
+            ]
+        },
+        "program_report": [
+            {
+                "label": "Textbook1",
+                "no_of_enrolled_users": 10,
+                "no_of_activities": 3,
+                "no_of_students_completed": 0,
+                "no_of_visits": 0,
+                "no_of_shares": 0,
+                "time_spent": "17:32:29"
+            },
+            {
+                "label": "Textbook4",
+                "no_of_enrolled_users": 14,
+                "no_of_activities": 12,
+                "no_of_students_completed": 0,
+                "no_of_visits": 0,
+                "no_of_shares": 0,
+                "time_spent": "22:14:32"
+            },
+            {
+                "label": "Textbook2",
+                "no_of_enrolled_users": 4,
+                "no_of_activities": 1,
+                "no_of_students_completed": 0,
+                "no_of_visits": 0,
+                "no_of_shares": 0,
+                "time_spent": "00:00:03"
+            }
+        ]
+    },
+ 
+    "analyticsdata": {
+        "most_visited": {
+            "title": "Reading Success- User visits",
+            "y_axis_label": "No. of visitors",
+            "x": [
+                "2017-06-28",
+                "2017-06-29",
+                "2017-06-30",
+                "2017-07-01",
+                "2017-07-02",
+                "2017-07-03",
+                "2017-07-04"
+            ],
+            "series": [
+                {
+                    "name": "Reading Success",
+                    "data": [
+                        341,
+                        351,
+                        384,
+                        384,
+                        384,
+                        392,
+                        400
+                    ]
+                }
+            ]
+        },
+
+        "classes_at_program": {
+            "title": "Classes at Reading Success",
+            "x": [
+                "2017-06-28",
+                "2017-06-29",
+                "2017-06-30",
+                "2017-07-01",
+                "2017-07-02",
+                "2017-07-03",
+                "2017-07-04"
+            ],
+            "series": [
+                {
+                    "name": "Number of classes",
+                    "data": [
+                        0,
+                        0,
+                        18,
+                        18,
+                        18,
+                        26,
+                        41
+                    ]
+                }
+            ]
+        },
+        "enrollement_based_on_textbook": {
+            "title": "Enrollement Based On Textbook",
+            "y_axis_label": "No. of enrollment",
+            "x": [
+                "2017-06-28",
+                "2017-06-29",
+                "2017-06-30",
+                "2017-07-01",
+                "2017-07-02",
+                "2017-07-03",
+                "2017-07-04"
+            ],
+            "series": [
+                {
+                    "name": "Textbook1",
+                    "data": [
+                        0,
+                        0,
+                        7,
+                        0,
+                        0,
+                        2,
+                        3
+                    ]
+                },
+                {
+                    "name": "Textbook4",
+                    "data": [
+                        0,
+                        0,
+                        7,
+                        0,
+                        0,
+                        4,
+                        2
+                    ]
+                },
+                {
+                    "name": "Textbook2",
+                    "data": [
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        2,
+                        0
+                    ]
+                }
+            ]
+        },
+        "enrollment_at_program": {
+            "title": "Enrollment at Reading Success",
+            "x": [
+                "2017-06-28",
+                "2017-06-29",
+                "2017-06-30",
+                "2017-07-01",
+                "2017-07-02",
+                "2017-07-03",
+                "2017-07-04"
+            ],
+            "series": [
+                {
+                    "name": "Number of enrollment",
+                    "data": [
+                        0,
+                        0,
+                        7,
+                        7,
+                        7,
+                        11,
+                        14
+                    ]
+                }
+            ]
+        }
+    },
+    
+ 
+  "user_visit": {
+    "title": "User Visit",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          169,
+          303,
+          376,
+          498
+        ]
+      }
+    ]
+  },
+  "classes_at_phonic": {
+    "title": "Classes at Reading Success",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          169,
+          303,
+          376,
+          498
+        ]
+      }
+    ]
+  },    
+  "enrollement_at_phonic": {
+    "title": "Enrollement at Reading Success",
+    "yAxis":"my text",
+    "x": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May"
+    ],
+    "series": [
+      {
+        "name": "forums",
+        "data": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "discussion",
+        "data": [
+          169,
+          303,
+          376,
+          498
+        ]
+      }
+    ]
+  },        
+ "enrollement_based_textbox": {
+    "title": "Enrollement Based on Textbox",
+    "x": [
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010"    
+    ],
+    
+    
+    "series": [
+        {
+        "name": "jan",
+        "data": [49.9, 71.5, 106.4, 129.2]
+
+        }, {
+            "name": "feb",
+            "data": [83.6, 78.8, 98.5, 93.4]
+
+        }, {
+            "name": "march",
+            "data": [48.9, 38.8, 39.3, 41.4]
+
+        }, {
+            "name": "april",
+            "data": [42.4, 33.2, 34.5, 39.7]
+
+        }
+    ]
+
+  },   
+ 
+
+
+  "class_status":{
+      
+       "title": 
+             "class status",      
+      "series": [{
+            "name": "Brands",
+            "colorByPoint": true,
+            "data": [{
+                "name": "Microsoft Internet Explorer",
+                "y": 56.33
+            }, {
+                "name": "Chrome",
+                "y": 24.03,
+                "sliced": true,
+                "selected": true
+            }, {
+                "name": "Firefox",
+                "y": 10.38
+            }, {
+                "name": "Safari",
+                "y": 4.77
+            }, {
+                "name": "Opera",
+                "y": 0.91
+            }, {
+                "name": "Proprietary or Undetectable",
+                "y": 0.2
+            }]
+        }]
+      
+  },
+    "message": "",
+    "status": "success"
+    
+}

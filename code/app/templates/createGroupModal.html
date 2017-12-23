@@ -1,0 +1,63 @@
+<md-dialog aria-label="Create New Class" class="Modal_wrap">
+      <div class="modal_alert" tabindex="-1" ng-click="closeBaner()" ng-if="alertBaner.showBaner">
+        <div uib-alert dismiss-on-timeout="7000" close="closeBaner()" class="alert" ng-class="alertBaner.banerClass" ng-if="alertBaner.showBaner">
+            <div class="icon_display">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                      <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                  </svg>
+                <svg class="checkmark_red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                      <circle class="checkmark__circle_red" cx="26" cy="26" r="25" fill="none"/>
+                                      <path class="close-x checkmark__check_red" fill="none" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                                  </svg>
+            </div>
+            <div class="display_message">{{alertBaner.message}}</div>
+        </div>
+    </div> 
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </md-button>
+      </div>
+    </md-toolbar> 
+  <form ng-cloak name="createGroupForm" ng-submit="addOrEditGroup(createGroupForm.$valid)" novalidate>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+          <div class="cr_class_sec">
+            <div class="form_fields form-group">
+               <div layout="row" layout-align="space-around center">
+                        <div flex="100">
+                            <div class="box-header">
+                              <h3 class="box-title group_title" ng-bind="(groupType === 'add')  ? 'Add New Group' : 'Group Edit'"></h3>
+                            </div>
+                            <p>&nbsp;</p>
+                        </div>
+                </div>
+                <div layout="row" layout-padding layout-wrap layout-fill ng-cloak>
+                    <md-input-container flex="60" class="cl_field">
+                        <label>Group Name</label>
+                        <input ng-model="obj.groupname" ng-pattern="/^\w+(\s\w+)*$/" class="form-control" name="groupname" ng-maxlength="25" required ng-keyup="err.groupErrorMsg=''">
+                        <div ng-messages="createGroupForm.groupname.$error">
+                            <span ng-message="required">This is required.</span>
+                            <span ng-message="pattern">Invalid Class Name</span>
+                            <span ng-message="max">Classname is too long</span>
+                        </div>
+                        <span class="error-text" ng-if="err.groupErrorMsg">{{err.groupErrorMsg}}</span>
+                        
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-align="space-around center">
+                    <div flex="100">
+                        <md-button aria-label="button" class="md-raised md-warn btn-cancel secondry_btn" ng-click="cancel()">Cancel</md-button>
+                        <md-button ng-if="groupType === 'add'" aria-label="button" type="submit" ng-disabled="createGroupForm.$invalid" class="btn-cancel md-raised md-primary md-button md-ink-ripple primary_btn">Create</md-button> 
+                        <md-button ng-if="groupType === 'edit'" aria-label="button" type="submit" ng-disabled="createGroupForm.$invalid" class="btn-cancel md-raised md-primary md-button md-ink-ripple primary_btn">Update</md-button> 
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

@@ -1,0 +1,1715 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\classEditController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> classEditController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.24% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/278</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/76</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/82</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.27% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/275</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">advancePubapp.controller('classEditController',['$scope','sfactory','$timeout', '$q','$rootScope','$filter','$mdDialog','cacheService', <span class="fstat-no" title="function not covered" >function($scope,sfactory,$timeout,$q,$rootScope,$filter,$mdDialog,cacheService){</span>
+     
+	//banner emit in class management conteoller
+<span class="cstat-no" title="statement not covered" >	$scope.captureBaner = <span class="fstat-no" title="function not covered" >function(value){</span></span>
+<span class="cstat-no" title="statement not covered" >        var banerData = {'message':value.message,'showBaner':value.showBaner,'banerClass':value.banerClass};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData,'list':value.switchMenu});</span>
+    };
+<span class="cstat-no" title="statement not covered" >	$scope.$on('emitFromDirectiveBaner', <span class="fstat-no" title="function not covered" >function(event, args) {</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.alertBaner = args.alertBaner;</span>
+    });
+	
+<span class="cstat-no" title="statement not covered" >    if($scope.contentBody.isMessage){  </span>
+    //method for delete 
+<span class="cstat-no" title="statement not covered" >    $scope.deleteclassmessage = <span class="fstat-no" title="function not covered" >function(messageid){</span></span>
+<span class="cstat-no" title="statement not covered" >		var task       = "messaging.messageActions";</span>
+<span class="cstat-no" title="statement not covered" >		var data = {'messageId':messageid,"actionType":"delete"};</span>
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(data,task,'listDetails').then(<span class="fstat-no" title="function not covered" >function(response){            </span></span>
+<span class="cstat-no" title="statement not covered" >            if($filter('lowercase')(response.status) == 'success'){</span>
+<span class="cstat-no" title="statement not covered" >				var matchmessageid = messageid;</span>
+<span class="cstat-no" title="statement not covered" >				var matchdeleteid  = ( _.filter($scope.messagetabs[0]['content'], <span class="fstat-no" title="function not covered" >function(num){</span> <span class="cstat-no" title="statement not covered" >return _.contains(matchmessageid,num.messageId) }</span>));</span>
+<span class="cstat-no" title="statement not covered" >				if(matchdeleteid.length &gt; 0){</span>
+<span class="cstat-no" title="statement not covered" >					_.each(matchdeleteid,<span class="fstat-no" title="function not covered" >function(selectedItems){</span></span>
+<span class="cstat-no" title="statement not covered" >						deleteUniq($scope.messagetabs[0]['content'], 'messageId', selectedItems.messageId); </span>
+					});
+				}
+<span class="cstat-no" title="statement not covered" >				var banerData = {'message':response.message,'showBaner':true,'banerClass':'alert-success'};</span>
+<span class="cstat-no" title="statement not covered" >				$scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData});</span>
+<span class="cstat-no" title="statement not covered" >				$scope.$emit('emitForClose',{'isSingleuser':false,'isMultiuser':false,'showicon':true});</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >					var banerData = {'message':'The group is non deletable','showBaner':true,'banerClass':'alert-success'};</span>
+<span class="cstat-no" title="statement not covered" >					$scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData});</span>
+<span class="cstat-no" title="statement not covered" >					$scope.$emit('emitForClose',{'isSingleuser':false,'isMultiuser':false,'showicon':true});</span>
+				}
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+        },<span class="fstat-no" title="function not covered" >function(error){           </span>
+        });
+	}	
+    
+      //Method for checkbox    
+<span class="cstat-no" title="statement not covered" >    $scope.selectedclassmessage = [];</span>
+<span class="cstat-no" title="statement not covered" >		$scope.classmessagetoggle = <span class="fstat-no" title="function not covered" >function (item, list) {</span></span>
+<span class="cstat-no" title="statement not covered" >			var idx = list.indexOf(item);</span>
+<span class="cstat-no" title="statement not covered" >			if (idx &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >				list.splice(idx, 1);</span>
+			}
+			else {
+<span class="cstat-no" title="statement not covered" >				list.push(item);</span>
+			}
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		$scope.classmessageexists = <span class="fstat-no" title="function not covered" >function (item, list) {</span></span>
+<span class="cstat-no" title="statement not covered" >			return list.indexOf(item) &gt; -1;</span>
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		$scope.classmessageIndeterminate = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >			return ($scope.selectedclassmessage.length !== 0 &amp;&amp;</span>
+			$scope.selectedclassmessage.length !== $scope.messageid.length);
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		$scope.classMessageSelectAll = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >		if ($scope.selectedclassmessage.length === $scope.messageid.length) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.selectedclassmessage = [];</span>
+		} else <span class="cstat-no" title="statement not covered" >if ($scope.selectedclassmessage.length === 0 || $scope.selectedclassmessage.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.selectedclassmessage = $scope.messageid.slice(0);</span>
+		}
+	};
+        
+	//Method for send item contents
+<span class="cstat-no" title="statement not covered" >		$scope.messagetabs = [</span>
+		  { title: 'SENT', content: []}
+		];		
+<span class="cstat-no" title="statement not covered" >		var serRequest = JSON.stringify({receiverClassId:$scope.contentBody.id});</span>
+<span class="cstat-no" title="statement not covered" >		angular.forEach($scope.messagetabs, <span class="fstat-no" title="function not covered" >function (val, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >			if(val.title == 'SENT'){</span>
+				//messagetabs[key]['content'] = 'djsfsf';
+<span class="cstat-no" title="statement not covered" >					$scope.sendClassMessageList = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >					var task       = "messaging.sentMessageList";</span>
+					
+<span class="cstat-no" title="statement not covered" >					sfactory.serviceCall(serRequest,task,'listDetails').then(<span class="fstat-no" title="function not covered" >function(response){ </span></span>
+<span class="cstat-no" title="statement not covered" >						$scope.messagetabs[key]['content'] = response.data;</span>
+<span class="cstat-no" title="statement not covered" >						if($filter('lowercase')(response.status) == 'success'){</span>
+<span class="cstat-no" title="statement not covered" >							$scope.messagetabs[key]['content'] = response.data; </span>
+<span class="cstat-no" title="statement not covered" >                            $scope.messageid = _.pluck(response.data, 'messageId') </span>
+<span class="cstat-no" title="statement not covered" >							$scope.initMessageObj();</span>
+						}else{
+							
+						}
+<span class="cstat-no" title="statement not covered" >						$rootScope.appLoader = false;</span>
+					});
+				}
+			}
+		}) 			
+				
+<span class="cstat-no" title="statement not covered" >		$scope.sendClassMessageList();	</span>
+		/* Method to initialize Message object object */
+<span class="cstat-no" title="statement not covered" >		$scope.initMessageObj = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >			$scope.message = {messageTo:'',messageSubject:'',messageContent:''};    </span>
+		}
+<span class="cstat-no" title="statement not covered" >		$scope.initMessageObj();</span>
+		//Method for message send
+<span class="cstat-no" title="statement not covered" >		$scope.createClassMessage = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >			$scope.message.receiverClassId = $scope.data.id;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.message.receiverUserEmail = $scope.data.email;</span>
+<span class="cstat-no" title="statement not covered" >			var serRequest = JSON.stringify($scope.message);</span>
+<span class="cstat-no" title="statement not covered" >			var task       = "messaging.composeUserMail";</span>
+			
+<span class="cstat-no" title="statement not covered" >			sfactory.serviceCall(serRequest,task,'listDetails').then(<span class="fstat-no" title="function not covered" >function(response){            </span></span>
+<span class="cstat-no" title="statement not covered" >				if($filter('lowercase')(response.status) == 'success'){</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.messagetabs[0]['content'].push($scope.message);</span>
+<span class="cstat-no" title="statement not covered" >					var banerData = {'message':response.message,'showBaner':true,'banerClass':'alert-success'};</span>
+<span class="cstat-no" title="statement not covered" >					$scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData});</span>
+<span class="cstat-no" title="statement not covered" >					$scope.$emit('emitForClose',{'isSingleuser':false,'isMultiuser':false,'showicon':true});</span>
+<span class="cstat-no" title="statement not covered" >					$scope.initMessageObj();</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.contentBody.showChild = false;</span>
+<span class="cstat-no" title="statement not covered" >                    $timeout(<span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >						$scope.contentBody.showChild = true;</span>
+					},0)
+				}else{
+<span class="cstat-no" title="statement not covered" >					var banerData = {'message':response.message,'showBaner':true,'banerClass':'alert-danger'};</span>
+<span class="cstat-no" title="statement not covered" >					$scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData});</span>
+				}
+<span class="cstat-no" title="statement not covered" >				$rootScope.appLoader = false;</span>
+			},<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >				if(response){</span>
+<span class="cstat-no" title="statement not covered" >					var banerData    = {'message':response.message,'showBaner':true,'banerClass':'alert-danger'};</span>
+<span class="cstat-no" title="statement not covered" >					$scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData});</span>
+				}
+			});
+		}
+        
+       //Method for send mail    
+<span class="cstat-no" title="statement not covered" >       $scope.viewsentclassmail = <span class="fstat-no" title="function not covered" >function(content){</span></span>
+<span class="cstat-no" title="statement not covered" >			$mdDialog.show({</span>
+				controller: 'userSentMailViewController',
+				templateUrl: 'dest/templates/userSentMailView.html',
+				parent: angular.element(document.body),
+				clickOutsideToClose:false,
+				fullscreen: true,
+				locals: {
+				   mailcontent: content
+				 }
+			}).then(<span class="fstat-no" title="function not covered" >function() {            </span>
+			}, <span class="fstat-no" title="function not covered" >function() {</span>
+				
+			});
+		}  
+	}
+    
+    //Method for contentbody watch
+<span class="cstat-no" title="statement not covered" >	$scope.$watchCollection('contentBody',<span class="fstat-no" title="function not covered" >function(newVal,oldVal){</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.data.viewChild  = newVal.viewChild;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.data.showChild  = newVal.showChild;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.data.isEditable = newVal.isEditable;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.data.isAddUser = newVal.isAddUser;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.data.isAddCourse = newVal.isAddCourse;</span>
+		
+<span class="cstat-no" title="statement not covered" >		if($scope.contentBody.isEditable &amp;&amp; $scope.contentBody.editcourse){</span>
+<span class="cstat-no" title="statement not covered" >			if(!angular.isDefined($scope.coursecatcoryarray)){</span>
+<span class="cstat-no" title="statement not covered" >				$scope.classeditcourse();</span>
+			}
+		}
+		
+<span class="cstat-no" title="statement not covered" >		if($scope.contentBody.isEditable &amp;&amp; $scope.contentBody.edituser){</span>
+<span class="cstat-no" title="statement not covered" >			if(!angular.isDefined($scope.classedituseresponse)){</span>
+<span class="cstat-no" title="statement not covered" >				classeditusers();</span>
+			}			
+		}
+		
+<span class="cstat-no" title="statement not covered" >		if($scope.contentBody.isEditable &amp;&amp; $scope.contentBody.editall){</span>
+<span class="cstat-no" title="statement not covered" >			myadmintype();</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if($scope.contentBody.viewChild){</span>
+<span class="cstat-no" title="statement not covered" >			classviewcourse();</span>
+<span class="cstat-no" title="statement not covered" >			classviewusers();</span>
+		}
+<span class="cstat-no" title="statement not covered" >		$scope.data = angular.copy($scope.contentBody);</span>
+    });
+    /* Method to submit update/edit values of user */
+<span class="cstat-no" title="statement not covered" >    $scope.class_update_cancel = <span class="fstat-no" title="function not covered" >function(body){</span></span>
+<span class="cstat-no" title="statement not covered" >        var showItems = ["showChild","isEditable","isAddCourse","isAddUser","editcourse","edituser","editall","viewChild"];</span>
+<span class="cstat-no" title="statement not covered" >        _.filter(showItems, <span class="fstat-no" title="function not covered" >function (key) {</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.contentBody[key] = false;</span>
+        });
+    }
+    
+    /*Method for class edit*/
+<span class="cstat-no" title="statement not covered" >    $scope.classedit = <span class="fstat-no" title="function not covered" >function(classdata){</span></span>
+<span class="cstat-no" title="statement not covered" >        var data = JSON.stringify({</span>
+            "classid": classdata.id,
+            "classname": classdata.name,
+            "groupid": classdata.groupid,
+            "roletype": classdata.roletype,
+            "adminid": classdata.userid
+        });        
+<span class="cstat-no" title="statement not covered" >        var task = "classes.classUpdate"; </span>
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(data, task,"listDetails").then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if($filter('lowercase')(response.status) == 'success'){</span>
+<span class="cstat-no" title="statement not covered" >            $scope.contentBody.isEditable = false;</span>
+<span class="cstat-no" title="statement not covered" >			roleType = classroletypecheck(Number(classdata.roletype));</span>
+<span class="cstat-no" title="statement not covered" >			classdata.roleType = roleType;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.selectedItemadmin = classdata.class_admin;</span>
+<span class="cstat-no" title="statement not covered" >            classeditmodelAssign($scope.contentBody,classdata,response.data);</span>
+<span class="cstat-no" title="statement not covered" >            var banerData = {'message':response.message,'showBaner':true,'banerClass':'alert-success'};</span>
+<span class="cstat-no" title="statement not covered" >            $scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData});</span>
+        }
+        else{
+<span class="cstat-no" title="statement not covered" >            var banerData = {'message':response.message,'showBaner':true,'banerClass':'alert-danger'};</span>
+<span class="cstat-no" title="statement not covered" >            $scope.$emit('emitFromDirectiveBaner',{'alertBaner':banerData});</span>
+        }
+<span class="cstat-no" title="statement not covered" >        $rootScope.appLoader = false;</span>
+        }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >            var banerData = {</span>
+                'message': response.message,
+                'showBaner': true,
+                'banerClass': 'alert-danger'
+            };
+<span class="cstat-no" title="statement not covered" >            $scope.$emit('emitFromDirectiveBaner', {</span>
+                'alertBaner': banerData
+            });
+        });
+    };
+    
+<span class="fstat-no" title="function not covered" >	function classroletypecheck(id){</span>
+<span class="cstat-no" title="statement not covered" >		classroletype  = [{"roleid":3,"rolname":"Teacher"},{"roleid":5,"rolname":"Student"},{"roleid":9,"rolname":"Parent"},{"roleid":10,"rolname":"Group Admin"}];</span>
+<span class="cstat-no" title="statement not covered" >		filteredrole   = _.findWhere(classroletype, {roleid: id});</span>
+<span class="cstat-no" title="statement not covered" >		return filteredrole.rolname;</span>
+	}
+	
+    /*Method for tablevalue without server data*/
+<span class="fstat-no" title="function not covered" >    function classeditmodelAssign(model,currentdata,response){</span>
+<span class="cstat-no" title="statement not covered" >        model.id            = currentdata.id,</span>
+        model.name          = currentdata.name,
+        model.classcode     = currentdata.classcode,
+        model.registerdate  = currentdata.registerdate,
+        model.roletype      = currentdata.roletype,
+        model.roleType      = currentdata.roleType,
+        model.groupname     = currentdata.groupname,
+        model.class_admin   = currentdata.class_admin,
+        model.block         = true,
+        model.row_Checkbox  = false,
+        model.class_status  = "1",
+        model.groupid       = currentdata.groupid
+    }  
+	
+<span class="cstat-no" title="statement not covered" >   $scope.$on('emitupdateuserdata',<span class="fstat-no" title="function not covered" >function(event,args){</span></span>
+<span class="cstat-no" title="statement not covered" >		$scope.contentBody.user_count = args.user_count;</span>
+<span class="cstat-no" title="statement not covered" >		if(args.value){</span>
+<span class="cstat-no" title="statement not covered" >			if(!angular.isDefined($scope.contentBody.enrolled_users)){</span>
+<span class="cstat-no" title="statement not covered" >				$scope.contentBody.enrolled_users = [];</span>
+			}
+<span class="cstat-no" title="statement not covered" >			$scope.contentBody.enrolled_users.push(args.user);</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if(!args.value){</span>
+<span class="cstat-no" title="statement not covered" >			$scope.contentBody.enrolled_users.pop(args.user);</span>
+		}
+	});
+	
+<span class="cstat-no" title="statement not covered" >    $scope.gathereditCoursesvalues = <span class="fstat-no" title="function not covered" >function(selectedCourseid,course_count,content,value){</span></span>
+<span class="cstat-no" title="statement not covered" >		$scope.contentBody.course_count = course_count;</span>
+<span class="cstat-no" title="statement not covered" >		if(content.type == 'course'){</span>
+<span class="cstat-no" title="statement not covered" >			if(value){</span>
+<span class="cstat-no" title="statement not covered" >				if(!angular.isDefined($scope.contentBody.enrolled_courses)){</span>
+<span class="cstat-no" title="statement not covered" >					$scope.contentBody.enrolled_courses = [];</span>
+				}
+<span class="cstat-no" title="statement not covered" >				$scope.contentBody.enrolled_courses.push(content.courses);</span>
+			}
+<span class="cstat-no" title="statement not covered" >			if(!value){</span>
+<span class="cstat-no" title="statement not covered" >				$scope.contentBody.enrolled_courses.pop(content.courses);</span>
+			}
+		}		
+    }
+  	/**
+     * Create filter function for a query string
+     */
+<span class="cstat-no" title="statement not covered" >    $scope.createFilterFor = <span class="fstat-no" title="function not covered" >function(query) {	</span></span>
+<span class="cstat-no" title="statement not covered" >        var lowercaseQuery = query;</span>
+<span class="cstat-no" title="statement not covered" >		return <span class="fstat-no" title="function not covered" >function filterFn(state) {	</span></span>
+<span class="cstat-no" title="statement not covered" >		var nameval=angular.lowercase(state.name);</span>
+<span class="cstat-no" title="statement not covered" >		return (nameval.indexOf(lowercaseQuery) === 0);</span>
+		};
+    }
+		
+	 /* Method to get selected object from auto complete */
+<span class="cstat-no" title="statement not covered" >    $scope.selectedItemChange = <span class="fstat-no" title="function not covered" >function(item){</span></span>
+<span class="cstat-no" title="statement not covered" >        if(item){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.data.groupid = item.id;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.data.groupname = item.name;</span>
+        }
+    }
+&nbsp;
+  
+<span class="cstat-no" title="statement not covered" >    $scope.querySearch = <span class="fstat-no" title="function not covered" >function(query) {</span></span>
+<span class="cstat-no" title="statement not covered" >		var results = query ? $scope.states.filter( $scope.createFilterFor(query) ) : $scope.states;</span>
+<span class="cstat-no" title="statement not covered" >		var deferred = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >		$timeout(<span class="fstat-no" title="function not covered" >function () {</span> <span class="cstat-no" title="statement not covered" >deferred.resolve( results ); </span>}, Math.random() * 1000, false);</span>
+<span class="cstat-no" title="statement not covered" >		return deferred.promise;</span>
+    }
+	
+<span class="cstat-no" title="statement not covered" >    $scope.selectedItemChangeadmin = <span class="fstat-no" title="function not covered" >function(item){</span></span>
+<span class="cstat-no" title="statement not covered" >        if(item){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.data.userid = item.id;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.data.class_admin = item.name;</span>
+        }
+    }
+	 
+<span class="cstat-no" title="statement not covered" >	$scope.querySearchadmin = <span class="fstat-no" title="function not covered" >function(query) {</span></span>
+<span class="cstat-no" title="statement not covered" >		var results = query ? $scope.adminname.filter( $scope.createFilterFor(query) ) : $scope.adminname;</span>
+<span class="cstat-no" title="statement not covered" >		var deferred = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >		$timeout(<span class="fstat-no" title="function not covered" >function () {</span> <span class="cstat-no" title="statement not covered" >deferred.resolve( results ); </span>}, Math.random() * 1000, false);</span>
+<span class="cstat-no" title="statement not covered" >		return deferred.promise;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function getallGrp(){</span>
+<span class="cstat-no" title="statement not covered" >		var groupReq ={};</span>
+<span class="cstat-no" title="statement not covered" >		var taskgroup = "classes.get_all_groups";</span>
+<span class="cstat-no" title="statement not covered" >		sfactory.serviceCall(groupReq,taskgroup,"listDetails").then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >			$scope.states= JSON.parse(JSON.stringify(response.data));</span>
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+		},<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >			var localTask = "groupname";</span>
+<span class="cstat-no" title="statement not covered" >			sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){	</span></span>
+<span class="cstat-no" title="statement not covered" >			$scope.states= JSON.parse(JSON.stringify(response.data));</span>
+			},<span class="fstat-no" title="function not covered" >function(error){</span>
+			});
+		});
+	}
+    
+<span class="cstat-no" title="statement not covered" >	$scope.myadmintype=<span class="fstat-no" title="function not covered" >function()</span></span>
+	{   
+<span class="cstat-no" title="statement not covered" >	    $scope.selectedItemadmin  = null;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.searchTextadmin    = null;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.data.class_admin="";</span>
+<span class="cstat-no" title="statement not covered" >	    var gid=$scope.data.groupid; </span>
+<span class="cstat-no" title="statement not covered" >		var userroleReq ={"groupid":gid,"admintype":$scope.data.roletype};</span>
+<span class="cstat-no" title="statement not covered" >        var taskrolegrp = "classes.classadminlistrole";</span>
+        /* Method to fetch class details */
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(JSON.stringify(userroleReq),taskrolegrp,"listDetails").then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.adminname = response.data;</span>
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+        },<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >            var localTask = "groupname";</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.adminname = response.data.data.data;</span>
+            },<span class="fstat-no" title="function not covered" >function(error){</span>
+            });
+        });
+	}
+    
+    //method for myadmintype
+<span class="fstat-no" title="function not covered" >	function myadmintype()</span>
+	{
+<span class="cstat-no" title="statement not covered" >		var gid=$scope.data.groupid;</span>
+<span class="cstat-no" title="statement not covered" >		var userroleReq ={"groupid":gid,"admintype":$scope.data.roletype};</span>
+<span class="cstat-no" title="statement not covered" >        var taskrolegrp = "classes.classadminlistrole";</span>
+        /* Method to fetch class details */
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(JSON.stringify(userroleReq),taskrolegrp,"listDetails").then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.adminname = response.data;</span>
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+        },<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >            var localTask = "groupname";</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.adminname = response.data.data.data;</span>
+            },<span class="fstat-no" title="function not covered" >function(error){</span>
+            });
+        });
+		
+	}
+	
+    //method for classviewcourse
+<span class="fstat-no" title="function not covered" >	function classviewcourse(){</span>
+<span class="cstat-no" title="statement not covered" >		$scope.crossicon = {showform :false,showicon:false};</span>
+<span class="cstat-no" title="statement not covered" >        var templatepath = templateURL+"dest/templates/";</span>
+<span class="cstat-no" title="statement not covered" >         $scope.tableDataviewcoursenew = {</span>
+			pageName:'classcoursemanagement', 
+            isFilterbtns:false,
+            isSearch:true,
+            isPagination:true,
+			isCheckboxhide:true,
+            isrowSelect:false,
+			sortType:'coursename',
+            headers:[
+                {name:'Course Name',bind_val:'coursename',isSortable:true},
+                {name:'Book Name',bind_val:'category_textbook',isSortable:true,isDescColumn:true},
+				{name:'Category',bind_val:'cat_name',isSortable:true},
+            ],
+            data:[]
+        }
+<span class="cstat-no" title="statement not covered" >        var viewcourseReq = JSON.stringify({"classid":$scope.data.id});</span>
+<span class="cstat-no" title="statement not covered" >        var viwcoursetask = "classes.view_class_course";</span>
+        /* Method to fetch user details */
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(viewcourseReq,viwcoursetask,'listDetails').then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.tableDataviewcoursenew.data = response.data;</span>
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+        },<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >            var localTask = "classcourselist";</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.tableDataviewcoursenew.data = response.data.data.data;</span>
+            },<span class="fstat-no" title="function not covered" >function(error){</span>
+            });
+        });
+	
+    }
+    
+    //method for classviewusers
+<span class="fstat-no" title="function not covered" >	function classviewusers(){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.crossicon = {showform :false,showicon:false};</span>
+<span class="cstat-no" title="statement not covered" >        var templatepath = templateURL+"dest/templates/";</span>
+<span class="cstat-no" title="statement not covered" >         $scope.tableDataviewusers = {</span>
+			pageName:'classuserviewmanagement', 
+            isFilterbtns:false,
+            isSearch:true,
+            isPagination:true,
+			isCheckboxhide:true,
+            isrowSelect:false,
+			sortType:'name',
+            headers:[
+                {name:'Name',bind_val:'name',isSortable:true},
+                {name:'User Name',bind_val:'username',isSortable:true},
+				{name:'User Type',bind_val:'usertype',isSortable:true},
+				{name:'Email ID',bind_val:'email',isSortable:true},
+               
+            ],
+            data:[]
+        }
+<span class="cstat-no" title="statement not covered" >       var viewuserReq = JSON.stringify({"classid":$scope.data.id});</span>
+<span class="cstat-no" title="statement not covered" >        var viewusertask = "classes.view_class_user";</span>
+        /* Method to fetch user details */
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(viewuserReq,viewusertask,'listDetails').then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.tableDataviewusers.data = response.data;</span>
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+        },<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >            var localTask = "allclassuserlist";</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.tableDataviewusers.data = response.data.data.data;</span>
+            },<span class="fstat-no" title="function not covered" >function(error){</span>
+            });
+        });
+    }
+    
+	//method for viewsectioncontent
+<span class="cstat-no" title="statement not covered" >    $scope.viewsectioncontent = <span class="fstat-no" title="function not covered" >function(data, index){</span></span>
+<span class="cstat-no" title="statement not covered" >      data.viewsection = true;</span>
+<span class="cstat-no" title="statement not covered" >      $scope.index = index;</span>
+    }
+    
+	//method for close content
+<span class="cstat-no" title="statement not covered" >	$scope.closecontent = <span class="fstat-no" title="function not covered" >function(data,$event){ </span></span>
+<span class="cstat-no" title="statement not covered" >		$event.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >		$event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >	    data.viewsection = false;</span>
+	}
+	//Method for get current tab
+<span class="cstat-no" title="statement not covered" >	$scope.getClassCurrentTab = <span class="fstat-no" title="function not covered" >function(courseSearch){</span></span>
+<span class="cstat-no" title="statement not covered" >      var tabMap = {'Phonics Adventure':0,'Number Success':1};</span>
+<span class="cstat-no" title="statement not covered" >      $scope.filteredData = $filter('filter')($scope.contentmanagement, courseSearch);</span>
+<span class="cstat-no" title="statement not covered" >      $scope.contentTabindex = ($scope.filteredData &amp;&amp; $scope.filteredData.length &gt; 0) ? tabMap[$scope.filteredData[0].name] : 0;</span>
+    }
+	  
+<span class="cstat-no" title="statement not covered" >    $scope.classeditcourse = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >		$scope.contentTabindex = 0;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.pagename = "classeditcourse";</span>
+<span class="cstat-no" title="statement not covered" >        $scope.crossicon = {showform :false,showicon:false};</span>
+<span class="cstat-no" title="statement not covered" >        var templatepath = templateURL+"dest/templates/";</span>
+<span class="cstat-no" title="statement not covered" >        var viewcourseReq = {"classid":$scope.data.id};       </span>
+<span class="cstat-no" title="statement not covered" >        var task = "classes.classContentsList";</span>
+		
+<span class="cstat-no" title="statement not covered" >		if(angular.isUndefined($scope.contentmanagement)){</span>
+<span class="cstat-no" title="statement not covered" >			sfactory.serviceCall(JSON.stringify(viewcourseReq),task,"listDetails").then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >				$rootScope.appLoader = false;</span>
+<span class="cstat-no" title="statement not covered" >				if(response.status.toLowerCase() == "success"){</span>
+<span class="cstat-no" title="statement not covered" >					$scope.contentmanagement = response.data;</span>
+<span class="cstat-no" title="statement not covered" >					$scope.getClassCurrentTab();</span>
+				}
+			},<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >				var localTask = "contentmanagement";</span>
+<span class="cstat-no" title="statement not covered" >				sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >					$scope.contentmanagement = response.data.data;</span>
+<span class="cstat-no" title="statement not covered" >					$scope.getClassCurrentTab();</span>
+				},<span class="fstat-no" title="function not covered" >function(error){</span>
+				});
+			});
+		}	
+<span class="cstat-no" title="statement not covered" >		$scope.activitiesHead =  {name:'Available',bind_val:'dummy',isSortable:false,isActionColumn:true,columnName:"ClassEnrollButtons",actionName:'classes.classEnrollCourse',apiParams:{'courseid':null,'classid':$scope.data.id}};</span>
+    }
+	
+	//method for parent to user
+<span class="cstat-no" title="statement not covered" >	$scope.updateparenttostudent = <span class="fstat-no" title="function not covered" >function(val){</span></span>
+<span class="cstat-no" title="statement not covered" >		$scope.contentBody.parentname = val.parentname;</span>
+<span class="cstat-no" title="statement not covered" >		_.each($scope.tableDataeditusers.data, <span class="fstat-no" title="function not covered" >function(data){</span></span>
+<span class="cstat-no" title="statement not covered" >			if(data.id == val.userid){</span>
+<span class="cstat-no" title="statement not covered" >				data.parentname = val.parentname;</span>
+			}
+		});
+	}
+	
+    //method for classeditusers
+<span class="fstat-no" title="function not covered" >	function classeditusers(){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.crossicon = {showform :false,showicon:false};</span>
+<span class="cstat-no" title="statement not covered" >        var templatepath = templateURL+"dest/templates/";</span>
+<span class="cstat-no" title="statement not covered" >        $scope.tableDataeditusers = {</span>
+			pageName:'classusermanagement',
+            isFilterbtns:false,
+            isSearch:true,
+            isPagination:true,
+			isCheckboxhide:true,
+            isrowSelect:false,
+			sortType:'name',
+            headers:[
+                {name:'Name',bind_val:'name',isSortable:true},
+                {name:'User Name',bind_val:'username',isSortable:true},
+                {name:'Parent',bind_val:'parentname',isActionColumn:true,columnName:"addWithtext",paramvalue:'Parent'},
+                {name:'status',bind_val:'dummy',isSortable:false,isActionColumn:true,columnName:"UpdateUserButtons"},
+            ],
+            data:[]
+        }
+				
+<span class="cstat-no" title="statement not covered" >        var editcourseReq  = JSON.stringify({"classid":$scope.data.id});</span>
+<span class="cstat-no" title="statement not covered" >        var editcoursetask = "classes.updatestudentfetch";</span>
+        /* Method to fetch user details */
+<span class="cstat-no" title="statement not covered" >        sfactory.serviceCall(editcourseReq,editcoursetask,"listDetails").then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.tableDataeditusers.data = response.data;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.classedituseresponse    = response.data;</span>
+<span class="cstat-no" title="statement not covered" >			$rootScope.appLoader = false;</span>
+        },<span class="fstat-no" title="function not covered" >function(error){</span>
+<span class="cstat-no" title="statement not covered" >            var localTask = "allclassuserlist";</span>
+<span class="cstat-no" title="statement not covered" >            sfactory.localService(localTask).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.tableDataeditusers.data = response.data.data.data;</span>
+            },<span class="fstat-no" title="function not covered" >function(error){</span>
+            });
+        });
+	
+    }
+    
+     /* Method to initiate controller scope properties */
+<span class="fstat-no" title="function not covered" >    function initiateController(){</span>
+<span class="cstat-no" title="statement not covered" >        $scope.datatable ={};</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.data = angular.copy($scope.contentBody);</span>
+        // Auto Complete  
+<span class="cstat-no" title="statement not covered" >        $scope.selectedItem  = $scope.data.groupname;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.searchText    = $scope.data.groupname;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.selectedItemadmin  = $scope.data.class_admin;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.searchTextadmin    = $scope.data.class_admin;</span>
+    }
+	// Intialize Controller
+<span class="cstat-no" title="statement not covered" >    initiateController();</span>
+	
+}]);
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 18 2017 10:33:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

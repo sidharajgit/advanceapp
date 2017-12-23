@@ -1,0 +1,550 @@
+{
+    "data": {
+        "content": {
+            "name": "Media Type",
+            "toggleParent": true,
+            "class": "",
+            "section": [
+                {
+                    "id": 24,
+                    "name": "Ebooks",
+                    "level": "one",
+                    "class": "submenu",
+                    "section": [
+                        {
+                            "id": 43,
+                            "name": "Sommer Time Story Books",
+                            "class": "submenu-child"
+                        },
+                        {
+                            "id": 45,
+                            "name": "Companion Readers",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 46,
+                            "name": "Target Readers",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 47,
+                            "name": "Non Fiction Readers",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 49,
+                            "name": "Advanced Companion Readers",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 50,
+                            "name": "Advanced Target Readers",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 51,
+                            "name": "Advanced Non Fiction Readers",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 149,
+                            "name": "Modified Sommer Time Stories",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 103,
+                            "name": "Sommer Time Story Books",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 193,
+                            "name": "2Page Stories",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 52,
+                            "name": "Reading Success Reading Books",
+                            "class": "submenu-child",
+                            "section": []
+                        },
+                        {
+                            "id": 54,
+                            "name": "Quest for Success Chapter Books",
+                            "class": "submenu-child",
+                            "section": []
+                        },
+                        {
+                            "id": 55,
+                            "name": "Another Great Achiever Biography Books",
+                            "class": "submenu-child",
+                            "section": []
+                        },
+                        {
+                            "id": 129,
+                            "name": "Reading for Children - Phonics Adventure",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 177,
+                            "name": "Reading for Adult and Youth - Reading Success",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 178,
+                            "name": "Math - Number Success",
+                            "class": "submenu-child-list"
+                        },
+                        {
+                            "id": 179,
+                            "name": "Writing - Writing Success",
+                            "class": "submenu-child-list"
+                        }
+                    ]
+                },
+                {
+                    "id": 196,
+                    "name": "Videos",
+                    "level": "one",
+                    "class": "submenu",
+                    "section": [
+                        {
+                            "id": 197,
+                            "name": "Number Success",
+                            "class": "submenu-child",
+                            "section": [
+                                {
+                                    "id": 201,
+                                    "name": "Addition",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 202,
+                                    "name": "Subraction",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 203,
+                                    "name": "Multiplication",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 204,
+                                    "name": "Division",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 205,
+                                    "name": "Fraction",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 206,
+                                    "name": "Decimals & percents",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 207,
+                                    "name": "Calculator achievement",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 208,
+                                    "name": "Life-skills Math power",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 209,
+                                    "name": "Algebra 1",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 210,
+                                    "name": "Algebra 2",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 211,
+                                    "name": "geometry",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 212,
+                                    "name": "Trigonometry",
+                                    "class": "submenu-child-list"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 198,
+                            "name": "Phonics Adventure",
+                            "class": "submenu-child",
+                            "section": [
+                                {
+                                    "id": 213,
+                                    "name": "Alphabet songs",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 214,
+                                    "name": "Alphabhet train songs",
+                                    "class": "submenu-child-list"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 199,
+                            "name": "Sommer-time stories",
+                            "class": "submenu-child",
+                            "section": [
+                                {
+                                    "id": 215,
+                                    "name": "Kidz investigate",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 217,
+                                    "name": "Straight Talk and parent talk",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 218,
+                                    "name": "Video insights",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 216,
+                                    "name": "Music Videos",
+                                    "class": "submenu-child-list"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 219,
+                    "name": "Worksheets",
+                    "level": "one",
+                    "class": "submenu",
+                    "section": [
+                        {
+                            "id": 220,
+                            "name": "Number success",
+                            "class": "submenu-child",
+                            "section": [
+                                {
+                                    "id": 221,
+                                    "name": "Addition",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 222,
+                                    "name": "Subtraction",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 223,
+                                    "name": "Multiplication",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 225,
+                                    "name": "Fraction",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 224,
+                                    "name": "Division",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 226,
+                                    "name": "Decimals & percents",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 227,
+                                    "name": "Calculator achievement",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 228,
+                                    "name": "Life-skills Math power",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 229,
+                                    "name": "Algebra 1",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 230,
+                                    "name": "Algebra 2",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 231,
+                                    "name": "geometry",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 232,
+                                    "name": "Trigonometry",
+                                    "class": "submenu-child-list"
+                                }
+                            ]
+                        },
+                        {
+                           "id": 233,
+                            "name": "Writing success",
+                            "class": "submenu-child",
+                            "section": [
+                                {
+                                    "id": 234,
+                                    "name": "Manuscript",
+                                    "class": "submenu-child-list"
+                                },
+                                {
+                                    "id": 235,
+                                    "name": "Cursive",
+                                    "class": "submenu-child-list"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 236,
+                            "name": "Sommer-time stories",
+                            "class": "submenu-child",
+                            "section": [
+                                {
+                                    "id": 237,
+                                    "name": "Coloring",
+                                    "class": "submenu-child-list"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 238,
+                    "name": "Songs",
+                    "level": "one",
+                    "class": "submenu",
+                    "section": [
+                        {
+                            "id": 239,
+                            "name": "Alphabet songs",
+                            "class": "submenu-child"
+                        },
+                        {
+                            "id": 240,
+                            "name": "Alphabet train songs",
+                            "class": "submenu-child"
+                        },
+                        {
+                            "id": 241,
+                            "name": "Karacter kidz",
+                            "class": "submenu-child"
+                        }
+                    ]
+                },
+                {
+                    "id": 194,
+                    "name": "Games",
+                    "level": "one",
+                    "class": "submenu"
+                }
+            ]
+        },
+        "filters": [
+            {
+                "name": "Subject",
+                "toggleParent": true,
+                "class": "",
+                "section": [
+                    {
+                        "id": 10,
+                        "name": "Phonics - Phonics Adventure",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 11,
+                        "name": "Reading - Reading Success",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 12,
+                        "name": "Math - Number Success",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 13,
+                        "name": "Writing - Writing Success",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    }
+                ]
+            },
+            {
+                "name": "Grade",
+                "toggleParent": true,
+                "class": "",
+                "section": [
+                    {
+                        "id": 20,
+                        "name": "Kindergarten",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 21,
+                        "name": "Grade 1",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 27,
+                        "name": "Grade 2",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 28,
+                        "name": "Grade 3",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 29,
+                        "name": "Grade 4",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 30,
+                        "name": "Grade 5",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 31,
+                        "name": "Grade 6",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 32,
+                        "name": "Grade 7",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 33,
+                        "name": "Grade 8",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 34,
+                        "name": "Grade 9",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 35,
+                        "name": "Grade 10",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 36,
+                        "name": "Grade 11",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 37,
+                        "name": "Grade 12",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 38,
+                        "name": "Adult",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    }
+                ]
+            },
+            {
+                "name": "Language",
+                "toggleParent": true,
+                "class": "",
+                "section": [
+                    {
+                        "id": 24,
+                        "name": "English",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 25,
+                        "name": "Spanish",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 26,
+                        "name": "Bilingual",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    }
+                ]
+            },
+            {
+                "name": "Format",
+                "toggleParent": true,
+                "class": "",
+                "section": [
+                    {
+                        "id": 22,
+                        "name": "Digital",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    },
+                    {
+                        "id": 23,
+                        "name": "Physical",
+                        "class": "submenu",
+                        "isSelected": false,
+                        "isFilter": true
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,38 @@
+<div class="adminLoginCls col-md-12 col-sm-12" ng-cloak> 
+    <div class="lft-wrap col-md-3 col-sm-1"></div>
+    <div class="lft-wrap col-md-3 col-sm-5">
+        <img class="lft-wrap-img" src="dest/images/loginlft.png">
+        <p class="signup-txt">Welcome Admin</p>
+        <!--<p class="signup-subtxt">To Explore our new products.</p>-->
+    </div>
+    <div class="rgt-wrap col-md-3 col-sm-5">
+        <div id="signInMsg"></div>
+
+        <div class="logform-valid">
+            <form name="admin_login">
+            <div class="user-div">
+                <label class="user-label">User Name / Email</label><br>
+                <input class="user-input" ng-model="admin_username" type="text" name="txtSignInUserName" autocomplete="off" value="" oncopy="return false" onpaste="return false" required />
+                <span ng-show="admin_login.admin_username.$error.required">Username is required.</span>
+            </div>
+            <div class="user-div">
+                <label class="pw-label" ng-class="{'active': admin_password!=''}" for="admin_password">Password</label><br>
+                <input class="pw-input" type="password" ng-model="admin_password" name="txtSignInPassword" autocomplete="off" value="" oncopy="return false" onpaste="return false" required />
+                <span ng-show="admin_login.admin_password.$error.required">Password is required.</span>
+            </div>
+            <div class="forget-pw">
+                <a href="javascript:void(0);" class="forgotpw-link">Oops! Forgot My Password</a>
+            </div>
+            <!-- squared -->
+            <div style="visibility:hidden" class="squaredThree">
+                <input type="checkbox" value="None" name="check" checked="">
+                <label for="squaredThree"></label>
+            </div>
+            <div style="visibility:hidden" class="chkbox-txt">keep me signed in</div>
+            <div class="signbtn"><div class="btn btn-primary" ng-click="admin_login.$valid && submit_login_admin()">Login</div></div>
+                </form>
+        </div>
+
+    </div>
+    <div class="lft-wrap col-md-3 col-sm-1"></div>
+</div>

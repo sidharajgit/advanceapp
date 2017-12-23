@@ -1,0 +1,47 @@
+{
+"data": 
+{
+ "data":[
+         {
+		 "id":7,
+		 "name":"Joomla Category",
+		 "description":"<div class=\"text_to_html\">Joomla Category1<\/div>",
+		 "parent":"0",
+		 "parentname":"Top",
+		 "idnumber":"34",
+		 "visible":"1",
+		 "visibleold":"1",
+		 "coursecnt":"1 Course",
+		 "courseusercnt":"1 User",
+		 "coursegroupcnt":"0 Group"
+		 },
+		 {
+		 "id":5,
+		 "name":"Test Course Cat",
+		 "description":"<div class=\"text_to_html\">Test Course Cat<\/div>",
+		 "parent":"0",
+		 "parentname":"Top",
+		 "idnumber":"44",
+		 "visible":"0",
+		 "visibleold":"1",
+		 "coursecnt":"0 Course",
+		 "courseusercnt":"0 User",
+		 "coursegroupcnt":"0 Group"
+		 },
+         {
+		 "id":4,
+		 "name":"Test Cat",
+		 "description":"<div class=\"text_to_html\">Test Cat<\/div>",
+		 "parent":"0",
+		 "parentname":"Top",
+		  "idnumber":"55",
+		 "visible":"1",
+		 "visibleold":"1",
+		 "coursecnt":"1 Course",
+		 "courseusercnt":"1 User",
+		 "coursegroupcnt":"0 Group"
+		 }
+        ]
+}
+		
+}
