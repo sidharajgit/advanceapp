@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="dest/css/fontStyles.css"/>
+        <link href="dest/css/vendorsass.css" rel="stylesheet"/>
+        <link href="dest/css/scssStyles.css" rel="stylesheet"/>        
+        <script src="dest/js/vendor.js"></script>
+        <script src="dest/js/JsFiles.js"></script>
+    </head>
+    <body ng-app = "advancePublications" ng-controller="advancepublicationsController" set-height="body">
+        <div ui-view></div>
+        <div ui-view="leftPanel" class="col-md-2"></div>
+        <div ui-view="contentPanel" class="col-md-10"></div>
+        <div layout="row" layout-sm="column" layout-align="space-around" class="spinbg" ng-if="appLoaderCheck">
+            <md-progress-circular class="rotatespin" md-mode="indeterminate" layout layout-align="center center"></md-progress-circular>
+        </div>   
+    </body>
+</html>
